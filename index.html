@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elena Micle - Author, Creator, Storyteller | alo.micle.magic</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Elena Micle - Author of heartwarming children's stories, parenting guides, and romance novels. Featuring 'Stories for My Daughter', 'Understanding Claude', 'One More Valentine', interactive tools and more. Books available on Amazon.">
+    <meta name="keywords" content="Elena Micle, Stories for My Daughter, Understanding Claude, Letters to My Daughter, One More Valentine, parenting guide, children's books, romance novels, AI guide for kids, mother daughter journal, bucharest hearts">
+    <meta name="author" content="Elena Micle">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Elena Micle - Where Stories Come Alive ✨">
+    <meta property="og:description" content="Discover heartwarming stories, practical parenting wisdom, and interactive tools created with love by Elena Micle.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alo.micle.magic">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Poppins:wght@400;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --coral: #FF6B9D;
+            --mint: #4ECDC4;
+            --sunshine: #FFD93D;
+            --lavender: #A78BFA;
+            --peach: #FFB4A2;
+            --sky: #6DD5FA;
+            --forest: #52B788;
+            --rose: #F72585;
+            --cream: #FFF8F0;
+            --charcoal: #2D3142;
+            --amazon: #FF9900;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFE6F0 25%, #E6F3FF 75%, #F0E6FF 100%);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Animated Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.15;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(180deg); }
+        }
+
+        .floating-element:nth-child(1) { top: 10%; left: 10%; font-size: 4rem; animation-delay: 0s; }
+        .floating-element:nth-child(2) { top: 60%; right: 15%; font-size: 3rem; animation-delay: 3s; }
+        .floating-element:nth-child(3) { bottom: 15%; left: 20%; font-size: 3.5rem; animation-delay: 6s; }
+        .floating-element:nth-child(4) { top: 30%; right: 30%; font-size: 2.5rem; animation-delay: 9s; }
+        .floating-element:nth-child(5) { bottom: 30%; right: 10%; font-size: 3rem; animation-delay: 12s; }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,248,240,0.95));
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--coral);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--coral), var(--lavender), var(--mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-emoji {
+            font-size: 2.5rem;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--coral), var(--lavender));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after { width: 100%; }
+        nav a:hover { color: var(--coral); }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hero h1 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--coral), var(--rose), var(--lavender));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--charcoal);
+            opacity: 0.8;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .hero-emoji-line {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin: 20px 0;
+        }
+
+        .hero-description {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .author-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, var(--lavender), var(--mint));
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(167, 139, 250, 0.3);
+        }
+
+        .author-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(167, 139, 250, 0.4);
+        }
+
+        /* Amazon Button */
+        .amazon-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #FF9900, #FFAD33);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 153, 0, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .amazon-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 153, 0, 0.4);
+        }
+
+        .amazon-btn.secondary {
+            background: linear-gradient(135deg, var(--coral), var(--rose));
+            box-shadow: 0 8px 25px rgba(247, 37, 133, 0.3);
+        }
+
+        .amazon-btn.secondary:hover {
+            box-shadow: 0 12px 35px rgba(247, 37, 133, 0.4);
+        }
+
+        .amazon-btn.tool {
+            background: linear-gradient(135deg, var(--mint), var(--sky));
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+        }
+
+        .amazon-btn.tool:hover {
+            box-shadow: 0 12px 35px rgba(78, 205, 196, 0.4);
+        }
+
+        /* Categories */
+        .categories-section {
+            padding: 60px 20px;
+            margin: 40px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            opacity: 0.7;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--coral), var(--lavender));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .category-card:hover::before { transform: scaleX(1); }
+
+        .category-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+            border-color: var(--mint);
+        }
+
+        .category-card.books { background: linear-gradient(135deg, #FFE6F0 0%, #FFF9E6 100%); }
+        .category-card.parenting { background: linear-gradient(135deg, #FFF9E6 0%, #E6FFF0 100%); }
+        .category-card.romance { background: linear-gradient(135deg, #FFE6F0 0%, #FFE6E6 100%); }
+        .category-card.tools { background: linear-gradient(135deg, #E6F3FF 0%, #F0E6FF 100%); }
+
+        .category-emoji {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: transform 0.4s ease;
+        }
+
+        .category-card:hover .category-emoji {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .category-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+        }
+
+        .category-description {
+            font-size: 1rem;
+            color: var(--charcoal);
+            opacity: 0.75;
+            line-height: 1.6;
+        }
+
+        .category-count {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--coral);
+        }
+
+        /* Projects */
+        .projects-section {
+            padding: 40px 20px;
+            display: none;
+        }
+
+        .projects-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--peach), var(--lavender));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.3), transparent);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .tag-book { background: #FFE6F0; color: var(--rose); }
+        .tag-guide { background: #E6F3FF; color: #0077B6; }
+        .tag-tool { background: #E6FFF0; color: var(--forest); }
+        .tag-app { background: #F0E6FF; color: var(--lavender); }
+
+        .project-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            opacity: 0.75;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid rgba(0,0,0,0.05);
+        }
+
+        .price-tag {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--forest);
+            padding: 8px 15px;
+            background: #E6FFF0;
+            border-radius: 15px;
+        }
+
+        .back-to-categories {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            background: var(--charcoal);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 30px auto;
+            display: block;
+            width: fit-content;
+        }
+
+        .back-to-categories:hover {
+            background: var(--coral);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, rgba(45, 49, 66, 0.95), rgba(0, 0, 0, 0.9));
+            color: white;
+            padding: 60px 20px 30px;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--coral), var(--mint), var(--lavender));
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--sunshine);
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--sunshine);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+                font-size: 0.95rem;
+            }
+
+            .projects-grid,
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation">
+        <div class="floating-element">✨</div>
+        <div class="floating-element">📚</div>
+        <div class="floating-element">🎨</div>
+        <div class="floating-element">❤️</div>
+        <div class="floating-element">🌟</div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo" onclick="showCategories(); return false;">
+                    <span class="logo-emoji">✨</span>
+                    alo.micle.magic
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#" onclick="showCategories(); return false;">Home</a></li>
+                        <li><a href="#books" onclick="filterCategory('books'); return false;">Children's Books</a></li>
+                        <li><a href="#parenting" onclick="filterCategory('parenting'); return false;">Parenting</a></li>
+                        <li><a href="#romance" onclick="filterCategory('romance'); return false;">Romance</a></li>
+                        <li><a href="#tools" onclick="filterCategory('tools'); return false;">Tools & Apps</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <h1>Welcome to alo.micle.magic! ✨</h1>
+            <p class="hero-subtitle">Where Stories, Love & Creativity Come Alive</p>
+            <div class="hero-emoji-line">📚 💖 🎨 🌈 ✨</div>
+            <p class="hero-description">
+                Hi! I'm <strong>Elena Micle</strong> – author, mother, and creator. This is where I share everything 
+                I create with love: heartwarming children's stories, practical parenting guides, romance novels, 
+                and interactive tools to make life more magical. Every project here is crafted for YOU – 
+                whether you're a parent, a reader, or someone who believes in the power of stories. ✨
+            </p>
+            <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" target="_blank" rel="noopener" class="author-link">
+                📚 Visit My Amazon Author Page
+            </a>
+        </section>
+
+        <section id="categories-view" class="categories-section container">
+            <div class="section-header">
+                <h2 class="section-title">Explore My Collection</h2>
+                <p class="section-subtitle">Choose a category to discover amazing projects</p>
+            </div>
+
+            <div class="categories-grid">
+                <div class="category-card books" onclick="filterCategory('books')" style="animation-delay: 0.1s">
+                    <div class="category-emoji">📖</div>
+                    <h3 class="category-title">Children's Books</h3>
+                    <p class="category-description">
+                        Heartwarming stories and AI guides for young minds ages 8-14
+                    </p>
+                    <p class="category-count">2 Books Published</p>
+                </div>
+
+                <div class="category-card parenting" onclick="filterCategory('parenting')" style="animation-delay: 0.2s">
+                    <div class="category-emoji">👨‍👩‍👧‍👦</div>
+                    <h3 class="category-title">Parenting Guides</h3>
+                    <p class="category-description">
+                        Practical wisdom, mother-daughter journals, and helpful guides
+                    </p>
+                    <p class="category-count">4 Projects</p>
+                </div>
+
+                <div class="category-card romance" onclick="filterCategory('romance')" style="animation-delay: 0.3s">
+                    <div class="category-emoji">💕</div>
+                    <h3 class="category-title">Romance Novels</h3>
+                    <p class="category-description">
+                        Second-chance romance and heartwarming love stories
+                    </p>
+                    <p class="category-count">1 Book Published</p>
+                </div>
+
+                <div class="category-card tools" onclick="filterCategory('tools')" style="animation-delay: 0.4s">
+                    <div class="category-emoji">🛠️</div>
+                    <h3 class="category-title">Interactive Tools</h3>
+                    <p class="category-description">
+                        Web apps and educational tools for kids and parents
+                    </p>
+                    <p class="category-count">4 Interactive Tools</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Children's Books -->
+        <section id="books-projects" class="projects-section container">
+            <div class="section-header">
+                <h2 class="section-title">📖 Children's Books</h2>
+                <p class="section-subtitle">Stories that inspire, educate, and delight</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card" style="animation-delay: 0.1s">
+                    <div class="project-image">💝</div>
+                    <div class="project-content">
+                        <span class="project-tag tag-book">Children's Book</span>
+                        <h3 class="project-title">Stories for My Daughter</h3>
+                        <p class="project-description">
+                            Transform bedtime into a magical bonding experience! 10 beautifully illustrated stories teaching kindness, 
+                            courage, empathy, and self-confidence. Perfect for ages 8-12. Each story includes discussion questions 
+                            and lessons for meaningful parent-child conversations.
+                        </p>
+                        <div class="project-meta">
+                            <span class="price-tag">eBook: $4.00</span>
+                            <span class="price-tag">Paperback: $16.99</span>
+                            <span class="price-tag">Hardcover: $35.00</span>
+                        </div>
+                        <div class="project-meta">
+                            <a href="https://www.amazon.com/dp/B0GGZ8YSKF" class="amazon-btn" target="_blank" rel="noopener">
+                                📱 Buy eBook
+                            </a>
+                            <a href="https://www.amazon.com/dp/B0GH32M19K" class="amazon-btn secondary" target="_blank" rel="noopener">
+                                📚 Buy Paperback
+                            </a>
+                            <a href="https://www.amazon.com/dp/B0GHGFJT6F" class="amazon-btn secondary" target="_blank" rel="noopener">
+                                📕 Buy Hardcover
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" style="animation-delay: 0.2s">
+                    <div class="project-image">🤖</div>
+                    <div class="project-content">
+                        <span class="project-tag tag-book">Educational Book</span>
+                        <h3 class="project-title">Understanding Claude: A Kid's Guide to AI Friends</h3>
+                        <p class="project-description">
+                            How to Talk to AI, Learn Together, and Keep Your Conversations Safe. A mother's heartfelt guide 
+                            teaching children ages 8-14 how to use AI responsibly, creatively, and safely. Perfect for tech-forward 
+                            families, teachers, and homeschool curriculum.
+                        </p>
+                        <div class="project-meta">
+                            <span class="price-tag">eBook: $4.00</span>
+                            <span class="price-tag">Paperback: $12.99</span>
+                            <span class="price-tag">Hardcover: $22.00</span>
+                        </div>
+                        <div class="project-meta">
+                            <a href="https://www.amazon.com/dp/B0GJ3ZP7ZK" class="amazon-btn" target="_blank" rel="noopener">
+                                📱 Buy eBook
+                            </a>
+                            <a href="https://www.amazon.com/dp/B0GJ5V174X" class="amazon-btn secondary" target="_blank" rel="noopener">
+                                📚 Buy Paperback
+                            </a>
+                            <a href="https://www.amazon.com/dp/B0GJ5CKG5D" class="amazon-btn secondary" target="_blank" rel="noopener">
+                                📕 Buy Hardcover
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="back-to-categories" onclick="showCategories()">
+                ← Back to Categories
+            </button>
+        </section>
+
+        <!-- Parenting Projects -->
+        <section id="parenting-projects" class="projects-section container">
+            <div class="section-header">
+                <h2 class="section-title">👨‍👩‍👧‍👦 Parenting Guides & Journals</h2>
+                <p class="section-subtitle">Practical wisdom for the beautiful chaos of parenting</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card" style="animation-delay: 0.1s">
+                    <div class="project-image">💌</div>
+                    <div class="project-content">
+                        <span class="project-tag tag-book">Journal</span>
+                        <h3 class="project-title">Letters to My Daughter</h3>
+                        <p class="project-description">
+                            A Mother-Daughter Journal for Building Memories, Connection, and Love. 70 heartfelt prompts 
+                            for mothers and daughters to share their hearts and create lasting bonds. Perfect for ages 8-18. 
+                            A keepsake to treasure forever.
+                        </p>
+                        <div class="project-meta">
+                            <span class="price-tag">Paperback: $13.00</span>
+                        </div>
+                        <div class="project-meta">
+                            <a href="https://www.amazon.com/dp/B0GHWWPCPM" class="amazon-btn" target="_blank" rel="noopener">
+                                📚 Buy on Amazon
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" style="animation-delay: 0.2s">
+                    <div class="project-image">📚</div>
+                    <div class="project-content">
+                        <span class="project-tag tag-guide">Guide</span>
+                        <h3 class="project-title">The Parent's Survival Guide</h3>
+                        <p class="project-description">
+                            Raising Happy, Healthy Kids Ages 8-12 (With Fewer Meltdowns and More Laughter). Comprehensive guide 
+                            with routines, quality time ideas, 50 outdoor activities, organization systems, and plenty of humor!
+                        </p>
+                        <div class="project-meta">
+                            <a href="Parenting_Guide_Ages_8-12.docx" class="amazon-btn secondary" download>
+                                📄 Download Preview
+                            </a>
+                            <a href="parents-survival-guide-app.html" class="amazon-btn tool" target="_blank">
+                                🎯 Try Interactive App
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" style="animation-delay: 0.3s">
+                    <div class="project-image">📖</div>
+                    <div class="project-content">
+                        <span class="project-tag tag-guide">Publishing Guide</span>
+                        <h3 class="project-title">Amazon KDP Publishing Guide</h3>
+                        <p class="project-description">
+                            Complete step-by-step guide for publishing books on Amazon KDP. Includes metadata strategies, 
+                            pricing advice, marketing plans, and international tax information. Perfect for aspiring authors!
+                        </p>
+                        <div class="project-meta">
+                            <a href="KDP_Publishing_Guide_Parents_Survival_Guide.docx" class="amazon-btn secondary" download>
+                                📄 Download Guide
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="back-to-categories" onclick="showCategories()">
+                ← Back to Categories
+            </button>
+        </section>
+
+        <!-- Romance Projects -->
+        <section id="romance-projects" class="projects-section container">
+            <div class="section-header">
+                <h2 class="section-title">💕 Romance Novels</h2>
+                <p class="section-subtitle">Love stories that warm the heart</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card" style="animation-delay: 0.1s">
+                    <div class="project-image">❤️</div>
+                    <div class="project-content">
+                        <span class="project-tag tag-book">Romance Novel</span>
+                        <h3 class="project-title">One More Valentine</h3>
+                        <p class="project-description">
+                            A Second Chance Romance - A Steamy Reunion Love Story (Bucharest Hearts, Book 1). Some loves deserve 
+                            a second chance. Ten years later, five days together, one hotel room, and a decade of unresolved passion. 
+                            Perfect for fans of second-chance romance set in beautiful European cities. Heat Level: 🌶️🌶️🌶️
+                        </p>
+                        <div class="project-meta">
+                            <span class="price-tag">eBook: $2.99</span>
+                            <span class="price-tag">Paperback: $7.00</span>
+                        </div>
+                        <div class="project-meta">
+                            <a href="https://www.amazon.com/dp/B0GJPTJNVP" class="amazon-btn" target="_blank" rel="noopener">
+                                📱 Buy eBook
+                            </a>
+                            <a href="https://www.amazon.com/dp/B0GJYN9W87" class="amazon-btn secondary" target="_blank" rel="noopener">
+                                📚 Buy Paperback
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="back-to-categories" onclick="showCategories()">
+                ← Back to Categories
+            </button>
+        </section>
+
+        <!-- Tools Projects -->
+        <section id="tools-projects" class="projects-section container">
+            <div class="section-header">
+                <h2 class="section-title">🛠️ Interactive Tools & Apps</h2>
+                <p class="section-subtitle">Educational and helpful tools for kids and families</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card" style="animation-delay: 0.1s">
+                    <div class="project-image">🎯</div>
+                    <div class="project-content">
+                        <span class="project-tag tag-app">Web App</span>
+                        <h3 class="project-title">Parent's Survival Guide - Interactive App</h3>
+                        <p class="project-description">
+                            Beautiful interactive companion for the parenting guide! Track your progress through chapters, 
+                            complete action plans, check off outdoor activities, and stay organized. Works on any device!
+                        </p>
+                        <div class="project-meta">
+                            <a href="parents-survival-guide-app.html" class="amazon-btn tool" target="_blank">
+                                🚀 Launch App FREE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" style="animation-delay: 0.2s">
+                    <div class="project-image">🌊</div>
+                    <div class="project-content">
+                        <span class="project-tag tag-app">Educational Tool</span>
+                        <h3 class="project-title">Ocean Phenomena Explorer</h3>
+                        <p class="project-description">
+                            Interactive guide for kids to discover ocean wonders! Learn about tides, waves, currents, 
+                            bioluminescence, coral reefs, and the water cycle. Beautiful visuals and kid-friendly explanations.
+                        </p>
+                        <div class="project-meta">
+                            <a href="#" class="amazon-btn tool" onclick="alert('Coming soon!'); return false;">
+                                🌊 Explore Ocean (Coming Soon!)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" style="animation-delay: 0.3s">
+                    <div class="project-image">🌱</div>
+                    <div class="project-content">
+                        <span class="project-tag tag-app">Educational Tool</span>
+                        <h3 class="project-title">Kids Gardening Guide</h3>
+                        <p class="project-description">
+                            My First Garden Adventure! Interactive guide teaching kids how to grow herbs indoors and 
+                            vegetables outdoors. Includes step-by-step instructions, plant care tips, and fun activities.
+                        </p>
+                        <div class="project-meta">
+                            <a href="#" class="amazon-btn tool" onclick="alert('Coming soon!'); return false;">
+                                🌱 Start Gardening (Coming Soon!)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" style="animation-delay: 0.4s">
+                    <div class="project-image">✨</div>
+                    <div class="project-content">
+                        <span class="project-tag tag-tool">Website</span>
+                        <h3 class="project-title">alo.micle.magic Hub</h3>
+                        <p class="project-description">
+                            This very website! Your central hub for discovering all my projects, books, guides, 
+                            and tools. Everything organized in one beautiful, easy-to-navigate place.
+                        </p>
+                        <div class="project-meta">
+                            <span class="price-tag">✓ You're Here!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="back-to-categories" onclick="showCategories()">
+                ← Back to Categories
+            </button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Elena Micle ✨</h3>
+                    <p>
+                        Author, mother, and creator passionate about storytelling, parenting wisdom, and educational tools. 
+                        Every project is crafted with love to inspire, educate, and bring joy to families everywhere.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Published Books</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.amazon.com/dp/B0GGZ8YSKF" target="_blank" rel="noopener">Stories for My Daughter</a></li>
+                        <li><a href="https://www.amazon.com/dp/B0GJ3ZP7ZK" target="_blank" rel="noopener">Understanding Claude</a></li>
+                        <li><a href="https://www.amazon.com/dp/B0GHWWPCPM" target="_blank" rel="noopener">Letters to My Daughter</a></li>
+                        <li><a href="https://www.amazon.com/dp/B0GJPTJNVP" target="_blank" rel="noopener">One More Valentine</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" target="_blank" rel="noopener">Amazon Author Page</a></li>
+                        <li><a href="parents-survival-guide-app.html" target="_blank">Interactive Parenting App</a></li>
+                        <li><a href="Parenting_Guide_Ages_8-12.docx" download>Free Parenting Guide</a></li>
+                        <li><a href="KDP_Publishing_Guide_Parents_Survival_Guide.docx" download>Free Publishing Guide</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p>
+                        Have questions, feedback, or want to collaborate? I'd love to hear from you! 
+                        Reach out through Amazon or leave a review on any of my books.
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Elena Micle | alo.micle.magic ✨ All rights reserved.</p>
+                <p style="margin-top: 10px; opacity: 0.7; font-size: 0.9rem;">
+                    Made with ❤️, dedication, and a sprinkle of magic | Every project crafted with care 🌟
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showCategories() {
+            document.getElementById('categories-view').style.display = 'block';
+            document.getElementById('books-projects').classList.remove('active');
+            document.getElementById('parenting-projects').classList.remove('active');
+            document.getElementById('romance-projects').classList.remove('active');
+            document.getElementById('tools-projects').classList.remove('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function filterCategory(category) {
+            document.getElementById('categories-view').style.display = 'none';
+            document.getElementById('books-projects').classList.remove('active');
+            document.getElementById('parenting-projects').classList.remove('active');
+            document.getElementById('romance-projects').classList.remove('active');
+            document.getElementById('tools-projects').classList.remove('active');
+            document.getElementById(category + '-projects').classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

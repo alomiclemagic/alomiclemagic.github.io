@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Parent's Survival Guide - Interactive Companion</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --tertiary: #FFE66D;
+            --dark: #2C3E50;
+            --light: #FFF9F0;
+            --success: #51CF66;
+            --purple: #A78BFA;
+            --orange: #FFA94D;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #FFF9F0 0%, #FFE6E6 50%, #E6F3FF 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .app-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .header h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .header-emoji {
+            font-size: 3rem;
+            display: inline-block;
+            animation: bounce 2s infinite;
+            margin: 0 10px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--dark);
+            opacity: 0.8;
+            font-weight: 600;
+        }
+
+        .progress-section {
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .progress-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5rem;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .progress-stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--light);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            background: #E9ECEF;
+            height: 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            border-radius: 20px;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .chapter-card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .chapter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .chapter-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            border-color: var(--secondary);
+        }
+
+        .chapter-card.completed {
+            background: linear-gradient(135deg, #E6F9F7 0%, #E6FFE6 100%);
+            border-color: var(--success);
+        }
+
+        .chapter-card.active {
+            background: linear-gradient(135deg, #FFF4E6 0%, #FFE6F0 100%);
+            border-color: var(--primary);
+        }
+
+        .chapter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .chapter-number {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            opacity: 0.15;
+            line-height: 1;
+        }
+
+        .chapter-status {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        .chapter-card.completed .chapter-status {
+            background: var(--success);
+            animation: pop 0.5s ease;
+        }
+
+        .chapter-card.active .chapter-status {
+            background: var(--primary);
+            animation: pulse 2s infinite;
+        }
+
+        .chapter-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .chapter-description {
+            color: var(--dark);
+            opacity: 0.7;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .chapter-meta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .meta-tag {
+            background: var(--light);
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 30px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            padding: 40px 40px 30px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 30px 30px 0 0;
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-button:hover {
+            background: rgba(255,255,255,0.3);
+            transform: rotate(90deg);
+        }
+
+        .modal-chapter-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .modal-content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-text {
+            line-height: 1.8;
+            color: var(--dark);
+            opacity: 0.85;
+            margin-bottom: 20px;
+        }
+
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tip-item {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFE6F0 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 60px;
+            transition: all 0.3s ease;
+        }
+
+        .tip-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .tip-emoji {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.8rem;
+        }
+
+        .joke-box {
+            background: linear-gradient(135deg, #FFF4E6 0%, #FFE6F0 100%);
+            border-left: 5px solid var(--orange);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .joke-title {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .joke-text {
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--dark);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 25px;
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Nunito', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(78, 205, 196, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--dark);
+            border: 2px solid var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--dark);
+            color: white;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: white;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .checklist-item:hover {
+            background: var(--light);
+            border-color: var(--secondary);
+        }
+
+        .checklist-item.checked {
+            background: linear-gradient(135deg, #E6F9F7 0%, #E6FFE6 100%);
+            opacity: 0.7;
+        }
+
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--dark);
+            border-radius: 6px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item.checked .checkbox {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 3s;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 6s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0.8);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .activity-card {
+            background: linear-gradient(135deg, var(--light), white);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .activity-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .activity-name {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        @media (max-width: 768px) {
+            .chapters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content,
+            .modal-header {
+                padding: 25px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .activities-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const chaptersData = [
+            {
+                id: 1,
+                title: "Understanding Your Tween's Brain",
+                emoji: "🧠",
+                description: "Decode the mystery of tween behavior with brain science (made simple!)",
+                duration: "10 min read",
+                sections: [
+                    {
+                        title: "What's Happening in There?",
+                        emoji: "🔬",
+                        content: "Between ages 8-12, your child's brain is undergoing massive reconstruction. Think of it like their brain is a house being renovated—everything works, but not always smoothly, and there's a lot of noise and mess in the process.",
+                        tips: [
+                            { emoji: "🎯", text: "The Prefrontal Cortex (Decision-Making Center): Still under construction. This is why they'll make brilliant observations about climate change one minute and cry about the wrong color plate the next." },
+                            { emoji: "💥", text: "The Amygdala (Emotion Center): Working overtime. Emotions are BIG and INTENSE. A minor setback feels like the end of the world." },
+                            { emoji: "👥", text: "The Social Brain: Coming online with full force. Peer opinions suddenly matter more than yours (ouch, but normal!)." },
+                            { emoji: "🔄", text: "Independence vs. Security: They want to be independent but still need you desperately. It's confusing for everyone." }
+                        ]
+                    },
+                    {
+                        title: "Common Tween Behaviors",
+                        emoji: "🎭",
+                        content: "Understanding what those eye rolls and arguments really mean:",
+                        tips: [
+                            { emoji: "🙄", text: "Eye Rolling → Testing boundaries and asserting independence. Stay calm, set boundaries, pick your battles." },
+                            { emoji: "🌪️", text: "Messy Room → Organization skills still developing. Create systems, use visuals, make it a game." },
+                            { emoji: "🚪", text: "Wants Privacy → Developing sense of self. Respect privacy while maintaining safety boundaries." },
+                            { emoji: "💬", text: "Argues Everything → Developing critical thinking. Listen to their point, explain yours, compromise when possible." }
+                        ]
+                    }
+                ],
+                joke: "Parenting a tween is like being a DJ at a party where the playlist changes every 30 seconds, nobody likes your music choices, and someone's always complaining about the volume."
+            },
+            {
+                id: 2,
+                title: "Building Healthy Daily Routines",
+                emoji: "⏰",
+                description: "Create routines that actually work (without the daily battles)",
+                duration: "12 min read",
+                sections: [
+                    {
+                        title: "The Morning Survival Strategy",
+                        emoji: "☀️",
+                        content: "Mornings with tweens can feel like herding cats through molasses. Here's how to make them smoother:",
+                        tips: [
+                            { emoji: "🌙", text: "Prepare the Night Before: Lay out clothes, pack backpacks, prep breakfast ingredients. Future You will thank Present You." },
+                            { emoji: "☕", text: "Wake Up Earlier Than Them: Give yourself 15-30 minutes of peace before the storm. Coffee tastes better when you're not mediating a sock dispute." },
+                            { emoji: "✅", text: "Use Visual Checklists: Kids this age respond well to lists they can check off themselves. Bonus: less nagging for you!" },
+                            { emoji: "⏱️", text: "Build in Buffer Time: Murphy's Law says if something can go wrong, it will—especially when you're already running late." },
+                            { emoji: "🎵", text: "Music as a Timer: Play specific songs for specific tasks. 'Breakfast song,' 'Get dressed song,' etc." }
+                        ]
+                    },
+                    {
+                        title: "After-School Reset",
+                        emoji: "🏫",
+                        content: "The after-school hours are prime time for meltdowns. Kids are tired, hungry, and emotionally spent.",
+                        tips: [
+                            { emoji: "🍎", text: "The Snack Buffer: Have healthy snacks ready immediately. Hangry tweens are nobody's friend." },
+                            { emoji: "🛋️", text: "Decompress Time: Give them 20-30 minutes to decompress before diving into homework or chores." },
+                            { emoji: "💭", text: "Better Questions: Instead of 'How was your day?' try 'What made you laugh today?' or 'What was the most interesting thing you learned?'" },
+                            { emoji: "📚", text: "Homework Station: Designate a specific, distraction-free area with supplies stocked." }
+                        ]
+                    },
+                    {
+                        title: "The Bedtime Wind-Down",
+                        emoji: "🌙",
+                        content: "Sleep is crucial for brain development, emotional regulation, and not having a grumpy monster in your house. Tweens need 9-12 hours of sleep per night.",
+                        tips: [
+                            { emoji: "📱", text: "Screen Curfew: All devices off 1 hour before bed. Yes, this will cause a revolution. Stand firm." },
+                            { emoji: "🕐", text: "Consistent Bedtime: Even on weekends (within reason). Your child's circadian rhythm will thank you." },
+                            { emoji: "📖", text: "Quiet Activities: Reading, journaling, listening to calm music, or talking about the day." },
+                            { emoji: "🛏️", text: "Bedroom Environment: Cool, dark, and comfortable. Remove distractions." }
+                        ]
+                    }
+                ],
+                joke: "Getting a tween out of bed in the morning is like trying to fold a fitted sheet—technically possible, but it never looks quite right and everyone's frustrated by the end."
+            },
+            {
+                id: 3,
+                title: "Quality Time That Actually Works",
+                emoji: "❤️",
+                description: "Connect with your tween in ways they'll actually enjoy",
+                duration: "10 min read",
+                sections: [
+                    {
+                        title: "Follow Their Interests",
+                        emoji: "🎮",
+                        content: "If you want to connect with your tween, you need to enter their world—not drag them into yours.",
+                        tips: [
+                            { emoji: "🎮", text: "Their Favorite Video Game: Ask them to teach you. Yes, you'll be terrible. That's the point!" },
+                            { emoji: "🍳", text: "Cooking Together: Let them choose a recipe (within reason). They're old enough for real cooking with supervision." },
+                            { emoji: "🎬", text: "Movie/Series Marathon: Watch something they've been wanting to see. Shared experiences create talking points." },
+                            { emoji: "🎨", text: "Project Time: Build something, create art, start a garden, or work on a craft project together." },
+                            { emoji: "⚽", text: "Sports & Activities: Shoot hoops, go for a bike ride, play catch, or take a dance class together." }
+                        ]
+                    },
+                    {
+                        title: "One-on-One Time is GOLD",
+                        emoji: "✨",
+                        content: "Even 30 minutes of undivided attention can work wonders. Here's why it matters:",
+                        tips: [
+                            { emoji: "💎", text: "They feel special and valued (without competing with siblings)" },
+                            { emoji: "💬", text: "They're more likely to open up about sensitive topics" },
+                            { emoji: "🤝", text: "It reduces sibling rivalry (seriously, it works!)" },
+                            { emoji: "🌟", text: "You learn about who they're becoming as individuals" }
+                        ]
+                    },
+                    {
+                        title: "Family Traditions",
+                        emoji: "🎉",
+                        content: "Create regular family traditions—they don't have to be elaborate:",
+                        tips: [
+                            { emoji: "🍕", text: "Friday Pizza & Movie Night" },
+                            { emoji: "🥞", text: "Sunday Morning Pancake Breakfast" },
+                            { emoji: "🎲", text: "Monthly Board Game Tournament" },
+                            { emoji: "⛺", text: "Summer Backyard Camping" },
+                            { emoji: "🎂", text: "Birthday Week Celebrations (not just one day)" }
+                        ]
+                    }
+                ],
+                joke: "Quality time with a tween: spending 45 minutes watching them play Minecraft while you try to understand why they're so excited about pixel dirt blocks."
+            },
+            {
+                id: 4,
+                title: "Getting Kids Outdoors",
+                emoji: "🌳",
+                description: "50 activities to get screen-addicted kids outside (without drama!)",
+                duration: "15 min read",
+                sections: [
+                    {
+                        title: "Why Outdoor Time Matters",
+                        emoji: "🌞",
+                        content: "Outdoor time is essential for physical health, mental wellbeing, creativity, and better sleep.",
+                        tips: [
+                            { emoji: "💪", text: "Physical Health: Builds strength, coordination, and fitness. Reduces obesity risk." },
+                            { emoji: "🧘", text: "Mental Health: Reduces anxiety and depression. Nature calms the nervous system." },
+                            { emoji: "🎨", text: "Creativity: Unstructured outdoor play boosts imagination and problem-solving." },
+                            { emoji: "☀️", text: "Vitamin D: Sunshine = better mood and stronger immune system." },
+                            { emoji: "😴", text: "Better Sleep: Physical activity + fresh air = easier bedtimes (hallelujah!)." }
+                        ]
+                    },
+                    {
+                        title: "Making Outdoors Appealing",
+                        emoji: "🎯",
+                        content: "Three strategies to get kids excited about going outside:",
+                        tips: [
+                            { emoji: "👫", text: "Make It Social: Invite friends, organize neighborhood games, join sports teams." },
+                            { emoji: "🏆", text: "Add Challenge: Geocaching, obstacle courses, hiking with goals, rock climbing." },
+                            { emoji: "📱", text: "Let Them Bring Tech (Strategically): Nature photography, plant ID apps, outdoor videos." }
+                        ]
+                    }
+                ],
+                joke: "Telling a tween to 'go play outside' is like suggesting they voluntarily time travel to the dark ages. 'What do you MEAN there's no WiFi?!'",
+                activities: [
+                    { emoji: "🏕️", name: "Backyard Camping" },
+                    { emoji: "💧", name: "Water Balloon Fight" },
+                    { emoji: "🏰", name: "Build a Fort" },
+                    { emoji: "🛹", name: "Skateboarding" },
+                    { emoji: "🎯", name: "Frisbee" },
+                    { emoji: "⚽", name: "Soccer" },
+                    { emoji: "🏀", name: "Basketball" },
+                    { emoji: "🚴", name: "Bike Riding" },
+                    { emoji: "🥾", name: "Nature Hike" },
+                    { emoji: "🎣", name: "Fishing" },
+                    { emoji: "🦅", name: "Bird Watching" },
+                    { emoji: "🎨", name: "Rock Painting" },
+                    { emoji: "🌱", name: "Gardening" },
+                    { emoji: "⭐", name: "Stargazing" },
+                    { emoji: "🪁", name: "Flying Kites" },
+                    { emoji: "🔍", name: "Scavenger Hunt" },
+                    { emoji: "📸", name: "Nature Photos" },
+                    { emoji: "🏊", name: "Swimming" },
+                    { emoji: "🛶", name: "Kayaking" },
+                    { emoji: "🏖️", name: "Beach Trip" },
+                    { emoji: "🧺", name: "Picnic" },
+                    { emoji: "🏃", name: "Running Races" },
+                    { emoji: "⛄", name: "Snow Fort" },
+                    { emoji: "🧘", name: "Outdoor Yoga" }
+                ]
+            },
+            {
+                id: 5,
+                title: "Organization Systems",
+                emoji: "📦",
+                description: "Systems that make organization simple (even for chaotic tweens)",
+                duration: "12 min read",
+                sections: [
+                    {
+                        title: "Golden Rules of Kid Organization",
+                        emoji: "⭐",
+                        content: "Organization is a SKILL, not an innate trait. The key is creating systems that are simple, visual, and maintainable.",
+                        tips: [
+                            { emoji: "✂️", text: "Keep It Simple: If a system has 47 steps, they won't do it. Period." },
+                            { emoji: "👁️", text: "Make It Visual: Labels, pictures, color-coding. Kids need to SEE the system." },
+                            { emoji: "🏠", text: "Everything Needs a Home: 'Put it away' is meaningless if there's no designated spot." },
+                            { emoji: "🤝", text: "Involve Them: They're more likely to follow rules they helped make." },
+                            { emoji: "🔄", text: "Review Regularly: What works in September might not work in February." }
+                        ]
+                    },
+                    {
+                        title: "Bedroom Organization",
+                        emoji: "🛏️",
+                        content: "Divide the room into zones with specific purposes:",
+                        tips: [
+                            { emoji: "😴", text: "Sleep Zone: Bed, nightstand, calm decorations" },
+                            { emoji: "📚", text: "Study Zone: Desk, supplies, good lighting, minimal distractions" },
+                            { emoji: "👕", text: "Clothes Zone: Closet, dresser, hamper, shoe rack" },
+                            { emoji: "🎮", text: "Play/Hobby Zone: Toys, books, sports equipment, craft supplies" }
+                        ]
+                    },
+                    {
+                        title: "Backpack Organization",
+                        emoji: "🎒",
+                        content: "The daily backpack routine to avoid the black hole:",
+                        tips: [
+                            { emoji: "📤", text: "Empty EVERYTHING out daily (after school)" },
+                            { emoji: "🗂️", text: "Sort: Trash, papers for parents, homework, materials to return" },
+                            { emoji: "✍️", text: "Complete homework at desk (not in backpack!)" },
+                            { emoji: "📦", text: "Pack for tomorrow: folders, completed homework, signed papers" },
+                            { emoji: "🚪", text: "Place backpack by the door before bed" }
+                        ]
+                    },
+                    {
+                        title: "Family Command Center",
+                        emoji: "🎯",
+                        content: "Create a centralized spot for schedules, responsibilities, and important information:",
+                        tips: [
+                            { emoji: "📅", text: "Large monthly calendar: All activities, appointments, events" },
+                            { emoji: "🍽️", text: "Weekly menu plan: Reduces 'what's for dinner?' questions" },
+                            { emoji: "✅", text: "Individual chore charts: Visual tracking of responsibilities" },
+                            { emoji: "📬", text: "Inbox/outbox system: Papers that need signatures, forms to return" }
+                        ]
+                    }
+                ],
+                joke: "A tween's room has two states: 'recently cleaned' (for approximately 17 minutes) and 'looks like a hurricane threw a party with a tornado.'"
+            },
+            {
+                id: 6,
+                title: "Your Action Plans",
+                emoji: "📝",
+                description: "Interactive worksheets to create YOUR family's custom plan",
+                duration: "20 min activity",
+                sections: [
+                    {
+                        title: "Family Quality Time Plan",
+                        emoji: "💖",
+                        content: "Plan weekly quality time that works for YOUR family:",
+                        checklist: [
+                            "Identify 3 activities we wish we did more often together",
+                            "Choose our favorite time of day for quality time",
+                            "Create ONE new family tradition",
+                            "Commit to weekly quality time hours and schedule it",
+                            "Set up one-on-one time with each child"
+                        ]
+                    },
+                    {
+                        title: "Daily Routine Builder",
+                        emoji: "⏱️",
+                        content: "Create morning, after-school, and evening routines:",
+                        checklist: [
+                            "Design our morning routine with specific times",
+                            "Create after-school decompression plan",
+                            "Establish homework routine and location",
+                            "Set consistent bedtime and wind-down activities",
+                            "Create visual checklists for kids to follow"
+                        ]
+                    },
+                    {
+                        title: "Outdoor Activity Challenge",
+                        emoji: "🎯",
+                        content: "Complete 15 outdoor activities this month!",
+                        checklist: [
+                            "Choose 15 activities from the 50 outdoor ideas",
+                            "Schedule outdoor time into weekly calendar",
+                            "Invite friends to join for social activities",
+                            "Take photos to document our adventures",
+                            "Celebrate completing the challenge!"
+                        ]
+                    },
+                    {
+                        title: "Room Organization Plan",
+                        emoji: "🧹",
+                        content: "Create a system that makes YOUR child's room easier to maintain:",
+                        checklist: [
+                            "Identify the 3 biggest messes in their room",
+                            "Choose storage solutions needed (bins, hooks, shelves)",
+                            "Create zones for different activities",
+                            "Set up weekly cleaning schedule (quick tidy + deep clean)",
+                            "Involve child in designing their organizational system"
+                        ]
+                    }
+                ],
+                joke: "These worksheets are like GPS for parenting—they won't drive the car for you, but they'll definitely keep you from getting lost in the chaos!"
+            }
+        ];
+
+        function App() {
+            const [completedChapters, setCompletedChapters] = useState(
+                JSON.parse(localStorage.getItem('completedChapters') || '[]')
+            );
+            const [selectedChapter, setSelectedChapter] = useState(null);
+            const [checkedItems, setCheckedItems] = useState(
+                JSON.parse(localStorage.getItem('checkedItems') || '{}')
+            );
+
+            useEffect(() => {
+                localStorage.setItem('completedChapters', JSON.stringify(completedChapters));
+            }, [completedChapters]);
+
+            useEffect(() => {
+                localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
+            }, [checkedItems]);
+
+            const toggleChapterComplete = (chapterId) => {
+                setCompletedChapters(prev => 
+                    prev.includes(chapterId)
+                        ? prev.filter(id => id !== chapterId)
+                        : [...prev, chapterId]
+                );
+            };
+
+            const toggleChecklistItem = (chapterId, itemIndex) => {
+                const key = `${chapterId}-${itemIndex}`;
+                setCheckedItems(prev => ({
+                    ...prev,
+                    [key]: !prev[key]
+                }));
+            };
+
+            const progressPercentage = (completedChapters.length / chaptersData.length) * 100;
+
+            return (
+                <>
+                    <div className="floating-shapes">
+                        <div className="shape" style={{fontSize: '4rem'}}>🌟</div>
+                        <div className="shape" style={{fontSize: '3rem'}}>❤️</div>
+                        <div className="shape" style={{fontSize: '3.5rem'}}>🎨</div>
+                    </div>
+
+                    <div className="app-container">
+                        <header className="header">
+                            <h1>
+                                <span className="header-emoji">🎯</span>
+                                The Parent's Survival Guide
+                                <span className="header-emoji">💪</span>
+                            </h1>
+                            <p className="subtitle">Your Interactive Companion for Raising Happy Tweens (Ages 8-12)</p>
+                        </header>
+
+                        <div className="progress-section">
+                            <div className="progress-header">
+                                <h2 className="progress-title">Your Progress Journey</h2>
+                                <div className="progress-stats">
+                                    <div className="stat">
+                                        <span>📚</span>
+                                        <span>{completedChapters.length}/{chaptersData.length} Chapters</span>
+                                    </div>
+                                    <div className="stat">
+                                        <span>🎯</span>
+                                        <span>{Math.round(progressPercentage)}% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="progress-bar">
+                                <div className="progress-fill" style={{width: `${progressPercentage}%`}}></div>
+                            </div>
+                        </div>
+
+                        <div className="chapters-grid">
+                            {chaptersData.map((chapter, index) => (
+                                <div
+                                    key={chapter.id}
+                                    className={`chapter-card ${
+                                        completedChapters.includes(chapter.id) ? 'completed' : ''
+                                    } ${selectedChapter?.id === chapter.id ? 'active' : ''}`}
+                                    onClick={() => setSelectedChapter(chapter)}
+                                    style={{animationDelay: `${index * 0.1}s`}}
+                                >
+                                    <div className="chapter-header">
+                                        <div className="chapter-number">{chapter.id}</div>
+                                        <div className="chapter-status">
+                                            {completedChapters.includes(chapter.id) ? '✅' : chapter.emoji}
+                                        </div>
+                                    </div>
+                                    <h3 className="chapter-title">{chapter.title}</h3>
+                                    <p className="chapter-description">{chapter.description}</p>
+                                    <div className="chapter-meta">
+                                        <span className="meta-tag">
+                                            <span>⏱️</span>
+                                            {chapter.duration}
+                                        </span>
+                                        <span className="meta-tag">
+                                            <span>📖</span>
+                                            {chapter.sections.length} Sections
+                                        </span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {selectedChapter && (
+                            <div className="modal-overlay" onClick={() => setSelectedChapter(null)}>
+                                <div className="modal" onClick={(e) => e.stopPropagation()}>
+                                    <div className="modal-header">
+                                        <button 
+                                            className="close-button"
+                                            onClick={() => setSelectedChapter(null)}
+                                        >
+                                            ×
+                                        </button>
+                                        <div style={{fontSize: '3rem', marginBottom: '10px'}}>
+                                            {selectedChapter.emoji}
+                                        </div>
+                                        <h2 className="modal-chapter-title">{selectedChapter.title}</h2>
+                                        <p style={{opacity: 0.9, fontSize: '1.1rem'}}>
+                                            {selectedChapter.description}
+                                        </p>
+                                    </div>
+
+                                    <div className="modal-content">
+                                        {selectedChapter.sections.map((section, idx) => (
+                                            <div key={idx} className="section">
+                                                <h3 className="section-title">
+                                                    <span>{section.emoji}</span>
+                                                    {section.title}
+                                                </h3>
+                                                <p className="content-text">{section.content}</p>
+
+                                                {section.tips && (
+                                                    <ul className="tips-list">
+                                                        {section.tips.map((tip, tipIdx) => (
+                                                            <li key={tipIdx} className="tip-item">
+                                                                <span className="tip-emoji">{tip.emoji}</span>
+                                                                {tip.text}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                )}
+
+                                                {section.checklist && (
+                                                    <ul className="checklist">
+                                                        {section.checklist.map((item, itemIdx) => {
+                                                            const key = `${selectedChapter.id}-${idx}-${itemIdx}`;
+                                                            const isChecked = checkedItems[key] || false;
+                                                            return (
+                                                                <li 
+                                                                    key={itemIdx}
+                                                                    className={`checklist-item ${isChecked ? 'checked' : ''}`}
+                                                                    onClick={() => toggleChecklistItem(`${selectedChapter.id}-${idx}`, itemIdx)}
+                                                                >
+                                                                    <div className="checkbox">
+                                                                        {isChecked && '✓'}
+                                                                    </div>
+                                                                    <span>{item}</span>
+                                                                </li>
+                                                            );
+                                                        })}
+                                                    </ul>
+                                                )}
+                                            </div>
+                                        ))}
+
+                                        {selectedChapter.activities && (
+                                            <div className="section">
+                                                <h3 className="section-title">
+                                                    <span>🎯</span>
+                                                    50 Outdoor Activities to Try
+                                                </h3>
+                                                <div className="activities-grid">
+                                                    {selectedChapter.activities.map((activity, idx) => (
+                                                        <div key={idx} className="activity-card">
+                                                            <div className="activity-emoji">{activity.emoji}</div>
+                                                            <div className="activity-name">{activity.name}</div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {selectedChapter.joke && (
+                                            <div className="joke-box">
+                                                <div className="joke-title">🤣 PARENTING HUMOR</div>
+                                                <p className="joke-text">{selectedChapter.joke}</p>
+                                            </div>
+                                        )}
+
+                                        <div className="action-buttons">
+                                            <button 
+                                                className="btn btn-primary"
+                                                onClick={() => toggleChapterComplete(selectedChapter.id)}
+                                            >
+                                                {completedChapters.includes(selectedChapter.id) 
+                                                    ? '✅ Mark as Incomplete' 
+                                                    : '✓ Mark as Complete'}
+                                            </button>
+                                            <button 
+                                                className="btn btn-secondary"
+                                                onClick={() => setSelectedChapter(null)}
+                                            >
+                                                Close
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
