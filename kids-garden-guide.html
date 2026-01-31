@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌱 Kids Gardening Guide | Pentru Lexi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(to bottom, #87CEEB 0%, #98D8C8 30%, #90EE90 70%, #8FBC8F 100%);
+            min-height: 100vh;
+            color: #2d5016;
+            padding: 20px;
+        }
+        
+        /* Floating elements */
+        .floating-garden {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .float-item {
+            position: absolute;
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+        
+        .float-item:nth-child(1) { top: 10%; left: 10%; font-size: 3rem; animation-duration: 15s; }
+        .float-item:nth-child(2) { top: 20%; right: 15%; font-size: 2.5rem; animation-duration: 18s; animation-delay: 2s; }
+        .float-item:nth-child(3) { top: 60%; left: 20%; font-size: 3.5rem; animation-duration: 20s; animation-delay: 4s; }
+        .float-item:nth-child(4) { bottom: 20%; right: 25%; font-size: 2rem; animation-duration: 16s; animation-delay: 1s; }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 4px solid #90EE90;
+        }
+        
+        h1 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: #2d5016;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(144,238,144,0.5);
+        }
+        
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: #5a8f3c;
+            font-weight: 600;
+        }
+        
+        .section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 3px solid #90EE90;
+            animation: slideIn 0.6s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 2.2rem;
+            color: #2d5016;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .plant-emoji {
+            font-size: 2.5rem;
+            animation: grow 2s ease-in-out infinite;
+        }
+        
+        @keyframes grow {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .plant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .plant-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 20px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #81c784;
+        }
+        
+        .plant-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border-color: #4caf50;
+        }
+        
+        .plant-card h3 {
+            font-size: 1.5rem;
+            color: #2d5016;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+        
+        .plant-card p {
+            font-size: 1rem;
+            color: #4a6b34;
+            line-height: 1.6;
+        }
+        
+        .step-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            background: rgba(144,238,144,0.2);
+            padding: 15px 20px;
+            margin: 10px 0;
+            border-radius: 15px;
+            border-left: 5px solid #4caf50;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .step-list strong {
+            color: #2d5016;
+            font-weight: 700;
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+            border: 3px solid #ffd54f;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .tip-box h3 {
+            color: #f57c00;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .tip-box p {
+            color: #5d4037;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            max-width: 800px;
+            margin: 50px auto;
+            border-radius: 30px;
+            padding: 40px;
+            position: relative;
+            border: 5px solid #4caf50;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: #2d5016;
+            font-weight: bold;
+            transition: all 0.3s;
+            line-height: 1;
+        }
+        
+        .close-btn:hover {
+            color: #f44336;
+            transform: rotate(90deg);
+        }
+        
+        .modal h2 {
+            color: #2d5016;
+            margin-bottom: 25px;
+        }
+        
+        .modal p, .modal li {
+            color: #3e5328;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 35px;
+            background: #4caf50;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(76,175,80,0.4);
+        }
+        
+        .back-link:hover {
+            background: #388e3c;
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(76,175,80,0.6);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+        
+        footer p {
+            color: #2d5016;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-garden">
+        <div class="float-item">🌻</div>
+        <div class="float-item">🌷</div>
+        <div class="float-item">🌺</div>
+        <div class="float-item">🦋</div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>🌱 Ghidul Meu de Grădinărit 🌱</h1>
+            <p class="subtitle">Prima Mea Aventură în Grădină!</p>
+        </header>
+
+        <!-- Indoor Herbs Section -->
+        <div class="section">
+            <h2><span class="plant-emoji">🌿</span> Plante Aromatice în Casă</h2>
+            <p style="font-size: 1.15rem; margin-bottom: 20px; line-height: 1.8;">
+                Plantele aromatice sunt perfecte pentru a începe! Pot crește pe pervazul ferestrei și le poți folosi la gătit!
+            </p>
+
+            <div class="plant-grid">
+                <div class="plant-card" onclick="showPlant('basil')">
+                    <div style="font-size: 3rem;">🌿</div>
+                    <h3>Busuioc</h3>
+                    <p>Parfumat și ușor de crescut! Perfect pentru pizza și paste!</p>
+                </div>
+
+                <div class="plant-card" onclick="showPlant('mint')">
+                    <div style="font-size: 3rem;">🍃</div>
+                    <h3>Mentă</h3>
+                    <p>Răcoritoare și viguroasă! Crește foarte repede și miroase minunat!</p>
+                </div>
+
+                <div class="plant-card" onclick="showPlant('parsley')">
+                    <div style="font-size: 3rem;">🌱</div>
+                    <h3>Pătrunjel</h3>
+                    <p>Plin de vitamine! Folosit în aproape toate mâncărurile!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Outdoor Vegetables -->
+        <div class="section">
+            <h2><span class="plant-emoji">🥕</span> Legume în Grădină</h2>
+            <p style="font-size: 1.15rem; margin-bottom: 20px; line-height: 1.8;">
+                Aceste legume sunt ușor de crescut și vei putea să le mănânci după ce cresc!
+            </p>
+
+            <div class="plant-grid">
+                <div class="plant-card" onclick="showPlant('tomato')">
+                    <div style="font-size: 3rem;">🍅</div>
+                    <h3>Roșii</h3>
+                    <p>Colorate și delicioase! Ai grijă, au nevoie de multă lumină!</p>
+                </div>
+
+                <div class="plant-card" onclick="showPlant('carrot')">
+                    <div style="font-size: 3rem;">🥕</div>
+                    <h3>Morcovi</h3>
+                    <p>Cresc sub pământ! Este ca o comoară ascunsă!</p>
+                </div>
+
+                <div class="plant-card" onclick="showPlant('lettuce')">
+                    <div style="font-size: 3rem;">🥬</div>
+                    <h3>Salată</h3>
+                    <p>Crește foarte repede! Pregătită în 30 de zile!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gardening Steps -->
+        <div class="section">
+            <h2><span class="plant-emoji">📋</span> Cum Să Începi Grădinăritul</h2>
+            
+            <ul class="step-list">
+                <li><strong>Pasul 1: Alege Locul Potrivit</strong> - Plantele au nevoie de lumină! Găsește un loc unde soarele strălucește cel puțin 6 ore pe zi.</li>
+                
+                <li><strong>Pasul 2: Pregătește Pământul</strong> - Pământul trebuie să fie moale și pufos! Amestecă-l bine și elimină pietrele.</li>
+                
+                <li><strong>Pasul 3: Plantează Semințele</strong> - Fă găurele la adâncimea potrivită (de obicei de 2 ori mai adânc decât mărimea seminței).</li>
+                
+                <li><strong>Pasul 4: Udă Cu Grijă</strong> - Plantele au nevoie de apă, dar nu prea multă! Pământul trebuie să fie umed, nu ud.</li>
+                
+                <li><strong>Pasul 5: Ai Răbdare</strong> - Plantele au nevoie de timp să crească! Verifică-le în fiecare zi și bucură-te de progres!</li>
+                
+                <li><strong>Pasul 6: Îngrijește Plantele</strong> - Elimină buruienile, verifică dacă sunt insecte și vorbește cu plantele tale! Da, chiar ajută!</li>
+            </ul>
+        </div>
+
+        <!-- Tips Box -->
+        <div class="tip-box">
+            <h3>💡 Sfaturi Magice de Grădinărit!</h3>
+            <p><strong>🌞 Lumina Soarelui:</strong> Majoritatea plantelor au nevoie de 6-8 ore de soare pe zi!</p>
+            <p><strong>💧 Udarea:</strong> Cel mai bun moment să uzi este dimineața devreme!</p>
+            <p><strong>🐛 Insectele Bune:</strong> Nu toate insectele sunt rele! Buburezele mănâncă insectele rele!</p>
+            <p><strong>📏 Spațiu:</strong> Dă plantelor spațiu să crească - nu le planta prea aproape!</p>
+            <p><strong>🎵 Muzica:</strong> Unii grădinari cred că plantele cresc mai bine când asculta muzică!</p>
+        </div>
+
+        <footer>
+            <p>✨ Creat cu dragoste pentru Lexi de Claude & Elena ✨</p>
+            <p>🌱 Plantează, Îngrijește, Crește! 🌱</p>
+            <a href="index.html" class="back-link">← Înapoi Acasă</a>
+        </footer>
+    </div>
+
+    <!-- Modals for each plant -->
+    <div id="basil-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePlant('basil')">&times;</span>
+            <h2>🌿 Busuiocul - Regele Plantelor Aromatice</h2>
+            
+            <p><strong>De ce este special?</strong></p>
+            <p>Busuiocul are un miros incredibil și este folosit în pizza, paste, și salate! Este una dintre cele mai ușoare plante de crescut!</p>
+            
+            <p><strong>Cum să-l crești:</strong></p>
+            <ul class="step-list">
+                <li>Pune semințele în pământ la 0.5 cm adâncime</li>
+                <li>Udă regulat - pământul trebuie să fie mereu umed</li>
+                <li>Pune ghiveciul lângă fereastră unde este mult soare</li>
+                <li>După 5-7 zile vei vedea primele frunzulițe verzi!</li>
+            </ul>
+            
+            <div class="tip-box">
+                <h3>✨ Știai că?</h3>
+                <p>Dacă ciupești vârfurile busuiocului, planta va crește mai deasă și mai frumoasă! Plus, poți folosi frunzele în mâncare!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="mint-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePlant('mint')">&times;</span>
+            <h2>🍃 Menta - Planta Energică</h2>
+            
+            <p><strong>De ce este special?</strong></p>
+            <p>Menta crește atât de repede și puternic încât poate umple întregul ghiveci! Miroase răcoritor și este folosită în ceai și deserturi!</p>
+            
+            <p><strong>Cum să o crești:</strong></p>
+            <ul class="step-list">
+                <li>Menta preferă umbră parțială - nu are nevoie de atât de mult soare</li>
+                <li>Udă-o frecvent - îi place apa!</li>
+                <li>Pune-o într-un ghiveci separat pentru că se răspândește foarte mult!</li>
+                <li>Culege frunzele des pentru a o menține sănătoasă!</li>
+            </ul>
+            
+            <div class="tip-box">
+                <h3>✨ Idee Distractivă!</h3>
+                <p>Fă cuburi de gheață cu frunze de mentă înăuntru! Arată super cool în limonadă vara!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="parsley-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePlant('parsley')">&times;</span>
+            <h2>🌱 Pătrunjelul - Supereroul Vitaminelor</h2>
+            
+            <p><strong>De ce este special?</strong></p>
+            <p>Pătrunjelul este plin de vitamine și este folosit în aproape orice fel de mâncare! Este foarte sănătos!</p>
+            
+            <p><strong>Cum să-l crești:</strong></p>
+            <ul class="step-list">
+                <li>Semințele germinează încet - ai nevoie de răbdare (2-3 săptămâni!)</li>
+                <li>Pune-le la 1 cm adâncime în pământ</li>
+                <li>Udă regulat, dar nu prea mult</li>
+                <li>Are nevoie de lumină, dar nu de soare direct tot timpul</li>
+            </ul>
+            
+            <div class="tip-box">
+                <h3>✨ Truc Secret!</h3>
+                <p>Înmoaie semințele în apă caldă peste noapte înainte de plantare - vor germina mai repede!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="tomato-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePlant('tomato')">&times;</span>
+            <h2>🍅 Roșiile - Fructele Grădinii</h2>
+            
+            <p><strong>De ce sunt speciale?</strong></p>
+            <p>Roșiile cresc ca fructe pe o plantă verde! Există roșii mici (cherry) și mari! Sunt delicioase și pline de culoare!</p>
+            
+            <p><strong>Cum să le crești:</strong></p>
+            <ul class="step-list">
+                <li>Plantează în pământ bogat în nutrienți</li>
+                <li>Au nevoie de MULTĂ lumină - cel puțin 8 ore de soare!</li>
+                <li>Pune un băț lângă plantă pentru suport când crește</li>
+                <li>Udă la bază, nu pe frunze!</li>
+                <li>Roșiile vor fi gata în 60-80 de zile!</li>
+            </ul>
+            
+            <div class="tip-box">
+                <h3>✨ Moment Magic!</h3>
+                <p>Când roșiile se schimbă din verde în roșu, sunt gata să fie culese! Îți va plăcea să le vezi schimbând culoarea în fiecare zi!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="carrot-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePlant('carrot')">&times;</span>
+            <h2>🥕 Morcovii - Comoara Ascunsă</h2>
+            
+            <p><strong>De ce sunt speciali?</strong></p>
+            <p>Morcovii cresc sub pământ, așa că nu îi vezi până când îi scoți! Este ca o vânătoare de comori în propria ta grădină!</p>
+            
+            <p><strong>Cum să-i crești:</strong></p>
+            <ul class="step-list">
+                <li>Semințele sunt foarte mici - fii atent când le plantezi!</li>
+                <li>Au nevoie de pământ adânc și moale (fără pietre!)</li>
+                <li>Plantează-i la 1-2 cm adâncime</li>
+                <li>Udă regulat - pământul uscat face morcovii crăpați</li>
+                <li>După 70-80 de zile, trage unul să vezi dacă e gata!</li>
+            </ul>
+            
+            <div class="tip-box">
+                <h3>✨ Cum să știi când sunt gata?</h3>
+                <p>Când vezi partea de sus (vârful portocaliu) ieșind din pământ, înseamnă că morcovul este gata! Trage de el ușor și... surpriză!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="lettuce-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePlant('lettuce')">&times;</span>
+            <h2>🥬 Salata - Planta Rapidă</h2>
+            
+            <p><strong>De ce este specială?</strong></p>
+            <p>Salata crește atât de repede că este perfectă pentru grădinarii începători! În doar 30 de zile poți avea o salată proaspătă!</p>
+            
+            <p><strong>Cum să o crești:</strong></p>
+            <ul class="step-list">
+                <li>Plantează semințele la doar 0.5 cm adâncime</li>
+                <li>Nu are nevoie de mult soare - preferă răcoarea!</li>
+                <li>Udă des - îi place pământul umed</li>
+                <li>Poți culege frunzele exterioare și planta va continua să crească!</li>
+                <li>Gata de cules în 30-45 de zile!</li>
+            </ul>
+            
+            <div class="tip-box">
+                <h3>✨ Metoda "Cut and Come Again"!</h3>
+                <p>Taie doar frunzele de care ai nevoie și lasă inima plantei să crească! Vei avea salată proaspătă săptămâni întregi!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPlant(plantId) {
+            document.getElementById(plantId + '-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePlant(plantId) {
+            document.getElementById(plantId + '-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
