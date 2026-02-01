@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌊 Ocean Explorer - Descoperă Oceanul!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(to bottom, #001f3f 0%, #003d7a 30%, #005f8f 60%, #0088cc 100%);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Bubbles Animation */
+        .bubbles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: rise 15s infinite ease-in;
+        }
+
+        .bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 12s; }
+        .bubble:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 10s; animation-delay: 2s; }
+        .bubble:nth-child(3) { width: 50px; height: 50px; left: 35%; animation-duration: 14s; animation-delay: 4s; }
+        .bubble:nth-child(4) { width: 30px; height: 30px; left: 50%; animation-duration: 11s; animation-delay: 0s; }
+        .bubble:nth-child(5) { width: 25px; height: 25px; left: 65%; animation-duration: 13s; animation-delay: 3s; }
+        .bubble:nth-child(6) { width: 35px; height: 35px; left: 80%; animation-duration: 15s; animation-delay: 5s; }
+        .bubble:nth-child(7) { width: 45px; height: 45px; left: 90%; animation-duration: 12s; animation-delay: 1s; }
+
+        @keyframes rise {
+            0% {
+                bottom: -100px;
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(100px);
+            }
+            100% {
+                bottom: 110%;
+                transform: translateX(-50px);
+            }
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1 {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: #FFE66D;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #A8DADC;
+            margin-bottom: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Topic Cards */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .topic-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.2);
+            animation: slideUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .topic-card:nth-child(1) { animation-delay: 0.1s; }
+        .topic-card:nth-child(2) { animation-delay: 0.2s; }
+        .topic-card:nth-child(3) { animation-delay: 0.3s; }
+        .topic-card:nth-child(4) { animation-delay: 0.4s; }
+        .topic-card:nth-child(5) { animation-delay: 0.5s; }
+        .topic-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .topic-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255,255,255,0.2);
+            border-color: #FFE66D;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .topic-emoji {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .topic-title {
+            font-size: 1.8rem;
+            color: #FFE66D;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .topic-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #003d7a 0%, #005f8f 100%);
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 30px;
+            max-width: 800px;
+            border: 3px solid #FFE66D;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            animation: modalSlide 0.4s ease-out;
+        }
+
+        @keyframes modalSlide {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close {
+            color: #FFE66D;
+            float: right;
+            font-size: 3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            line-height: 1;
+        }
+
+        .close:hover {
+            transform: rotate(90deg);
+            color: #FF6B6B;
+        }
+
+        .modal-content h2 {
+            color: #FFE66D;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-family: 'Caveat', cursive;
+        }
+
+        .modal-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.95);
+        }
+
+        .modal-content strong {
+            color: #A8DADC;
+        }
+
+        /* Fun Facts Box */
+        .fun-fact {
+            background: rgba(255, 230, 109, 0.2);
+            border-left: 5px solid #FFE66D;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 15px;
+        }
+
+        .fun-fact strong {
+            color: #FFE66D;
+            font-size: 1.3rem;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 35px;
+            background: #FFE66D;
+            color: #001f3f;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255,230,109,0.5);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 2px solid rgba(255,255,255,0.2);
+        }
+
+        footer p {
+            color: #A8DADC;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>🌊 Ocean Explorer 🌊</h1>
+            <p class="subtitle">Descoperă minunățiile oceanului!</p>
+        </header>
+
+        <div class="topics-grid">
+            <div class="topic-card" onclick="openModal('tides')">
+                <span class="topic-emoji">🌊</span>
+                <h3 class="topic-title">Maree și Valuri</h3>
+                <p class="topic-description">
+                    Descoperă de ce oceanul se ridică și coboară în fiecare zi și cum se formează valurile uriașe!
+                </p>
+            </div>
+
+            <div class="topic-card" onclick="openModal('currents')">
+                <span class="topic-emoji">🌀</span>
+                <h3 class="topic-title">Curenții Oceanici</h3>
+                <p class="topic-description">
+                    Râurile invizibile ale oceanului care călătoresc în jurul întregii lumi!
+                </p>
+            </div>
+
+            <div class="topic-card" onclick="openModal('bioluminescence')">
+                <span class="topic-emoji">✨</span>
+                <h3 class="topic-title">Bioluminiscența</h3>
+                <p class="topic-description">
+                    Creaturi marine care strălucesc în întuneric ca niște stele subacvatice magice!
+                </p>
+            </div>
+
+            <div class="topic-card" onclick="openModal('coral')">
+                <span class="topic-emoji">🪸</span>
+                <h3 class="topic-title">Recifii de Corali</h3>
+                <p class="topic-description">
+                    Pădurile curcubeu ale oceanului, pline de viață și culori incredibile!
+                </p>
+            </div>
+
+            <div class="topic-card" onclick="openModal('watercycle')">
+                <span class="topic-emoji">💧</span>
+                <h3 class="topic-title">Ciclul Apei</h3>
+                <p class="topic-description">
+                    Cum călătorește apa din ocean, în nori, pe pământ și înapoi în mare!
+                </p>
+            </div>
+
+            <div class="topic-card" onclick="openModal('creatures')">
+                <span class="topic-emoji">🐙</span>
+                <h3 class="topic-title">Creaturi Uimitoare</h3>
+                <p class="topic-description">
+                    Întâlnește cele mai fascinante animale care trăiesc în adâncurile oceanului!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="tides" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('tides')">&times;</span>
+            <h2>🌊 Mareele și Valurile</h2>
+            
+            <p><strong>Ce sunt mareele?</strong></p>
+            <p>Mareele sunt mișcarea oceanului în sus și în jos de două ori pe zi. Este ca și cum oceanul respiră - se umflă (maree înaltă) și se retrage (maree joasă)!</p>
+            
+            <p><strong>De ce se întâmplă asta?</strong></p>
+            <p>Luna ne ajută! Gravitația Lunii trage apa oceanului spre ea, creând umflături. Când Pământul se rotește, diferite părți ale oceanului sunt trase spre Lună, creând mareele!</p>
+            
+            <div class="fun-fact">
+                <p><strong>🌟 Știai că?</strong></p>
+                <p>Cele mai înalte maree din lume sunt în Golful Fundy, Canada - apa se ridică cu până la 16 metri! Asta înseamnă cât un bloc de 5 etaje!</p>
+            </div>
+            
+            <p><strong>Cum se formează valurile?</strong></p>
+            <p>Valurile sunt create de vânt! Când vântul suflă peste ocean, împinge apa și creează unde. Cu cât vântul suflă mai tare, cu atât valurile devin mai mari!</p>
+            
+            <div class="fun-fact">
+                <p><strong>🏄 Faptul distractiv:</strong></p>
+                <p>Cel mai înalt val înregistrat vreodată a fost de 524 metri! S-a format într-o furtună în Alaska în 1958. Asta e mai înalt decât Empire State Building!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="currents" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('currents')">&times;</span>
+            <h2>🌀 Curenții Oceanici</h2>
+            
+            <p><strong>Ce sunt curenții oceanici?</strong></p>
+            <p>Curenții sunt ca niște râuri gigantice care curg prin ocean! Nu îi poți vedea, dar ei mișcă milioane de tone de apă în jurul planetei în fiecare zi!</p>
+            
+            <p><strong>De ce sunt importanți?</strong></p>
+            <p>Curenții oceanici:</p>
+            <p>• Ajută la încălzirea și răcirea diferitelor părți ale lumii</p>
+            <p>• Transportă nutrienți pentru animalele marine</p>
+            <p>• Influențează vremea și clima</p>
+            <p>• Ajută peștii să călătorească pe distanțe lungi</p>
+            
+            <div class="fun-fact">
+                <p><strong>🌟 Curentul Gulf Stream:</strong></p>
+                <p>Este ca un râu de apă caldă în ocean! Începe în Golful Mexic și călătorește până în Europa, ajutând la încălzirea Europei. Este atât de puternic încât poate transporta mai multă apă decât toate râurile de pe Pământ la un loc!</p>
+            </div>
+            
+            <p><strong>Cum se formează?</strong></p>
+            <p>Curenții sunt creați de:</p>
+            <p>• Vânt (împinge apa)</p>
+            <p>• Diferențe de temperatură (apa caldă și rece se mișcă diferit)</p>
+            <p>• Săruri (apa mai sărată este mai grea)</p>
+            <p>• Rotația Pământului (face ca totul să se învârtă într-o anumită direcție!)</p>
+        </div>
+    </div>
+
+    <div id="bioluminescence" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bioluminescence')">&times;</span>
+            <h2>✨ Bioluminiscența Magică</h2>
+            
+            <p><strong>Ce este bioluminiscența?</strong></p>
+            <p>Este capacitatea unor animale marine de a produce PROPRIA lor lumină! Ele strălucesc în întuneric ca niște licurici subacvatici magici!</p>
+            
+            <p><strong>Cum funcționează?</strong></p>
+            <p>În corpul lor au substanțe chimice speciale care, când se combină, creează lumină - fără căldură! Este ca o bagheta magică naturală!</p>
+            
+            <div class="fun-fact">
+                <p><strong>🌟 Creaturi care strălucesc:</strong></p>
+                <p>• Meduze care luminează albastru și verde</p>
+                <p>• Pești-lanternă cu luminițe ca farurile mașinii</p>
+                <p>• Plancton care face apa să strălucească când înoți noaptea</p>
+                <p>• Caracatițe care fac spectacole de lumini!</p>
+            </div>
+            
+            <p><strong>De ce strălucesc?</strong></p>
+            <p>• Pentru a găsi mâncare în întuneric</p>
+            <p>• Pentru a se ascunde de dușmani (lumina îi confundează!)</p>
+            <p>• Pentru a comunica cu alți pești</p>
+            <p>• Pentru a atrage parteneri (ca un dans luminios romantic!)</p>
+            
+            <div class="fun-fact">
+                <p><strong>🐟 Știai că?</strong></p>
+                <p>90% din creaturile care trăiesc în adâncurile oceanului pot produce lumină! Este ca un oraș de Crăciun permanent sub apă!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="coral" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('coral')">&times;</span>
+            <h2>🪸 Recifii de Corali - Pădurile Curcubeu</h2>
+            
+            <p><strong>Ce sunt coralii?</strong></p>
+            <p>Coralii par pietre sau plante, dar sunt de fapt ANIMALE minuscule numite polipi! Mii de polipi mici trăiesc împreună și construiesc case din piatră! Este ca un oraș uriaș construit de insecte foarte mici!</p>
+            
+            <p><strong>De ce sunt atât de colorate?</strong></p>
+            <p>Coralii au prieteni microscopici numite alge care trăiesc în ei. Aceste alge dau coralilor culorile lor incredibile - roșu, portocaliu, galben, verde, albastru, violet - toate culorile curcubeului!</p>
+            
+            <div class="fun-fact">
+                <p><strong>🌈 Marea Barieră de Corali:</strong></p>
+                <p>Este cel mai mare recif de corali din lume! Este atât de mare încât poți să-l vezi din spațiu! Este acasă pentru:</p>
+                <p>• 1,500 de specii de pești</p>
+                <p>• 400 de tipuri de corali</p>
+                <p>• 4,000 de tipuri de melci și scoici</p>
+                <p>• Țestoase marine, rechini, delfini și balene!</p>
+            </div>
+            
+            <p><strong>De ce sunt importanți?</strong></p>
+            <p>• Protejează țărmurile de furtuni</p>
+            <p>• Oferă casă pentru 25% din toate animalele marine</p>
+            <p>• Ne dau medicamente (unii corali sunt folosiți pentru a face doctori!)</p>
+            <p>• Sunt frumoși și ne fac fericiți!</p>
+            
+            <div class="fun-fact">
+                <p><strong>⚠️ Trebuie să-i protejăm!</strong></p>
+                <p>Coralii sunt delicați. Poluarea și încălzirea apei îi pot face să-și piardă culorile (albire de corali). Dar dacă îi protejăm, ei pot trăi sute de ani și vor continua să fie acasă pentru milioane de animale marine!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="watercycle" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('watercycle')">&times;</span>
+            <h2>💧 Ciclul Apei - Călătoria Fără Sfârșit</h2>
+            
+            <p><strong>Ce este ciclul apei?</strong></p>
+            <p>Este călătoria pe care apa o face din ocean, în cer, pe pământ și înapoi în ocean - la nesfârșit! Este ca o carusel uriaș al apei!</p>
+            
+            <p><strong>Pașii ciclului apei:</strong></p>
+            
+            <p><strong>1. Evaporarea ☀️</strong></p>
+            <p>Soarele încălzește oceanul și face ca apa să se transforme în vapori invizibili care zboara în aer! Este ca și cum apa ar deveni un fantom care zboară!</p>
+            
+            <p><strong>2. Condensarea ☁️</strong></p>
+            <p>În aer, vaporii de apă se răcesc și se transformă în picături mici care formează NORI! Norii sunt de fapt miliarde de picături de apă care plutesc!</p>
+            
+            <p><strong>3. Precipitarea 🌧️</strong></p>
+            <p>Când picăturile din nori devin prea grele, ele cad înapoi pe pământ ca ploaie, zăpadă sau grindină!</p>
+            
+            <p><strong>4. Scurgerea 🏞️</strong></p>
+            <p>Apa curge prin râuri și pâraie înapoi în ocean, și ciclul începe din nou!</p>
+            
+            <div class="fun-fact">
+                <p><strong>🌟 Fapte Uimitoare:</strong></p>
+                <p>• Aceeași apă pe care o bei tu a fost băută de dinozauri!</p>
+                <p>• 97% din apa de pe Pământ este în oceane</p>
+                <p>• O picătură de apă poate să facă ciclul complet în aproximativ 10 zile</p>
+                <p>• Fiecare an, 505,000 de kilometri cubi de apă se evaporă din oceane!</p>
+            </div>
+            
+            <p><strong>De ce este important?</strong></p>
+            <p>• Ne dă apă proaspătă de băut</p>
+            <p>• Ajută plantele să crească</p>
+            <p>• Menține planeta la temperatura potrivită</p>
+            <p>• Creează ploaia care umple râurile și lacurile</p>
+        </div>
+    </div>
+
+    <div id="creatures" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('creatures')">&times;</span>
+            <h2>🐙 Creaturi Uimitoare ale Oceanului</h2>
+            
+            <p><strong>Balena Albastră 🐋</strong></p>
+            <p>Cel mai mare animal care a trăit vreodată pe Pământ! Mai mare decât orice dinozaur! O balenă albastră poate cântări cât 33 de elefanți și poate mânca 4 tone de krill pe zi!</p>
+            <div class="fun-fact">
+                <p>Inima ei este atât de mare încât un copil ar putea să se plimbe prin arterele ei!</p>
+            </div>
+            
+            <p><strong>Caracatița Uriașă a Pacificului 🐙</strong></p>
+            <p>Are 8 brațe, 3 inimi și sânge albastru! Poate schimba culoarea și textura pielii în mai puțin de o secundă pentru a se camufla. Este atât de inteligentă încât poate deschide borcanele și rezolva puzzle-uri!</p>
+            
+            <p><strong>Rechinul Balena 🦈</strong></p>
+            <p>Cel mai mare pește din ocean, dar este blând ca un gigant prietenos! Mănâncă doar plancton minuscul. Poate crește până la 18 metri - cât un autobuz școlar!</p>
+            
+            <p><strong>Meduza Cutie 🪼</strong></p>
+            <p>Este aproape invizibilă și are 24 de ochi! Poate vedea în toate direcțiile în același timp. Este foarte frumoasă, dar foarte periculoasă - veninul ei este unul dintre cele mai puternice din lume!</p>
+            
+            <p><strong>Peștele Abis 🐟</strong></p>
+            <p>Trăiește atât de adânc în ocean încât nu există deloc lumină! Are propriile sale luminițe și arată ca un monstru prietenos din povești. Unii pot rezista la o presiune care ar strivii un submarin!</p>
+            
+            <div class="fun-fact">
+                <p><strong>🌊 Știai că?</strong></p>
+                <p>Oceanele sunt atât de adânci și atât de mari încât 95% din ele nu au fost încă explorate! Asta înseamnă că există probabil mii de creaturi uimitoare pe care nu le-am descoperit încă!</p>
+            </div>
+            
+            <p><strong>Delfini 🐬</strong></p>
+            <p>Sunt atât de inteligenți încât își dau nume unul altuia! Pot recunoaște propriul lor reflex în oglindă și pot învăța trucuri complicate. Comunică folosind sunete speciale - ca și cum ar vorbi sub apă!</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>✨ Creat cu dragoste pentru Lexi de Claude & Elena ✨</p>
+        <p>🌊 Explorează, Învață, Visează! 🌊</p>
+        <a href="index.html" class="back-btn">← Înapoi Acasă</a>
+    </footer>
+
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = "block";
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.getElementsByClassName('modal');
+            for (let modal of modals) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
