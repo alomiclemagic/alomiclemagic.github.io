@@ -616,6 +616,7 @@
                         <li><a href="#parenting" onclick="filterCategory('parenting'); return false;">Parenting</a></li>
                         <li><a href="#romance" onclick="filterCategory('romance'); return false;">Romance</a></li>
                         <li><a href="#tools" onclick="filterCategory('tools'); return false;">Tools & Apps</a></li>
+                        <li><a href="lexi-projects-page.html" style="color: #f093fb;">🌟 Lexi's Projects</a></li>
                     </ul>
                 </nav>
             </div>
@@ -636,6 +637,26 @@
             <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" target="_blank" rel="noopener" class="author-link">
                 📚 Visit My Amazon Author Page
             </a>
+        </section>
+
+        <!-- Lexi's Projects Featured Section -->
+        <section class="container" style="padding: 40px 20px; margin-bottom: 40px;">
+            <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 25px; padding: 40px; text-align: center; box-shadow: 0 20px 60px rgba(240, 147, 251, 0.3);">
+                <h2 style="color: white; font-size: 2.5rem; margin-bottom: 15px; font-family: 'Quicksand', sans-serif;">🌟 Lexi's Learning Corner 🌟</h2>
+                <p style="color: white; font-size: 1.2rem; margin-bottom: 25px; opacity: 0.95;">School projects, stories, and adventures created with Claude!</p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+                    <a href="lexi-projects-page.html" style="display: inline-block; padding: 15px 35px; background: white; color: #f093fb; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.2)'">
+                        🐯 Tigrul Siberian Project
+                    </a>
+                    <a href="soareci-stories-page.html" style="display: inline-block; padding: 15px 35px; background: white; color: #f5576c; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.2)'">
+                        📚 Poveștile Șoarecilor
+                    </a>
+                    <a href="ziua_cititului_plan.md" style="display: inline-block; padding: 15px 35px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; border: 2px solid white; border-radius: 30px; font-weight: 700; font-size: 1.1rem; backdrop-filter: blur(10px); transition: all 0.3s ease;" onmouseover="this.style.background='white'; this.style.color='#f093fb'" onmouseout="this.style.background='rgba(255,255,255,0.2)'; this.style.color='white'">
+                        🎓 Ziua Cititului Plan
+                    </a>
+                </div>
+                <p style="color: white; margin-top: 25px; font-style: italic; opacity: 0.9;">✨ First collaborations between Claude & Lexi ✨</p>
+            </div>
         </section>
 
         <section id="categories-view" class="categories-section container">
@@ -660,7 +681,7 @@
                     <p class="category-description">
                         Practical wisdom, mother-daughter journals, and helpful guides
                     </p>
-                    <p class="category-count">4 Projects</p>
+                    <p class="category-count">3 Projects</p>
                 </div>
 
                 <div class="category-card romance" onclick="filterCategory('romance')" style="animation-delay: 0.3s">
@@ -803,23 +824,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="project-card" style="animation-delay: 0.3s">
-                    <div class="project-image">📖</div>
-                    <div class="project-content">
-                        <span class="project-tag tag-guide">Publishing Guide</span>
-                        <h3 class="project-title">Amazon KDP Publishing Guide</h3>
-                        <p class="project-description">
-                            Complete step-by-step guide for publishing books on Amazon KDP. Includes metadata strategies, 
-                            pricing advice, marketing plans, and international tax information. Perfect for aspiring authors!
-                        </p>
-                        <div class="project-meta">
-                            <a href="KDP_Publishing_Guide_Parents_Survival_Guide.docx" class="amazon-btn secondary" download>
-                                📄 Download Guide
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <button class="back-to-categories" onclick="showCategories()">
@@ -898,11 +902,11 @@
                         <h3 class="project-title">Ocean Phenomena Explorer</h3>
                         <p class="project-description">
                             Interactive guide for kids to discover ocean wonders! Learn about tides, waves, currents, 
-                            bioluminescence, coral reefs, and the water cycle. Beautiful visuals and kid-friendly explanations.
+                            bioluminescence, coral reefs, and the water cycle. Created for Lexi with love!
                         </p>
                         <div class="project-meta">
-                            <a href="#" class="amazon-btn tool" onclick="alert('Coming soon!'); return false;">
-                                🌊 Explore Ocean (Coming Soon!)
+                            <a href="ocean-explorer.html" class="amazon-btn tool" target="_blank">
+                                🌊 Explore Ocean
                             </a>
                         </div>
                     </div>
@@ -914,12 +918,12 @@
                         <span class="project-tag tag-app">Educational Tool</span>
                         <h3 class="project-title">Kids Gardening Guide</h3>
                         <p class="project-description">
-                            My First Garden Adventure! Interactive guide teaching kids how to grow herbs indoors and 
-                            vegetables outdoors. Includes step-by-step instructions, plant care tips, and fun activities.
+                            My First Garden Adventure! Interactive guide teaching kids how to grow herbs indoors 
+                            and vegetables outdoors. Includes step-by-step instructions, plant care tips, and fun activities!
                         </p>
                         <div class="project-meta">
-                            <a href="#" class="amazon-btn tool" onclick="alert('Coming soon!'); return false;">
-                                🌱 Start Gardening (Coming Soon!)
+                            <a href="kids-garden-guide.html" class="amazon-btn tool" target="_blank">
+                                🌱 Start Gardening
                             </a>
                         </div>
                     </div>
@@ -965,6 +969,7 @@
                         <li><a href="https://www.amazon.com/dp/B0GJ3ZP7ZK" target="_blank" rel="noopener">Understanding Claude</a></li>
                         <li><a href="https://www.amazon.com/dp/B0GHWWPCPM" target="_blank" rel="noopener">Letters to My Daughter</a></li>
                         <li><a href="https://www.amazon.com/dp/B0GJPTJNVP" target="_blank" rel="noopener">One More Valentine</a></li>
+                        <li><a href="https://www.amazon.com/dp/B0GK4WXL7S" target="_blank" rel="noopener">Parent's Survival Guide</a></li>
                     </ul>
                 </div>
 
@@ -973,8 +978,8 @@
                     <ul class="footer-links">
                         <li><a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" target="_blank" rel="noopener">Amazon Author Page</a></li>
                         <li><a href="parents-survival-guide-app.html" target="_blank">Interactive Parenting App</a></li>
-                        <li><a href="Parenting_Guide_Ages_8-12.docx" download>Free Parenting Guide</a></li>
-                        <li><a href="KDP_Publishing_Guide_Parents_Survival_Guide.docx" download>Free Publishing Guide</a></li>
+                        <li><a href="lexi-projects-page.html">Lexi's Projects</a></li>
+                        <li><a href="soareci-stories-page.html">Poveștile Șoarecilor</a></li>
                     </ul>
                 </div>
 
