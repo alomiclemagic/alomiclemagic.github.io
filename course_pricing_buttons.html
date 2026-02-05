@@ -1,0 +1,250 @@
+<!-- PRICING SECTION FOR COURSES -->
+<!-- Add this to both Financial_Guide_App.html and Manners_Guide_App.html -->
+
+<style>
+.pricing-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 60px 20px;
+    margin: 40px 0;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.pricing-title {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.pricing-subtitle {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.price-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.price-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.price-card.featured {
+    border: 3px solid #FFD700;
+    position: relative;
+}
+
+.price-card.featured::before {
+    content: "MOST POPULAR";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FFD700;
+    color: #333;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.price-type {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.price-amount {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.price-amount sup {
+    font-size: 1.5rem;
+}
+
+.price-period {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.price-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.price-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+.price-features li:last-child {
+    border-bottom: none;
+}
+
+.buy-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.buy-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.money-back {
+    margin-top: 40px;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.money-back strong {
+    color: #FFD700;
+}
+</style>
+
+<!-- PRICING SECTION HTML -->
+<div class="pricing-section">
+    <h2 class="pricing-title">💰 Get Full Access to This Course</h2>
+    <p class="pricing-subtitle">Choose the license that works best for you!</p>
+    
+    <div class="pricing-grid">
+        <!-- Individual License -->
+        <div class="price-card">
+            <div class="price-type">Individual License</div>
+            <div class="price-amount"><sup>$</sup>29<sup>.99</sup></div>
+            <div class="price-period">One-time payment</div>
+            <ul class="price-features">
+                <li>✅ Full course access</li>
+                <li>✅ All worksheets</li>
+                <li>✅ All quizzes & tests</li>
+                <li>✅ Lifetime updates</li>
+                <li>✅ For personal/family use</li>
+            </ul>
+            <a href="https://alomiclemagic.gumroad.com/l/qyoeiv?_gl=11td6ps3_gaNjExNDA1NjA4LjE3NzAxMTQzODQ._ga_6LJN6D94N6czE3NzAyMjk1NzEkbzUkZzEkdDE3NzAyMzYxMTkkajM4JGwwJGgw " class="buy-button" target="_blank">
+                Buy Now
+            </a>
+        </div>
+
+        <!-- Teacher/Classroom License (FEATURED) -->
+        <div class="price-card featured">
+            <div class="price-type">Teacher/Classroom</div>
+            <div class="price-amount"><sup>$</sup>49<sup>.99</sup></div>
+            <div class="price-period">One-time payment</div>
+            <ul class="price-features">
+                <li>✅ Everything in Individual</li>
+                <li>✅ Use with up to 30 students</li>
+                <li>✅ Print unlimited worksheets</li>
+                <li>✅ Teacher's guide included</li>
+                <li>✅ Email support</li>
+            </ul>
+            <a href="https://alomiclemagic.gumroad.com/l/htaawi?_gl=11td6ps3_gaNjExNDA1NjA4LjE3NzAxMTQzODQ._ga_6LJN6D94N6czE3NzAyMjk1NzEkbzUkZzEkdDE3NzAyMzYxMTkkajM4JGwwJGgw" class="buy-button" target="_blank">
+                Buy Now
+            </a>
+        </div>
+
+        <!-- School/District License -->
+        <div class="price-card">
+            <div class="price-type">School/District</div>
+            <div class="price-amount"><sup>$</sup>199<sup>.99</sup></div>
+            <div class="price-period">One-time payment</div>
+            <ul class="price-features">
+                <li>✅ Everything in Teacher</li>
+                <li>✅ Unlimited students</li>
+                <li>✅ Multiple teachers</li>
+                <li>✅ Professional development</li>
+                <li>✅ Priority support</li>
+            </ul>
+            <a href="https://alomiclemagic.gumroad.com/l/zrmjy?_gl=11t78erx_gaNjExNDA1NjA4LjE3NzAxMTQzODQ._ga_6LJN6D94N6czE3NzAyMjk1NzEkbzUkZzEkdDE3NzAyMzYxMTkkajM4JGwwJGgw " class="buy-button" target="_blank">
+                Buy Now
+            </a>
+        </div>
+    </div>
+
+    <div class="money-back">
+        <strong>💯 30-Day Money-Back Guarantee</strong><br>
+        Not satisfied? Get a full refund, no questions asked!
+    </div>
+</div>
+
+<!-- BUNDLE PRICING (OPTIONAL - for page showing both courses) -->
+<div class="pricing-section" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+    <h2 class="pricing-title">🎁 BUNDLE: Get BOTH Courses & SAVE!</h2>
+    <p class="pricing-subtitle">Financial Literacy + Manners & Respect Together</p>
+    
+    <div class="pricing-grid">
+        <!-- Individual Bundle -->
+        <div class="price-card">
+            <div class="price-type">Individual Bundle</div>
+            <div class="price-amount"><sup>$</sup>49<sup>.99</sup></div>
+            <div class="price-period">Save $10!</div>
+            <ul class="price-features">
+                <li>✅ Both full courses</li>
+                <li>✅ All materials</li>
+                <li>✅ For personal/family use</li>
+            </ul>
+            <a href="https://alomiclemagic.gumroad.com/l/edsdka?_gl=1pmmeja_gaNjExNDA1NjA4LjE3NzAxMTQzODQ._ga_6LJN6D94N6czE3NzAyMjk1NzEkbzUkZzEkdDE3NzAyMzYxMTkkajM4JGwwJGgw" class="buy-button" target="_blank">
+                Buy Bundle
+            </a>
+        </div>
+
+        <!-- Teacher Bundle (FEATURED) -->
+        <div class="price-card featured">
+            <div class="price-type">Teacher Bundle</div>
+            <div class="price-amount"><sup>$</sup>79<sup>.99</sup></div>
+            <div class="price-period">Save $20!</div>
+            <ul class="price-features">
+                <li>✅ Both courses</li>
+                <li>✅ Up to 30 students</li>
+                <li>✅ All teacher materials</li>
+            </ul>
+            <a href="https://alomiclemagic.gumroad.com/l/aspwcj?_gl=1pmmeja_gaNjExNDA1NjA4LjE3NzAxMTQzODQ._ga_6LJN6D94N6czE3NzAyMjk1NzEkbzUkZzEkdDE3NzAyMzYxMTkkajM4JGwwJGgw" class="buy-button" target="_blank">
+                Buy Bundle
+            </a>
+        </div>
+
+        <!-- School Bundle -->
+        <div class="price-card">
+            <div class="price-type">School Bundle</div>
+            <div class="price-amount"><sup>$</sup>349<sup>.99</sup></div>
+            <div class="price-period">Save $50!</div>
+            <ul class="price-features">
+                <li>✅ Both courses</li>
+                <li>✅ Unlimited students/teachers</li>
+                <li>✅ Full support</li>
+            </ul>
+            <a href="https://elenaleximicle.gumroad.com/l/bundle-school" class="buy-button" target="_blank">
+                Buy Bundle
+            </a>
+        </div>
+    </div>
+</div>
