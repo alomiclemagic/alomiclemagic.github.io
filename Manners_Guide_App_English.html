@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 Raising Respectful Humans | Complete Manners & Social Skills Course</title>
+    <meta name="description" content="Complete course on manners, respect, and behavior for kids 8-12. Learn to be kind, empathetic, and respectful!">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@400;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 30px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { font-family: 'Bubblegum Sans', cursive; font-size: 3rem; color: #f5576c; text-align: center; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+        .subtitle { text-align: center; font-size: 1.3rem; color: #666; margin-bottom: 40px; }
+        .intro { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 20px; color: white; margin-bottom: 40px; text-align: center; font-size: 1.2rem; line-height: 1.8; }
+        .topics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px; }
+        .topic-card { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); border-radius: 20px; padding: 30px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .topic-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+        .topic-icon { font-size: 4rem; text-align: center; margin-bottom: 20px; }
+        .topic-title { font-family: 'Bubblegum Sans', cursive; font-size: 1.8rem; color: #333; text-align: center; margin-bottom: 15px; }
+        .topic-description { text-align: center; color: #555; font-size: 1.1rem; line-height: 1.6; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; padding: 20px; overflow-y: auto; }
+        .modal-content { max-width: 800px; margin: 50px auto; background: white; border-radius: 30px; padding: 40px; position: relative; }
+        .close-modal { position: absolute; top: 20px; right: 30px; font-size: 3rem; cursor: pointer; color: #f5576c; transition: transform 0.3s ease; }
+        .close-modal:hover { transform: rotate(90deg); }
+        .modal h2 { font-family: 'Bubblegum Sans', cursive; font-size: 2.5rem; color: #f5576c; margin-bottom: 20px; }
+        .modal-text { font-size: 1.2rem; line-height: 1.8; color: #333; margin-bottom: 20px; }
+        .tip-box { background: #d1ecf1; border-left: 5px solid #0c5460; padding: 20px; margin: 20px 0; border-radius: 10px; }
+        .tip-title { font-weight: bold; color: #0c5460; margin-bottom: 10px; font-size: 1.3rem; }
+        
+        .pricing-section { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 60px 20px; margin: 60px -40px -40px -40px; border-radius: 0 0 30px 30px; text-align: center; }
+        .pricing-title { color: white; font-family: 'Bubblegum Sans', cursive; font-size: 2.5rem; margin-bottom: 20px; }
+        .pricing-subtitle { color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 40px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .price-card { background: white; border-radius: 15px; padding: 40px 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease; }
+        .price-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
+        .price-card.featured { border: 3px solid #FFD700; position: relative; }
+        .price-card.featured::before { content: "MOST POPULAR"; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #FFD700; color: #333; padding: 5px 20px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; }
+        .price-type { font-size: 1.3rem; font-weight: bold; color: #333; margin-bottom: 15px; }
+        .price-amount { font-size: 3rem; font-weight: bold; color: #f5576c; margin-bottom: 10px; }
+        .price-amount sup { font-size: 1.5rem; }
+        .price-period { color: #666; margin-bottom: 30px; }
+        .price-features { list-style: none; padding: 0; margin-bottom: 30px; text-align: left; }
+        .price-features li { padding: 10px 0; border-bottom: 1px solid #eee; color: #555; }
+        .price-features li:last-child { border-bottom: none; }
+        .buy-button { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.1rem; display: inline-block; transition: all 0.3s ease; border: none; cursor: pointer; }
+        .buy-button:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(245, 87, 108, 0.4); }
+        .money-back { margin-top: 40px; color: white; font-size: 1.1rem; }
+        .money-back strong { color: #FFD700; }
+        @media (max-width: 768px) { h1 { font-size: 2rem; } .pricing-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💕 Raising Respectful Humans</h1>
+        <p class="subtitle">Complete Manners & Social Skills Course | Ages 8-12</p>
+        
+        <div class="intro">
+            <strong>Welcome, young champion of kindness!</strong><br>
+            Respect and good manners help you build strong friendships, succeed at school, and be the kind of person everyone wants to know!<br><br>
+            Explore the topics below and discover how to be the best YOU! ✨💖
+        </div>
+        
+        <div class="topics-grid">
+            <div class="topic-card" onclick="openModal('respect')">
+                <div class="topic-icon">🤝</div>
+                <div class="topic-title">What Is Respect?</div>
+                <div class="topic-description">Understand the power of respect!</div>
+            </div>
+            <div class="topic-card" onclick="openModal('listening')">
+                <div class="topic-icon">👂</div>
+                <div class="topic-title">Active Listening</div>
+                <div class="topic-description">Learn to truly listen!</div>
+            </div>
+            <div class="topic-card" onclick="openModal('communication')">
+                <div class="topic-icon">💬</div>
+                <div class="topic-title">Respectful Communication</div>
+                <div class="topic-description">Say what you think, kindly!</div>
+            </div>
+            <div class="topic-card" onclick="openModal('friendship')">
+                <div class="topic-icon">👥</div>
+                <div class="topic-title">Healthy Friendships</div>
+                <div class="topic-description">Build strong relationships!</div>
+            </div>
+            <div class="topic-card" onclick="openModal('digital')">
+                <div class="topic-icon">📱</div>
+                <div class="topic-title">Digital Citizenship</div>
+                <div class="topic-description">Respect online!</div>
+            </div>
+            <div class="topic-card" onclick="openModal('standing')">
+                <div class="topic-icon">💪</div>
+                <div class="topic-title">Standing Up Right</div>
+                <div class="topic-description">Be strong and kind!</div>
+            </div>
+        </div>
+        
+        <div class="pricing-section">
+            <h2 class="pricing-title">💕 Get Full Access to This Course</h2>
+            <p class="pricing-subtitle">Choose the right license for you!</p>
+            
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <div class="price-type">Individual License</div>
+                    <div class="price-amount"><sup>$</sup>29<sup>.99</sup></div>
+                    <div class="price-period">One-time payment</div>
+                    <ul class="price-features">
+                        <li>✅ Full course access</li>
+                        <li>✅ All worksheets</li>
+                        <li>✅ All quizzes & tests</li>
+                        <li>✅ Lifetime updates</li>
+                        <li>✅ For personal/family use</li>
+                    </ul>
+                    <a href="https://alomiclemagic.gumroad.com/l/oyllc" class="buy-button" target="_blank">Buy Now</a>
+                </div>
+                <div class="price-card featured">
+                    <div class="price-type">Teacher/Classroom</div>
+                    <div class="price-amount"><sup>$</sup>49<sup>.99</sup></div>
+                    <div class="price-period">One-time payment</div>
+                    <ul class="price-features">
+                        <li>✅ Everything in Individual</li>
+                        <li>✅ Up to 30 students</li>
+                        <li>✅ Print unlimited worksheets</li>
+                        <li>✅ Complete teacher's guide</li>
+                        <li>✅ Email support</li>
+                    </ul>
+                    <a href="https://alomiclemagic.gumroad.com/l/xxvyjpa" class="buy-button" target="_blank">Buy Now</a>
+                </div>
+                <div class="price-card">
+                    <div class="price-type">School/District</div>
+                    <div class="price-amount"><sup>$</sup>199<sup>.99</sup></div>
+                    <div class="price-period">One-time payment</div>
+                    <ul class="price-features">
+                        <li>✅ Everything in Teacher</li>
+                        <li>✅ Unlimited students</li>
+                        <li>✅ Multiple teachers</li>
+                        <li>✅ Professional development</li>
+                        <li>✅ Priority support</li>
+                    </ul>
+                    <a href="https://alomiclemagic.gumroad.com/l/ozrbn" class="buy-button" target="_blank">Buy Now</a>
+                </div>
+            </div>
+            <div class="money-back"><strong>💯 30-Day Money-Back Guarantee</strong><br>Not satisfied? Get a full refund, no questions asked!</div>
+        </div>
+    </div>
+
+    <div id="respectModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('respect')">&times;</span><h2>🤝 What Is Respect?</h2><p class="modal-text">Respect means treating people with kindness and showing them they matter. It's like a superpower that makes the world more beautiful!</p><div class="tip-box"><div class="tip-title">💡 The 3 Types of Respect:</div><ul style="margin-top: 10px; line-height: 1.8;"><li><strong>Respect for others:</strong> Be kind to everyone</li><li><strong>Self-respect:</strong> Value yourself</li><li><strong>Respect for things:</strong> Take care of what's yours and others'</li></ul></div></div></div>
+    
+    <div id="listeningModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('listening')">&times;</span><h2>👂 Active Listening</h2><p class="modal-text">Active listening means being truly attentive when someone speaks. Not just hearing the words, but UNDERSTANDING how they feel!</p><div class="tip-box"><div class="tip-title">💡 How to Listen Like a PRO:</div><ul style="margin-top: 10px; line-height: 1.8;"><li>👀 Look the person in the eyes</li><li>📵 Put your phone down</li><li>🤐 Don't interrupt</li><li>🧠 Think about what they're saying</li><li>❓ Ask questions if you don't understand</li></ul></div></div></div>
+    
+    <div id="communicationModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('communication')">&times;</span><h2>💬 Respectful Communication</h2><p class="modal-text">You can say anything, what matters is HOW you say it! Respectful communication means expressing your thoughts without hurting anyone.</p><div class="tip-box"><div class="tip-title">💡 The Magic "I" Formula Instead of "YOU":</div><p style="margin-top: 10px;">❌ <strong>Bad:</strong> "YOU are mean and I don't want to play with you!"<br>✅ <strong>Good:</strong> "I feel sad when this happens. Can we find a solution together?"</p></div></div></div>
+    
+    <div id="friendshipModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('friendship')">&times;</span><h2>👥 Healthy Friendships</h2><p class="modal-text">A healthy friendship makes you feel happy, safe, and valued. Do you know what one looks like?</p><div class="tip-box"><div class="tip-title">💡 Signs of a Healthy Friendship:</div><ul style="margin-top: 10px; line-height: 1.8;"><li>✅ You support each other</li><li>✅ You listen respectfully</li><li>✅ You celebrate successes together</li><li>✅ You resolve conflicts calmly</li><li>✅ You feel safe being yourselves</li></ul></div></div></div>
+    
+    <div id="digitalModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('digital')">&times;</span><h2>📱 Digital Citizenship</h2><p class="modal-text">Even though you're online, the rules of respect apply the same! In fact, it's even more important to be kind online.</p><div class="tip-box"><div class="tip-title">💡 The Golden Digital Rule:</div><p style="margin-top: 10px; font-size: 1.3rem; font-weight: bold;">If you wouldn't say it face to face, DON'T write it online!</p></div></div></div>
+    
+    <div id="standingModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('standing')">&times;</span><h2>💪 Standing Up Right</h2><p class="modal-text">Standing up for yourself doesn't mean being mean. It means being firm but polite when something isn't right.</p><div class="tip-box"><div class="tip-title">💡 The 3 Styles:</div><ul style="margin-top: 10px; line-height: 1.8;"><li>😢 <strong>Passive:</strong> Let people take advantage (NOT good)</li><li>😠 <strong>Aggressive:</strong> Be mean to others (NOT good)</li><li>💪 <strong>Assertive:</strong> Express your needs respectfully (PERFECT!)</li></ul></div></div></div>
+
+    <script>
+        function openModal(modalName) { document.getElementById(modalName + 'Modal').style.display = 'block'; document.body.style.overflow = 'hidden'; }
+        function closeModal(modalName) { document.getElementById(modalName + 'Modal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+        window.onclick = function(event) { if (event.target.classList.contains('modal')) { event.target.style.display = 'none'; document.body.style.overflow = 'auto'; } }
+    </script>
+</body>
+</html>

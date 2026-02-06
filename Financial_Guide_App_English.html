@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💰 The Ultimate Kids' Money Guide | Financial Literacy for Ages 8-12</title>
+    <meta name="description" content="Complete financial literacy course for kids 8-12. Learn about money, saving, smart spending, and more!">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@400;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 30px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { font-family: 'Bubblegum Sans', cursive; font-size: 3rem; color: #667eea; text-align: center; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+        .subtitle { text-align: center; font-size: 1.3rem; color: #666; margin-bottom: 40px; }
+        .intro { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 30px; border-radius: 20px; color: white; margin-bottom: 40px; text-align: center; font-size: 1.2rem; line-height: 1.8; }
+        .topics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px; }
+        .topic-card { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); border-radius: 20px; padding: 30px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .topic-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+        .topic-icon { font-size: 4rem; text-align: center; margin-bottom: 20px; }
+        .topic-title { font-family: 'Bubblegum Sans', cursive; font-size: 1.8rem; color: #333; text-align: center; margin-bottom: 15px; }
+        .topic-description { text-align: center; color: #555; font-size: 1.1rem; line-height: 1.6; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; padding: 20px; overflow-y: auto; }
+        .modal-content { max-width: 800px; margin: 50px auto; background: white; border-radius: 30px; padding: 40px; position: relative; }
+        .close-modal { position: absolute; top: 20px; right: 30px; font-size: 3rem; cursor: pointer; color: #667eea; transition: transform 0.3s ease; }
+        .close-modal:hover { transform: rotate(90deg); }
+        .modal h2 { font-family: 'Bubblegum Sans', cursive; font-size: 2.5rem; color: #667eea; margin-bottom: 20px; }
+        .modal-text { font-size: 1.2rem; line-height: 1.8; color: #333; margin-bottom: 20px; }
+        .fun-fact { background: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 10px; }
+        .fun-fact-title { font-weight: bold; color: #856404; margin-bottom: 10px; font-size: 1.3rem; }
+        
+        .pricing-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 60px 20px; margin: 60px -40px -40px -40px; border-radius: 0 0 30px 30px; text-align: center; }
+        .pricing-title { color: white; font-family: 'Bubblegum Sans', cursive; font-size: 2.5rem; margin-bottom: 20px; }
+        .pricing-subtitle { color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 40px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .price-card { background: white; border-radius: 15px; padding: 40px 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease; }
+        .price-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
+        .price-card.featured { border: 3px solid #FFD700; position: relative; }
+        .price-card.featured::before { content: "MOST POPULAR"; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #FFD700; color: #333; padding: 5px 20px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; }
+        .price-type { font-size: 1.3rem; font-weight: bold; color: #333; margin-bottom: 15px; }
+        .price-amount { font-size: 3rem; font-weight: bold; color: #667eea; margin-bottom: 10px; }
+        .price-amount sup { font-size: 1.5rem; }
+        .price-period { color: #666; margin-bottom: 30px; }
+        .price-features { list-style: none; padding: 0; margin-bottom: 30px; text-align: left; }
+        .price-features li { padding: 10px 0; border-bottom: 1px solid #eee; color: #555; }
+        .price-features li:last-child { border-bottom: none; }
+        .buy-button { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.1rem; display: inline-block; transition: all 0.3s ease; border: none; cursor: pointer; }
+        .buy-button:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4); }
+        .money-back { margin-top: 40px; color: white; font-size: 1.1rem; }
+        .money-back strong { color: #FFD700; }
+        @media (max-width: 768px) { h1 { font-size: 2rem; } .pricing-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💰 The Ultimate Kids' Money Guide</h1>
+        <p class="subtitle">Financial Literacy for Ages 8-12</p>
+        
+        <div class="intro">
+            <strong>Welcome, young economist!</strong><br>
+            Money is an important part of your life, even now as a kid. The earlier you learn how money works, the better prepared you'll be for your future!<br><br>
+            Explore the topics below and discover the secrets of money! 💸✨
+        </div>
+        
+        <div class="topics-grid">
+            <div class="topic-card" onclick="openModal('money')">
+                <div class="topic-icon">🪙</div>
+                <div class="topic-title">What Is Money?</div>
+                <div class="topic-description">Discover the history and importance of money!</div>
+            </div>
+            <div class="topic-card" onclick="openModal('earning')">
+                <div class="topic-icon">💼</div>
+                <div class="topic-title">How to Earn Money?</div>
+                <div class="topic-description">Age-appropriate ways to make money!</div>
+            </div>
+            <div class="topic-card" onclick="openModal('saving')">
+                <div class="topic-icon">🏦</div>
+                <div class="topic-title">Saving Money</div>
+                <div class="topic-description">Learn to set money aside!</div>
+            </div>
+            <div class="topic-card" onclick="openModal('spending')">
+                <div class="topic-icon">🛍️</div>
+                <div class="topic-title">Smart Spending</div>
+                <div class="topic-description">How to spend wisely!</div>
+            </div>
+            <div class="topic-card" onclick="openModal('goals')">
+                <div class="topic-icon">🎯</div>
+                <div class="topic-title">Financial Goals</div>
+                <div class="topic-description">Set targets and reach them!</div>
+            </div>
+            <div class="topic-card" onclick="openModal('interest')">
+                <div class="topic-icon">📈</div>
+                <div class="topic-title">Compound Interest</div>
+                <div class="topic-description">Your money can make more money!</div>
+            </div>
+        </div>
+        
+        <div class="pricing-section">
+            <h2 class="pricing-title">💰 Get Full Access to This Course</h2>
+            <p class="pricing-subtitle">Choose the right license for you!</p>
+            
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <div class="price-type">Individual License</div>
+                    <div class="price-amount"><sup>$</sup>29<sup>.99</sup></div>
+                    <div class="price-period">One-time payment</div>
+                    <ul class="price-features">
+                        <li>✅ Full course access</li>
+                        <li>✅ All worksheets</li>
+                        <li>✅ All quizzes & tests</li>
+                        <li>✅ Lifetime updates</li>
+                        <li>✅ For personal/family use</li>
+                    </ul>
+                    <a href="https://alomiclemagic.gumroad.com/l/qyoeiv" class="buy-button" target="_blank">Buy Now</a>
+                </div>
+                <div class="price-card featured">
+                    <div class="price-type">Teacher/Classroom</div>
+                    <div class="price-amount"><sup>$</sup>49<sup>.99</sup></div>
+                    <div class="price-period">One-time payment</div>
+                    <ul class="price-features">
+                        <li>✅ Everything in Individual</li>
+                        <li>✅ Up to 30 students</li>
+                        <li>✅ Print unlimited worksheets</li>
+                        <li>✅ Complete teacher's guide</li>
+                        <li>✅ Email support</li>
+                    </ul>
+                    <a href="https://alomiclemagic.gumroad.com/l/htaawi" class="buy-button" target="_blank">Buy Now</a>
+                </div>
+                <div class="price-card">
+                    <div class="price-type">School/District</div>
+                    <div class="price-amount"><sup>$</sup>199<sup>.99</sup></div>
+                    <div class="price-period">One-time payment</div>
+                    <ul class="price-features">
+                        <li>✅ Everything in Teacher</li>
+                        <li>✅ Unlimited students</li>
+                        <li>✅ Multiple teachers</li>
+                        <li>✅ Professional development</li>
+                        <li>✅ Priority support</li>
+                    </ul>
+                    <a href="https://alomiclemagic.gumroad.com/l/zrmjy" class="buy-button" target="_blank">Buy Now</a>
+                </div>
+            </div>
+            <div class="money-back"><strong>💯 30-Day Money-Back Guarantee</strong><br>Not satisfied? Get a full refund, no questions asked!</div>
+        </div>
+    </div>
+
+    <div id="moneyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('money')">&times;</span>
+            <h2>🪙 What Is Money?</h2>
+            <p class="modal-text">Money is a tool we use to exchange things! Instead of directly trading toys with your friends, you use money to buy what you want.</p>
+            <div class="fun-fact"><div class="fun-fact-title">💡 Did you know?</div>Before money, people bartered! If you had apples and wanted bread, you had to find someone who wanted apples and had bread. Pretty complicated, right?</div>
+            <p class="modal-text">Today we have paper money, coins, and even digital money on phones or computers! They're all equally real and valuable.</p>
+        </div>
+    </div>
+    
+    <div id="earningModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('earning')">&times;</span><h2>💼 How to Earn Money?</h2><p class="modal-text">Even kids can earn money! Here are age-appropriate ways:</p><ul style="font-size: 1.2rem; line-height: 2; color: #333; margin: 20px 0 20px 40px;"><li>🏡 Help with chores (beyond regular responsibilities)</li><li>🐕 Walk neighbors' dogs</li><li>🌸 Help with gardening</li><li>📚 Tutor younger kids</li><li>🎨 Sell artwork or crafts</li><li>💻 Help with technology</li></ul><div class="fun-fact"><div class="fun-fact-title">💡 Important Tip!</div>Always ask a parent or trusted adult before accepting any work!</div></div></div>
+    
+    <div id="savingModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('saving')">&times;</span><h2>🏦 Saving Money</h2><p class="modal-text">Saving means setting aside part of your money for the future. It's like a superhero that protects you when you need something important!</p><div class="fun-fact"><div class="fun-fact-title">💡 The Golden 50-30-20 Rule</div><ul style="margin-top: 10px; line-height: 1.8;"><li>50% - For long-term savings</li><li>30% - For short-term savings (something you want soon)</li><li>20% - To spend now</li></ul></div></div></div>
+    
+    <div id="spendingModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('spending')">&times;</span><h2>🛍️ Smart Spending</h2><p class="modal-text">Before buying something, ask yourself:</p><ul style="font-size: 1.2rem; line-height: 2; color: #333; margin: 20px 0 20px 40px;"><li>❓ Do I really NEED this or just WANT it?</li><li>💭 Will I still want this in a week?</li><li>💰 Is this worth the time I spent earning the money?</li><li>🔍 Can I find it cheaper elsewhere?</li><li>⏰ Can I wait until it's on sale?</li></ul><div class="fun-fact"><div class="fun-fact-title">💡 The 24-Hour Trick</div>If you see something you like, wait 24 hours before buying it. If you still want it the next day, then maybe it's worth it!</div></div></div>
+    
+    <div id="goalsModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('goals')">&times;</span><h2>🎯 Financial Goals</h2><p class="modal-text">A financial goal is something you're saving money for. Goals help you stay motivated!</p><p class="modal-text"><strong>Three types of goals:</strong></p><ul style="font-size: 1.2rem; line-height: 2; color: #333; margin: 20px 0 20px 40px;"><li>📅 <strong>Short-term</strong> (1-3 months): New game, favorite book</li><li>📆 <strong>Medium-term</strong> (3-12 months): Bicycle, new phone</li><li>📊 <strong>Long-term</strong> (1+ years): Laptop, college</li></ul></div></div>
+    
+    <div id="interestModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal('interest')">&times;</span><h2>📈 Compound Interest - Money Magic!</h2><p class="modal-text">Compound interest is when your money makes more money, and then THAT money makes even more money!</p><div class="fun-fact"><div class="fun-fact-title">💡 Magic Example!</div>Let's say you have $1,000 and put it in an account that gives 5% interest per year:<br><br><strong>Year 1:</strong> $1,000 + $50 interest = $1,050<br><strong>Year 2:</strong> $1,050 + $52.50 interest = $1,102.50<br><strong>Year 10:</strong> You'd have $1,628.89!<br><br>You earned $628.89 without doing anything, just by waiting!</div></div></div>
+
+    <script>
+        function openModal(modalName) { document.getElementById(modalName + 'Modal').style.display = 'block'; document.body.style.overflow = 'hidden'; }
+        function closeModal(modalName) { document.getElementById(modalName + 'Modal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+        window.onclick = function(event) { if (event.target.classList.contains('modal')) { event.target.style.display = 'none'; document.body.style.overflow = 'auto'; } }
+    </script>
+</body>
+</html>

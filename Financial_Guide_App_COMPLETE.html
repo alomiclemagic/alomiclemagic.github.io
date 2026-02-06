@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💰 Ghidul Complet de Educație Financiară pentru Copii | The Ultimate Kids' Money Guide</title>
+    <meta name="description" content="Curs complet de educație financiară pentru copiii 8-12 ani. Învață despre bani, economisire, cheltuieli inteligente și mult mai mult!">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 3rem;
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 30px;
+            border-radius: 20px;
+            color: white;
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .topic-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 20px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .topic-icon {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .topic-title {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 1.8rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .topic-description {
+            text-align: center;
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 3rem;
+            cursor: pointer;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+        
+        .modal h2 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        .modal-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .fun-fact {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        
+        .fun-fact-title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-link:hover {
+            transform: scale(1.05);
+        }
+        
+        /* PRICING SECTION */
+        .pricing-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 60px 20px;
+            margin: 60px -40px -40px -40px;
+            border-radius: 0 0 30px 30px;
+            text-align: center;
+        }
+        
+        .pricing-title {
+            color: white;
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .pricing-subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .price-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .price-card.featured {
+            border: 3px solid #FFD700;
+            position: relative;
+        }
+        
+        .price-card.featured::before {
+            content: "CEL MAI POPULAR";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FFD700;
+            color: #333;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        
+        .price-type {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .price-amount {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .price-amount sup {
+            font-size: 1.5rem;
+        }
+        
+        .price-period {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .price-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .price-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+        
+        .price-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .buy-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .buy-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .money-back {
+            margin-top: 40px;
+            color: white;
+            font-size: 1.1rem;
+        }
+        
+        .money-back strong {
+            color: #FFD700;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💰 Ghidul Complet de Educație Financiară pentru Copii</h1>
+        <p class="subtitle">The Ultimate Kids' Money Guide | Vârsta 8-12 ani</p>
+        
+        <div class="intro">
+            <strong>Bine ai venit, tânăr economist!</strong><br>
+            Banii sunt o parte importantă din viața ta, chiar și acum când ești copil. Cu cât înveți mai devreme să înțelegi cum funcționează banii, cu atât vei fi mai pregătit pentru viitor!<br><br>
+            Explorează temele de mai jos și descoperă secretele banilor! 💸✨
+        </div>
+        
+        <div class="topics-grid">
+            <div class="topic-card" onclick="openModal('money')">
+                <div class="topic-icon">🪙</div>
+                <div class="topic-title">Ce Sunt Banii?</div>
+                <div class="topic-description">Descoperă istoria și importanța banilor!</div>
+            </div>
+            
+            <div class="topic-card" onclick="openModal('earning')">
+                <div class="topic-icon">💼</div>
+                <div class="topic-title">Cum Câștigi Bani?</div>
+                <div class="topic-description">Modalități potrivite pentru vârsta ta!</div>
+            </div>
+            
+            <div class="topic-card" onclick="openModal('saving')">
+                <div class="topic-icon">🏦</div>
+                <div class="topic-title">Economisirea</div>
+                <div class="topic-description">Învață să îți pui bani deoparte!</div>
+            </div>
+            
+            <div class="topic-card" onclick="openModal('spending')">
+                <div class="topic-icon">🛍️</div>
+                <div class="topic-title">Cheltuieli Inteligente</div>
+                <div class="topic-description">Cum să cheltuiești înțelept!</div>
+            </div>
+            
+            <div class="topic-card" onclick="openModal('goals')">
+                <div class="topic-icon">🎯</div>
+                <div class="topic-title">Obiective Financiare</div>
+                <div class="topic-description">Stabilește-ți ținte și atinge-le!</div>
+            </div>
+            
+            <div class="topic-card" onclick="openModal('interest')">
+                <div class="topic-icon">📈</div>
+                <div class="topic-title">Dobânda Compusă</div>
+                <div class="topic-description">Banii tăi pot face mai mulți bani!</div>
+            </div>
+        </div>
+        
+        <!-- PRICING SECTION -->
+        <div class="pricing-section">
+            <h2 class="pricing-title">💰 Obține Acces Complet la Acest Curs</h2>
+            <p class="pricing-subtitle">Alege licența potrivită pentru tine!</p>
+            
+            <div class="pricing-grid">
+                <!-- Individual License -->
+                <div class="price-card">
+                    <div class="price-type">Licență Individuală</div>
+                    <div class="price-amount"><sup>$</sup>29<sup>.99</sup></div>
+                    <div class="price-period">Plată unică</div>
+                    <ul class="price-features">
+                        <li>✅ Acces complet la curs</li>
+                        <li>✅ Toate fișele de lucru</li>
+                        <li>✅ Toate testele și evaluările</li>
+                        <li>✅ Actualizări pe viață</li>
+                        <li>✅ Pentru uz personal/familial</li>
+                    </ul>
+                    <a href="https://alomiclemagic.gumroad.com/l/qyoeiv" class="buy-button" target="_blank">
+                        Cumpără Acum
+                    </a>
+                </div>
+
+                <!-- Teacher License (FEATURED) -->
+                <div class="price-card featured">
+                    <div class="price-type">Licență Profesor/Clasă</div>
+                    <div class="price-amount"><sup>$</sup>49<sup>.99</sup></div>
+                    <div class="price-period">Plată unică</div>
+                    <ul class="price-features">
+                        <li>✅ Tot ce e în Individuală</li>
+                        <li>✅ Până la 30 de elevi</li>
+                        <li>✅ Tipărire nelimitată fișe</li>
+                        <li>✅ Ghid complet pentru profesori</li>
+                        <li>✅ Suport prin email</li>
+                    </ul>
+                    <a href="https://alomiclemagic.gumroad.com/l/htaawi" class="buy-button" target="_blank">
+                        Cumpără Acum
+                    </a>
+                </div>
+
+                <!-- School License -->
+                <div class="price-card">
+                    <div class="price-type">Licență Școală/District</div>
+                    <div class="price-amount"><sup>$</sup>199<sup>.99</sup></div>
+                    <div class="price-period">Plată unică</div>
+                    <ul class="price-features">
+                        <li>✅ Tot ce e în Profesor</li>
+                        <li>✅ Elevi nelimitați</li>
+                        <li>✅ Profesori multipli</li>
+                        <li>✅ Dezvoltare profesională</li>
+                        <li>✅ Suport prioritar</li>
+                    </ul>
+                    <a href="https://alomiclemagic.gumroad.com/l/zrmjy" class="buy-button" target="_blank">
+                        Cumpără Acum
+                    </a>
+                </div>
+            </div>
+
+            <div class="money-back">
+                <strong>💯 Garanție 30 de Zile</strong><br>
+                Nu ești mulțumit? Îți returnăm banii, fără întrebări!
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="moneyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('money')">&times;</span>
+            <h2>🪙 Ce Sunt Banii?</h2>
+            <p class="modal-text">
+                Banii sunt un instrument pe care îl folosim pentru a schimba lucruri! În loc să schimbi direct jucăriile cu prietenii tăi, folosești banii pentru a cumpăra ce îți dorești.
+            </p>
+            <div class="fun-fact">
+                <div class="fun-fact-title">💡 Știai că?</div>
+                Înainte de bani, oamenii făceau troc! Dacă aveai mere și voiai pâine, trebuia să găsești pe cineva care voia mere și avea pâine. Destul de complicat, nu?
+            </div>
+            <p class="modal-text">
+                Astăzi avem bani de hârtie, monede și chiar bani digitali pe telefon sau calculator! Toți sunt la fel de adevărați și valoroși.
+            </p>
+        </div>
+    </div>
+
+    <div id="earningModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('earning')">&times;</span>
+            <h2>💼 Cum Câștigi Bani?</h2>
+            <p class="modal-text">
+                Chiar și copiii pot câștiga bani! Iată câteva modalități potrivite pentru vârsta ta:
+            </p>
+            <ul style="font-size: 1.2rem; line-height: 2; color: #333; margin: 20px 0 20px 40px;">
+                <li>🏡 Ajută la treburile casnice (în plus față de responsabilitățile obișnuite)</li>
+                <li>🐕 Plimbă câinii vecinilor</li>
+                <li>🌸 Ajută la grădinărit</li>
+                <li>📚 Predă lecții mai micilor</li>
+                <li>🎨 Vinde lucrări de artă sau meșteșuguri</li>
+                <li>💻 Ajută cu tehnologia</li>
+            </ul>
+            <div class="fun-fact">
+                <div class="fun-fact-title">💡 Sfat Important!</div>
+                Întotdeauna întreabă un părinte sau adult de încredere înainte de a accepta orice muncă!
+            </div>
+        </div>
+    </div>
+
+    <div id="savingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('saving')">&times;</span>
+            <h2>🏦 Economisirea</h2>
+            <p class="modal-text">
+                Economisirea înseamnă să pui deoparte o parte din banii tăi pentru viitor. E ca un supereroi care te protejează când ai nevoie de ceva important!
+            </p>
+            <div class="fun-fact">
+                <div class="fun-fact-title">💡 Regula de Aur 50-30-20</div>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li>50% - Pentru economii pe termen lung</li>
+                    <li>30% - Pentru economii pe termen scurt (ceva ce vrei curând)</li>
+                    <li>20% - Pentru a cheltui acum</li>
+                </ul>
+            </div>
+            <p class="modal-text">
+                De exemplu, dacă primești 100 lei cadou, pune 50 lei într-un cont de economii, 30 lei pentru ceva special pe care îl vrei, și cheltuiește 20 lei cum dorești!
+            </p>
+        </div>
+    </div>
+
+    <div id="spendingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('spending')">&times;</span>
+            <h2>🛍️ Cheltuieli Inteligente</h2>
+            <p class="modal-text">
+                Înainte de a cumpăra ceva, pune-ți aceste întrebări:
+            </p>
+            <ul style="font-size: 1.2rem; line-height: 2; color: #333; margin: 20px 0 20px 40px;">
+                <li>❓ Chiar am NEVOIE de asta sau doar îl VREAU?</li>
+                <li>💭 Voi mai vrea asta peste o săptămână?</li>
+                <li>💰 Merită asta timpul petrecut pentru a câștiga banii?</li>
+                <li>🔍 Pot găsi mai ieftin în altă parte?</li>
+                <li>⏰ Pot aștepta până când e la reducere?</li>
+            </ul>
+            <div class="fun-fact">
+                <div class="fun-fact-title">💡 Trucul Celor 24 de Ore</div>
+                Dacă vezi ceva ce îți place, așteaptă 24 de ore înainte să-l cumperi. Dacă tot îl mai vrei a doua zi, atunci poate merită!
+            </div>
+        </div>
+    </div>
+
+    <div id="goalsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('goals')">&times;</span>
+            <h2>🎯 Obiective Financiare</h2>
+            <p class="modal-text">
+                Un obiectiv financiar este ceva pentru care economisești bani. Obiectivele te ajută să rămâi motivat!
+            </p>
+            <p class="modal-text"><strong>Trei tipuri de obiective:</strong></p>
+            <ul style="font-size: 1.2rem; line-height: 2; color: #333; margin: 20px 0 20px 40px;">
+                <li>📅 <strong>Pe termen scurt</strong> (1-3 luni): Joc nou, cartea ta preferată</li>
+                <li>📆 <strong>Pe termen mediu</strong> (3-12 luni): Bicicletă, telefon nou</li>
+                <li>📊 <strong>Pe termen lung</strong> (1+ ani): Laptop, facultate</li>
+            </ul>
+            <div class="fun-fact">
+                <div class="fun-fact-title">💡 Fă-l SMART!</div>
+                Obiectivele tale ar trebui să fie:<br>
+                <strong>S</strong>pecifice - Exact ce vrei<br>
+                <strong>M</strong>ăsurabile - Cât costă<br>
+                <strong>A</strong>tinsibile - Realistic de obținut<br>
+                <strong>R</strong>elevante - Contează pentru tine<br>
+                <strong>T</strong>emporale - Cu o dată limită
+            </div>
+        </div>
+    </div>
+
+    <div id="interestModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('interest')">&times;</span>
+            <h2>📈 Dobânda Compusă - Magia Banilor!</h2>
+            <p class="modal-text">
+                Dobânda compusă este când banii tăi fac mai mulți bani, și apoi ACEI bani fac și ei mai mulți bani!
+            </p>
+            <div class="fun-fact">
+                <div class="fun-fact-title">💡 Exemplu Magic!</div>
+                Să zicem că ai 1,000 lei și îi pui într-un cont care dă 5% dobândă pe an:<br><br>
+                <strong>Anul 1:</strong> 1,000 lei + 50 lei dobândă = 1,050 lei<br>
+                <strong>Anul 2:</strong> 1,050 lei + 52.50 lei dobândă = 1,102.50 lei<br>
+                <strong>Anul 10:</strong> Ai avea 1,628.89 lei!<br><br>
+                Ai câștigat 628.89 lei fără să faci nimic, doar așteptând!
+            </div>
+            <p class="modal-text">
+                Cu cât începi mai devreme să economisești, cu atât mai mult timp au banii tăi să crească!
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalName) {
+            document.getElementById(modalName + 'Modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(modalName) {
+            document.getElementById(modalName + 'Modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>

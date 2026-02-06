@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 Ghidul Complet de Comportament și Respect | Raising Respectful Humans</title>
+    <meta name="description" content="Curs complet despre maniere, respect și comportament pentru copiii 8-12 ani. Învață să fii gentil, empatic și respectuos!">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 3rem;
+            color: #f5576c;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 20px;
+            color: white;
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .topic-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 20px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .topic-icon {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .topic-title {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 1.8rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .topic-description {
+            text-align: center;
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 3rem;
+            cursor: pointer;
+            color: #f5576c;
+            transition: transform 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+        
+        .modal h2 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 2.5rem;
+            color: #f5576c;
+            margin-bottom: 20px;
+        }
+        
+        .modal-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .tip-box {
+            background: #d1ecf1;
+            border-left: 5px solid #0c5460;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        
+        .tip-title {
+            font-weight: bold;
+            color: #0c5460;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        /* PRICING SECTION */
+        .pricing-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 60px 20px;
+            margin: 60px -40px -40px -40px;
+            border-radius: 0 0 30px 30px;
+            text-align: center;
+        }
+        
+        .pricing-title {
+            color: white;
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .pricing-subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .price-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .price-card.featured {
+            border: 3px solid #FFD700;
+            position: relative;
+        }
+        
+        .price-card.featured::before {
+            content: "CEL MAI POPULAR";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FFD700;
+            color: #333;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        
+        .price-type {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .price-amount {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #f5576c;
+            margin-bottom: 10px;
+        }
+        
+        .price-amount sup {
+            font-size: 1.5rem;
+        }
+        
+        .price-period {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .price-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .price-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+        
+        .price-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .buy-button {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .buy-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(245, 87, 108, 0.4);
+        }
+        
+        .money-back {
+            margin-top: 40px;
+            color: white;
+            font-size: 1.1rem;
+        }
+        
+        .money-back strong {
+            color: #FFD700;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💕 Ghidul Complet de Comportament și Respect</h1>
+        <p class="subtitle">Raising Respectful Humans | Vârsta 8-12 ani</p>
+        
+        <div class="intro">
+            <strong>Bine ai venit, tânăr campion al bunătății!</strong><br>
+            Respectul și bunele maniere te ajută să construiești prietenii puternice, să reușești la școală și să fii genul de persoană pe care toată lumea vrea să o cunoască!<br><br>
+            Explorează temele de mai jos și descoperă cum să fii cel mai bun TU! ✨💖
+        </div>
+        
+        <div class="topics-grid">
+            <div class="topic-card" onclick="openModal('respect')">
+                <div class="topic-icon">🤝</div>
+                <div class="topic-title">Ce Este Respectul?</div>
+                <div class="topic-description">Înțelege puterea respectului!</div>
+            </div>
+            
+            <div class="topic-card" onclick="openModal('listening')">
+                <div class="topic-icon">👂</div>
+                <div class="topic-title">Ascultarea Activă</div>
+                <div class="topic-description">Învață să asculți cu adevărat!</div>
+            </div>
+            
+            <div class="topic-card" onclick="openModal('communication')">
+                <div class="topic-icon">💬</div>
+                <div class="topic-title">Comunicare Respectuoasă</div>
+                <div class="topic-description">Spune ce gândești, frumos!</div>
+            </div>
+            
+            <div class="topic-card" onclick="openModal('friendship')">
+                <div class="topic-icon">👥</div>
+                <div class="topic-title">Prietenii Sănătoase</div>
+                <div class="topic-description">Construiește relații puternice!</div>
+            </div>
+            
+            <div class="topic-card" onclick="openModal('digital')">
+                <div class="topic-icon">📱</div>
+                <div class="topic-title">Cetățenie Digitală</div>
+                <div class="topic-description">Respectul online!</div>
+            </div>
+            
+            <div class="topic-card" onclick="openModal('standing')">
+                <div class="topic-icon">💪</div>
+                <div class="topic-title">Apără-te Corect</div>
+                <div class="topic-description">Fii puternic și amabil!</div>
+            </div>
+        </div>
+        
+        <!-- PRICING SECTION -->
+        <div class="pricing-section">
+            <h2 class="pricing-title">💕 Obține Acces Complet la Acest Curs</h2>
+            <p class="pricing-subtitle">Alege licența potrivită pentru tine!</p>
+            
+            <div class="pricing-grid">
+                <!-- Individual License -->
+                <div class="price-card">
+                    <div class="price-type">Licență Individuală</div>
+                    <div class="price-amount"><sup>$</sup>29<sup>.99</sup></div>
+                    <div class="price-period">Plată unică</div>
+                    <ul class="price-features">
+                        <li>✅ Acces complet la curs</li>
+                        <li>✅ Toate fișele de lucru</li>
+                        <li>✅ Toate testele și evaluările</li>
+                        <li>✅ Actualizări pe viață</li>
+                        <li>✅ Pentru uz personal/familial</li>
+                    </ul>
+                    <a href="https://alomiclemagic.gumroad.com/l/oyllc" class="buy-button" target="_blank">
+                        Cumpără Acum
+                    </a>
+                </div>
+
+                <!-- Teacher License (FEATURED) -->
+                <div class="price-card featured">
+                    <div class="price-type">Licență Profesor/Clasă</div>
+                    <div class="price-amount"><sup>$</sup>49<sup>.99</sup></div>
+                    <div class="price-period">Plată unică</div>
+                    <ul class="price-features">
+                        <li>✅ Tot ce e în Individuală</li>
+                        <li>✅ Până la 30 de elevi</li>
+                        <li>✅ Tipărire nelimitată fișe</li>
+                        <li>✅ Ghid complet pentru profesori</li>
+                        <li>✅ Suport prin email</li>
+                    </ul>
+                    <a href="https://alomiclemagic.gumroad.com/l/xxvyjpa" class="buy-button" target="_blank">
+                        Cumpără Acum
+                    </a>
+                </div>
+
+                <!-- School License -->
+                <div class="price-card">
+                    <div class="price-type">Licență Școală/District</div>
+                    <div class="price-amount"><sup>$</sup>199<sup>.99</sup></div>
+                    <div class="price-period">Plată unică</div>
+                    <ul class="price-features">
+                        <li>✅ Tot ce e în Profesor</li>
+                        <li>✅ Elevi nelimitați</li>
+                        <li>✅ Profesori multipli</li>
+                        <li>✅ Dezvoltare profesională</li>
+                        <li>✅ Suport prioritar</li>
+                    </ul>
+                    <a href="https://alomiclemagic.gumroad.com/l/ozrbn" class="buy-button" target="_blank">
+                        Cumpără Acum
+                    </a>
+                </div>
+            </div>
+
+            <div class="money-back">
+                <strong>💯 Garanție 30 de Zile</strong><br>
+                Nu ești mulțumit? Îți returnăm banii, fără întrebări!
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="respectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('respect')">&times;</span>
+            <h2>🤝 Ce Este Respectul?</h2>
+            <p class="modal-text">
+                Respectul înseamnă să tratezi oamenii cu amabilitate și să le arăți că sunt importanți. E ca o super-putere care face lumea mai frumoasă!
+            </p>
+            <div class="tip-box">
+                <div class="tip-title">💡 Cele 3 Tipuri de Respect:</div>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Respect pentru alții:</strong> Fii gentil cu toată lumea</li>
+                    <li><strong>Respect pentru tine:</strong> Apreciază-te pe tine</li>
+                    <li><strong>Respect pentru lucruri:</strong> Ai grijă de ce e al tău și al altora</li>
+                </ul>
+            </div>
+            <p class="modal-text">
+                Când arăți respect, oamenii vor fi și ei respectuoși cu tine. E un cerc magic de bunătate!
+            </p>
+        </div>
+    </div>
+
+    <div id="listeningModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('listening')">&times;</span>
+            <h2>👂 Ascultarea Activă</h2>
+            <p class="modal-text">
+                Ascultarea activă înseamnă să fii cu adevărat atent când cineva vorbește. Nu doar să auzi cuvintele, ci să ÎNȚELEGI ce simt!
+            </p>
+            <div class="tip-box">
+                <div class="tip-title">💡 Cum să Asculți Ca un PRO:</div>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li>👀 Privește persoana în ochi</li>
+                    <li>📵 Pune telefonul jos</li>
+                    <li>🤐 Nu întrerupe</li>
+                    <li>🧠 Gândește-te la ce spun ei</li>
+                    <li>❓ Pune întrebări dacă nu înțelegi</li>
+                    <li>💭 Repetă în mintea ta ce au spus</li>
+                </ul>
+            </div>
+            <p class="modal-text">
+                Când asculți cu adevărat, oamenii se simt importanți și apreciați. Asta e magia ascultării!
+            </p>
+        </div>
+    </div>
+
+    <div id="communicationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('communication')">&times;</span>
+            <h2>💬 Comunicare Respectuoasă</h2>
+            <p class="modal-text">
+                Poți să spui orice, important e CUM o spui! Comunicarea respectuoasă înseamnă să îți exprimi gândurile fără să răneşti pe nimeni.
+            </p>
+            <div class="tip-box">
+                <div class="tip-title">💡 Formula Magică "EU" în Loc de "TU":</div>
+                <p style="margin-top: 10px;">
+                    ❌ <strong>Rău:</strong> "TU ești răutăcios și nu vreau să mai joc cu tine!"<br>
+                    ✅ <strong>Bine:</strong> "EU mă simt trist când se întâmplă asta. Putem găsi o soluție împreună?"
+                </p>
+            </div>
+            <p class="modal-text">
+                Când folosești "EU" în loc de "TU", oamenii nu se simt atacați și sunt mai deschiși să te asculte!
+            </p>
+        </div>
+    </div>
+
+    <div id="friendshipModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('friendship')">&times;</span>
+            <h2>👥 Prietenii Sănătoase</h2>
+            <p class="modal-text">
+                O prietenie sănătoasă te face să te simți fericit, în siguranță și apreciat. Știi cum arată una?
+            </p>
+            <div class="tip-box">
+                <div class="tip-title">💡 Semnele unei Prietenii Sănătoase:</div>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li>✅ Vă susțineți unul pe altul</li>
+                    <li>✅ Vă ascultați cu respect</li>
+                    <li>✅ Vă bucurați împreună de succese</li>
+                    <li>✅ Rezolvați certurile calm</li>
+                    <li>✅ Vă simțiți în siguranță să fiți voi înșivă</li>
+                    <li>✅ Nimeni nu forțează pe nimeni să facă ceva</li>
+                </ul>
+            </div>
+            <p class="modal-text">
+                Dacă o prietenie te face să te simți trist sau nesigur, e OK să vorbești cu un adult de încredere despre asta!
+            </p>
+        </div>
+    </div>
+
+    <div id="digitalModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('digital')">&times;</span>
+            <h2>📱 Cetățenie Digitală</h2>
+            <p class="modal-text">
+                Chiar dacă ești online, regulile respectului se aplică la fel! De fapt, e încă mai important să fii gentil online.
+            </p>
+            <div class="tip-box">
+                <div class="tip-title">💡 Regula de Aur Digitală:</div>
+                <p style="margin-top: 10px; font-size: 1.3rem; font-weight: bold;">
+                    Dacă nu ai spune ceva față în față, NU o scrie online!
+                </p>
+                <ul style="margin-top: 15px; line-height: 1.8;">
+                    <li>🚫 Nu trimite mesaje răutăcioase</li>
+                    <li>📸 Nu distribui poze fără permisiune</li>
+                    <li>🤫 Nu împărtăși secretele altora</li>
+                    <li>💬 Gândește-te înainte să comentezi</li>
+                    <li>🛡️ Apără-i pe cei bullyuiți online</li>
+                </ul>
+            </div>
+            <p class="modal-text">
+                Odată ce trimiți ceva online, rămâne acolo pentru totdeauna. Fă alegeri înțelepte!
+            </p>
+        </div>
+    </div>
+
+    <div id="standingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('standing')">&times;</span>
+            <h2>💪 Apără-te Corect</h2>
+            <p class="modal-text">
+                Să te aperi nu înseamnă să fii răutăcios. Înseamnă să fii ferm, dar politicos, când ceva nu e în regulă.
+            </p>
+            <div class="tip-box">
+                <div class="tip-title">💡 Cele 3 Stiluri:</div>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li>😢 <strong>Pasiv:</strong> Lași oamenii să profite de tine (NU e bine)</li>
+                    <li>😠 <strong>Agresiv:</strong> Ești răutăcios cu alții (NU e bine)</li>
+                    <li>💪 <strong>Asertiv:</strong> Îți exprimi nevoile cu respect (PERFECT!)</li>
+                </ul>
+            </div>
+            <p class="modal-text">
+                Exemplu asertiv: "Nu îmi place cum mă tratezi. Te rog să te oprești." Ferm, dar politicos!
+            </p>
+            <p class="modal-text">
+                Dacă cineva continuă să fie răutăcios după ce ai vorbit cu el, e timpul să ceri ajutor de la un adult!
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalName) {
+            document.getElementById(modalName + 'Modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(modalName) {
+            document.getElementById(modalName + 'Modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
