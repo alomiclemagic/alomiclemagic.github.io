@@ -3,199 +3,562 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elena Micle - Where Stories Come Alive ✨</title>
-    <meta name="description" content="Author, mother, and creator. Children's books, parenting guides, romance novels, and educational tools crafted with love.">
+    <title>✨ alo.micle.magic ✨</title>
+    <meta name="description" content="Elena Micle - Where Stories Come Alive ✨ | Children's Books, Educational Courses, ESL Teaching Resources, Parenting Guides & Romance">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Georgia', serif; line-height: 1.6; color: #333; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; text-align: center; }
-        .header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .header p { font-size: 1.2rem; opacity: 0.9; }
-        nav { background: #333; padding: 1rem; text-align: center; }
-        nav a { color: white; text-decoration: none; margin: 0 1rem; padding: 0.5rem 1rem; border-radius: 5px; transition: background 0.3s; }
-        nav a:hover { background: #555; }
-        .hero { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 4rem 2rem; text-align: center; }
-        .hero h2 { font-size: 2rem; margin-bottom: 1rem; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        .section { margin: 3rem 0; }
-        .section h2 { font-size: 2rem; margin-bottom: 2rem; text-align: center; color: #667eea; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .card { background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-        .card h3 { color: #667eea; margin-bottom: 1rem; }
-        .card p { margin-bottom: 1rem; color: #666; }
-        .btn { display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; margin: 0.5rem; transition: transform 0.3s; }
-        .btn:hover { transform: scale(1.05); }
-        .btn-secondary { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-        .footer { background: #333; color: white; padding: 2rem; text-align: center; margin-top: 4rem; }
-        .footer a { color: #667eea; text-decoration: none; }
-        .emoji { font-size: 3rem; margin-bottom: 1rem; }
-        @media (max-width: 768px) { .header h1 { font-size: 1.8rem; } .hero h2 { font-size: 1.5rem; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #764ba2;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            color: #764ba2;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .tagline {
+            font-size: 1.2em;
+            color: #667eea;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+        
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        nav a {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+        }
+        
+        .emoji-divider {
+            text-align: center;
+            font-size: 2em;
+            margin: 30px 0;
+            letter-spacing: 10px;
+        }
+        
+        .intro {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .intro h2 {
+            color: #764ba2;
+            margin-bottom: 15px;
+        }
+        
+        .intro p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .amazon-button {
+            display: inline-block;
+            background: #FF9900;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .amazon-button:hover {
+            background: #E68A00;
+        }
+        
+        section {
+            margin-bottom: 50px;
+        }
+        
+        section h2 {
+            color: #764ba2;
+            font-size: 2em;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .product-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+        
+        .product-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .product-card h3 {
+            color: #333;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        
+        .product-card p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: #764ba2;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+        
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 500;
+        }
+        
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+        }
+        
+        .button-secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .button-success {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .new-badge {
+            background: #ff6b6b;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .bundle-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border: 3px solid #764ba2;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #764ba2;
+            color: #666;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #764ba2;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            nav {
+                flex-direction: column;
+            }
+            
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* New styles for teacher section */
+        .teacher-section {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+        
+        .worksheet-pack {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .worksheet-pack h4 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .worksheet-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+        
+        .topic-tag {
+            background: #e0c3fc;
+            color: #333;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>✨ alo.micle.magic ✨</h1>
-        <p>Where Stories, Love & Creativity Come Alive</p>
-    </div>
-
-    <nav>
-        <a href="#books">Children's Books</a>
-        <a href="#parenting">Parenting</a>
-        <a href="#romance">Romance</a>
-        <a href="#tools">Tools & Apps</a>
-        <a href="#courses">📚 Courses NEW!</a>
-        <a href="lexi-projects-page.html">🌟 Lexi's Projects</a>
-    </nav>
-
-    <div class="hero">
-        <h2>📚 💖 🎨 🌈 ✨</h2>
-        <p>Hi! I'm <strong>Elena Micle</strong> – author, mother, and creator.</p>
-        <p>Every project here is crafted with love for YOU!</p>
-        <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" class="btn" target="_blank">📚 Visit My Amazon Author Page</a>
-    </div>
-
     <div class="container">
-        <!-- COURSES SECTION - NEW! -->
-        <section id="courses" class="section">
-            <h2>📚 Educational Courses for Kids</h2>
-            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">
-                Complete curriculum packages for teaching financial literacy and respectful behavior to kids ages 8-12!
+        <header>
+            <h1>✨ alo.micle.magic ✨</h1>
+            <p class="tagline">Where Stories, Love & Creativity Come Alive</p>
+            
+            <nav>
+                <a href="#books">Children's Books</a>
+                <a href="#teachers">👩‍🏫 For Teachers</a>
+                <a href="#parenting">Parenting</a>
+                <a href="#romance">Romance</a>
+                <a href="#tools">Tools & Apps</a>
+                <a href="#courses">📚 Courses</a>
+                <a href="lexi-projects-page.html">🌟 Lexi's Projects</a>
+            </nav>
+        </header>
+
+        <div class="emoji-divider">📚 💖 🎨 🌈 ✨</div>
+
+        <div class="intro">
+            <h2>Hi! I'm <strong>Elena Micle</strong> – author, mother, and creator.</h2>
+            <p>Every project here is crafted with love for YOU!</p>
+            <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" class="amazon-button">📚 Visit My Amazon Author Page</a>
+        </div>
+
+        <!-- NEW SECTION: For Teachers -->
+        <section id="teachers" class="teacher-section">
+            <h2>👩‍🏫 ESL Teaching Resources for Primary & Gymnasium Levels</h2>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1em;">
+                <strong>Professional, ready-to-use worksheets designed specifically for Romanian and Serbian ESL students!</strong><br>
+                Each pack includes 20 comprehensive worksheets with answer keys and teaching tips.
             </p>
-            <div class="grid">
-                <div class="card">
-                    <div class="emoji">💰</div>
+
+            <div class="worksheet-pack">
+                <div class="product-icon">📝</div>
+                <h4>ESL Grammar Essentials - Pack 1</h4>
+                <p><strong>40 Worksheets (80 pages)</strong> - Romanian & Serbian Versions</p>
+                <div class="worksheet-topics">
+                    <span class="topic-tag">Articles (A/An/The)</span>
+                    <span class="topic-tag">Is/Am/Are</span>
+                    <span class="topic-tag">Was/Were</span>
+                    <span class="topic-tag">Prepositions (In/On/At)</span>
+                    <span class="topic-tag">Pronouns</span>
+                    <span class="topic-tag">Mixed Reviews</span>
+                </div>
+                <p>Perfect for introducing fundamental English grammar concepts with culturally relevant examples.</p>
+                <div class="price">$19.99 per language pack | $34.99 both languages</div>
+                <a href="https://alomiclemagic.gumroad.com/l/esl-pack1-romanian" class="button">🇷🇴 Buy Romanian Pack</a>
+                <a href="https://alomiclemagic.gumroad.com/l/esl-pack1-serbian" class="button">🇷🇸 Buy Serbian Pack</a>
+                <a href="https://alomiclemagic.gumroad.com/l/esl-pack1-bundle" class="button-secondary">🎁 Buy Both & Save</a>
+            </div>
+
+            <div class="worksheet-pack">
+                <div class="product-icon">✏️</div>
+                <h4>ESL Grammar Essentials - Pack 2</h4>
+                <p><strong>40 Worksheets (80 pages)</strong> - Romanian & Serbian Versions</p>
+                <div class="worksheet-topics">
+                    <span class="topic-tag">Simple Present</span>
+                    <span class="topic-tag">Plurals</span>
+                    <span class="topic-tag">This/That/These/Those</span>
+                    <span class="topic-tag">There Is/Are</span>
+                    <span class="topic-tag">Can/Can't</span>
+                    <span class="topic-tag">Have/Has</span>
+                    <span class="topic-tag">Question Words</span>
+                    <span class="topic-tag">Adjectives</span>
+                    <span class="topic-tag">Adverbs of Frequency</span>
+                    <span class="topic-tag">Contractions</span>
+                </div>
+                <p>Build on essential skills with more advanced grammar topics and practical exercises.</p>
+                <div class="price">$19.99 per language pack | $34.99 both languages</div>
+                <a href="https://alomiclemagic.gumroad.com/l/esl-pack2-romanian" class="button">🇷🇴 Buy Romanian Pack</a>
+                <a href="https://alomiclemagic.gumroad.com/l/esl-pack2-serbian" class="button">🇷🇸 Buy Serbian Pack</a>
+                <a href="https://alomiclemagic.gumroad.com/l/esl-pack2-bundle" class="button-secondary">🎁 Buy Both & Save</a>
+            </div>
+
+            <div class="worksheet-pack bundle-card">
+                <div class="product-icon">🎓</div>
+                <h4>Complete ESL Grammar Bundle - All Packs</h4>
+                <p><strong>80 Worksheets Total (160 pages with answer keys)</strong></p>
+                <p>Get the complete collection and cover all essential ESL grammar topics!</p>
+                <div class="highlight-box">
+                    <strong>🎁 Bundle Pricing:</strong><br>
+                    Romanian Only: $34.99 (save $5!)<br>
+                    Serbian Only: $34.99 (save $5!)<br>
+                    <strong>Both Languages: $59.99 (save $20!)</strong>
+                </div>
+                <a href="https://alomiclemagic.gumroad.com/l/esl-complete-romanian" class="button-success">🇷🇴 Complete Romanian Bundle</a>
+                <a href="https://alomiclemagic.gumroad.com/l/esl-complete-serbian" class="button-success">🇷🇸 Complete Serbian Bundle</a>
+                <a href="https://alomiclemagic.gumroad.com/l/esl-complete-all" class="button-success">🌟 Ultimate Bundle - All Languages</a>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>✨ What's Included:</strong></p>
+                <ul style="margin-left: 20px; line-height: 2;">
+                    <li>✅ 20 exercises per worksheet (400 practice questions per pack!)</li>
+                    <li>✅ Complete answer keys for every worksheet</li>
+                    <li>✅ Teaching tips and grammar rules explained</li>
+                    <li>✅ Colorful, engaging design that kids love</li>
+                    <li>✅ Print-ready PDF format</li>
+                    <li>✅ Culturally adapted for Romanian and Serbian students</li>
+                    <li>✅ Perfect for classroom use, tutoring, or homeschool</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Educational Courses -->
+        <section id="courses">
+            <h2>📚 Educational Courses for Kids</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Complete curriculum packages for teaching financial literacy and respectful behavior to kids ages 8-12!</p>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-icon">💰</div>
                     <h3>The Ultimate Kids' Money Guide</h3>
                     <p><strong>Financial Literacy Course</strong></p>
                     <p>Teach your kids about money, saving, smart spending, and building wealth! Complete 8-week curriculum with interactive app, worksheets, quizzes, and teacher guides.</p>
                     <p><strong>Perfect for:</strong> Homeschool families, teachers, parents</p>
-                    <p><strong>Pricing:</strong> $29.99 Individual | $49.99 Teacher | $199.99 School</p>
-                    <a href="Financial_Guide_App_English.html" class="btn">🚀 Launch Course App</a>
-                    <a href="https://alomiclemagic.gumroad.com/l/qyoeiv" class="btn btn-secondary" target="_blank">💰 Buy Individual License</a>
+                    <div class="price">$29.99 Individual | $49.99 Teacher | $199.99 School</div>
+                    <a href="Financial_Guide_App_English.html" class="button">🚀 Launch Course App</a>
+                    <a href="https://alomiclemagic.gumroad.com/l/qyoeiv" class="button-secondary">💰 Buy Individual License</a>
                 </div>
 
-                <div class="card">
-                    <div class="emoji">💕</div>
+                <div class="product-card">
+                    <div class="product-icon">💕</div>
                     <h3>Raising Respectful Humans</h3>
                     <p><strong>Manners & Social Skills Course</strong></p>
                     <p>Teach kindness, empathy, respectful communication, and digital citizenship! Complete 8-week curriculum with interactive app, worksheets, quizzes, and teacher guides.</p>
                     <p><strong>Perfect for:</strong> Character education, SEL curriculum, families</p>
-                    <p><strong>Pricing:</strong> $29.99 Individual | $49.99 Teacher | $199.99 School</p>
-                    <a href="Manners_Guide_App_English.html" class="btn">🚀 Launch Course App</a>
-                    <a href="https://alomiclemagic.gumroad.com/l/oyllc" class="btn btn-secondary" target="_blank">💰 Buy Individual License</a>
+                    <div class="price">$29.99 Individual | $49.99 Teacher | $199.99 School</div>
+                    <a href="Manners_Guide_App_English.html" class="button">🚀 Launch Course App</a>
+                    <a href="https://alomiclemagic.gumroad.com/l/oyllc" class="button-secondary">💰 Buy Individual License</a>
                 </div>
 
-                <div class="card">
-                    <div class="emoji">🎁</div>
+                <div class="product-card bundle-card">
+                    <div class="product-icon">🎁</div>
                     <h3>Bundle & Save!</h3>
                     <p><strong>Both Courses Together</strong></p>
                     <p>Get BOTH complete courses at a discounted price! Teach financial literacy AND respectful behavior - the two most important life skills kids need.</p>
-                    <p><strong>Bundle Pricing:</strong></p>
-                    <p>Individual: $49.99 (save $10!)<br>
-                    Teacher: $79.99 (save $20!)<br>
-                    School: $349.99 (save $50!)</p>
-                    <a href="https://alomiclemagic.gumroad.com/l/edsdka" class="btn btn-secondary" target="_blank">🎁 Buy Bundle & Save</a>
+                    <div class="price">
+                        Individual: $49.99 (save $10!)<br>
+                        Teacher: $79.99 (save $20!)<br>
+                        School: $349.99 (save $50!)
+                    </div>
+                    <a href="https://alomiclemagic.gumroad.com/l/edsdka" class="button-success">🎁 Buy Bundle & Save</a>
                 </div>
             </div>
         </section>
 
-        <!-- CHILDREN'S BOOKS -->
-        <section id="books" class="section">
+        <!-- Children's Books -->
+        <section id="books">
             <h2>📖 Children's Books</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="emoji">💝</div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-icon">💝</div>
                     <h3>Stories for My Daughter</h3>
                     <p>10 beautifully illustrated stories teaching kindness, courage, empathy, and self-confidence. Perfect for ages 8-12.</p>
-                    <p><strong>eBook:</strong> $4.00 | <strong>Paperback:</strong> $16.99 | <strong>Hardcover:</strong> $35.00</p>
-                    <a href="https://www.amazon.com/dp/B0GGZ8YSKF" class="btn" target="_blank">Buy on Amazon</a>
+                    <div class="price">eBook: $4.00 | Paperback: $16.99 | Hardcover: $35.00</div>
+                    <a href="https://www.amazon.com/dp/B0GGZ8YSKF" class="button">Buy on Amazon</a>
                 </div>
 
-                <div class="card">
-                    <div class="emoji">🤖</div>
+                <div class="product-card">
+                    <div class="product-icon">🤖</div>
                     <h3>Understanding Claude: A Kid's Guide to AI Friends</h3>
                     <p>How to Talk to AI, Learn Together, and Keep Your Conversations Safe. Ages 8-14.</p>
-                    <p><strong>eBook:</strong> $4.00 | <strong>Paperback:</strong> $12.99 | <strong>Hardcover:</strong> $22.00</p>
-                    <a href="https://www.amazon.com/dp/B0GJ3ZP7ZK" class="btn" target="_blank">Buy on Amazon</a>
+                    <div class="price">eBook: $4.00 | Paperback: $12.99 | Hardcover: $22.00</div>
+                    <a href="https://www.amazon.com/dp/B0GJ3ZP7ZK" class="button">Buy on Amazon</a>
                 </div>
             </div>
         </section>
 
-        <!-- PARENTING GUIDES -->
-        <section id="parenting" class="section">
+        <!-- Parenting -->
+        <section id="parenting">
             <h2>👨‍👩‍👧‍👦 Parenting Guides & Journals</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="emoji">💌</div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-icon">💌</div>
                     <h3>Letters to My Daughter</h3>
                     <p>A Mother-Daughter Journal for Building Memories, Connection, and Love. 70 heartfelt prompts. Ages 8-18.</p>
-                    <p><strong>Paperback:</strong> $13.00</p>
-                    <a href="https://www.amazon.com/dp/B0GHWWPCPM" class="btn" target="_blank">Buy on Amazon</a>
+                    <div class="price">Paperback: $13.00</div>
+                    <a href="https://www.amazon.com/dp/B0GHWWPCPM" class="button">Buy on Amazon</a>
                 </div>
 
-                <div class="card">
-                    <div class="emoji">📚</div>
+                <div class="product-card">
+                    <div class="product-icon">📚</div>
                     <h3>The Parent's Survival Guide</h3>
                     <p>Raising Happy, Healthy Kids Ages 8-12 with routines, activities, and plenty of humor!</p>
-                    <a href="parents-survival-guide-app.html" class="btn">🎯 Try Interactive App</a>
+                    <a href="parents-survival-guide-app.html" class="button">🎯 Try Interactive App</a>
                 </div>
             </div>
         </section>
 
-        <!-- ROMANCE -->
-        <section id="romance" class="section">
+        <!-- Romance -->
+        <section id="romance">
             <h2>💕 Romance Novels</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="emoji">❤️</div>
-                    <h3>One More Valentine</h3>
-                    <p>A Second Chance Romance - Ten years later, five days together, one hotel room. Heat Level: 🌶️🌶️🌶️</p>
-                    <p><strong>eBook:</strong> $2.99 | <strong>Paperback:</strong> $7.00</p>
-                    <a href="https://www.amazon.com/dp/B0GJPTJNVP" class="btn" target="_blank">Buy on Amazon</a>
-                </div>
+            
+            <div class="product-card">
+                <div class="product-icon">❤️</div>
+                <h3>One More Valentine</h3>
+                <p>A Second Chance Romance - Ten years later, five days together, one hotel room.</p>
+                <p>Heat Level: 🌶️🌶️🌶️</p>
+                <div class="price">eBook: $2.99 | Paperback: $7.00</div>
+                <a href="https://www.amazon.com/dp/B0GJPTJNVP" class="button">Buy on Amazon</a>
             </div>
         </section>
 
-        <!-- INTERACTIVE TOOLS -->
-        <section id="tools" class="section">
+        <!-- Tools & Apps -->
+        <section id="tools">
             <h2>🛠️ Interactive Tools & Apps</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="emoji">🌊</div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-icon">🌊</div>
                     <h3>Ocean Phenomena Explorer</h3>
                     <p>Interactive guide for kids to discover ocean wonders! Created for Lexi with love!</p>
-                    <a href="ocean-explorer.html" class="btn">🌊 Explore Ocean</a>
+                    <a href="ocean-explorer.html" class="button">🌊 Explore Ocean</a>
                 </div>
 
-                <div class="card">
-                    <div class="emoji">🌱</div>
+                <div class="product-card">
+                    <div class="product-icon">🌱</div>
                     <h3>Kids Gardening Guide</h3>
                     <p>My First Garden Adventure! Learn to grow herbs indoors and vegetables outdoors!</p>
-                    <a href="kids-garden-guide.html" class="btn">🌱 Start Gardening</a>
+                    <a href="kids-garden-guide.html" class="button">🌱 Start Gardening</a>
                 </div>
             </div>
         </section>
 
-        <!-- LEXI'S CORNER -->
-        <section class="section">
+        <!-- Lexi's Projects -->
+        <section>
             <h2>🌟 Lexi's Learning Corner 🌟</h2>
-            <p style="text-align: center; margin-bottom: 2rem;">School projects, stories, and adventures created with Claude!</p>
-            <div style="text-align: center;">
-                <a href="lexi-projects-page.html" class="btn">🐯 Tigrul Siberian Project</a>
-                <a href="soareci-stories-page.html" class="btn">📚 Poveștile Șoarecilor</a>
+            <p style="text-align: center; margin-bottom: 20px;">School projects, stories, and adventures created with Claude!</p>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-icon">🐯</div>
+                    <h3>Tigrul Siberian Project</h3>
+                    <a href="lexi-projects-page.html" class="button">View Project</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">📚</div>
+                    <h3>Poveștile Șoarecilor</h3>
+                    <a href="soareci-stories-page.html" class="button">Read Stories</a>
+                </div>
             </div>
         </section>
-    </div>
 
-    <div class="footer">
-        <h3>About Elena Micle ✨</h3>
-        <p>Author, mother, and creator passionate about storytelling, parenting wisdom, and educational tools.</p>
-        <p style="margin-top: 1rem;">
-            <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" target="_blank">Amazon Author Page</a> | 
-            <a href="lexi-projects-page.html">Lexi's Projects</a>
-        </p>
-        <p style="margin-top: 2rem;">© 2026 Elena Micle | alo.micle.magic ✨ All rights reserved.</p>
-        <p>Made with ❤️, dedication, and a sprinkle of magic 🌟</p>
+        <footer>
+            <h3>About Elena Micle ✨</h3>
+            <p>Author, mother, and creator passionate about storytelling, parenting wisdom, and educational tools.</p>
+            <p>
+                <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL">Amazon Author Page</a> |
+                <a href="lexi-projects-page.html">Lexi's Projects</a>
+            </p>
+            <p style="margin-top: 20px;">© 2026 Elena Micle | alo.micle.magic ✨ All rights reserved.</p>
+            <p>Made with ❤️, dedication, and a sprinkle of magic 🌟</p>
+        </footer>
     </div>
 </body>
 </html>
