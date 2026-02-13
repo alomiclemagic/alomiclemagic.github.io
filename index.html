@@ -198,6 +198,10 @@
         .button-success {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         }
+
+        .button-download {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
         
         .new-badge {
             background: #ff6b6b;
@@ -263,7 +267,7 @@
             }
         }
         
-        /* New styles for teacher section */
+        /* Teacher section styles */
         .teacher-section {
             background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
             padding: 30px;
@@ -299,6 +303,23 @@
             border-radius: 15px;
             font-size: 0.9em;
         }
+
+        .pdf-preview {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .pdf-preview a {
+            font-size: 0.9em;
+            text-decoration: none;
+            color: #667eea;
+        }
+
+        .pdf-preview a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -326,7 +347,7 @@
             <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" class="amazon-button">📚 Visit My Amazon Author Page</a>
         </div>
 
-        <!-- NEW SECTION: For Teachers -->
+        <!-- TEACHER SECTION -->
         <section id="teachers" class="teacher-section">
             <h2>👩‍🏫 ESL Teaching Resources for Primary & Gymnasium Levels</h2>
             <p style="text-align: center; margin-bottom: 30px; font-size: 1.1em;">
@@ -347,6 +368,12 @@
                     <span class="topic-tag">Mixed Reviews</span>
                 </div>
                 <p>Perfect for introducing fundamental English grammar concepts with culturally relevant examples.</p>
+                
+                <div class="pdf-preview">
+                    <a href="Romanian_ESL_Worksheets_Pack.pdf" target="_blank">📄 Preview Romanian Pack</a>
+                    <a href="Serbian_ESL_Worksheets_Pack.pdf" target="_blank">📄 Preview Serbian Pack</a>
+                </div>
+                
                 <div class="price">$19.99 per language pack | $34.99 both languages</div>
                 <a href="https://alomiclemagic.gumroad.com/l/esl-pack1-romanian" class="button">🇷🇴 Buy Romanian Pack</a>
                 <a href="https://alomiclemagic.gumroad.com/l/esl-pack1-serbian" class="button">🇷🇸 Buy Serbian Pack</a>
@@ -370,6 +397,12 @@
                     <span class="topic-tag">Contractions</span>
                 </div>
                 <p>Build on essential skills with more advanced grammar topics and practical exercises.</p>
+                
+                <div class="pdf-preview">
+                    <a href="Romanian_ESL_Worksheets_Pack_2.pdf" target="_blank">📄 Preview Romanian Pack 2</a>
+                    <a href="Serbian_ESL_Worksheets_Pack_2.pdf" target="_blank">📄 Preview Serbian Pack 2</a>
+                </div>
+                
                 <div class="price">$19.99 per language pack | $34.99 both languages</div>
                 <a href="https://alomiclemagic.gumroad.com/l/esl-pack2-romanian" class="button">🇷🇴 Buy Romanian Pack</a>
                 <a href="https://alomiclemagic.gumroad.com/l/esl-pack2-serbian" class="button">🇷🇸 Buy Serbian Pack</a>
@@ -383,13 +416,14 @@
                 <p>Get the complete collection and cover all essential ESL grammar topics!</p>
                 <div class="highlight-box">
                     <strong>🎁 Bundle Pricing:</strong><br>
-                    Romanian Only: $34.99 (save $5!)<br>
-                    Serbian Only: $34.99 (save $5!)<br>
-                    <strong>Both Languages: $59.99 (save $20!)</strong>
+                    Romanian Complete Bundle: $34.99 (save $5!)<br>
+                    Serbian Complete Bundle: Coming Soon!<br>
+                    Both Languages Ultimate Bundle: Coming Soon!
                 </div>
                 <a href="https://alomiclemagic.gumroad.com/l/esl-complete-romanian" class="button-success">🇷🇴 Complete Romanian Bundle</a>
-                <a href="https://alomiclemagic.gumroad.com/l/esl-complete-serbian" class="button-success">🇷🇸 Complete Serbian Bundle</a>
-                <a href="https://alomiclemagic.gumroad.com/l/esl-complete-all" class="button-success">🌟 Ultimate Bundle - All Languages</a>
+                <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                    <em>More bundle options coming soon! Check back tomorrow for Serbian and Ultimate bundles.</em>
+                </p>
             </div>
 
             <div class="highlight-box">
@@ -402,6 +436,7 @@
                     <li>✅ Print-ready PDF format</li>
                     <li>✅ Culturally adapted for Romanian and Serbian students</li>
                     <li>✅ Perfect for classroom use, tutoring, or homeschool</li>
+                    <li>✅ Instant digital download</li>
                 </ul>
             </div>
         </section>
