@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESOL Course - Module 1: Introduction to ESL Teaching</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2C5F2D;
+            --secondary: #97BC62;
+            --accent: #FFB627;
+            --dark: #1A1A1D;
+            --light: #F8F9FA;
+            --cream: #FFF8E7;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: linear-gradient(135deg, #FFF8E7 0%, #F0E6D2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-bar {
+            max-width: 800px;
+            margin: 30px auto;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50px;
+            padding: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--accent) 0%, #FFC857 100%);
+            height: 20px;
+            border-radius: 50px;
+            width: 0%;
+            transition: width 0.5s ease;
+            box-shadow: 0 4px 10px rgba(255,182,39,0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-button {
+            background: white;
+            border: 3px solid var(--secondary);
+            padding: 15px 30px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .tab-button:hover::before,
+        .tab-button.active::before {
+            left: 0;
+        }
+
+        .tab-button:hover,
+        .tab-button.active {
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(44,95,45,0.3);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .lesson-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .lesson-card:hover {
+            transform: translateX(5px);
+        }
+
+        .lesson-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .lesson-card h3 {
+            color: var(--secondary);
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .lesson-card ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .lesson-card li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+
+        .video-player {
+            background: var(--dark);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-placeholder {
+            background: linear-gradient(135deg, #2C5F2D 0%, #1e4620 100%);
+            border-radius: 10px;
+            padding: 80px 40px;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .video-placeholder::before {
+            content: '▶';
+            display: block;
+            font-size: 4em;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .download-section {
+            background: linear-gradient(135deg, var(--cream) 0%, #FFF 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 3px dashed var(--secondary);
+        }
+
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, #FFC857 100%);
+            color: var(--dark);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255,182,39,0.3);
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,182,39,0.5);
+        }
+
+        .quiz-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .quiz-question {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: var(--cream);
+            border-radius: 15px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .quiz-question h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .quiz-option {
+            display: block;
+            padding: 15px 20px;
+            margin: 10px 0;
+            background: white;
+            border: 2px solid var(--secondary);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .quiz-option input {
+            margin-right: 10px;
+        }
+
+        .submit-quiz {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(44,95,45,0.3);
+        }
+
+        .submit-quiz:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(44,95,45,0.5);
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.3em;
+            margin: 30px 0;
+            display: none;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin: 5px;
+        }
+
+        .next-module {
+            background: linear-gradient(135deg, var(--cream) 0%, white 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+            border: 3px solid var(--secondary);
+        }
+
+        .next-module h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
+            .lesson-card {
+                padding: 25px;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>🎓 Module 1</h1>
+        <p class="subtitle">Introduction to ESL Teaching</p>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+        <p style="font-size: 0.9em; opacity: 0.9; position: relative; z-index: 1;">Your Progress: <span id="progressText">0%</span></p>
+    </div>
+
+    <div class="container">
+        <div class="nav-tabs">
+            <button class="tab-button active" onclick="showTab('overview')">📚 Overview</button>
+            <button class="tab-button" onclick="showTab('lesson')">🎬 Video Lesson</button>
+            <button class="tab-button" onclick="showTab('resources')">📥 Resources</button>
+            <button class="tab-button" onclick="showTab('quiz')">✅ Quiz</button>
+        </div>
+
+        <!-- OVERVIEW TAB -->
+        <div id="overview" class="tab-content active">
+            <div class="lesson-card">
+                <h2>Welcome to Your TESOL Journey! 🌍</h2>
+                <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
+                    Congratulations on taking the first step toward becoming a certified ESL teacher! This module will introduce you to the exciting world of Teaching English to Speakers of Other Languages.
+                </p>
+
+                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin: 25px 0;">
+                    <h3 style="margin-top: 0;">⏱️ Module Details</h3>
+                    <p><strong>Duration:</strong> Week 1 (approximately 10 hours)</p>
+                    <p><strong>Videos:</strong> 6 lessons (60 minutes total)</p>
+                    <p><strong>Reading:</strong> 30 pages</p>
+                    <p><strong>Activities:</strong> 5 reflective exercises</p>
+                    <p><strong>Quiz:</strong> 10 questions (pass with 70%)</p>
+                </div>
+
+                <h3>What You'll Learn in This Module</h3>
+                <ul>
+                    <li>✅ What TESOL, TEFL, and ESL mean and how they differ</li>
+                    <li>✅ The global demand for English teachers and career opportunities</li>
+                    <li>✅ Different teaching contexts: online, in-person, abroad, and corporate</li>
+                    <li>✅ How to develop your unique teaching philosophy and style</li>
+                    <li>✅ Professional ethics and best practices in ESL teaching</li>
+                    <li>✅ Practical steps to set up your teaching business</li>
+                </ul>
+
+                <h3>By the End of This Module, You Will:</h3>
+                <ul>
+                    <li>🎯 Understand the ESL teaching landscape and your career options</li>
+                    <li>🎯 Have a clear teaching philosophy statement</li>
+                    <li>🎯 Know the ethical guidelines for professional teachers</li>
+                    <li>🎯 Have a business setup checklist ready to implement</li>
+                    <li>🎯 Feel confident about your decision to become an ESL teacher</li>
+                </ul>
+
+                <div style="background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%); color: white; padding: 30px; border-radius: 15px; margin-top: 30px;">
+                    <h3 style="color: white; margin-top: 0;">💡 Why This Matters</h3>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        Understanding the foundation of ESL teaching is crucial for your success. This module sets the stage for everything else you'll learn. Whether you're a single mom looking for flexible work, a teacher expanding your skills, or someone passionate about education - this is where your transformation begins!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIDEO LESSON TAB -->
+        <div id="lesson" class="tab-content">
+            <div class="lesson-card">
+                <h2>📹 Video Lessons</h2>
+                <p style="margin-bottom: 30px;">Watch all 6 video lessons below. Each video is designed to be engaging, practical, and actionable.</p>
+
+                <h3>Lesson 1.1: What is TESOL? (12 minutes)</h3>
+                <div class="video-player">
+                    <div class="video-placeholder">
+                        Video: Introduction to TESOL, TEFL, ESL
+                        <br><small>(Video content will be added here)</small>
+                    </div>
+                </div>
+                <p><strong>Topics covered:</strong> Definitions, certifications, global recognition, career paths</p>
+
+                <h3>Lesson 1.2: The Global Demand for English Teachers (10 minutes)</h3>
+                <div class="video-player">
+                    <div class="video-placeholder">
+                        Video: Market Demand & Opportunities
+                        <br><small>(Video content will be added here)</small>
+                    </div>
+                </div>
+                <p><strong>Topics covered:</strong> Statistics, high-demand countries, online vs in-person opportunities</p>
+
+                <h3>Lesson 1.3: Teaching Contexts Explained (8 minutes)</h3>
+                <div class="video-player">
+                    <div class="video-placeholder">
+                        Video: Where Can You Teach?
+                        <br><small>(Video content will be added here)</small>
+                    </div>
+                </div>
+                <p><strong>Topics covered:</strong> Online platforms, language schools, private tutoring, corporate training, teaching abroad</p>
+
+                <h3>Lesson 1.4: Developing Your Teaching Philosophy (12 minutes)</h3>
+                <div class="video-player">
+                    <div class="video-placeholder">
+                        Video: Finding Your Teaching Style
+                        <br><small>(Video content will be added here)</small>
+                    </div>
+                </div>
+                <p><strong>Topics covered:</strong> Teaching approaches, personal values, learning styles, creating your philosophy statement</p>
+
+                <h3>Lesson 1.5: Ethics & Professionalism (10 minutes)</h3>
+                <div class="video-player">
+                    <div class="video-placeholder">
+                        Video: Being a Professional Teacher
+                        <br><small>(Video content will be added here)</small>
+                    </div>
+                </div>
+                <p><strong>Topics covered:</strong> Teacher responsibilities, cultural sensitivity, boundaries, confidentiality, continuing education</p>
+
+                <h3>Lesson 1.6: Setting Up Your Teaching Business (8 minutes)</h3>
+                <div class="video-player">
+                    <div class="video-placeholder">
+                        Video: From Student to Teacher-Entrepreneur
+                        <br><small>(Video content will be added here)</small>
+                    </div>
+                </div>
+                <p><strong>Topics covered:</strong> Legal requirements, pricing, marketing, finding students, managing finances</p>
+            </div>
+        </div>
+
+        <!-- RESOURCES TAB -->
+        <div id="resources" class="tab-content">
+            <div class="lesson-card">
+                <h2>📚 Downloadable Resources</h2>
+                <p style="margin-bottom: 30px;">All resources are professionally designed and ready to use immediately. Click to download!</p>
+
+                <div class="download-section">
+                    <h3 style="margin-top: 0;">📄 Required Reading Materials</h3>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        📖 Module 1 Course Guide (30 pages)
+                    </a>
+                    <p style="margin-top: 15px;"><em>Complete overview of everything covered in this module</em></p>
+                </div>
+
+                <div class="download-section">
+                    <h3 style="margin-top: 0;">✍️ Worksheets & Activities</h3>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        📝 Teaching Philosophy Worksheet
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        📝 Self-Assessment: Are You Ready to Teach?
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        📝 Business Setup Checklist
+                    </a>
+                    <p style="margin-top: 15px;"><em>Interactive worksheets to help you apply what you learn</em></p>
+                </div>
+
+                <div class="download-section">
+                    <h3 style="margin-top: 0;">📊 Reference Guides</h3>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        📋 TESOL vs TEFL vs ESL Comparison Chart
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        📋 Professional Ethics Code for ESL Teachers
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        📋 Teaching Context Comparison Guide
+                    </a>
+                    <p style="margin-top: 15px;"><em>Quick-reference materials for your teaching career</em></p>
+                </div>
+
+                <div class="download-section">
+                    <h3 style="margin-top: 0;">💼 Business Tools</h3>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        💰 Pricing Calculator Spreadsheet
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        📧 Email Templates for Students
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        🌐 Teacher Website Template
+                    </a>
+                    <p style="margin-top: 15px;"><em>Ready-to-use templates to start your teaching business</em></p>
+                </div>
+
+                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin-top: 30px; text-align: center;">
+                    <h3>📦 All Resources in One Package</h3>
+                    <p>Or download everything at once in a convenient ZIP file</p>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        ⬇️ Download All Module 1 Resources (ZIP)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUIZ TAB -->
+        <div id="quiz" class="tab-content">
+            <div class="quiz-section">
+                <h2 style="font-family: 'Playfair Display', serif; color: var(--primary); font-size: 2.2em; margin-bottom: 20px;">
+                    ✅ Module 1 Quiz
+                </h2>
+                <p style="font-size: 1.1em; margin-bottom: 30px;">
+                    Test your knowledge! You need 70% (7 out of 10 correct) to pass and move to Module 2.
+                </p>
+
+                <form id="quizForm">
+                    <div class="quiz-question">
+                        <h4>1. What does TESOL stand for?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="a"> Teaching English as a Second or Other Language
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="b"> Teaching English to Speakers of Other Languages ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="c"> Teaching English Schools of Language
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>2. Which statement about ESL teaching is TRUE?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="a"> You must be a native English speaker to teach ESL
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="b"> ESL teachers can only work in language schools
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="c"> ESL teachers can work online, in-person, or both ✓
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>3. What is the PRIMARY focus of a teaching philosophy?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="a"> Your beliefs about learning and how you'll teach ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="b"> How much money you want to make
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="c"> The textbooks you'll use
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>4. Which is an example of professional ethics in ESL teaching?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="a"> Sharing student information with friends
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="b"> Maintaining confidentiality about students ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="c"> Only teaching students you like
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>5. What is cultural sensitivity in ESL teaching?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="a"> Teaching only American culture
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="b"> Respecting and adapting to students' cultural backgrounds ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="c"> Avoiding all cultural topics
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>6. Which teaching context allows the most flexibility for single moms?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="a"> Teaching abroad in another country
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="b"> Online teaching from home ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="c"> Full-time language school position
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>7. What should you do FIRST when setting up your teaching business?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="a"> Buy expensive equipment
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="b"> Research legal requirements and register if needed ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="c"> Rent an office space
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>8. How many hours of instruction does this TESOL course provide?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="a"> 50 hours
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="b"> 120 hours ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="c"> 200 hours
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>9. What is a key benefit of online ESL teaching?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="a"> You can work from anywhere with internet ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="b"> You never need to plan lessons
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="c"> Students teach themselves
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>10. What should a professional ESL teacher do regularly?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="a"> Use the same lesson forever
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="b"> Continue learning and improving their skills ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="c"> Avoid feedback from students
+                        </label>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 40px;">
+                        <button type="button" class="submit-quiz" onclick="gradeQuiz()">
+                            Submit Quiz 🎯
+                        </button>
+                    </div>
+                </form>
+
+                <div class="success-message" id="successMessage">
+                    <h3 style="margin-bottom: 15px;">🎉 Congratulations!</h3>
+                    <p id="scoreText"></p>
+                    <p style="margin-top: 20px;">You've completed Module 1! Ready for Module 2?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="next-module">
+            <h3>📍 Coming Next:</h3>
+            <p style="font-size: 1.2em; margin: 20px 0;">
+                <strong>Module 2: English Grammar Fundamentals for Teachers</strong>
+            </p>
+            <p style="margin-bottom: 20px;">
+                Master the grammar you'll need to teach with confidence!
+            </p>
+            <div>
+                <span class="badge">Parts of Speech</span>
+                <span class="badge">Verb Tenses</span>
+                <span class="badge">Articles</span>
+                <span class="badge">Sentence Structure</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+
+            // Update progress
+            updateProgress();
+        }
+
+        // Progress tracking
+        function updateProgress() {
+            let progress = 0;
+            const videosWatched = localStorage.getItem('module1_videos') === 'true';
+            const resourcesViewed = localStorage.getItem('module1_resources') === 'true';
+            const quizCompleted = localStorage.getItem('module1_quiz') === 'true';
+
+            if (videosWatched) progress += 40;
+            if (resourcesViewed) progress += 30;
+            if (quizCompleted) progress += 30;
+
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressText').textContent = progress + '%';
+
+            // Mark sections as viewed
+            const currentTab = document.querySelector('.tab-content.active').id;
+            if (currentTab === 'lesson') {
+                localStorage.setItem('module1_videos', 'true');
+            } else if (currentTab === 'resources') {
+                localStorage.setItem('module1_resources', 'true');
+            }
+        }
+
+        // Quiz grading
+        function gradeQuiz() {
+            const answers = {
+                q1: 'b',
+                q2: 'c',
+                q3: 'a',
+                q4: 'b',
+                q5: 'b',
+                q6: 'b',
+                q7: 'b',
+                q8: 'b',
+                q9: 'a',
+                q10: 'b'
+            };
+
+            let correct = 0;
+            let total = 10;
+
+            for (let i = 1; i <= total; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === answers[`q${i}`]) {
+                    correct++;
+                }
+            }
+
+            const percentage = (correct / total) * 100;
+            const passed = percentage >= 70;
+
+            const successMessage = document.getElementById('successMessage');
+            const scoreText = document.getElementById('scoreText');
+
+            if (passed) {
+                scoreText.innerHTML = `You scored <strong>${correct} out of ${total}</strong> (${percentage}%)!<br>You PASSED! 🎊`;
+                successMessage.style.display = 'block';
+                successMessage.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+                localStorage.setItem('module1_quiz', 'true');
+                updateProgress();
+            } else {
+                scoreText.innerHTML = `You scored <strong>${correct} out of ${total}</strong> (${percentage}%).<br>You need 70% to pass. Please review the materials and try again!`;
+                successMessage.style.display = 'block';
+                successMessage.style.background = 'linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%)';
+            }
+
+            // Scroll to results
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Initialize progress on page load
+        window.onload = function() {
+            updateProgress();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESOL Course - Module 2: English Grammar Fundamentals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2C5F2D;
+            --secondary: #97BC62;
+            --accent: #FFB627;
+            --dark: #1A1A1D;
+            --light: #F8F9FA;
+            --cream: #FFF8E7;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: linear-gradient(135deg, #FFF8E7 0%, #F0E6D2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-bar {
+            max-width: 800px;
+            margin: 30px auto;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50px;
+            padding: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--accent) 0%, #FFC857 100%);
+            height: 20px;
+            border-radius: 50px;
+            width: 0%;
+            transition: width 0.5s ease;
+            box-shadow: 0 4px 10px rgba(255,182,39,0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-button {
+            background: white;
+            border: 3px solid var(--secondary);
+            padding: 15px 30px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .tab-button:hover::before,
+        .tab-button.active::before {
+            left: 0;
+        }
+
+        .tab-button:hover,
+        .tab-button.active {
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(44,95,45,0.3);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .lesson-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .lesson-card:hover {
+            transform: translateX(5px);
+        }
+
+        .lesson-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .lesson-card h3 {
+            color: var(--secondary);
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .lesson-card ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .lesson-card li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+
+        .grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .grammar-table th {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .grammar-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .grammar-table tr:hover {
+            background: var(--cream);
+        }
+
+        .example-box {
+            background: var(--cream);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .example-box strong {
+            color: var(--primary);
+        }
+
+        .download-section {
+            background: linear-gradient(135deg, var(--cream) 0%, #FFF 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 3px dashed var(--secondary);
+        }
+
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, #FFC857 100%);
+            color: var(--dark);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255,182,39,0.3);
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,182,39,0.5);
+        }
+
+        .quiz-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .quiz-question {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: var(--cream);
+            border-radius: 15px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .quiz-question h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .quiz-option {
+            display: block;
+            padding: 15px 20px;
+            margin: 10px 0;
+            background: white;
+            border: 2px solid var(--secondary);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .quiz-option input {
+            margin-right: 10px;
+        }
+
+        .submit-quiz {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(44,95,45,0.3);
+        }
+
+        .submit-quiz:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(44,95,45,0.5);
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.3em;
+            margin: 30px 0;
+            display: none;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin: 5px;
+        }
+
+        .next-module {
+            background: linear-gradient(135deg, var(--cream) 0%, white 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+            border: 3px solid var(--secondary);
+        }
+
+        .next-module h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
+            .lesson-card {
+                padding: 25px;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                width: 100%;
+            }
+
+            .grammar-table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>📖 Module 2</h1>
+        <p class="subtitle">English Grammar Fundamentals for Teachers</p>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+        <p style="font-size: 0.9em; opacity: 0.9; position: relative; z-index: 1;">Your Progress: <span id="progressText">0%</span></p>
+    </div>
+
+    <div class="container">
+        <div class="nav-tabs">
+            <button class="tab-button active" onclick="showTab('overview')">📚 Overview</button>
+            <button class="tab-button" onclick="showTab('grammar')">📝 Grammar Guide</button>
+            <button class="tab-button" onclick="showTab('resources')">📥 Resources</button>
+            <button class="tab-button" onclick="showTab('quiz')">✅ Quiz</button>
+        </div>
+
+        <!-- OVERVIEW TAB -->
+        <div id="overview" class="tab-content active">
+            <div class="lesson-card">
+                <h2>Master Grammar to Teach with Confidence! 💪</h2>
+                <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
+                    As an ESL teacher, YOU are the grammar expert your students rely on. This module gives you a deep, practical understanding of English grammar - not just rules to memorize, but HOW to teach these concepts clearly and effectively.
+                </p>
+
+                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin: 25px 0;">
+                    <h3 style="margin-top: 0;">⏱️ Module Details</h3>
+                    <p><strong>Duration:</strong> Week 2 (approximately 10 hours)</p>
+                    <p><strong>Reading:</strong> 50-page Grammar Reference Guide</p>
+                    <p><strong>Visual Aids:</strong> 15 grammar charts for teaching</p>
+                    <p><strong>Practice Materials:</strong> 20 worksheets with answer keys</p>
+                    <p><strong>Quiz:</strong> 10 questions (pass with 70%)</p>
+                </div>
+
+                <h3>What You'll Learn in This Module</h3>
+                <ul>
+                    <li>✅ <strong>Parts of Speech:</strong> Nouns, verbs, adjectives, adverbs, and how to teach them</li>
+                    <li>✅ <strong>Verb Tenses:</strong> Present, past, future, perfect - simplified for teaching</li>
+                    <li>✅ <strong>Articles:</strong> A, an, the - when to use each (and how to explain it!)</li>
+                    <li>✅ <strong>Prepositions:</strong> In, on, at, and phrasal verbs demystified</li>
+                    <li>✅ <strong>Sentence Structure:</strong> Word order, subject-verb agreement, types of sentences</li>
+                    <li>✅ <strong>Common Errors:</strong> What mistakes students make and how to correct them</li>
+                </ul>
+
+                <h3>By the End of This Module, You Will:</h3>
+                <ul>
+                    <li>🎯 Know ALL the grammar rules you need to teach ESL</li>
+                    <li>🎯 Have visual charts ready to explain complex concepts simply</li>
+                    <li>🎯 Understand common student errors (and how to fix them!)</li>
+                    <li>🎯 Be able to answer any grammar question with confidence</li>
+                    <li>🎯 Have 20 ready-made worksheets for your classes</li>
+                </ul>
+
+                <div style="background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%); color: white; padding: 30px; border-radius: 15px; margin-top: 30px;">
+                    <h3 style="color: white; margin-top: 0;">💡 Why Grammar Matters for Teachers</h3>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        Your students will ask: "Why do we say 'go to school' but 'go home'?" or "What's the difference between 'I did' and 'I have done'?" This module prepares you to answer EVERY question clearly and confidently. You'll learn not just WHAT the rules are, but HOW to explain them in ways students actually understand!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- GRAMMAR GUIDE TAB -->
+        <div id="grammar" class="tab-content">
+            <div class="lesson-card">
+                <h2>📝 Complete Grammar Reference Guide</h2>
+                <p style="margin-bottom: 30px;">This comprehensive guide covers everything you need to know. Use it as a teaching reference!</p>
+
+                <h3>1. Parts of Speech</h3>
+                
+                <table class="grammar-table">
+                    <thead>
+                        <tr>
+                            <th>Part of Speech</th>
+                            <th>Function</th>
+                            <th>Examples</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Noun</strong></td>
+                            <td>Person, place, thing, or idea</td>
+                            <td>teacher, school, book, happiness</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Verb</strong></td>
+                            <td>Action or state of being</td>
+                            <td>run, teach, is, have</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adjective</strong></td>
+                            <td>Describes a noun</td>
+                            <td>happy, blue, big, difficult</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adverb</strong></td>
+                            <td>Describes a verb, adjective, or adverb</td>
+                            <td>quickly, very, here, always</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pronoun</strong></td>
+                            <td>Replaces a noun</td>
+                            <td>I, you, he, she, it, we, they</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Preposition</strong></td>
+                            <td>Shows relationship</td>
+                            <td>in, on, at, under, with</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Conjunction</strong></td>
+                            <td>Connects words/phrases</td>
+                            <td>and, but, or, because</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Interjection</strong></td>
+                            <td>Expresses emotion</td>
+                            <td>Oh! Wow! Ouch!</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>2. Verb Tenses - Simplified for Teaching</h3>
+                
+                <div class="example-box">
+                    <strong>Present Simple:</strong> I teach / She teaches<br>
+                    <strong>Use:</strong> Habits, facts, general truths<br>
+                    <strong>Example:</strong> "I teach English every day."
+                </div>
+
+                <div class="example-box">
+                    <strong>Present Continuous:</strong> I am teaching / She is teaching<br>
+                    <strong>Use:</strong> Actions happening now<br>
+                    <strong>Example:</strong> "I am teaching a lesson right now."
+                </div>
+
+                <div class="example-box">
+                    <strong>Past Simple:</strong> I taught / She taught<br>
+                    <strong>Use:</strong> Completed actions in the past<br>
+                    <strong>Example:</strong> "I taught English last year."
+                </div>
+
+                <div class="example-box">
+                    <strong>Past Continuous:</strong> I was teaching / She was teaching<br>
+                    <strong>Use:</strong> Actions in progress in the past<br>
+                    <strong>Example:</strong> "I was teaching when you called."
+                </div>
+
+                <div class="example-box">
+                    <strong>Present Perfect:</strong> I have taught / She has taught<br>
+                    <strong>Use:</strong> Past actions with present relevance<br>
+                    <strong>Example:</strong> "I have taught English for 5 years."
+                </div>
+
+                <div class="example-box">
+                    <strong>Future Simple:</strong> I will teach / She will teach<br>
+                    <strong>Use:</strong> Future actions or predictions<br>
+                    <strong>Example:</strong> "I will teach tomorrow."
+                </div>
+
+                <h3>3. Articles: A, An, The</h3>
+                
+                <table class="grammar-table">
+                    <thead>
+                        <tr>
+                            <th>Article</th>
+                            <th>When to Use</th>
+                            <th>Examples</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>A</strong></td>
+                            <td>Before consonant sounds (general/singular)</td>
+                            <td>a book, a teacher, a university</td>
+                        </tr>
+                        <tr>
+                            <td><strong>An</strong></td>
+                            <td>Before vowel sounds (general/singular)</td>
+                            <td>an apple, an hour, an honest person</td>
+                        </tr>
+                        <tr>
+                            <td><strong>The</strong></td>
+                            <td>Specific things (both singular and plural)</td>
+                            <td>the book, the teacher, the students</td>
+                        </tr>
+                        <tr>
+                            <td><strong>No Article</strong></td>
+                            <td>General plural, uncountable, abstract nouns</td>
+                            <td>books, water, love, school (general)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>4. Prepositions of Time and Place</h3>
+                
+                <div class="example-box">
+                    <strong>IN:</strong> months, years, seasons, cities, countries<br>
+                    <em>in May, in 2026, in summer, in London, in Romania</em>
+                </div>
+
+                <div class="example-box">
+                    <strong>ON:</strong> days, dates, surfaces<br>
+                    <em>on Monday, on May 5th, on the table, on the wall</em>
+                </div>
+
+                <div class="example-box">
+                    <strong>AT:</strong> specific times, locations, events<br>
+                    <em>at 3 PM, at school, at the party, at home</em>
+                </div>
+
+                <h3>5. Common Student Errors & How to Correct Them</h3>
+                
+                <table class="grammar-table">
+                    <thead>
+                        <tr>
+                            <th>Common Error</th>
+                            <th>Correct Form</th>
+                            <th>Teaching Tip</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>I am go to school</td>
+                            <td>I go to school</td>
+                            <td>Present simple doesn't need "am/is/are" before the main verb</td>
+                        </tr>
+                        <tr>
+                            <td>She don't like coffee</td>
+                            <td>She doesn't like coffee</td>
+                            <td>Use "doesn't" with he/she/it</td>
+                        </tr>
+                        <tr>
+                            <td>I have 25 years</td>
+                            <td>I am 25 years old</td>
+                            <td>Age uses "to be" in English, not "have"</td>
+                        </tr>
+                        <tr>
+                            <td>She is very beautiful woman</td>
+                            <td>She is a very beautiful woman</td>
+                            <td>Need article before singular countable nouns</td>
+                        </tr>
+                        <tr>
+                            <td>I am living here since 5 years</td>
+                            <td>I have lived here for 5 years</td>
+                            <td>Use present perfect with "since" and "for"</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin-top: 30px;">
+                    <h3 style="margin-top: 0;">🎯 Teaching Strategy</h3>
+                    <p><strong>The 3-Step Grammar Teaching Method:</strong></p>
+                    <ol style="margin-left: 25px; line-height: 2;">
+                        <li><strong>Present:</strong> Show the rule with clear examples</li>
+                        <li><strong>Practice:</strong> Students do controlled exercises</li>
+                        <li><strong>Produce:</strong> Students use the grammar freely in speaking/writing</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESOURCES TAB -->
+        <div id="resources" class="tab-content">
+            <div class="lesson-card">
+                <h2>📚 Downloadable Teaching Resources</h2>
+                <p style="margin-bottom: 30px;">Professional materials ready to use in your ESL classes!</p>
+
+                <div class="download-section">
+                    <h3 style="margin-top: 0;">📖 Complete Grammar Guide</h3>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        📄 50-Page Grammar Reference (PDF)
+                    </a>
+                    <p style="margin-top: 15px;"><em>Your complete guide to English grammar for teachers</em></p>
+                </div>
+
+                <div class="download-section">
+                    <h3 style="margin-top: 0;">📊 Visual Teaching Charts</h3>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        📈 Verb Tense Timeline Chart
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        📈 Parts of Speech Poster
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        📈 Prepositions Visual Guide
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        📈 Article Usage Flowchart
+                    </a>
+                    <p style="margin-top: 15px;"><em>Beautiful visual aids to explain grammar concepts</em></p>
+                </div>
+
+                <div class="download-section">
+                    <h3 style="margin-top: 0;">✍️ Ready-to-Use Worksheets</h3>
+                    <a href="Romanian_ESL_Worksheets_Pack.pdf" class="download-button" target="_blank">
+                        📝 Articles Practice (20 exercises) - Romanian
+                    </a>
+                    <a href="Serbian_ESL_Worksheets_Pack.pdf" class="download-button" target="_blank">
+                        📝 Articles Practice (20 exercises) - Serbian
+                    </a>
+                    <a href="Romanian_ESL_Worksheets_Pack.pdf" class="download-button" target="_blank">
+                        📝 Is/Am/Are Worksheets - Romanian
+                    </a>
+                    <a href="Serbian_ESL_Worksheets_Pack.pdf" class="download-button" target="_blank">
+                        📝 Is/Am/Are Worksheets - Serbian
+                    </a>
+                    <a href="Romanian_ESL_Worksheets_Pack.pdf" class="download-button" target="_blank">
+                        📝 Was/Were Practice - Romanian
+                    </a>
+                    <a href="Serbian_ESL_Worksheets_Pack.pdf" class="download-button" target="_blank">
+                        📝 Was/Were Practice - Serbian
+                    </a>
+                    <a href="Romanian_ESL_Worksheets_Pack.pdf" class="download-button" target="_blank">
+                        📝 Prepositions Worksheets - Romanian
+                    </a>
+                    <a href="Serbian_ESL_Worksheets_Pack.pdf" class="download-button" target="_blank">
+                        📝 Prepositions Worksheets - Serbian
+                    </a>
+                    <a href="Romanian_ESL_Worksheets_Pack.pdf" class="download-button" target="_blank">
+                        📝 Pronouns Practice - Romanian
+                    </a>
+                    <a href="Serbian_ESL_Worksheets_Pack.pdf" class="download-button" target="_blank">
+                        📝 Pronouns Practice - Serbian
+                    </a>
+                    <p style="margin-top: 15px;"><em>40 worksheets total with complete answer keys!</em></p>
+                </div>
+
+                <div class="download-section">
+                    <h3 style="margin-top: 0;">🎯 Common Errors Guide</h3>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        ⚠️ Top 50 Student Grammar Mistakes
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        ✅ Error Correction Strategies
+                    </a>
+                    <p style="margin-top: 15px;"><em>Anticipate and fix common problems!</em></p>
+                </div>
+
+                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin-top: 30px; text-align: center;">
+                    <h3>📦 Download Everything</h3>
+                    <p>Get all Module 2 resources in one convenient package</p>
+                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
+                        ⬇️ Complete Module 2 Package (ZIP)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUIZ TAB -->
+        <div id="quiz" class="tab-content">
+            <div class="quiz-section">
+                <h2 style="font-family: 'Playfair Display', serif; color: var(--primary); font-size: 2.2em; margin-bottom: 20px;">
+                    ✅ Module 2 Grammar Quiz
+                </h2>
+                <p style="font-size: 1.1em; margin-bottom: 30px;">
+                    Test your grammar knowledge! You need 70% (7 out of 10 correct) to pass.
+                </p>
+
+                <form id="quizForm">
+                    <div class="quiz-question">
+                        <h4>1. Which sentence uses the CORRECT article?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="a"> I need a information about the course
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="b"> I need an information about the course
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="c"> I need information about the course ✓
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>2. What is the present continuous tense of "teach"?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="a"> I am teaching ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="b"> I am teach
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="c"> I teaching
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>3. Which preposition is correct: "She lives ___ London"?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="a"> at London
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="b"> in London ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="c"> on London
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>4. What part of speech is "quickly"?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="a"> Adjective
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="b"> Adverb ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="c"> Verb
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>5. Which sentence is CORRECT?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="a"> She don't like coffee
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="b"> She doesn't like coffee ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="c"> She not like coffee
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>6. When do we use "an" instead of "a"?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="a"> Before vowel sounds ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="b"> Before consonant sounds
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="c"> Before plural nouns
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>7. What is the past simple of "go"?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="a"> goed
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="b"> went ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="c"> gone
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>8. Which is correct: "The meeting is ___ Monday ___ 3 PM"?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="a"> in / in
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="b"> on / at ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="c"> at / on
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>9. What are the subject pronouns in English?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="a"> me, you, him, her, us, them
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="b"> I, you, he, she, it, we, they ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="c"> my, your, his, her, our, their
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>10. How should students express age in English?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="a"> I have 25 years
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="b"> I am 25 years old ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="c"> I am having 25 years
+                        </label>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 40px;">
+                        <button type="button" class="submit-quiz" onclick="gradeQuiz()">
+                            Submit Quiz 🎯
+                        </button>
+                    </div>
+                </form>
+
+                <div class="success-message" id="successMessage">
+                    <h3 style="margin-bottom: 15px;">🎉 Excellent Work!</h3>
+                    <p id="scoreText"></p>
+                    <p style="margin-top: 20px;">You're building a strong grammar foundation!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="next-module">
+            <h3>📍 Coming Next:</h3>
+            <p style="font-size: 1.2em; margin: 20px 0;">
+                <strong>Module 3: Lesson Planning & Curriculum Design</strong>
+            </p>
+            <p style="margin-bottom: 20px;">
+                Learn to create engaging, effective lessons that students love!
+            </p>
+            <div>
+                <span class="badge">Lesson Templates</span>
+                <span class="badge">Learning Objectives</span>
+                <span class="badge">Scaffolding</span>
+                <span class="badge">Adaptation</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            updateProgress();
+        }
+
+        function updateProgress() {
+            let progress = 0;
+            const grammarRead = localStorage.getItem('module2_grammar') === 'true';
+            const resourcesViewed = localStorage.getItem('module2_resources') === 'true';
+            const quizCompleted = localStorage.getItem('module2_quiz') === 'true';
+
+            if (grammarRead) progress += 40;
+            if (resourcesViewed) progress += 30;
+            if (quizCompleted) progress += 30;
+
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressText').textContent = progress + '%';
+
+            const currentTab = document.querySelector('.tab-content.active').id;
+            if (currentTab === 'grammar') {
+                localStorage.setItem('module2_grammar', 'true');
+            } else if (currentTab === 'resources') {
+                localStorage.setItem('module2_resources', 'true');
+            }
+        }
+
+        function gradeQuiz() {
+            const answers = {
+                q1: 'c', q2: 'a', q3: 'b', q4: 'b', q5: 'b',
+                q6: 'a', q7: 'b', q8: 'b', q9: 'b', q10: 'b'
+            };
+
+            let correct = 0;
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === answers[`q${i}`]) {
+                    correct++;
+                }
+            }
+
+            const percentage = (correct / 10) * 100;
+            const passed = percentage >= 70;
+            const successMessage = document.getElementById('successMessage');
+            const scoreText = document.getElementById('scoreText');
+
+            if (passed) {
+                scoreText.innerHTML = `You scored <strong>${correct} out of 10</strong> (${percentage}%)!<br>You PASSED! 🎊`;
+                successMessage.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+                localStorage.setItem('module2_quiz', 'true');
+                updateProgress();
+            } else {
+                scoreText.innerHTML = `You scored <strong>${correct} out of 10</strong> (${percentage}%).<br>You need 70% to pass. Review the grammar guide and try again!`;
+                successMessage.style.background = 'linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%)';
+            }
+
+            successMessage.style.display = 'block';
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        window.onload = function() {
+            updateProgress();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESOL Course - Module 12: Building Your Teaching Career</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2C5F2D;
+            --secondary: #97BC62;
+            --accent: #FFB627;
+            --dark: #1A1A1D;
+            --light: #F8F9FA;
+            --cream: #FFF8E7;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: linear-gradient(135deg, #FFF8E7 0%, #F0E6D2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #FFB627 0%, #FFC857 100%);
+            color: var(--dark);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 8px solid var(--primary);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-bar {
+            max-width: 800px;
+            margin: 30px auto;
+            background: rgba(0,0,0,0.2);
+            border-radius: 50px;
+            padding: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--primary) 0%, #1e4620 100%);
+            height: 25px;
+            border-radius: 50px;
+            width: 100%;
+            box-shadow: 0 6px 15px rgba(44,95,45,0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-button {
+            background: white;
+            border: 3px solid var(--accent);
+            padding: 15px 30px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .tab-button:hover::before,
+        .tab-button.active::before {
+            left: 0;
+        }
+
+        .tab-button:hover,
+        .tab-button.active {
+            color: var(--dark);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255,182,39,0.4);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .lesson-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--accent);
+        }
+
+        .lesson-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .lesson-card h3 {
+            color: var(--secondary);
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .career-card {
+            background: linear-gradient(135deg, var(--cream) 0%, #FFF 100%);
+            border: 3px solid var(--secondary);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 25px 0;
+        }
+
+        .career-card h4 {
+            color: var(--primary);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .platform-card {
+            background: white;
+            border: 2px solid var(--secondary);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: var(--accent);
+        }
+
+        .platform-card h5 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(44,95,45,0.3);
+        }
+
+        .success-box h4 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .download-section {
+            background: linear-gradient(135deg, var(--accent) 0%, #FFC857 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 3px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(255,182,39,0.3);
+        }
+
+        .download-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 3px solid var(--primary);
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background: var(--primary);
+            color: white;
+        }
+
+        .quiz-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .quiz-question {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: var(--cream);
+            border-radius: 15px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .quiz-question h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .quiz-option {
+            display: block;
+            padding: 15px 20px;
+            margin: 10px 0;
+            background: white;
+            border: 2px solid var(--secondary);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .submit-quiz {
+            background: linear-gradient(135deg, var(--accent) 0%, #FFC857 100%);
+            color: var(--dark);
+            border: 3px solid var(--primary);
+            padding: 20px 60px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255,182,39,0.4);
+        }
+
+        .submit-quiz:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255,182,39,0.6);
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.3em;
+            margin: 30px 0;
+            display: none;
+            box-shadow: 0 10px 30px rgba(76,175,80,0.4);
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .tip-box h4 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1em;
+            margin: 5px;
+        }
+
+        .congratulations {
+            background: linear-gradient(135deg, #FFB627 0%, #FFC857 100%);
+            border-radius: 30px;
+            padding: 60px;
+            text-align: center;
+            margin-top: 50px;
+            border: 8px solid var(--primary);
+            box-shadow: 0 20px 50px rgba(255,182,39,0.5);
+            animation: celebrate 3s ease-in-out infinite;
+        }
+
+        @keyframes celebrate {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .congratulations h3 {
+            font-size: 3em;
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; }
+            .platform-grid { grid-template-columns: 1fr; }
+            .congratulations { padding: 40px 20px; }
+            .congratulations h3 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>🎓💼🚀 Module 12</h1>
+        <p class="subtitle">Building Your Teaching Career</p>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        <p style="font-size: 1.3em; font-weight: 700; position: relative; z-index: 1; margin-top: 20px;">
+            🎊 COURSE COMPLETE: 100%! 🎊
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="nav-tabs">
+            <button class="tab-button active" onclick="showTab('overview')">📚 Overview</button>
+            <button class="tab-button" onclick="showTab('finding')">👥 Finding Students</button>
+            <button class="tab-button" onclick="showTab('marketing')">📣 Marketing</button>
+            <button class="tab-button" onclick="showTab('business')">💰 Business</button>
+            <button class="tab-button" onclick="showTab('success')">🌟 Success</button>
+            <button class="tab-button" onclick="showTab('resources')">📥 Resources</button>
+            <button class="tab-button" onclick="showTab('quiz')">✅ Quiz</button>
+        </div>
+
+        <!-- OVERVIEW TAB -->
+        <div id="overview" class="tab-content active">
+            <div class="lesson-card">
+                <h2>Launch Your Dream Teaching Career! 🌟</h2>
+                <p style="font-size: 1.3em; line-height: 1.8; margin-bottom: 20px; font-weight: 500;">
+                    THIS IS IT! The final module where you learn to turn your new skills into INCOME! Find students, market yourself, set prices, and build the flexible, fulfilling career you deserve!
+                </p>
+
+                <div style="background: linear-gradient(135deg, var(--accent) 0%, #FFC857 100%); padding: 35px; border-radius: 20px; margin: 30px 0; border: 4px solid var(--primary);">
+                    <h3 style="margin-top: 0; color: var(--dark); font-size: 1.8em;">⏱️ Module Details</h3>
+                    <p style="color: var(--dark);"><strong>Duration:</strong> Week 12 (approximately 10 hours)</p>
+                    <p style="color: var(--dark);"><strong>Focus:</strong> From certified to EARNING!</p>
+                    <p style="color: var(--dark);"><strong>Platforms Covered:</strong> 20+ ways to find students</p>
+                    <p style="color: var(--dark);"><strong>Business Setup:</strong> Pricing, contracts, payments</p>
+                    <p style="color: var(--dark);"><strong>Quiz:</strong> 10 questions (pass with 70%)</p>
+                </div>
+
+                <h3>What You'll Learn in This Module</h3>
+                <ul style="margin-left: 25px; margin-bottom: 20px; line-height: 2.2; font-size: 1.05em;">
+                    <li>✅ <strong>Finding Students:</strong> Online platforms, local opportunities, networking</li>
+                    <li>✅ <strong>Marketing Yourself:</strong> Creating profile, website, social media</li>
+                    <li>✅ <strong>Setting Prices:</strong> How much to charge (and actually get paid!)</li>
+                    <li>✅ <strong>Running Your Business:</strong> Contracts, payments, taxes</li>
+                    <li>✅ <strong>Building Success:</strong> Growing from part-time to full-time</li>
+                </ul>
+
+                <h3>By the End of This Module, You Will:</h3>
+                <ul style="margin-left: 25px; margin-bottom: 20px; line-height: 2.2; font-size: 1.05em;">
+                    <li>🎯 Know where to find your first students</li>
+                    <li>🎯 Have a professional teacher profile ready</li>
+                    <li>🎯 Understand pricing and contracts</li>
+                    <li>🎯 Be ready to START EARNING immediately</li>
+                    <li>🎯 Have a plan to grow your teaching business</li>
+                </ul>
+
+                <div class="success-box">
+                    <h4>💖 For Single Moms, Teachers, & Dream Chasers</h4>
+                    <p style="font-size: 1.15em; line-height: 1.9;">
+                        This module is especially for YOU - the single mom juggling kids and bills, the teacher seeking extra income, the career changer wanting flexibility and purpose. ESL teaching gives you: <strong>FREEDOM</strong> to work from home, <strong>FLEXIBILITY</strong> to set your schedule, <strong>INCOME</strong> to support your family, and <strong>PURPOSE</strong> helping others learn. Your new life starts NOW! 🦋✨
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FINDING STUDENTS TAB -->
+        <div id="finding" class="tab-content">
+            <div class="lesson-card">
+                <h2>👥 Finding Your First Students</h2>
+                <p style="margin-bottom: 30px;">Multiple paths to your first paying students!</p>
+
+                <h3>Online Teaching Platforms</h3>
+
+                <div class="platform-grid">
+                    <div class="platform-card">
+                        <h5>VIPKid / Magic Ears</h5>
+                        <p><strong>Teach:</strong> Chinese children (1-on-1)</p>
+                        <p><strong>Pay:</strong> $14-22/hour</p>
+                        <p><strong>Schedule:</strong> Beijing peak times</p>
+                        <p><strong>Requirements:</strong> Bachelor's degree</p>
+                    </div>
+
+                    <div class="platform-card">
+                        <h5>Cambly</h5>
+                        <p><strong>Teach:</strong> Adults worldwide (conversation)</p>
+                        <p><strong>Pay:</strong> $10-12/hour</p>
+                        <p><strong>Schedule:</strong> Completely flexible</p>
+                        <p><strong>Requirements:</strong> Native English speaker</p>
+                    </div>
+
+                    <div class="platform-card">
+                        <h5>italki</h5>
+                        <p><strong>Teach:</strong> Anyone (you set everything!)</p>
+                        <p><strong>Pay:</strong> YOU decide! $10-50/hour</p>
+                        <p><strong>Schedule:</strong> Your choice</p>
+                        <p><strong>Best for:</strong> Independent teachers</p>
+                    </div>
+
+                    <div class="platform-card">
+                        <h5>Preply</h5>
+                        <p><strong>Teach:</strong> 1-on-1 tutoring</p>
+                        <p><strong>Pay:</strong> YOU set rate! $10-40/hour</p>
+                        <p><strong>Schedule:</strong> Flexible</p>
+                        <p><strong>Commission:</strong> Preply takes 18-33%</p>
+                    </div>
+
+                    <div class="platform-card">
+                        <h5>Verbling</h5>
+                        <p><strong>Teach:</strong> Language learners</p>
+                        <p><strong>Pay:</strong> YOU set! $15-50/hour</p>
+                        <p><strong>Schedule:</strong> Your availability</p>
+                        <p><strong>Professional:</strong> Video intro required</p>
+                    </div>
+
+                    <div class="platform-card">
+                        <h5>Palfish</h5>
+                        <p><strong>Teach:</strong> Chinese students via phone</p>
+                        <p><strong>Pay:</strong> $10-18/hour</p>
+                        <p><strong>Bonus:</strong> Teach from phone anywhere!</p>
+                    </div>
+                </div>
+
+                <h3>Local & Private Students</h3>
+
+                <div class="career-card">
+                    <h4>Finding Students Locally:</h4>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>📍 <strong>Community Centers:</strong> Post flyers, offer classes</li>
+                        <li>📍 <strong>Libraries:</strong> Free rooms, eager learners</li>
+                        <li>📍 <strong>Churches/Mosques/Temples:</strong> Immigrant communities</li>
+                        <li>📍 <strong>Universities:</strong> International students need tutoring</li>
+                        <li>📍 <strong>Language Schools:</strong> Apply as contractor</li>
+                        <li>📍 <strong>Craigslist/Facebook:</strong> Post tutoring services</li>
+                        <li>📍 <strong>Word of Mouth:</strong> Tell everyone you're teaching!</li>
+                    </ul>
+                </div>
+
+                <h3>Corporate & Business Clients</h3>
+
+                <div class="career-card">
+                    <h4>Higher Paying Corporate Students:</h4>
+                    <p style="margin-bottom: 15px;"><strong>Companies hire ESL teachers for employees!</strong> These pay $40-80/hour!</p>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>💼 Contact HR departments of international companies</li>
+                        <li>💼 Reach out to tech companies with immigrant workers</li>
+                        <li>💼 Offer group classes (more students = more income!)</li>
+                        <li>💼 LinkedIn networking with business professionals</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <h4>👥 The First Student Secret</h4>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        Getting your FIRST student is the hardest. But once you get one, they refer others! Start with the EASIEST platform (Cambly - just sign up and start!), get some experience and reviews, then branch out to higher-paying platforms. Don't wait for perfect - START NOW! 🚀
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MARKETING TAB -->
+        <div id="marketing" class="tab-content">
+            <div class="lesson-card">
+                <h2>📣 Marketing Yourself as a Teacher</h2>
+                <p style="margin-bottom: 30px;">Stand out and attract students!</p>
+
+                <h3>Creating Your Teacher Profile</h3>
+
+                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin: 20px 0;">
+                    <h4 style="color: var(--primary); margin-bottom: 15px;">The Perfect Teacher Profile:</h4>
+                    
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid var(--accent);">
+                        <h5 style="color: var(--primary); margin-bottom: 10px;">1. Professional Photo</h5>
+                        <p><strong>DO:</strong> Smile, good lighting, clear face, professional but friendly</p>
+                        <p><strong>DON'T:</strong> Selfies, filters, sunglasses, group photos</p>
+                    </div>
+
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid var(--accent);">
+                        <h5 style="color: var(--primary); margin-bottom: 10px;">2. Compelling Introduction</h5>
+                        <p><strong>Include:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>Your teaching experience/certification</li>
+                            <li>What makes you unique</li>
+                            <li>Who you best help (kids? adults? business?)</li>
+                            <li>Your teaching style</li>
+                            <li>Results students achieve</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid var(--accent);">
+                        <h5 style="color: var(--primary); margin-bottom: 10px;">3. Video Introduction</h5>
+                        <p><strong>Keep it:</strong> 1-2 minutes, warm and friendly</p>
+                        <p><strong>Show:</strong> Your personality, energy, teaching style</p>
+                        <p><strong>Say:</strong> "Hi! I'm [name], and I help [who] achieve [what]!"</p>
+                    </div>
+                </div>
+
+                <h3>Sample Teacher Introduction</h3>
+
+                <div style="background: white; padding: 30px; border-radius: 15px; margin: 20px 0; border: 3px solid var(--secondary);">
+                    <p style="font-style: italic; line-height: 1.8;">
+                        "Hi! I'm Sarah, a certified TESOL teacher with 5 years of experience helping professionals improve their Business English. I specialize in presentations, meetings, and interview preparation. My students love my practical approach - we practice real scenarios you'll use at work immediately! Whether you're preparing for a big presentation or wanting to feel more confident in English meetings, I'll help you achieve your goals. My students typically see improvement in just 4-6 weeks. Let's work together to boost your English confidence!"
+                    </p>
+                </div>
+
+                <h3>Building Your Online Presence</h3>
+
+                <div class="career-card">
+                    <h4>Where to Market Yourself:</h4>
+                    
+                    <p style="margin: 15px 0;"><strong>🌐 Your Own Website:</strong></p>
+                    <ul style="margin-left: 20px;">
+                        <li>Use Wix, WordPress, or Squarespace (easy!)</li>
+                        <li>Include: About, Services, Testimonials, Contact, Blog</li>
+                        <li>Cost: $10-20/month</li>
+                    </ul>
+
+                    <p style="margin: 15px 0;"><strong>📱 Social Media:</strong></p>
+                    <ul style="margin-left: 20px;">
+                        <li><strong>Instagram:</strong> Share teaching tips, student success stories</li>
+                        <li><strong>Facebook:</strong> Join expat groups, post about services</li>
+                        <li><strong>LinkedIn:</strong> Connect with business professionals</li>
+                        <li><strong>YouTube:</strong> Free English lessons (build following!)</li>
+                        <li><strong>TikTok:</strong> Quick English tips go viral!</li>
+                    </ul>
+
+                    <p style="margin: 15px 0;"><strong>💬 Word of Mouth:</strong></p>
+                    <ul style="margin-left: 20px;">
+                        <li>Ask happy students for referrals</li>
+                        <li>Offer referral discounts</li>
+                        <li>Tell everyone you meet you're a teacher!</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <h4>📣 Marketing Secret</h4>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        The BEST marketing is RESULTS! When students achieve their goals - passing tests, getting jobs, feeling confident - they tell others! Focus on being an EXCELLENT teacher first, and students will find you. Your reputation is your best marketing tool! ⭐
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- BUSINESS TAB -->
+        <div id="business" class="tab-content">
+            <div class="lesson-card">
+                <h2>💰 Running Your Teaching Business</h2>
+                <p style="margin-bottom: 30px;">Get paid what you're worth!</p>
+
+                <h3>Setting Your Prices</h3>
+
+                <div style="background: var(--cream); padding: 30px; border-radius: 15px; margin: 20px 0;">
+                    <h4 style="color: var(--primary); margin-bottom: 15px;">Typical ESL Teaching Rates:</h4>
+                    
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                        <tr style="background: white;">
+                            <td style="padding: 15px; border: 2px solid var(--secondary); font-weight: 600;">Teaching Type</td>
+                            <td style="padding: 15px; border: 2px solid var(--secondary); font-weight: 600;">Typical Rate</td>
+                        </tr>
+                        <tr style="background: white;">
+                            <td style="padding: 15px; border: 2px solid var(--secondary);">Online Platform (Cambly)</td>
+                            <td style="padding: 15px; border: 2px solid var(--secondary);">$10-12/hour</td>
+                        </tr>
+                        <tr style="background: white;">
+                            <td style="padding: 15px; border: 2px solid var(--secondary);">Private Online Tutoring</td>
+                            <td style="padding: 15px; border: 2px solid var(--secondary);">$20-35/hour</td>
+                        </tr>
+                        <tr style="background: white;">
+                            <td style="padding: 15px; border: 2px solid var(--secondary);">Local Private Lessons</td>
+                            <td style="padding: 15px; border: 2px solid var(--secondary);">$25-50/hour</td>
+                        </tr>
+                        <tr style="background: white;">
+                            <td style="padding: 15px; border: 2px solid var(--secondary);">Business English</td>
+                            <td style="padding: 15px; border: 2px solid var(--secondary);">$40-80/hour</td>
+                        </tr>
+                        <tr style="background: white;">
+                            <td style="padding: 15px; border: 2px solid var(--secondary);">Test Prep (TOEFL/IELTS)</td>
+                            <td style="padding: 15px; border: 2px solid var(--secondary);">$35-60/hour</td>
+                        </tr>
+                        <tr style="background: white;">
+                            <td style="padding: 15px; border: 2px solid var(--secondary);">ESP (Medical, Legal, etc.)</td>
+                            <td style="padding: 15px; border: 2px solid var(--secondary);">$50-100/hour</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3>Payment Methods</h3>
+
+                <div class="career-card">
+                    <h4>How to Get Paid:</h4>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>💳 <strong>PayPal:</strong> Easy, international, 3% fee</li>
+                        <li>💳 <strong>Venmo/Zelle:</strong> US only, free, instant</li>
+                        <li>💳 <strong>Wise (TransferWise):</strong> International, low fees</li>
+                        <li>💳 <strong>Cash:</strong> Local lessons, no fees</li>
+                        <li>💳 <strong>Bank Transfer:</strong> Traditional, free</li>
+                        <li>💳 <strong>Platform Payment:</strong> If using italki/Preply, they handle it</li>
+                    </ul>
+                </div>
+
+                <h3>Contracts & Policies</h3>
+
+                <div style="background: white; padding: 25px; border-radius: 15px; margin: 20px 0; border: 3px solid var(--secondary);">
+                    <h4 style="color: var(--primary); margin-bottom: 15px;">Essential Policies to Have:</h4>
+                    
+                    <p style="margin: 15px 0;"><strong>Cancellation Policy:</strong></p>
+                    <p style="margin-left: 20px;">"Students must cancel 24 hours in advance for a refund. Late cancellations are charged."</p>
+
+                    <p style="margin: 15px 0;"><strong>Payment Terms:</strong></p>
+                    <p style="margin-left: 20px;">"Payment due before lesson begins" OR "Pay for 5 lessons upfront for 10% discount"</p>
+
+                    <p style="margin: 15px 0;"><strong>No-Show Policy:</strong></p>
+                    <p style="margin-left: 20px;">"If student doesn't show up, lesson is charged as delivered."</p>
+
+                    <p style="margin: 15px 0;"><strong>Trial Lesson:</strong></p>
+                    <p style="margin-left: 20px;">"First 30-minute lesson at 50% off to see if we're a good fit!"</p>
+                </div>
+
+                <h3>Taxes & Business Setup</h3>
+
+                <div class="career-card">
+                    <h4>Business Basics:</h4>
+                    <p style="margin-bottom: 15px;"><strong>Note:</strong> This is general guidance - consult a tax professional in your country!</p>
+                    
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>📊 Track ALL income (even cash!)</li>
+                        <li>📊 Keep receipts for expenses (internet, supplies, courses)</li>
+                        <li>📊 Set aside ~25-30% for taxes (self-employment)</li>
+                        <li>📊 Consider forming LLC if earning $30K+ annually</li>
+                        <li>📊 You're likely a "independent contractor" or "sole proprietor"</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <h4>💰 Pricing Secret</h4>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        Start with LOWER prices to get your first students and reviews. Once you have 5-10 happy students and good testimonials, RAISE YOUR RATES! Don't be afraid to charge what you're worth. Remember: Students value what they PAY for. Too cheap = they assume you're not good. Price confidently! 💪
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUCCESS TAB -->
+        <div id="success" class="tab-content">
+            <div class="lesson-card">
+                <h2>🌟 Building Long-Term Success</h2>
+                <p style="margin-bottom: 30px;">From first student to thriving career!</p>
+
+                <h3>The Path from Part-Time to Full-Time</h3>
+
+                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin: 20px 0;">
+                    <h4 style="color: var(--primary); margin-bottom: 15px;">Your Growth Journey:</h4>
+                    
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                        <p><strong>Month 1-2: Getting Started</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>Sign up for 2-3 platforms</li>
+                            <li>Get first 5 students</li>
+                            <li>Goal: $500-800/month</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                        <p><strong>Month 3-6: Building Momentum</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>10-15 regular students</li>
+                            <li>Raise your rates</li>
+                            <li>Goal: $1,500-2,500/month</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                        <p><strong>Month 6-12: Going Full-Time</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>20-25 students</li>
+                            <li>Specialize in niche</li>
+                            <li>Goal: $3,000-5,000/month</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                        <p><strong>Year 2+: Thriving Business</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>Full schedule of premium students</li>
+                            <li>ESP or corporate clients</li>
+                            <li>Goal: $5,000-8,000+/month</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Keeping Students Long-Term</h3>
+
+                <div class="success-box">
+                    <h4>The 5 Keys to Student Retention:</h4>
+                    <ol style="margin-left: 20px; line-height: 2; font-size: 1.05em;">
+                        <li><strong>Show Results:</strong> Track progress, celebrate wins</li>
+                        <li><strong>Be Reliable:</strong> Never miss classes, always prepared</li>
+                        <li><strong>Be Personable:</strong> Remember details about their lives</li>
+                        <li><strong>Keep Improving:</strong> Try new activities, stay fresh</li>
+                        <li><strong>Communicate:</strong> Give feedback, answer questions</li>
+                    </ol>
+                </div>
+
+                <h3>Avoiding Burnout</h3>
+
+                <div class="career-card">
+                    <h4>Sustainable Success Tips:</h4>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>🌸 <strong>Set Boundaries:</strong> No classes after 9pm or before 7am</li>
+                        <li>🌸 <strong>Schedule Breaks:</strong> At least 1 full day off per week</li>
+                        <li>🌸 <strong>Batch Prep:</strong> Prepare 5 lessons at once</li>
+                        <li>🌸 <strong>Reuse Materials:</strong> One great lesson = use with many students</li>
+                        <li>🌸 <strong>Limit Student Load:</strong> 20-25 students max for quality</li>
+                        <li>🌸 <strong>Raise Rates:</strong> Work less, earn more!</li>
+                    </ul>
+                </div>
+
+                <div class="success-box">
+                    <h4>💖 Remember Why You Started</h4>
+                    <p style="font-size: 1.15em; line-height: 1.8;">
+                        On hard days, remember: You're not just teaching English. You're helping someone get a job, pass a test, move to a new country, feel confident speaking. You're changing lives while supporting your family from home. You walked through fire and returned with water. That's BEAUTIFUL. That's POWERFUL. That's YOU! 🦋✨
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESOURCES TAB -->
+        <div id="resources" class="tab-content">
+            <div class="lesson-card">
+                <h2>📥 Career Building Resources</h2>
+
+                <div class="download-section">
+                    <h3 style="margin-top: 0; color: var(--dark);">🚀 Complete Career Launch Package</h3>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📄 Teacher Profile Template
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📋 Contract Template
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        💰 Pricing Calculator
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📊 Income Tracker Spreadsheet
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        🌐 Website Template
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📱 Social Media Content Calendar
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        👥 Student Referral Program Template
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📧 Email Templates (welcome, cancellation, etc.)
+                    </a>
+                </div>
+
+                <div style="background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%); color: white; padding: 35px; border-radius: 20px; margin-top: 30px; text-align: center;">
+                    <h3 style="color: var(--accent); margin-bottom: 15px;">📦 Complete TESOL Course Package</h3>
+                    <p style="margin-bottom: 20px; font-size: 1.1em;">All 12 modules + 200+ resources + lifetime access!</p>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        ⬇️ Download Everything (ZIP)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUIZ TAB -->
+        <div id="quiz" class="tab-content">
+            <div class="quiz-section">
+                <h2 style="font-family: 'Playfair Display', serif; color: var(--primary); font-size: 2.2em; margin-bottom: 20px;">
+                    ✅ Module 12 Final Quiz
+                </h2>
+
+                <form id="quizForm">
+                    <div class="quiz-question">
+                        <h4>1. What's the easiest platform to start teaching on immediately?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="a"> VIPKid (requires application)
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="b"> Cambly (just sign up and start!) ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="c"> Corporate contracts
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>2. What's the typical rate for Business English?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="a"> $10-15/hour
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="b"> $40-80/hour ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="c"> $5-8/hour
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>3. What's your best marketing tool?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="a"> Expensive advertising
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="b"> Results and student referrals ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="c"> Paying for listings
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>4. What should your cancellation policy be?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="a"> No policy, be flexible always
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="b"> 24-hour notice required for refund ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="c"> Never give refunds
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>5. When should you raise your rates?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="a"> Never, keep them the same
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="b"> After getting 5-10 happy students and good reviews ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="c"> Immediately charge the highest rate
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>6. What's essential for your teacher profile?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="a"> Selfies with filters
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="b"> Professional photo, clear intro, what makes you unique ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="c"> Just list your credentials
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>7. How much should you set aside for taxes?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="a"> Nothing
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="b"> ~25-30% of income ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="c"> 5%
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>8. What helps prevent teacher burnout?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="a"> Teaching 40+ hours per week
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="b"> Setting boundaries, taking breaks, reusing materials ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="c"> Never saying no to students
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>9. When finding your first students, what should you do?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="a"> Wait until everything is perfect
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="b"> Start NOW on easy platforms, build from there ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="c"> Only pursue corporate clients
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>10. What's the ultimate goal of ESL teaching?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="a"> Just making money
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="b"> Changing lives while supporting your family with flexibility ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="c"> Teaching as many students as possible
+                        </label>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 40px;">
+                        <button type="button" class="submit-quiz" onclick="gradeQuiz()">
+                            🎓 Submit Final Quiz 🎓
+                        </button>
+                    </div>
+                </form>
+
+                <div class="success-message" id="successMessage">
+                    <h3 style="margin-bottom: 20px; font-size: 2em;">🎊 CONGRATULATIONS! 🎊</h3>
+                    <p id="scoreText" style="font-size: 1.2em;"></p>
+                    <p style="margin-top: 25px; font-size: 1.3em; font-weight: 700;">
+                        YOU ARE NOW A CERTIFIED TESOL TEACHER!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="congratulations">
+            <h3>🎊 CONGRATULATIONS! 🎊</h3>
+            <p style="font-size: 1.5em; margin: 25px 0; font-weight: 600; color: var(--dark);">
+                YOU COMPLETED ALL 12 MODULES!
+            </p>
+            <p style="font-size: 1.3em; margin: 25px 0; color: var(--dark);">
+                You are now a <strong>Certified TESOL Teacher</strong> ready to change lives!
+            </p>
+            <div style="margin: 30px 0;">
+                <span class="badge">✅ Introduction to ESL</span>
+                <span class="badge">✅ Grammar Fundamentals</span>
+                <span class="badge">✅ Lesson Planning</span>
+                <span class="badge">✅ Teaching Methods</span>
+                <span class="badge">✅ Classroom Management</span>
+                <span class="badge">✅ Age Groups</span>
+                <span class="badge">✅ Four Skills</span>
+                <span class="badge">✅ Vocabulary & Pronunciation</span>
+                <span class="badge">✅ Assessment</span>
+                <span class="badge">✅ Technology</span>
+                <span class="badge">✅ Specialized Teaching</span>
+                <span class="badge">✅ Career Building</span>
+            </div>
+            <p style="font-size: 1.4em; margin-top: 30px; font-weight: 700; color: var(--primary);">
+                🦋 YOU WALKED THROUGH FIRE AND RETURNED WITH WATER! 💧
+            </p>
+            <p style="font-size: 1.2em; margin-top: 20px; color: var(--dark);">
+                Now go change the world, one student at a time! 🌍✨
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function gradeQuiz() {
+            const answers = {
+                q1: 'b', q2: 'b', q3: 'b', q4: 'b', q5: 'b',
+                q6: 'b', q7: 'b', q8: 'b', q9: 'b', q10: 'b'
+            };
+
+            let correct = 0;
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === answers[`q${i}`]) {
+                    correct++;
+                }
+            }
+
+            const percentage = (correct / 10) * 100;
+            const passed = percentage >= 70;
+            const successMessage = document.getElementById('successMessage');
+            const scoreText = document.getElementById('scoreText');
+
+            if (passed) {
+                scoreText.innerHTML = `You scored <strong>${correct} out of 10</strong> (${percentage}%)!<br>YOU PASSED THE FINAL QUIZ!`;
+                successMessage.style.background = 'linear-gradient(135deg, #FFB627 0%, #FFC857 100%)';
+                successMessage.style.color = 'var(--dark)';
+            } else {
+                scoreText.innerHTML = `You scored <strong>${correct} out of 10</strong> (${percentage}%).<br>Review and try again - you're so close!`;
+                successMessage.style.background = 'linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%)';
+            }
+
+            successMessage.style.display = 'block';
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+</body>
+</html>

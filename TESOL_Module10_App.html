@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESOL Course - Module 10: Technology in ESL Teaching</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2C5F2D;
+            --secondary: #97BC62;
+            --accent: #FFB627;
+            --dark: #1A1A1D;
+            --light: #F8F9FA;
+            --cream: #FFF8E7;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: linear-gradient(135deg, #FFF8E7 0%, #F0E6D2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-bar {
+            max-width: 800px;
+            margin: 30px auto;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50px;
+            padding: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--accent) 0%, #FFC857 100%);
+            height: 20px;
+            border-radius: 50px;
+            width: 83%;
+            box-shadow: 0 4px 10px rgba(255,182,39,0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-button {
+            background: white;
+            border: 3px solid var(--secondary);
+            padding: 15px 30px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .tab-button:hover::before,
+        .tab-button.active::before {
+            left: 0;
+        }
+
+        .tab-button:hover,
+        .tab-button.active {
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(44,95,45,0.3);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .lesson-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--accent);
+        }
+
+        .lesson-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .lesson-card h3 {
+            color: var(--secondary);
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .tool-card {
+            background: var(--cream);
+            border: 2px solid var(--secondary);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: var(--primary);
+        }
+
+        .tool-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .tech-tip-box {
+            background: white;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+
+        .download-section {
+            background: linear-gradient(135deg, var(--cream) 0%, #FFF 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 3px dashed var(--secondary);
+        }
+
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, #FFC857 100%);
+            color: var(--dark);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255,182,39,0.3);
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,182,39,0.5);
+        }
+
+        .quiz-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .quiz-question {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: var(--cream);
+            border-radius: 15px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .quiz-question h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .quiz-option {
+            display: block;
+            padding: 15px 20px;
+            margin: 10px 0;
+            background: white;
+            border: 2px solid var(--secondary);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .submit-quiz {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(44,95,45,0.3);
+        }
+
+        .submit-quiz:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(44,95,45,0.5);
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.3em;
+            margin: 30px 0;
+            display: none;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .tip-box h4 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin: 5px;
+        }
+
+        .next-module {
+            background: linear-gradient(135deg, var(--cream) 0%, white 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+            border: 3px solid var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .tool-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>💻📱 Module 10</h1>
+        <p class="subtitle">Technology in ESL Teaching</p>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        <p style="font-size: 0.9em; opacity: 0.9; position: relative; z-index: 1;">Course Progress: 83% Complete - FINAL STRETCH!</p>
+    </div>
+
+    <div class="container">
+        <div class="nav-tabs">
+            <button class="tab-button active" onclick="showTab('overview')">📚 Overview</button>
+            <button class="tab-button" onclick="showTab('online')">💻 Online Teaching</button>
+            <button class="tab-button" onclick="showTab('tools')">🛠️ Essential Tools</button>
+            <button class="tab-button" onclick="showTab('apps')">📱 Apps & Websites</button>
+            <button class="tab-button" onclick="showTab('troubleshooting')">🔧 Troubleshooting</button>
+            <button class="tab-button" onclick="showTab('resources')">📥 Resources</button>
+            <button class="tab-button" onclick="showTab('quiz')">✅ Quiz</button>
+        </div>
+
+        <!-- OVERVIEW TAB -->
+        <div id="overview" class="tab-content active">
+            <div class="lesson-card">
+                <h2>Master Modern Teaching Technology! 🌟</h2>
+                <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
+                    Technology has TRANSFORMED ESL teaching! Online platforms, educational apps, digital materials - this module teaches you to use technology effectively to enhance learning!
+                </p>
+
+                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin: 25px 0;">
+                    <h3 style="margin-top: 0;">⏱️ Module Details</h3>
+                    <p><strong>Duration:</strong> Week 10 (approximately 10 hours)</p>
+                    <p><strong>Tools Covered:</strong> 50+ apps, websites, platforms</p>
+                    <p><strong>Online Teaching:</strong> Setup, best practices, platforms</p>
+                    <p><strong>Digital Materials:</strong> Creating and using tech resources</p>
+                    <p><strong>Quiz:</strong> 10 questions (pass with 70%)</p>
+                </div>
+
+                <h3>What You'll Learn in This Module</h3>
+                <ul style="margin-left: 25px; margin-bottom: 20px; line-height: 2;">
+                    <li>✅ <strong>Online Teaching Setup:</strong> Equipment, platforms, best practices</li>
+                    <li>✅ <strong>Essential Tools:</strong> Video conferencing, whiteboards, screen sharing</li>
+                    <li>✅ <strong>Educational Apps:</strong> The best apps for vocabulary, grammar, speaking</li>
+                    <li>✅ <strong>Digital Materials:</strong> Creating interactive resources</li>
+                    <li>✅ <strong>Troubleshooting:</strong> Fixing common tech problems</li>
+                </ul>
+
+                <h3>By the End of This Module, You Will:</h3>
+                <ul style="margin-left: 25px; margin-bottom: 20px; line-height: 2;">
+                    <li>🎯 Know how to set up a professional online teaching space</li>
+                    <li>🎯 Master Zoom, Skype, and other platforms</li>
+                    <li>🎯 Have 50+ tech tools at your fingertips</li>
+                    <li>🎯 Create engaging digital materials</li>
+                    <li>🎯 Solve common technical problems quickly</li>
+                </ul>
+
+                <div class="tip-box">
+                    <h4>💡 Technology is a TOOL, Not a Teacher</h4>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        Remember: Technology ENHANCES good teaching - it doesn't replace it! A great teacher with basic tools beats a mediocre teacher with fancy tech. But when you combine great teaching WITH smart technology? MAGIC! 🎩✨
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ONLINE TEACHING TAB -->
+        <div id="online" class="tab-content">
+            <div class="lesson-card">
+                <h2>💻 Online Teaching Mastery</h2>
+                <p style="margin-bottom: 30px;">Everything you need to teach online like a pro!</p>
+
+                <h3>Your Online Teaching Setup</h3>
+
+                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin: 20px 0;">
+                    <h4 style="color: var(--primary); margin-bottom: 15px;">Essential Equipment:</h4>
+                    
+                    <div class="tech-tip-box">
+                        <h5 style="color: var(--primary); margin-bottom: 10px;">🎥 Webcam</h5>
+                        <p><strong>Minimum:</strong> Built-in laptop camera (okay for starting)</p>
+                        <p><strong>Better:</strong> External HD webcam ($30-60)</p>
+                        <p><strong>Best:</strong> DSLR camera as webcam (professional look)</p>
+                        <p style="margin-top: 10px;"><strong>Tip:</strong> Position at eye level, facing a window for natural light!</p>
+                    </div>
+
+                    <div class="tech-tip-box">
+                        <h5 style="color: var(--primary); margin-bottom: 10px;">🎧 Audio</h5>
+                        <p><strong>DON'T USE:</strong> Laptop microphone (echoes, picks up keyboard noise)</p>
+                        <p><strong>MINIMUM:</strong> Headset with microphone ($20-40)</p>
+                        <p><strong>BETTER:</strong> USB microphone ($50-100)</p>
+                        <p style="margin-top: 10px;"><strong>CRITICAL:</strong> Good audio matters MORE than video!</p>
+                    </div>
+
+                    <div class="tech-tip-box">
+                        <h5 style="color: var(--primary); margin-bottom: 10px;">💡 Lighting</h5>
+                        <p><strong>Free:</strong> Sit facing a window (natural light)</p>
+                        <p><strong>Better:</strong> Ring light or desk lamp ($25-50)</p>
+                        <p style="margin-top: 10px;"><strong>Tip:</strong> Light should be IN FRONT of you, not behind!</p>
+                    </div>
+
+                    <div class="tech-tip-box">
+                        <h5 style="color: var(--primary); margin-bottom: 10px;">🌐 Internet</h5>
+                        <p><strong>Minimum:</strong> 10 Mbps download, 3 Mbps upload</p>
+                        <p><strong>Recommended:</strong> 25+ Mbps download, 5+ Mbps upload</p>
+                        <p><strong>Test your speed:</strong> speedtest.net</p>
+                        <p style="margin-top: 10px;"><strong>Tip:</strong> Use wired Ethernet if possible (more stable than WiFi)</p>
+                    </div>
+
+                    <div class="tech-tip-box">
+                        <h5 style="color: var(--primary); margin-bottom: 10px;">🖥️ Computer</h5>
+                        <p><strong>Minimum:</strong> 4GB RAM, dual-core processor</p>
+                        <p><strong>Better:</strong> 8GB+ RAM, quad-core processor</p>
+                        <p style="margin-top: 10px;"><strong>Tip:</strong> Close all unnecessary programs during class!</p>
+                    </div>
+                </div>
+
+                <h3>Top Online Teaching Platforms</h3>
+
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h4>Zoom</h4>
+                        <p><strong>Best for:</strong> Group classes, professional use</p>
+                        <p><strong>Features:</strong> Breakout rooms, whiteboard, screen share, recording</p>
+                        <p><strong>Limit:</strong> 40 min free (groups), unlimited 1-on-1</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Skype</h4>
+                        <p><strong>Best for:</strong> 1-on-1 tutoring, simple setup</p>
+                        <p><strong>Features:</strong> Free, reliable, screen share, recording</p>
+                        <p><strong>Bonus:</strong> Completely free, no time limits!</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Google Meet</h4>
+                        <p><strong>Best for:</strong> Integration with Google Classroom</p>
+                        <p><strong>Features:</strong> Simple, no app needed, captions</p>
+                        <p><strong>Limit:</strong> 60 min free (groups)</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Microsoft Teams</h4>
+                        <p><strong>Best for:</strong> Schools using Microsoft</p>
+                        <p><strong>Features:</strong> Full suite integration, assignments</p>
+                        <p><strong>Bonus:</strong> Great for organized courses!</p>
+                    </div>
+                </div>
+
+                <h3>Online Teaching Best Practices</h3>
+
+                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin: 20px 0;">
+                    <h4 style="color: var(--primary); margin-bottom: 15px;">The 10 Commandments of Online Teaching:</h4>
+                    <ol style="margin-left: 20px; line-height: 2;">
+                        <li><strong>Test EVERYTHING 15 minutes before class</strong> (camera, mic, internet, materials)</li>
+                        <li><strong>Have a backup plan</strong> (phone number, alternative platform)</li>
+                        <li><strong>Use headphones</strong> (prevents echo, better sound)</li>
+                        <li><strong>Look at the camera</strong> (not the screen - eye contact!)</li>
+                        <li><strong>Minimize distractions</strong> (close tabs, mute notifications)</li>
+                        <li><strong>Use screen share</strong> (show materials, videos, activities)</li>
+                        <li><strong>Record classes</strong> (for students who missed or want to review)</li>
+                        <li><strong>Check comprehension frequently</strong> ("Can everyone hear me?" "Does this make sense?")</li>
+                        <li><strong>Be energetic!</strong> (Even more than in-person - screen saps energy)</li>
+                        <li><strong>Have fun with it!</strong> (Virtual backgrounds, filters occasionally - keeps it light!)</li>
+                    </ol>
+                </div>
+
+                <div class="tip-box">
+                    <h4>💻 The Online Teaching Secret</h4>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        Online teaching is DIFFERENT from in-person! You need to be MORE animated, MORE interactive, MORE engaging. Why? Because screens are passive. Your energy needs to jump through the camera! Think of yourself as a TV host, not just a teacher. 📺✨
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOOLS TAB -->
+        <div id="tools" class="tab-content">
+            <div class="lesson-card">
+                <h2>🛠️ Essential Teaching Tools</h2>
+                <p style="margin-bottom: 30px;">Your digital teaching toolkit!</p>
+
+                <h3>Interactive Whiteboards</h3>
+
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h4>Miro</h4>
+                        <p>Collaborative whiteboard. Great for brainstorming, mind maps.</p>
+                        <p><strong>Free plan:</strong> 3 boards</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Jamboard</h4>
+                        <p>Google's whiteboard. Simple, integrates with Meet.</p>
+                        <p><strong>Free:</strong> With Google account</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Whiteboard.fi</h4>
+                        <p>Each student gets own board! You see all at once!</p>
+                        <p><strong>Perfect for:</strong> Checking everyone's work</p>
+                    </div>
+                </div>
+
+                <h3>Content Creation Tools</h3>
+
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h4>Canva</h4>
+                        <p>Create beautiful worksheets, flashcards, posters</p>
+                        <p><strong>Templates:</strong> Thousands available!</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Genially</h4>
+                        <p>Interactive presentations, games, infographics</p>
+                        <p><strong>Wow factor:</strong> Very high!</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Wordwall</h4>
+                        <p>Create games: quizzes, matching, crosswords</p>
+                        <p><strong>Students love it:</strong> Gamification!</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Quizlet</h4>
+                        <p>Flashcards, games, tests - vocabulary mastery!</p>
+                        <p><strong>Huge library:</strong> Millions of sets</p>
+                    </div>
+                </div>
+
+                <h3>Video & Screen Recording</h3>
+
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h4>Loom</h4>
+                        <p>Record screen + webcam. Perfect for video lessons!</p>
+                        <p><strong>Free:</strong> Up to 25 videos</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>OBS Studio</h4>
+                        <p>Professional recording/streaming software</p>
+                        <p><strong>Free & powerful!</strong></p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Clipchamp</h4>
+                        <p>Video editor - cut, trim, add text/music</p>
+                        <p><strong>Built into Windows 11</strong></p>
+                    </div>
+                </div>
+
+                <h3>Communication & Management</h3>
+
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h4>Google Classroom</h4>
+                        <p>Organize classes, assignments, grades</p>
+                        <p><strong>Free & comprehensive</strong></p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Calendly</h4>
+                        <p>Schedule lessons automatically</p>
+                        <p><strong>Saves time!</strong> No back-and-forth emails</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>WhatsApp/Telegram</h4>
+                        <p>Quick communication with students</p>
+                        <p><strong>Tip:</strong> Create class groups!</p>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <h4>🛠️ Tool Selection Tip</h4>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        Don't try to use ALL the tools! Pick 3-5 that you MASTER and use regularly. Better to know a few tools REALLY well than to dabble in dozens. Start with: Zoom + Quizlet + Canva. Master those, then add more! 🎯
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- APPS TAB -->
+        <div id="apps" class="tab-content">
+            <div class="lesson-card">
+                <h2>📱 Best ESL Apps & Websites</h2>
+                <p style="margin-bottom: 30px;">50+ resources students will love!</p>
+
+                <h3>Vocabulary Apps</h3>
+
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h4>Quizlet</h4>
+                        <p>Flashcards + games. THE standard for vocabulary!</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Memrise</h4>
+                        <p>Gamified vocabulary learning with spaced repetition</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Drops</h4>
+                        <p>Beautiful, visual vocabulary builder. 5 min/day</p>
+                    </div>
+                </div>
+
+                <h3>Grammar Apps</h3>
+
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h4>Grammarly</h4>
+                        <p>Writing correction + suggestions. ESSENTIAL!</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>English Grammar Test</h4>
+                        <p>Practice exercises for all grammar topics</p>
+                    </div>
+                </div>
+
+                <h3>Speaking & Listening Apps</h3>
+
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h4>ELSA Speak</h4>
+                        <p>Pronunciation training with AI feedback</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>TED Talks</h4>
+                        <p>Authentic listening with subtitles. Inspiring!</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Podcasts</h4>
+                        <p>BBC Learning English, 6 Minute English, All Ears English</p>
+                    </div>
+                </div>
+
+                <h3>Complete Learning Platforms</h3>
+
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h4>Duolingo</h4>
+                        <p>Free, gamified, comprehensive. Great for beginners!</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>Busuu</h4>
+                        <p>Structured courses + native speaker feedback</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>BBC Learning English</h4>
+                        <p>Free lessons, videos, activities. High quality!</p>
+                    </div>
+
+                    <div class="tool-card">
+                        <h4>British Council</h4>
+                        <p>Free resources, games, apps. For all ages!</p>
+                    </div>
+                </div>
+
+                <h3>Websites for Teachers</h3>
+
+                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin: 20px 0;">
+                    <h4 style="color: var(--primary); margin-bottom: 15px;">Top 10 Teacher Resource Sites:</h4>
+                    <ol style="margin-left: 20px; line-height: 2;">
+                        <li><strong>BusyTeacher.org</strong> - 15,000+ free worksheets</li>
+                        <li><strong>ISLCollective.com</strong> - Teacher-created resources</li>
+                        <li><strong>Breaking News English</strong> - News-based lessons, updated daily</li>
+                        <li><strong>ESL Games Plus</strong> - Interactive games for all topics</li>
+                        <li><strong>English Hilfen</strong> - Grammar exercises with answers</li>
+                        <li><strong>Perfect English Grammar</strong> - Clear explanations + exercises</li>
+                        <li><strong>Randall's ESL Cyber Listening Lab</strong> - Listening activities</li>
+                        <li><strong>Learn English Today</strong> - Vocabulary, idioms, exercises</li>
+                        <li><strong>Dave's ESL Cafe</strong> - Forums, resources, jobs</li>
+                        <li><strong>OneStopEnglish</strong> - Professional development + resources</li>
+                    </ol>
+                </div>
+
+                <div class="tip-box">
+                    <h4>📱 App Recommendation Strategy</h4>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        Recommend apps as HOMEWORK, not class time! Students use apps for practice between classes. In class = you teach. At home = they practice with apps. Perfect combination! Tell students: "Download Quizlet and practice these 20 words daily!" 📲
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TROUBLESHOOTING TAB -->
+        <div id="troubleshooting" class="tab-content">
+            <div class="lesson-card">
+                <h2>🔧 Tech Troubleshooting Guide</h2>
+                <p style="margin-bottom: 30px;">Fix common problems fast!</p>
+
+                <h3>Top 10 Tech Problems (& Solutions)</h3>
+
+                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin: 20px 0;">
+                    <div class="tech-tip-box">
+                        <h5 style="color: #c0392b; margin-bottom: 10px;">❌ Problem: "They can't hear me!"</h5>
+                        <p><strong>Solutions:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>Check if you're muted (in Zoom AND on computer)</li>
+                            <li>Select correct microphone in settings</li>
+                            <li>Close other apps using microphone</li>
+                            <li>Restart Zoom/computer</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-tip-box">
+                        <h5 style="color: #c0392b; margin-bottom: 10px;">❌ Problem: "I can't see them!"</h5>
+                        <p><strong>Solutions:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>Check if camera is off (button in Zoom)</li>
+                            <li>Grant camera permission to Zoom</li>
+                            <li>Check no other app is using camera</li>
+                            <li>Restart Zoom/computer</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-tip-box">
+                        <h5 style="color: #c0392b; margin-bottom: 10px;">❌ Problem: "The connection keeps freezing!"</h5>
+                        <p><strong>Solutions:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>Turn off video (keeps audio stable)</li>
+                            <li>Close all other tabs/programs</li>
+                            <li>Move closer to WiFi router</li>
+                            <li>Ask others to stop using internet temporarily</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-tip-box">
+                        <h5 style="color: #c0392b; margin-bottom: 10px;">❌ Problem: "There's an echo!"</h5>
+                        <p><strong>Solutions:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>EVERYONE must use headphones (this fixes 90%)</li>
+                            <li>Mute when not speaking</li>
+                            <li>Check no speakers near microphone</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-tip-box">
+                        <h5 style="color: #c0392b; margin-bottom: 10px;">❌ Problem: "I can't share my screen!"</h5>
+                        <p><strong>Solutions:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>Grant screen recording permission (Mac)</li>
+                            <li>Close and reopen Zoom</li>
+                            <li>Update Zoom to latest version</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Emergency Backup Plans</h3>
+
+                <div style="background: white; padding: 25px; border-radius: 15px; margin: 20px 0; border: 3px solid var(--secondary);">
+                    <h4 style="color: var(--primary); margin-bottom: 15px;">Always Have Plan B!</h4>
+                    <p><strong>If Zoom fails:</strong></p>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>Switch to Skype or Google Meet immediately</li>
+                        <li>Have student's phone number for calling</li>
+                        <li>Have WhatsApp as backup</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>If internet fails completely:</strong></p>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>Switch to phone call lesson</li>
+                        <li>Use phone hotspot as backup internet</li>
+                        <li>Reschedule ASAP (be professional!)</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <h4>🔧 The Golden Rule of Tech Troubleshooting</h4>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        When in doubt: RESTART! 80% of tech problems are solved by closing and reopening the app, or restarting the computer. It's not sexy, but it WORKS! And always test 15 minutes before class to catch problems early! ⚡
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESOURCES TAB -->
+        <div id="resources" class="tab-content">
+            <div class="lesson-card">
+                <h2>📥 Technology Resources</h2>
+
+                <div class="download-section">
+                    <h3 style="margin-top: 0;">💻 Online Teaching Guides</h3>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📄 Complete Online Teaching Setup Guide
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        🎥 Zoom Mastery Handbook
+                    </a>
+                </div>
+
+                <div class="download-section">
+                    <h3 style="margin-top: 0;">🛠️ Tool Directories</h3>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📱 50+ ESL Apps Directory
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        🌐 100+ Teacher Websites List
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        🎮 Educational Games Collection
+                    </a>
+                </div>
+
+                <div class="download-section">
+                    <h3 style="margin-top: 0;">🔧 Troubleshooting</h3>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        ⚡ Tech Problem Solver Guide
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📋 Pre-Class Tech Checklist
+                    </a>
+                </div>
+
+                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin-top: 30px; text-align: center;">
+                    <h3>📦 Complete Module 10 Package</h3>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        ⬇️ Download All Resources (ZIP)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUIZ TAB -->
+        <div id="quiz" class="tab-content">
+            <div class="quiz-section">
+                <h2 style="font-family: 'Playfair Display', serif; color: var(--primary); font-size: 2.2em; margin-bottom: 20px;">
+                    ✅ Module 10 Technology Quiz
+                </h2>
+
+                <form id="quizForm">
+                    <div class="quiz-question">
+                        <h4>1. What matters MORE for online teaching quality?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="a"> Video quality
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="b"> Audio quality ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="c"> Fast internet
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>2. What's the #1 tech problem solver?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="a"> Buying new equipment
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="b"> Restarting the app/computer ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="c"> Calling tech support
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>3. When should you test your tech setup?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="a"> Right when class starts
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="b"> 15 minutes before class ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="c"> Never, just hope it works
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>4. What causes echo in online calls?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="a"> Poor internet
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="b"> Not using headphones ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="c"> Bad lighting
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>5. What should teachers recommend for homework?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="a"> Use apps for practice between classes ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="b"> Only use apps in class
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="c"> Never recommend apps
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>6. Where should lighting be positioned?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="a"> Behind you (backlight)
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="b"> In front of you, facing you ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="c"> Doesn't matter
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>7. What's the best online teaching strategy?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="a"> Be quiet and calm
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="b"> Be MORE animated and energetic than in-person ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="c"> Just lecture for the whole time
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>8. How many tech tools should you master?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="a"> All of them (50+)
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="b"> 3-5 tools that you use really well ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="c"> None, avoid technology
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>9. What's the role of technology in teaching?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="a"> Replace the teacher
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="b"> Enhance good teaching ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="c"> Distract students
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>10. What should you always have ready?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="a"> Just hope everything works
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="b"> A backup plan (different platform, phone number) ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="c"> Only one way to teach
+                        </label>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 40px;">
+                        <button type="button" class="submit-quiz" onclick="gradeQuiz()">
+                            Submit Quiz 🎯
+                        </button>
+                    </div>
+                </form>
+
+                <div class="success-message" id="successMessage">
+                    <h3 style="margin-bottom: 15px;">🎉 Excellent!</h3>
+                    <p id="scoreText"></p>
+                    <p style="margin-top: 20px;">You're tech-savvy and ready!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="next-module">
+            <h3>📍 Coming Next:</h3>
+            <p style="font-size: 1.2em; margin: 20px 0;">
+                <strong>Module 11: Specialized ESL Teaching</strong>
+            </p>
+            <p style="margin-bottom: 20px;">
+                Business English, Academic English, Test Prep, ESP!
+            </p>
+            <div>
+                <span class="badge">Business English</span>
+                <span class="badge">Academic Writing</span>
+                <span class="badge">TOEFL/IELTS</span>
+                <span class="badge">ESP</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function gradeQuiz() {
+            const answers = {
+                q1: 'b', q2: 'b', q3: 'b', q4: 'b', q5: 'a',
+                q6: 'b', q7: 'b', q8: 'b', q9: 'b', q10: 'b'
+            };
+
+            let correct = 0;
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === answers[`q${i}`]) {
+                    correct++;
+                }
+            }
+
+            const percentage = (correct / 10) * 100;
+            const passed = percentage >= 70;
+            const successMessage = document.getElementById('successMessage');
+            const scoreText = document.getElementById('scoreText');
+
+            if (passed) {
+                scoreText.innerHTML = `You scored <strong>${correct} out of 10</strong> (${percentage}%)!<br>You PASSED! 🎊`;
+                successMessage.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+            } else {
+                scoreText.innerHTML = `You scored <strong>${correct} out of 10</strong> (${percentage}%).<br>Review and try again!`;
+                successMessage.style.background = 'linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%)';
+            }
+
+            successMessage.style.display = 'block';
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+</body>
+</html>

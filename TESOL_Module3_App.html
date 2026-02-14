@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESOL Course - Module 3: Lesson Planning & Curriculum Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2C5F2D;
+            --secondary: #97BC62;
+            --accent: #FFB627;
+            --dark: #1A1A1D;
+            --light: #F8F9FA;
+            --cream: #FFF8E7;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: linear-gradient(135deg, #FFF8E7 0%, #F0E6D2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-bar {
+            max-width: 800px;
+            margin: 30px auto;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50px;
+            padding: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--accent) 0%, #FFC857 100%);
+            height: 20px;
+            border-radius: 50px;
+            width: 25%;
+            box-shadow: 0 4px 10px rgba(255,182,39,0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-button {
+            background: white;
+            border: 3px solid var(--secondary);
+            padding: 15px 30px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .tab-button:hover::before,
+        .tab-button.active::before {
+            left: 0;
+        }
+
+        .tab-button:hover,
+        .tab-button.active {
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(44,95,45,0.3);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .lesson-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--accent);
+        }
+
+        .lesson-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .lesson-card h3 {
+            color: var(--secondary);
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .template-card {
+            background: var(--cream);
+            border: 2px solid var(--secondary);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .template-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: var(--primary);
+        }
+
+        .template-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .template-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .lesson-anatomy {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 3px solid var(--secondary);
+        }
+
+        .lesson-step {
+            background: var(--cream);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .lesson-step strong {
+            color: var(--primary);
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .download-section {
+            background: linear-gradient(135deg, var(--cream) 0%, #FFF 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 3px dashed var(--secondary);
+        }
+
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, #FFC857 100%);
+            color: var(--dark);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255,182,39,0.3);
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,182,39,0.5);
+        }
+
+        .quiz-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .quiz-question {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: var(--cream);
+            border-radius: 15px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .quiz-question h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .quiz-option {
+            display: block;
+            padding: 15px 20px;
+            margin: 10px 0;
+            background: white;
+            border: 2px solid var(--secondary);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .submit-quiz {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(44,95,45,0.3);
+        }
+
+        .submit-quiz:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(44,95,45,0.5);
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.3em;
+            margin: 30px 0;
+            display: none;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .tip-box h4 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            margin: 5px;
+        }
+
+        .next-module {
+            background: linear-gradient(135deg, var(--cream) 0%, white 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+            border: 3px solid var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .subtitle { font-size: 1.1em; }
+            .lesson-card { padding: 25px; }
+            .template-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>📋 Module 3</h1>
+        <p class="subtitle">Lesson Planning & Curriculum Design</p>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        <p style="font-size: 0.9em; opacity: 0.9; position: relative; z-index: 1;">Course Progress: 25% Complete</p>
+    </div>
+
+    <div class="container">
+        <div class="nav-tabs">
+            <button class="tab-button active" onclick="showTab('overview')">📚 Overview</button>
+            <button class="tab-button" onclick="showTab('anatomy')">🎯 Lesson Anatomy</button>
+            <button class="tab-button" onclick="showTab('templates')">📝 Templates</button>
+            <button class="tab-button" onclick="showTab('resources')">📥 Resources</button>
+            <button class="tab-button" onclick="showTab('quiz')">✅ Quiz</button>
+        </div>
+
+        <!-- OVERVIEW TAB -->
+        <div id="overview" class="tab-content active">
+            <div class="lesson-card">
+                <h2>Create Lessons That Students LOVE! 🎓</h2>
+                <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
+                    Great teachers don't just "wing it" - they plan thoughtfully, design strategically, and adapt skillfully. This module teaches you to create engaging, effective lessons that achieve real learning outcomes!
+                </p>
+
+                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin: 25px 0;">
+                    <h3 style="margin-top: 0;">⏱️ Module Details</h3>
+                    <p><strong>Duration:</strong> Week 3 (approximately 10 hours)</p>
+                    <p><strong>Lesson Plan Templates:</strong> 10 ready-to-use formats</p>
+                    <p><strong>Sample Curriculum:</strong> Complete 8-week plan included</p>
+                    <p><strong>Practical Activities:</strong> Create your first 3 lesson plans</p>
+                    <p><strong>Quiz:</strong> 10 questions (pass with 70%)</p>
+                </div>
+
+                <h3>What You'll Learn in This Module</h3>
+                <ul style="margin-left: 25px; margin-bottom: 20px; line-height: 2;">
+                    <li>✅ <strong>The Anatomy of a Great Lesson:</strong> Essential components every lesson needs</li>
+                    <li>✅ <strong>Writing Clear Objectives:</strong> SMART goals that guide your teaching</li>
+                    <li>✅ <strong>Scaffolding Techniques:</strong> Supporting students to reach higher levels</li>
+                    <li>✅ <strong>Differentiation:</strong> Adapting for different learning styles & levels</li>
+                    <li>✅ <strong>Timing & Pacing:</strong> Keeping lessons moving without rushing</li>
+                    <li>✅ <strong>Curriculum Design:</strong> Planning cohesive multi-week programs</li>
+                </ul>
+
+                <h3>By the End of This Module, You Will:</h3>
+                <ul style="margin-left: 25px; margin-bottom: 20px; line-height: 2;">
+                    <li>🎯 Have 10 professional lesson plan templates</li>
+                    <li>🎯 Know how to write effective learning objectives</li>
+                    <li>🎯 Understand scaffolding and differentiation strategies</li>
+                    <li>🎯 Have created your first 3 complete lesson plans</li>
+                    <li>🎯 Be able to design an entire 8-week curriculum</li>
+                </ul>
+
+                <div class="tip-box">
+                    <h4>💡 Why Lesson Planning Matters</h4>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        Students can tell when a teacher is unprepared. Good planning gives you CONFIDENCE, helps you manage time effectively, ensures you meet learning goals, and creates a professional impression. Plus, once you have templates, planning becomes FAST and EASY!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- LESSON ANATOMY TAB -->
+        <div id="anatomy" class="tab-content">
+            <div class="lesson-card">
+                <h2>🎯 The Anatomy of a Perfect ESL Lesson</h2>
+                <p style="margin-bottom: 30px;">Every great lesson follows a clear structure. Here's the proven framework:</p>
+
+                <div class="lesson-anatomy">
+                    <div class="lesson-step">
+                        <strong>1. Warm-Up / Lead-In (5-10 minutes)</strong>
+                        <p><strong>Purpose:</strong> Activate prior knowledge, create interest, establish context</p>
+                        <p><strong>Example:</strong> Show a picture and ask "What do you see?" or play a quick game related to the topic</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <strong>2. Learning Objective (2 minutes)</strong>
+                        <p><strong>Purpose:</strong> Tell students what they'll learn today</p>
+                        <p><strong>Example:</strong> "By the end of this lesson, you will be able to use past tense verbs to talk about your weekend."</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <strong>3. Presentation / Input (10-15 minutes)</strong>
+                        <p><strong>Purpose:</strong> Introduce new language or concept with clear examples</p>
+                        <p><strong>Example:</strong> Show grammar on board, give examples, explain rules, demonstrate pronunciation</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <strong>4. Guided Practice (10-15 minutes)</strong>
+                        <p><strong>Purpose:</strong> Students practice with your support and correction</p>
+                        <p><strong>Example:</strong> Fill-in-the-blank exercises, controlled speaking activities, drilling</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <strong>5. Independent Practice / Production (15-20 minutes)</strong>
+                        <p><strong>Purpose:</strong> Students use language freely and creatively</p>
+                        <p><strong>Example:</strong> Role plays, discussions, writing tasks, projects</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <strong>6. Review / Wrap-Up (5 minutes)</strong>
+                        <p><strong>Purpose:</strong> Reinforce key points, check understanding, preview next lesson</p>
+                        <p><strong>Example:</strong> "What did we learn today?" Quick quiz, exit ticket</p>
+                    </div>
+
+                    <div class="lesson-step">
+                        <strong>7. Homework / Extension (optional)</strong>
+                        <p><strong>Purpose:</strong> Extend learning beyond the classroom</p>
+                        <p><strong>Example:</strong> Practice exercises, writing assignment, video to watch</p>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <h4>⏰ Time Management Tips</h4>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>Plan more than you think you'll need (it's easier to cut than to fill time)</li>
+                        <li>Have a "backup activity" ready for fast finishers</li>
+                        <li>Use a timer to stay on track</li>
+                        <li>The most important is guided & independent practice - don't rush these!</li>
+                    </ul>
+                </div>
+
+                <h3 style="margin-top: 40px;">📝 Writing SMART Learning Objectives</h3>
+                
+                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin: 20px 0;">
+                    <p><strong>SMART = Specific, Measurable, Achievable, Relevant, Time-bound</strong></p>
+                    
+                    <div style="margin-top: 20px;">
+                        <p><strong style="color: #c0392b;">❌ Bad Objective:</strong> "Students will learn about past tense"</p>
+                        <p style="color: #999; margin-bottom: 15px;"><em>(Too vague - how will you know if they learned it?)</em></p>
+                        
+                        <p><strong style="color: #27ae60;">✅ Good Objective:</strong> "By the end of this lesson, students will be able to write 5 sentences about their last vacation using past simple verbs correctly."</p>
+                        <p style="color: #999;"><em>(Specific, measurable, achievable, relevant, time-bound!)</em></p>
+                    </div>
+                </div>
+
+                <h3>🎯 Scaffolding: Supporting Students to Success</h3>
+                
+                <p style="margin: 20px 0;"><strong>Scaffolding</strong> means providing temporary support that helps students reach higher levels. Think of it like training wheels on a bicycle!</p>
+
+                <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid var(--accent); margin: 20px 0;">
+                    <h4 style="color: var(--primary); margin-bottom: 15px;">Scaffolding Techniques:</h4>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>🔹 <strong>Modeling:</strong> Show them how to do it first</li>
+                        <li>🔹 <strong>Sentence Starters:</strong> Give them the beginning: "In my opinion..."</li>
+                        <li>🔹 <strong>Word Banks:</strong> Provide vocabulary they might need</li>
+                        <li>🔹 <strong>Visual Aids:</strong> Pictures, charts, diagrams</li>
+                        <li>🔹 <strong>Pair Work:</strong> Let stronger students help weaker ones</li>
+                        <li>🔹 <strong>Simplify Language:</strong> Use easier words to explain harder concepts</li>
+                    </ul>
+                </div>
+
+                <h3>🎨 Differentiation: Meeting All Students' Needs</h3>
+
+                <p style="margin: 20px 0;">Not all students learn the same way or at the same pace. Differentiation ensures everyone succeeds!</p>
+
+                <div class="template-grid">
+                    <div class="template-card">
+                        <h4>🟢 For Advanced Students</h4>
+                        <p>• Extra challenges<br>• Lead discussions<br>• Teach others<br>• Complex tasks</p>
+                    </div>
+                    <div class="template-card">
+                        <h4>🟡 For Mid-Level Students</h4>
+                        <p>• Standard activities<br>• Some support<br>• Pair with various levels<br>• Build confidence</p>
+                    </div>
+                    <div class="template-card">
+                        <h4>🔴 For Struggling Students</h4>
+                        <p>• More scaffolding<br>• Simpler tasks<br>• Extra time<br>• Lots of encouragement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEMPLATES TAB -->
+        <div id="templates" class="tab-content">
+            <div class="lesson-card">
+                <h2>📝 10 Professional Lesson Plan Templates</h2>
+                <p style="margin-bottom: 30px;">Choose the template that fits your lesson type. All are fully editable and ready to use!</p>
+
+                <div class="template-grid">
+                    <div class="template-card">
+                        <h4>1️⃣ Grammar Lesson</h4>
+                        <p>For teaching grammar points (tenses, articles, prepositions, etc.)</p>
+                        <span class="badge">PPP Method</span>
+                    </div>
+
+                    <div class="template-card">
+                        <h4>2️⃣ Vocabulary Lesson</h4>
+                        <p>For introducing and practicing new words and phrases</p>
+                        <span class="badge">Context-Based</span>
+                    </div>
+
+                    <div class="template-card">
+                        <h4>3️⃣ Speaking Practice</h4>
+                        <p>Conversation, discussion, role-play, debate lessons</p>
+                        <span class="badge">Fluency Focus</span>
+                    </div>
+
+                    <div class="template-card">
+                        <h4>4️⃣ Listening Lesson</h4>
+                        <p>Using audio/video for comprehension practice</p>
+                        <span class="badge">Pre/While/Post</span>
+                    </div>
+
+                    <div class="template-card">
+                        <h4>5️⃣ Reading Lesson</h4>
+                        <p>Text-based lessons with comprehension activities</p>
+                        <span class="badge">Skill Building</span>
+                    </div>
+
+                    <div class="template-card">
+                        <h4>6️⃣ Writing Lesson</h4>
+                        <p>Process writing, essays, emails, creative writing</p>
+                        <span class="badge">Step-by-Step</span>
+                    </div>
+
+                    <div class="template-card">
+                        <h4>7️⃣ Pronunciation Lesson</h4>
+                        <p>Phonics, sounds, intonation, stress patterns</p>
+                        <span class="badge">Audio Focus</span>
+                    </div>
+
+                    <div class="template-card">
+                        <h4>8️⃣ Young Learners</h4>
+                        <p>Engaging lessons for children (ages 3-12)</p>
+                        <span class="badge">Games & Songs</span>
+                    </div>
+
+                    <div class="template-card">
+                        <h4>9️⃣ Business English</h4>
+                        <p>Professional communication, presentations, meetings</p>
+                        <span class="badge">Real-World</span>
+                    </div>
+
+                    <div class="template-card">
+                        <h4>🔟 Exam Preparation</h4>
+                        <p>TOEFL, IELTS, Cambridge test prep lessons</p>
+                        <span class="badge">Test Strategies</span>
+                    </div>
+                </div>
+
+                <div style="background: var(--cream); padding: 30px; border-radius: 15px; margin-top: 40px; text-align: center;">
+                    <h3 style="color: var(--primary); margin-bottom: 20px;">✨ What's Included in Each Template</h3>
+                    <div style="text-align: left; max-width: 600px; margin: 0 auto;">
+                        <p>✅ Clear sections for every lesson stage</p>
+                        <p>✅ Space for objectives, materials, timing</p>
+                        <p>✅ Instructions for teacher and students</p>
+                        <p>✅ Assessment & reflection sections</p>
+                        <p>✅ Differentiation ideas built in</p>
+                        <p>✅ Professional, printable format</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESOURCES TAB -->
+        <div id="resources" class="tab-content">
+            <div class="lesson-card">
+                <h2>📥 Downloadable Planning Resources</h2>
+                <p style="margin-bottom: 30px;">Everything you need to plan incredible lessons and curricula!</p>
+
+                <div class="download-section">
+                    <h3 style="margin-top: 0;">📋 Lesson Plan Templates (All 10!)</h3>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📝 Complete Template Pack (Word & PDF)
+                    </a>
+                    <p style="margin-top: 15px;"><em>All 10 templates fully editable - use them forever!</em></p>
+                </div>
+
+                <div class="download-section">
+                    <h3 style="margin-top: 0;">📚 Planning Guides</h3>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📖 Lesson Planning Guide (25 pages)
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📖 Curriculum Design Handbook
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📖 Scaffolding Strategies Guide
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📖 Differentiation Techniques Manual
+                    </a>
+                </div>
+
+                <div class="download-section">
+                    <h3 style="margin-top: 0;">🎯 Sample Curricula</h3>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📅 8-Week Beginner Curriculum
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📅 8-Week Intermediate Curriculum
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📅 8-Week Advanced Curriculum
+                    </a>
+                    <p style="margin-top: 15px;"><em>Complete course plans you can use immediately!</em></p>
+                </div>
+
+                <div class="download-section">
+                    <h3 style="margin-top: 0;">✍️ Planning Worksheets</h3>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📝 Objectives Writing Worksheet
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📝 Lesson Timing Calculator
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📝 Materials Checklist
+                    </a>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        📝 Reflection & Improvement Form
+                    </a>
+                </div>
+
+                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin-top: 30px; text-align: center;">
+                    <h3>📦 Get Everything!</h3>
+                    <p>Download all Module 3 resources in one convenient package</p>
+                    <a href="#" class="download-button" onclick="alert('Download after enrollment'); return false;">
+                        ⬇️ Complete Module 3 Package (ZIP)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUIZ TAB -->
+        <div id="quiz" class="tab-content">
+            <div class="quiz-section">
+                <h2 style="font-family: 'Playfair Display', serif; color: var(--primary); font-size: 2.2em; margin-bottom: 20px;">
+                    ✅ Module 3 Planning Quiz
+                </h2>
+                <p style="font-size: 1.1em; margin-bottom: 30px;">
+                    Test your lesson planning knowledge! Pass with 70% (7 out of 10 correct).
+                </p>
+
+                <form id="quizForm">
+                    <div class="quiz-question">
+                        <h4>1. What does "PPP" stand for in lesson planning?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="a"> Plan, Practice, Perform
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="b"> Presentation, Practice, Production ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q1" value="c"> Prepare, Present, Prove
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>2. What makes a learning objective "SMART"?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="a"> Simple, Modern, Active, Real, Timely
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="b"> Specific, Measurable, Achievable, Relevant, Time-bound ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q2" value="c"> Strategic, Meaningful, Accurate, Reasonable, Tested
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>3. What should you do FIRST in every lesson?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="a"> Teach new grammar
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="b"> Warm-up / Lead-in ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q3" value="c"> Give homework
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>4. What is scaffolding in teaching?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="a"> Building a physical structure in class
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="b"> Providing temporary support to help students reach higher levels ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q4" value="c"> Making lessons harder over time
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>5. Which is an example of differentiation?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="a"> Everyone does the exact same activity
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="b"> Advanced students get extra challenges while struggling students get more support ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q5" value="c"> Only teaching one level of students
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>6. How long should a typical warm-up activity be?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="a"> 1-2 minutes
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="b"> 5-10 minutes ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q6" value="c"> 20-25 minutes
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>7. What's the purpose of guided practice?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="a"> Students practice independently without help
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="b"> Students practice with teacher support and correction ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q7" value="c"> Teacher demonstrates without student participation
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>8. Which is a GOOD learning objective?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="a"> "Students will learn grammar"
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="b"> "Students will be able to write 5 sentences using past tense correctly" ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q8" value="c"> "We'll talk about the past"
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>9. What should you ALWAYS do at the end of a lesson?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="a"> Immediately leave the room
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="b"> Review key points and check understanding ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q9" value="c"> Start teaching new material
+                        </label>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>10. How many lesson plan templates are included in this module?</h4>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="a"> 5 templates
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="b"> 10 templates ✓
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="q10" value="c"> 20 templates
+                        </label>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 40px;">
+                        <button type="button" class="submit-quiz" onclick="gradeQuiz()">
+                            Submit Quiz 🎯
+                        </button>
+                    </div>
+                </form>
+
+                <div class="success-message" id="successMessage">
+                    <h3 style="margin-bottom: 15px;">🎉 Fantastic!</h3>
+                    <p id="scoreText"></p>
+                    <p style="margin-top: 20px;">You're becoming an amazing lesson planner!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="next-module">
+            <h3>📍 Coming Next:</h3>
+            <p style="font-size: 1.2em; margin: 20px 0;">
+                <strong>Module 4: Teaching Methodology & Techniques</strong>
+            </p>
+            <p style="margin-bottom: 20px;">
+                Master the proven teaching methods used by successful ESL teachers worldwide!
+            </p>
+            <div>
+                <span class="badge">CLT Method</span>
+                <span class="badge">Task-Based Learning</span>
+                <span class="badge">TPR</span>
+                <span class="badge">Natural Approach</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function gradeQuiz() {
+            const answers = {
+                q1: 'b', q2: 'b', q3: 'b', q4: 'b', q5: 'b',
+                q6: 'b', q7: 'b', q8: 'b', q9: 'b', q10: 'b'
+            };
+
+            let correct = 0;
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === answers[`q${i}`]) {
+                    correct++;
+                }
+            }
+
+            const percentage = (correct / 10) * 100;
+            const passed = percentage >= 70;
+            const successMessage = document.getElementById('successMessage');
+            const scoreText = document.getElementById('scoreText');
+
+            if (passed) {
+                scoreText.innerHTML = `You scored <strong>${correct} out of 10</strong> (${percentage}%)!<br>You PASSED! 🎊`;
+                successMessage.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+            } else {
+                scoreText.innerHTML = `You scored <strong>${correct} out of 10</strong> (${percentage}%).<br>Review the materials and try again!`;
+                successMessage.style.background = 'linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%)';
+            }
+
+            successMessage.style.display = 'block';
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+</body>
+</html>
