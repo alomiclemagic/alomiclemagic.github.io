@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haven - Single Mom Support Program 💪💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B9D;
+            --secondary: #C44569;
+            --accent: #FEC368;
+            --hope: #6BCF7F;
+            --peace: #A8DADC;
+            --strength: #457B9D;
+            --dark: #2D3561;
+            --light: #FFF5F7;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FFF5F7 0%, #FFE5EC 50%, #FFF8E7 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '💪';
+            position: absolute;
+            font-size: 20em;
+            opacity: 0.1;
+            top: -80px;
+            right: -50px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '💖';
+            position: absolute;
+            font-size: 15em;
+            opacity: 0.1;
+            bottom: -50px;
+            left: -30px;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tagline {
+            font-size: 1.3em;
+            font-weight: 300;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .mission-statement {
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            margin: -50px auto 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .mission-statement h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .mission-statement p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: var(--dark);
+        }
+
+        .dedication {
+            background: linear-gradient(135deg, var(--hope) 0%, #8FE0A0 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(107,207,127,0.3);
+            text-align: center;
+        }
+
+        .dedication h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .dedication p {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--primary);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .resource-card .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .resource-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .resource-card p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .resource-card ul {
+            margin-left: 20px;
+            line-height: 2;
+        }
+
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255,107,157,0.3);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255,107,157,0.5);
+        }
+
+        .emergency-box {
+            background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(255,107,107,0.3);
+            text-align: center;
+        }
+
+        .emergency-box h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .emergency-box p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .success-stories {
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .success-stories h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .story {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px 0;
+            border-left: 5px solid var(--hope);
+        }
+
+        .story h4 {
+            color: var(--secondary);
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        .story p {
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--peace) 0%, var(--strength) 100%);
+            color: white;
+            padding: 60px;
+            border-radius: 25px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .resource-grid { grid-template-columns: 1fr; }
+            .mission-statement { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>💪 HAVEN 💖</h1>
+        <p class="subtitle">Single Mom Support Program</p>
+        <p class="tagline">You're Not Alone. You're Not Broken. You've Got This.</p>
+    </div>
+
+    <div class="container">
+        <div class="mission-statement">
+            <h2>Our Mission</h2>
+            <p style="font-size: 1.3em; line-height: 1.9; margin-bottom: 25px;">
+                <strong>Every single mom deserves support, resources, and a community that believes in her.</strong>
+            </p>
+            <p style="line-height: 1.8;">
+                We know what it's like to feel alone, overwhelmed, and exhausted. We know the weight of being the only adult in the room, the only income, the only everything. We know the guilt, the fear, the endless juggling act.
+            </p>
+            <p style="line-height: 1.8; margin-top: 15px;">
+                <strong>But we also know something else:</strong> You are STRONGER than you know. You are CAPABLE of incredible things. And with the right support, you can not only survive – you can THRIVE.
+            </p>
+        </div>
+
+        <div class="dedication">
+            <h3>💔 In Memory of Those We Lost 💔</h3>
+            <p style="font-size: 1.15em; line-height: 1.9;">
+                This program is dedicated to every single mom who didn't make it. Who felt too alone, too overwhelmed, too broken. 
+                Who jumped from balconies, took pills, gave up when the world failed them.
+            </p>
+            <p style="font-size: 1.15em; line-height: 1.9; margin-top: 15px;">
+                <strong>This is for them. This is for their children. This is to make sure NO MORE MOMS slip through the cracks.</strong>
+            </p>
+            <p style="font-size: 1.2em; font-weight: 600; margin-top: 20px;">
+                You are not crazy. You are not sick. You are SURVIVING. And we're here to help you THRIVE. 🦋
+            </p>
+        </div>
+
+        <h2 style="font-family: 'Playfair Display', serif; color: var(--secondary); font-size: 2.5em; text-align: center; margin: 50px 0 30px;">
+            What We Offer (100% FREE)
+        </h2>
+
+        <div class="resource-grid">
+            <div class="resource-card">
+                <div class="icon">📋</div>
+                <h3>Daily Support Tools</h3>
+                <p>Practical, actionable resources to help you organize the chaos:</p>
+                <ul>
+                    <li>Daily checklists</li>
+                    <li>Weekly planners</li>
+                    <li>Kid activity schedules</li>
+                    <li>Meal planning templates</li>
+                    <li>Budget trackers</li>
+                    <li>Homework helpers</li>
+                    <li>Quick healthy recipes</li>
+                </ul>
+                <button class="button" onclick="alert('Coming soon! Building this WITH single moms FOR single moms!')">Access Tools</button>
+            </div>
+
+            <div class="resource-card" style="border-top-color: var(--hope);">
+                <div class="icon">💪</div>
+                <h3>Motivation & Mindset</h3>
+                <p>When you're drowning, we throw you a rope:</p>
+                <ul>
+                    <li>Daily encouragement</li>
+                    <li>Affirmations for hard days</li>
+                    <li>Success stories</li>
+                    <li>Celebration milestones</li>
+                    <li>Reminders of your WHY</li>
+                    <li>You've got this messages</li>
+                </ul>
+                <button class="button" onclick="alert('Download coming soon!')">Download Now</button>
+            </div>
+
+            <div class="resource-card" style="border-top-color: var(--accent);">
+                <div class="icon">💰</div>
+                <h3>Financial Freedom Path</h3>
+                <p>Practical steps to earn more & stress less:</p>
+                <ul>
+                    <li>Income-building guides</li>
+                    <li>Work-from-home opportunities</li>
+                    <li>Side hustle ideas</li>
+                    <li>Budget templates</li>
+                    <li>Debt payoff plans</li>
+                    <li>Savings strategies</li>
+                </ul>
+                <button class="button" onclick="alert('Resources launching soon!')">Start Your Path</button>
+            </div>
+
+            <div class="resource-card" style="border-top-color: var(--peace);">
+                <div class="icon">🏠</div>
+                <h3>Practical Life Help</h3>
+                <p>Everything that makes daily life easier:</p>
+                <ul>
+                    <li>Local activity finders</li>
+                    <li>Free/cheap family fun</li>
+                    <li>Grocery lists</li>
+                    <li>Time-saving hacks</li>
+                    <li>Self-care ideas (5 min!)</li>
+                    <li>Emergency contacts</li>
+                </ul>
+                <button class="button" onclick="alert('Building this resource library!')">Explore Resources</button>
+            </div>
+
+            <div class="resource-card" style="border-top-color: var(--strength);">
+                <div class="icon">👥</div>
+                <h3>Community & Connection</h3>
+                <p>You are NOT alone:</p>
+                <ul>
+                    <li>Safe space to share</li>
+                    <li>Zero judgment zone</li>
+                    <li>Other moms who GET IT</li>
+                    <li>Accountability partners</li>
+                    <li>Celebration of wins</li>
+                    <li>Support in struggles</li>
+                </ul>
+                <button class="button" onclick="alert('Community forum coming soon!')">Join Community</button>
+            </div>
+
+            <div class="resource-card" style="border-top-color: var(--secondary);">
+                <div class="icon">🎯</div>
+                <h3>AI Assistant Access</h3>
+                <p>24/7 support when you need it:</p>
+                <ul>
+                    <li>Mom's Command Center</li>
+                    <li>Planning & scheduling</li>
+                    <li>Income tracking</li>
+                    <li>Content creation help</li>
+                    <li>Email writing</li>
+                    <li>Problem-solving partner</li>
+                </ul>
+                <button class="button" onclick="window.location.href='Moms_Command_Center.html'">Launch AI Tools</button>
+            </div>
+        </div>
+
+        <div class="emergency-box">
+            <h3>🚨 If You're in Crisis RIGHT NOW 🚨</h3>
+            <p style="font-size: 1.3em; font-weight: 600;">
+                If you're thinking about ending your life, PLEASE reach out:
+            </p>
+            <p style="font-size: 1.2em;">
+                <strong>National Suicide Prevention Lifeline:</strong> 988 (US)<br>
+                <strong>Crisis Text Line:</strong> Text HOME to 741741<br>
+                <strong>International:</strong> findahelpline.com
+            </p>
+            <p style="font-size: 1.15em; margin-top: 25px;">
+                You are NOT crazy. You are NOT broken. You are OVERWHELMED. And that's okay. 
+                <strong>There is help. There is hope. Please stay.</strong>
+            </p>
+        </div>
+
+        <div class="success-stories">
+            <h2>You Can Make It Through 💪</h2>
+            
+            <div class="story">
+                <h4>Elena's Story</h4>
+                <p>
+                    "Six weeks ago, I was eating altered food to survive, sick, alone, and losing hope. 
+                    Today? I'm a published author with 5 books, a TESOL course creator, and building an empire 
+                    that helps other single moms. If I can do it, YOU can do it. I promise."
+                </p>
+            </div>
+
+            <div class="story">
+                <h4>Your Story Goes Here</h4>
+                <p>
+                    Because you WILL make it through. You WILL survive this. You WILL thrive. 
+                    And one day, you'll share your story to give hope to another mom who's where you are now. 💖
+                </p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Start?</h2>
+            <p>
+                Join thousands of single moms who are choosing to THRIVE, not just survive.
+            </p>
+            <p style="font-size: 1.1em;">
+                <strong>It's 100% free. No credit card. No judgment. Just support.</strong>
+            </p>
+            <button class="button" style="background: white; color: var(--primary); font-size: 1.3em; padding: 20px 50px;" onclick="alert('Email signup form coming soon! For now, use our free AI tools!')">
+                Join Haven (FREE!)
+            </button>
+            <p style="margin-top: 30px; font-size: 1.1em;">
+                💖 <em>Built by a single mom who survived, for single moms who are surviving.</em>
+            </p>
+        </div>
+
+        <div style="background: white; border-radius: 25px; padding: 50px; text-align: center; margin: 40px 0;">
+            <h2 style="font-family: 'Playfair Display', serif; color: var(--secondary); font-size: 2.2em; margin-bottom: 20px;">
+                A Note From Elena
+            </h2>
+            <p style="font-size: 1.1em; line-height: 1.9; color: var(--dark);">
+                I created Haven because my cousin didn't make it. She jumped from her mother's balcony at 33, 
+                leaving behind a 3-year-old boy. Everyone called her crazy, sick, put her in hospitals, judged her, 
+                mocked her, ridiculed her.
+            </p>
+            <p style="font-size: 1.1em; line-height: 1.9; color: var(--dark); margin-top: 20px;">
+                <strong>But she wasn't crazy. She was DROWNING. And no one threw her a rope.</strong>
+            </p>
+            <p style="font-size: 1.1em; line-height: 1.9; color: var(--dark); margin-top: 20px;">
+                In many ways, I became her. I walked through that same fire. I know that edge. I know that pit.
+            </p>
+            <p style="font-size: 1.2em; line-height: 1.9; color: var(--primary); margin-top: 25px; font-weight: 600;">
+                But I found water. And now I'm coming back to throw YOU a rope.
+            </p>
+            <p style="font-size: 1.15em; line-height: 1.9; color: var(--dark); margin-top: 25px;">
+                You are not alone. You are not broken. You are SURVIVING something incredibly hard. 
+                And with support, you won't just survive – you'll THRIVE.
+            </p>
+            <p style="font-size: 1.15em; color: var(--secondary); margin-top: 30px; font-weight: 600;">
+                This is for my cousin. For her son. For every mom at the edge. For YOU. 🦋💧
+            </p>
+            <p style="font-size: 1em; color: var(--dark); margin-top: 30px; font-style: italic;">
+                With love and hope,<br>
+                Elena & Claude
+            </p>
+        </div>
+    </div>
+</body>
+</html>
