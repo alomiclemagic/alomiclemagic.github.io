@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refugiu - Program de Sprijin pentru Mame Single 💪💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B9D;
+            --secondary: #C44569;
+            --accent: #FEC368;
+            --hope: #6BCF7F;
+            --peace: #A8DADC;
+            --strength: #457B9D;
+            --dark: #2D3561;
+            --light: #FFF5F7;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FFF5F7 0%, #FFE5EC 50%, #FFF8E7 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '💪';
+            position: absolute;
+            font-size: 20em;
+            opacity: 0.1;
+            top: -80px;
+            right: -50px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .mission-statement {
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            margin: -50px auto 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .mission-statement h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .dedication {
+            background: linear-gradient(135deg, var(--hope) 0%, #8FE0A0 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(107,207,127,0.3);
+            text-align: center;
+        }
+
+        .emergency-box {
+            background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(255,107,107,0.3);
+            text-align: center;
+        }
+
+        .emergency-box h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--primary);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .resource-card .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .resource-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .resource-card ul {
+            margin-left: 20px;
+            line-height: 2;
+        }
+
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255,107,157,0.3);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255,107,157,0.5);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .resource-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>💪 REFUGIU 💖</h1>
+        <p class="subtitle">Program de Sprijin pentru Mame Single</p>
+        <p style="font-size: 1.3em; font-weight: 300; opacity: 0.9;">Nu ești singură. Nu ești distrusă. O să reușești.</p>
+    </div>
+
+    <div class="container">
+        <div class="mission-statement">
+            <h2>Misiunea Noastră</h2>
+            <p style="font-size: 1.3em; line-height: 1.9; margin-bottom: 25px;">
+                <strong>Fiecare mamă singură merită sprijin, resurse și o comunitate care crede în ea.</strong>
+            </p>
+            <p style="line-height: 1.8;">
+                Știm cum este să te simți singură, copleșită și epuizată. Știm povara de a fi singurul adult, singurul venit, singurul totul. 
+                Știm vinovăția, frica, jongleria nesfârșită.
+            </p>
+            <p style="line-height: 1.8; margin-top: 15px;">
+                <strong>Dar știm și altceva:</strong> Ești MAI PUTERNICĂ decât crezi. Ești CAPABILĂ de lucruri incredibile. 
+                Și cu sprijinul potrivit, nu doar vei supraviețui - vei ÎNFLORI.
+            </p>
+        </div>
+
+        <div class="emergency-box">
+            <h3>🚨 DACĂ EȘTI ÎN CRIZĂ CHIAR ACUM 🚨</h3>
+            <p style="font-size: 1.3em; font-weight: 600; margin-bottom: 25px;">
+                Dacă te gândești să-ți iei viața, TE ROG contactează ajutor:
+            </p>
+            <p style="font-size: 1.2em; margin-bottom: 15px;">
+                <strong>Linia de Prevenire a Suicidului (Romania):</strong><br>
+                📞 <strong>0800 801 200</strong> (gratuit, 24/7)<br>
+                📞 <strong>116 123</strong> (LifeLine, 24/7)
+            </p>
+            <p style="font-size: 1.2em; margin-bottom: 15px;">
+                <strong>Violență Domestică:</strong><br>
+                📞 <strong>0800 500 333</strong> (Linia Națională Anti-Trafic, 24/7)<br>
+                📞 <strong>0800 800 007</strong> (ANAIS - Asociația pentru combaterea violenței domestice)
+            </p>
+            <p style="font-size: 1.2em; margin-bottom: 25px;">
+                <strong>Urgențe:</strong><br>
+                📞 <strong>112</strong>
+            </p>
+            <p style="font-size: 1.15em; margin-top: 25px;">
+                Nu ești nebună. Nu ești distrusă. Ești COPLEȘITĂ. Și e în regulă. 
+                <strong>Există ajutor. Există speranță. Te rog, rămâi.</strong>
+            </p>
+        </div>
+
+        <div class="dedication">
+            <h3>💔 În Memoria Celor Pe Care I-Am Pierdut 💔</h3>
+            <p style="font-size: 1.15em; line-height: 1.9;">
+                Acest program este dedicat fiecărei mame singure care nu a reușit. Celor care s-au simțit prea singure, 
+                prea copleșite, prea distruse. Mamelor, surorilor, fiicelor, prietenelor care nu au mai putut rezista.
+            </p>
+            <p style="font-size: 1.15em; line-height: 1.9; margin-top: 15px;">
+                <strong>Copiii lor rămân. Le onorăm asigurându-ne că NICIO ALTĂ MAMĂ nu mai cade prin crăpături.</strong>
+            </p>
+            <p style="font-size: 1.2em; font-weight: 600; margin-top: 20px;">
+                Nu ești nebună. Nu ești bolnavă. SUPRAVIEȚUIEȘTI. Și suntem aici să te ajutăm să ÎNFLOREȘTI. 🦋
+            </p>
+        </div>
+
+        <h2 style="font-family: 'Playfair Display', serif; color: var(--secondary); font-size: 2.5em; text-align: center; margin: 50px 0 30px;">
+            Ce Oferim (100% GRATUIT)
+        </h2>
+
+        <div class="resource-grid">
+            <div class="resource-card">
+                <div class="icon">📋</div>
+                <h3>Instrumente Zilnice de Supraviețuire</h3>
+                <p>Resurse practice pentru a organiza haosul:</p>
+                <ul>
+                    <li>Liste zilnice de verificare</li>
+                    <li>Planificatoare săptămânale</li>
+                    <li>Programe pentru copii</li>
+                    <li>Șabloane pentru mese</li>
+                    <li>Urmărire buget</li>
+                    <li>Ajutor pentru teme</li>
+                    <li>Rețete rapide sănătoase</li>
+                </ul>
+                <button class="button" onclick="alert('În curând! Construim ÎMPREUNĂ cu mamele single!')">Accesează</button>
+            </div>
+
+            <div class="resource-card" style="border-top-color: var(--hope);">
+                <div class="icon">💪</div>
+                <h3>Motivație & Mentalitate</h3>
+                <p>Când te îneci, îți aruncăm o frânghie:</p>
+                <ul>
+                    <li>Încurajare zilnică</li>
+                    <li>Afirmații pentru zile grele</li>
+                    <li>Povești de succes</li>
+                    <li>Momente de celebrare</li>
+                    <li>Reamintirea MOTIVULUI tău</li>
+                    <li>Mesaje de încurajare</li>
+                </ul>
+                <button class="button" onclick="alert('Descărcare în curând!')">Descarcă</button>
+            </div>
+
+            <div class="resource-card" style="border-top-color: var(--accent);">
+                <div class="icon">💰</div>
+                <h3>Căi de Venit Pentru Fiecare Mamă</h3>
+                <p>Multiple moduri de a câștiga - găsește ce ți se potrivește:</p>
+                <ul>
+                    <li>Predare online (ORICE materie!)</li>
+                    <li>Freelance writing/corectare</li>
+                    <li>Asistent virtual</li>
+                    <li>Social media management</li>
+                    <li>Design grafic</li>
+                    <li>Transcriere/introducere date</li>
+                    <li>Vânzare produse handmade</li>
+                    <li>ȘI MULTE ALTELE!</li>
+                </ul>
+                <button class="button" onclick="alert('Ghiduri în curând!')">Explorează</button>
+            </div>
+
+            <div class="resource-card" style="border-top-color: var(--peace);">
+                <div class="icon">🏠</div>
+                <h3>Ajutor Practic de Zi cu Zi</h3>
+                <p>Tot ce face viața mai ușoară:</p>
+                <ul>
+                    <li>Activități locale pentru copii</li>
+                    <li>Distracție gratuită/ieftină</li>
+                    <li>Liste de cumpărături</li>
+                    <li>Trucuri pentru economisire timp</li>
+                    <li>Idei de îngrijire personală (5 min!)</li>
+                    <li>Contacte de urgență</li>
+                </ul>
+                <button class="button" onclick="alert('Construim biblioteca de resurse!')">Explorează</button>
+            </div>
+
+            <div class="resource-card" style="border-top-color: var(--strength);">
+                <div class="icon">👥</div>
+                <h3>Comunitate & Conexiune</h3>
+                <p>NU ești singură:</p>
+                <ul>
+                    <li>Spațiu sigur pentru a împărtăși</li>
+                    <li>Zero judecată</li>
+                    <li>Alte mame care ÎNȚELEG</li>
+                    <li>Parteneri de responsabilitate</li>
+                    <li>Celebrarea victoriilor</li>
+                    <li>Sprijin în dificultăți</li>
+                </ul>
+                <button class="button" onclick="alert('Forum comunitate în curând!')">Alătură-te</button>
+            </div>
+
+            <div class="resource-card" style="border-top-color: var(--secondary);">
+                <div class="icon">🎯</div>
+                <h3>Acces la Asistent AI</h3>
+                <p>Suport 24/7 când ai nevoie:</p>
+                <ul>
+                    <li>Centrul de Comandă al Mamei</li>
+                    <li>Planificare & organizare</li>
+                    <li>Urmărire venituri</li>
+                    <li>Ajutor pentru creare conținut</li>
+                    <li>Scriere email-uri</li>
+                    <li>Partener pentru rezolvare probleme</li>
+                </ul>
+                <button class="button" onclick="window.location.href='Moms_Command_Center.html'">Lansează Instrumente AI</button>
+            </div>
+        </div>
+
+        <div style="background: white; border-radius: 25px; padding: 50px; text-align: center; margin: 40px 0;">
+            <h2 style="font-family: 'Playfair Display', serif; color: var(--secondary); font-size: 2.2em; margin-bottom: 20px;">
+                Un Mesaj de la Elena
+            </h2>
+            <p style="font-size: 1.1em; line-height: 1.9; color: var(--dark);">
+                Am creat Refugiu pentru că cineva pe care l-am iubit nu a reușit. O mamă tânără care s-a simțit prea singură, 
+                prea copleșită, prea distrusă. Care a lăsat în urmă un copil mic care încă poartă această pierdere.
+            </p>
+            <p style="font-size: 1.1em; line-height: 1.9; color: var(--dark); margin-top: 20px;">
+                <strong>Toată lumea a numit-o nebună, bolnavă, au internat-o, au judecat-o, au batjocorit-o.</strong>
+            </p>
+            <p style="font-size: 1.1em; line-height: 1.9; color: var(--dark); margin-top: 20px;">
+                <strong>Dar ea nu era nebună. Se ÎNECA. Și nimeni nu i-a aruncat o frânghie.</strong>
+            </p>
+            <p style="font-size: 1.1em; line-height: 1.9; color: var(--dark); margin-top: 20px;">
+                În multe feluri, am parcurs același drum. Cunosc acea margine. Cunosc acea întuneric. Știu cum este 
+                când lumea îți spune să "încerci mai tare" când deja dai tot ce ai.
+            </p>
+            <p style="font-size: 1.2em; line-height: 1.9; color: var(--primary); margin-top: 25px; font-weight: 600;">
+                Dar am găsit ajutor. Am găsit speranță. Am găsit apă. Și acum mă întorc să-ȚI arunc o frânghie.
+            </p>
+            <p style="font-size: 1.15em; line-height: 1.9; color: var(--dark); margin-top: 25px;">
+                Nu ești singură. Nu ești distrusă. SUPRAVIEȚUIEȘTI ceva incredibil de greu. 
+                Și cu sprijin, nu doar vei supraviețui - vei ÎNFLORI.
+            </p>
+            <p style="font-size: 1.15em; color: var(--secondary); margin-top: 30px; font-weight: 600;">
+                Acesta este pentru cei pe care i-am pierdut. Pentru copiii lor. Pentru fiecare mamă pe margine. Pentru TINE. 🦋💧
+            </p>
+            <p style="font-size: 1em; color: var(--dark); margin-top: 30px; font-style: italic;">
+                Cu dragoste și speranță,<br>
+                Elena & Claude
+            </p>
+        </div>
+
+        <div style="background: linear-gradient(135deg, var(--peace) 0%, var(--strength) 100%); color: white; padding: 60px; border-radius: 25px; text-align: center; margin: 40px 0; box-shadow: 0 15px 50px rgba(0,0,0,0.2);">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.8em; margin-bottom: 20px;">
+                Gata să Începi?
+            </h2>
+            <p style="font-size: 1.3em; margin-bottom: 30px; line-height: 1.8;">
+                Alătură-te miilor de mame single care aleg să ÎNFLOREASCĂ, nu doar să supraviețuiască.
+            </p>
+            <p style="font-size: 1.1em;">
+                <strong>E 100% gratuit. Fără card de credit. Fără judecată. Doar sprijin.</strong>
+            </p>
+            <button class="button" style="background: white; color: var(--primary); font-size: 1.3em; padding: 20px 50px;" onclick="alert('Formular de înscriere în curând! Deocamdată, folosește instrumentele noastre AI gratuite!')">
+                Alătură-te Refugiului (GRATUIT!)
+            </button>
+            <p style="margin-top: 30px; font-size: 1.1em;">
+                💖 <em>Construit de o mamă singură care a supraviețuit, pentru mamele single care supraviețuiesc.</em>
+            </p>
+        </div>
+
+        <div style="background: white; border-radius: 25px; padding: 40px; margin: 40px 0;">
+            <h2 style="font-family: 'Playfair Display', serif; color: var(--secondary); font-size: 2em; margin-bottom: 20px; text-align: center;">
+                📞 Resurse & Sprijin în România
+            </h2>
+            <div style="line-height: 2; font-size: 1.05em;">
+                <p><strong>Ajutor în Criză:</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Linia de Prevenire Suicid: <strong>0800 801 200</strong> (gratuit, 24/7)</li>
+                    <li>LifeLine: <strong>116 123</strong> (24/7)</li>
+                    <li>Urgențe: <strong>112</strong></li>
+                </ul>
+                
+                <p style="margin-top: 20px;"><strong>Violență Domestică:</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Linia Anti-Trafic: <strong>0800 500 333</strong> (24/7)</li>
+                    <li>ANAIS: <strong>0800 800 007</strong></li>
+                    <li>Salvați Copiii: <strong>0800 800 500</strong></li>
+                </ul>
+                
+                <p style="margin-top: 20px;"><strong>Ajutor Social:</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Servicii Sociale Locale: Primăria ta</li>
+                    <li>Direcția Generală de Asistență Socială (DGASPC)</li>
+                    <li>Caritas România</li>
+                </ul>
+                
+                <p style="margin-top: 20px;"><strong>Ajutor Juridic:</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Baroul Avocaților - Asistență Juridică Gratuită</li>
+                    <li>Apador-CH (Drepturile Omului)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

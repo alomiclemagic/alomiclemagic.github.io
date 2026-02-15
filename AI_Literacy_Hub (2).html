@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Literacy Hub - Learn AI Together! 🤖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --kids-primary: #FF6B9D;
+            --kids-secondary: #FFD93D;
+            --kids-accent: #6BCF7F;
+            --teacher-primary: #5B7C99;
+            --teacher-secondary: #98C1D9;
+            --teacher-accent: #E0FBFC;
+            --mom-primary: #A8DADC;
+            --mom-secondary: #457B9D;
+            --mom-accent: #F1FAEE;
+            --dark: #1D3557;
+            --light: #F8F9FA;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #F8F9FA 0%, #E8EAF6 100%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🤖';
+            position: absolute;
+            font-size: 15em;
+            opacity: 0.1;
+            top: -50px;
+            right: -50px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 4em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: bounceIn 1s ease;
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 5px solid transparent;
+        }
+
+        .section-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .section-card.kids {
+            border-color: var(--kids-primary);
+        }
+
+        .section-card.kids:hover {
+            background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E9 100%);
+        }
+
+        .section-card.teachers {
+            border-color: var(--teacher-primary);
+        }
+
+        .section-card.teachers:hover {
+            background: linear-gradient(135deg, #E0FBFC 0%, #D4F1F4 100%);
+        }
+
+        .section-card.moms {
+            border-color: var(--mom-secondary);
+        }
+
+        .section-card.moms:hover {
+            background: linear-gradient(135deg, #F1FAEE 0%, #E0F4F1 100%);
+        }
+
+        .section-card .icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .section-card h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .section-card p {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(102,126,234,0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(102,126,234,0.5);
+        }
+
+        .lesson-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+
+        .lesson-card h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .interactive-tool {
+            background: linear-gradient(135deg, #FFE4E9 0%, #FFF0F5 100%);
+            border: 3px solid var(--kids-primary);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .tool-button {
+            background: linear-gradient(135deg, #FF6B9D 0%, #FF8FAB 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255,107,157,0.3);
+            margin: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .tool-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255,107,157,0.5);
+        }
+
+        .tool-button.teacher {
+            background: linear-gradient(135deg, #5B7C99 0%, #98C1D9 100%);
+            box-shadow: 0 5px 20px rgba(91,124,153,0.3);
+        }
+
+        .tool-button.teacher:hover {
+            box-shadow: 0 8px 30px rgba(91,124,153,0.5);
+        }
+
+        .tool-button.mom {
+            background: linear-gradient(135deg, #457B9D 0%, #A8DADC 100%);
+            box-shadow: 0 5px 20px rgba(69,123,157,0.3);
+        }
+
+        .tool-button.mom:hover {
+            box-shadow: 0 8px 30px rgba(69,123,157,0.5);
+        }
+
+        .safety-box {
+            background: linear-gradient(135deg, #6BCF7F 0%, #8FE0A0 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            box-shadow: 0 5px 20px rgba(107,207,127,0.3);
+        }
+
+        .safety-box h4 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .tool-item {
+            background: white;
+            border: 3px solid #E0E0E0;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tool-item:hover {
+            border-color: var(--kids-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .tool-item .emoji {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .tool-item h4 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .input-area {
+            width: 100%;
+            padding: 15px;
+            border: 3px solid #E0E0E0;
+            border-radius: 15px;
+            font-size: 1em;
+            font-family: 'Poppins', sans-serif;
+            margin: 15px 0;
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .input-area:focus {
+            outline: none;
+            border-color: var(--kids-primary);
+        }
+
+        .output-box {
+            background: #F8F9FA;
+            border: 3px solid #E0E0E0;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            min-height: 100px;
+            display: none;
+        }
+
+        .output-box.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tip-ribbon {
+            background: linear-gradient(135deg, #FFD93D 0%, #FFE066 100%);
+            color: var(--dark);
+            padding: 20px 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            font-weight: 500;
+            box-shadow: 0 5px 20px rgba(255,217,61,0.3);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .section-selector { grid-template-columns: 1fr; }
+            .tool-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>🤖 AI Literacy Hub</h1>
+        <p class="subtitle">Learn AI Together - Safely, Smartly, Successfully!</p>
+        <p class="tagline">For Kids • Teachers • Single Moms</p>
+    </div>
+
+    <div class="container">
+        <!-- SECTION SELECTOR -->
+        <div id="sectionSelector" class="section-selector">
+            <div class="section-card kids" onclick="showSection('kids')">
+                <div class="icon">👧🎮</div>
+                <h2>For Kids</h2>
+                <p>Fun, safe AI learning! Discover how to use AI as your creative friend!</p>
+            </div>
+
+            <div class="section-card teachers" onclick="showSection('teachers')">
+                <div class="icon">👩‍🏫📚</div>
+                <h2>For Teachers</h2>
+                <p>Powerful AI tools for your classroom! Save time, teach better!</p>
+            </div>
+
+            <div class="section-card moms" onclick="showSection('moms')">
+                <div class="icon">💪👑</div>
+                <h2>For Single Moms</h2>
+                <p>Build your business with AI! Work smarter, earn more!</p>
+            </div>
+        </div>
+
+        <!-- KIDS SECTION -->
+        <div id="kidsSection" class="content-section">
+            <button class="back-button" onclick="showSelector()">← Back to All Sections</button>
+
+            <div class="lesson-card">
+                <h3>👋 Welcome, Young Explorer!</h3>
+                <p style="font-size: 1.2em; line-height: 1.8;">
+                    Hi! I'm your AI friend, and I'm here to teach you something SUPER cool! Have you ever wondered how computers can talk, create stories, or help with homework? That's AI - Artificial Intelligence! And YOU can learn to use it safely and creatively! 🌟
+                </p>
+            </div>
+
+            <div class="safety-box">
+                <h4>🛡️ Safety First!</h4>
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    <strong>Important rules when using AI:</strong><br>
+                    ✅ NEVER share personal information (name, address, school)<br>
+                    ✅ ALWAYS ask a parent before using AI<br>
+                    ✅ If AI says something weird, tell an adult!<br>
+                    ✅ Use AI for learning and creativity - not to cheat!<br>
+                    ✅ Remember: AI is a tool, not a real person!
+                </p>
+            </div>
+
+            <div class="lesson-card">
+                <h3>🎮 Fun AI Learning Tools!</h3>
+                <p style="margin-bottom: 20px;">Click on any tool to try it out!</p>
+
+                <div class="tool-grid">
+                    <div class="tool-item" onclick="showTool('story')">
+                        <div class="emoji">📚</div>
+                        <h4>Story Creator</h4>
+                        <p>Write amazing stories with AI!</p>
+                    </div>
+
+                    <div class="tool-item" onclick="showTool('helper')">
+                        <div class="emoji">🤔</div>
+                        <h4>Homework Helper</h4>
+                        <p>Get help understanding your homework!</p>
+                    </div>
+
+                    <div class="tool-item" onclick="showTool('creative')">
+                        <div class="emoji">🎨</div>
+                        <h4>Creative Ideas</h4>
+                        <p>Get ideas for art, projects, and fun!</p>
+                    </div>
+
+                    <div class="tool-item" onclick="showTool('learn')">
+                        <div class="emoji">🌍</div>
+                        <h4>Learn Anything</h4>
+                        <p>Ask questions and learn new things!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Story Creator -->
+            <div id="storyTool" class="interactive-tool" style="display: none;">
+                <h3>📚 AI Story Creator</h3>
+                <p>Fill in the blanks and let AI help you create an amazing story!</p>
+                
+                <label style="font-weight: 600; display: block; margin-top: 15px;">What's your story about?</label>
+                <input type="text" id="storyTopic" class="input-area" style="min-height: 50px;" placeholder="Example: A dragon who loves pizza">
+                
+                <label style="font-weight: 600; display: block; margin-top: 15px;">Who is the main character?</label>
+                <input type="text" id="storyCharacter" class="input-area" style="min-height: 50px;" placeholder="Example: A brave girl named Luna">
+                
+                <button class="tool-button" onclick="generateStory()">✨ Create My Story!</button>
+                
+                <div id="storyOutput" class="output-box"></div>
+            </div>
+
+            <div class="tip-ribbon">
+                💡 <strong>Pro Tip for Kids:</strong> AI is like having a super-smart helper who never gets tired! But always double-check what AI tells you, and ask a grown-up if you're not sure about something!
+            </div>
+        </div>
+
+        <!-- TEACHERS SECTION -->
+        <div id="teachersSection" class="content-section">
+            <button class="back-button" onclick="showSelector()">← Back to All Sections</button>
+
+            <div class="lesson-card">
+                <h3>👩‍🏫 Welcome, Educator!</h3>
+                <p style="font-size: 1.2em; line-height: 1.8;">
+                    Transform your teaching with AI! These tools will save you HOURS of prep time and help you create engaging, differentiated content for your students. Let's work smarter, not harder! 💪
+                </p>
+            </div>
+
+            <div class="lesson-card">
+                <h3>🛠️ AI Tools for Teachers</h3>
+                
+                <div class="tool-grid">
+                    <div class="tool-item" onclick="showTeacherTool('lesson')">
+                        <div class="emoji">📝</div>
+                        <h4>Lesson Planner</h4>
+                        <p>Create detailed lesson plans in minutes!</p>
+                    </div>
+
+                    <div class="tool-item" onclick="showTeacherTool('worksheet')">
+                        <div class="emoji">📄</div>
+                        <h4>Worksheet Generator</h4>
+                        <p>Generate custom worksheets instantly!</p>
+                    </div>
+
+                    <div class="tool-item" onclick="showTeacherTool('assessment')">
+                        <div class="emoji">✅</div>
+                        <h4>Assessment Creator</h4>
+                        <p>Build quizzes and tests quickly!</p>
+                    </div>
+
+                    <div class="tool-item" onclick="showTeacherTool('email')">
+                        <div class="emoji">✉️</div>
+                        <h4>Parent Communication</h4>
+                        <p>Write professional emails fast!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lesson Planner Tool -->
+            <div id="lessonTool" class="interactive-tool" style="display: none; background: linear-gradient(135deg, #E0FBFC 0%, #F0F8FF 100%); border-color: var(--teacher-primary);">
+                <h3>📝 AI Lesson Planner</h3>
+                <p>Fill in the details and get a complete lesson plan!</p>
+                
+                <label style="font-weight: 600; display: block; margin-top: 15px;">Subject & Topic:</label>
+                <input type="text" id="lessonTopic" class="input-area" style="min-height: 50px;" placeholder="Example: Math - Fractions">
+                
+                <label style="font-weight: 600; display: block; margin-top: 15px;">Grade Level:</label>
+                <input type="text" id="lessonGrade" class="input-area" style="min-height: 50px;" placeholder="Example: 4th grade">
+                
+                <label style="font-weight: 600; display: block; margin-top: 15px;">Lesson Duration:</label>
+                <input type="text" id="lessonDuration" class="input-area" style="min-height: 50px;" placeholder="Example: 45 minutes">
+                
+                <button class="tool-button teacher" onclick="generateLesson()">🎯 Generate Lesson Plan!</button>
+                
+                <div id="lessonOutput" class="output-box"></div>
+            </div>
+
+            <div class="safety-box" style="background: linear-gradient(135deg, #98C1D9 0%, #B8D8E8 100%);">
+                <h4>🔐 Ethical AI Use in Education</h4>
+                <p style="font-size: 1.05em; line-height: 1.8;">
+                    <strong>Best practices:</strong><br>
+                    ✅ Always review AI-generated content for accuracy<br>
+                    ✅ Use AI to supplement, not replace, your expertise<br>
+                    ✅ Teach students about AI - don't hide that you use it<br>
+                    ✅ Never input student personal information into AI tools<br>
+                    ✅ Maintain your authentic teaching voice and style
+                </p>
+            </div>
+
+            <div class="tip-ribbon" style="background: linear-gradient(135deg, #98C1D9 0%, #B8D8E8 100%);">
+                💡 <strong>Teacher Time-Saver:</strong> Use AI for the structure and foundation, then add YOUR personality, examples, and expertise. AI handles the tedious stuff - YOU bring the magic! ✨
+            </div>
+        </div>
+
+        <!-- SINGLE MOMS SECTION -->
+        <div id="momsSection" class="content-section">
+            <button class="back-button" onclick="showSelector()">← Back to All Sections</button>
+
+            <div class="lesson-card">
+                <h3>💪 Welcome, Boss Mama!</h3>
+                <p style="font-size: 1.2em; line-height: 1.8;">
+                    You're building something AMAZING while raising humans. AI can be your secret weapon - your 24/7 assistant that never sleeps, never judges, and helps you work SMARTER. Let's build your empire! 👑
+                </p>
+            </div>
+
+            <div class="lesson-card">
+                <h3>🚀 AI Business Tools for Moms</h3>
+                
+                <div class="tool-grid">
+                    <div class="tool-item" onclick="showMomTool('business')">
+                        <div class="emoji">💼</div>
+                        <h4>Business Plan Generator</h4>
+                        <p>Create your business roadmap!</p>
+                    </div>
+
+                    <div class="tool-item" onclick="showMomTool('content')">
+                        <div class="emoji">📱</div>
+                        <h4>Content Creator</h4>
+                        <p>Social media posts in seconds!</p>
+                    </div>
+
+                    <div class="tool-item" onclick="showMomTool('product')">
+                        <div class="emoji">📝</div>
+                        <h4>Product Descriptions</h4>
+                        <p>Write compelling copy fast!</p>
+                    </div>
+
+                    <div class="tool-item" onclick="showMomTool('marketing')">
+                        <div class="emoji">📢</div>
+                        <h4>Marketing Ideas</h4>
+                        <p>Get creative marketing strategies!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Creator Tool -->
+            <div id="contentTool" class="interactive-tool" style="display: none; background: linear-gradient(135deg, #F1FAEE 0%, #E0F4F1 100%); border-color: var(--mom-secondary);">
+                <h3>📱 Social Media Content Creator</h3>
+                <p>Generate engaging social media posts for YOUR business!</p>
+                
+                <label style="font-weight: 600; display: block; margin-top: 15px;">What are you selling/offering?</label>
+                <input type="text" id="contentProduct" class="input-area" style="min-height: 50px;" placeholder="Example: TESOL certification course">
+                
+                <label style="font-weight: 600; display: block; margin-top: 15px;">Who is your audience?</label>
+                <input type="text" id="contentAudience" class="input-area" style="min-height: 50px;" placeholder="Example: Single moms wanting flexible work">
+                
+                <label style="font-weight: 600; display: block; margin-top: 15px;">Platform:</label>
+                <select id="contentPlatform" class="input-area" style="min-height: 50px;">
+                    <option>Facebook</option>
+                    <option>Instagram</option>
+                    <option>LinkedIn</option>
+                    <option>Twitter</option>
+                </select>
+                
+                <button class="tool-button mom" onclick="generateContent()">✨ Create My Post!</button>
+                
+                <div id="contentOutput" class="output-box"></div>
+            </div>
+
+            <div class="safety-box" style="background: linear-gradient(135deg, #A8DADC 0%, #C5E4E7 100%);">
+                <h4>💡 AI for Smart Mompreneurs</h4>
+                <p style="font-size: 1.05em; line-height: 1.8;">
+                    <strong>How to use AI effectively:</strong><br>
+                    ✅ Use AI for brainstorming and overcoming writer's block<br>
+                    ✅ Let AI handle repetitive tasks (descriptions, emails, posts)<br>
+                    ✅ Always add YOUR voice and story - that's what sells!<br>
+                    ✅ Use AI to learn new skills (marketing, tech, business)<br>
+                    ✅ Save HOURS every week - time you can spend with kids! 💖
+                </p>
+            </div>
+
+            <div class="tip-ribbon" style="background: linear-gradient(135deg, #A8DADC 0%, #C5E4E7 100%);">
+                💡 <strong>Mama's Secret Weapon:</strong> While your kids sleep, AI works! Use AI to create a week's worth of content in one hour, then schedule it. Work smarter, not harder, mama! You've got this! 💪
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Section Navigation
+        function showSection(section) {
+            document.getElementById('sectionSelector').style.display = 'none';
+            document.getElementById('kidsSection').classList.remove('active');
+            document.getElementById('teachersSection').classList.remove('active');
+            document.getElementById('momsSection').classList.remove('active');
+            
+            if (section === 'kids') {
+                document.getElementById('kidsSection').classList.add('active');
+            } else if (section === 'teachers') {
+                document.getElementById('teachersSection').classList.add('active');
+            } else if (section === 'moms') {
+                document.getElementById('momsSection').classList.add('active');
+            }
+        }
+
+        function showSelector() {
+            document.getElementById('sectionSelector').style.display = 'grid';
+            document.getElementById('kidsSection').classList.remove('active');
+            document.getElementById('teachersSection').classList.remove('active');
+            document.getElementById('momsSection').classList.remove('active');
+            
+            // Hide all tools
+            document.getElementById('storyTool').style.display = 'none';
+            document.getElementById('lessonTool').style.display = 'none';
+            document.getElementById('contentTool').style.display = 'none';
+        }
+
+        // Kids Tools
+        function showTool(tool) {
+            if (tool === 'story') {
+                document.getElementById('storyTool').style.display = 'block';
+                document.getElementById('storyTool').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                alert('🎮 This tool is coming soon! For now, try the Story Creator! More tools will be added as we build this together! 🚀');
+            }
+        }
+
+        function generateStory() {
+            const topic = document.getElementById('storyTopic').value;
+            const character = document.getElementById('storyCharacter').value;
+
+            if (!topic || !character) {
+                alert('Please fill in all the fields! 😊');
+                return;
+            }
+
+            const story = `
+                <h3>📚 Your Amazing Story!</h3>
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    <strong>Once upon a time...</strong><br><br>
+                    
+                    ${character} lived in a magical world where ${topic} was the most exciting thing ever! 
+                    Every day, ${character} would wake up and think "Today is going to be AMAZING!"<br><br>
+                    
+                    One sunny morning, ${character} discovered something incredible: a secret that would change everything! 
+                    This discovery led to the greatest adventure of ${character}'s life...<br><br>
+                    
+                    <strong>The End... or is it just the beginning?</strong><br><br>
+                    
+                    <em>💡 Now YOU can finish this story! What happens next? Write it down and share it with your family! 
+                    You can add dragons, space travel, talking animals, or anything you can imagine! 🌟</em>
+                </p>
+            `;
+
+            document.getElementById('storyOutput').innerHTML = story;
+            document.getElementById('storyOutput').classList.add('active');
+            document.getElementById('storyOutput').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Teacher Tools
+        function showTeacherTool(tool) {
+            if (tool === 'lesson') {
+                document.getElementById('lessonTool').style.display = 'block';
+                document.getElementById('lessonTool').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                alert('📚 This tool is coming soon! Try the Lesson Planner first! More tools are being built! 🎯');
+            }
+        }
+
+        function generateLesson() {
+            const topic = document.getElementById('lessonTopic').value;
+            const grade = document.getElementById('lessonGrade').value;
+            const duration = document.getElementById('lessonDuration').value;
+
+            if (!topic || !grade || !duration) {
+                alert('Please fill in all fields! 😊');
+                return;
+            }
+
+            const lesson = `
+                <h3>📝 Your Lesson Plan: ${topic}</h3>
+                <p><strong>Grade Level:</strong> ${grade} | <strong>Duration:</strong> ${duration}</p>
+                
+                <div style="margin: 20px 0; padding: 20px; background: white; border-radius: 10px;">
+                    <h4 style="color: #5B7C99; margin-bottom: 10px;">🎯 Learning Objectives:</h4>
+                    <p>By the end of this lesson, students will be able to:</p>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>Understand the key concepts of ${topic}</li>
+                        <li>Apply knowledge through hands-on activities</li>
+                        <li>Demonstrate mastery through assessment</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 20px 0; padding: 20px; background: white; border-radius: 10px;">
+                    <h4 style="color: #5B7C99; margin-bottom: 10px;">📚 Lesson Structure:</h4>
+                    <p><strong>1. Introduction (5-10 min):</strong> Hook students with an engaging question or activity related to ${topic}</p>
+                    <p><strong>2. Direct Instruction (15-20 min):</strong> Teach key concepts with examples and visual aids</p>
+                    <p><strong>3. Guided Practice (10-15 min):</strong> Work through examples together</p>
+                    <p><strong>4. Independent Practice (10 min):</strong> Students work on their own</p>
+                    <p><strong>5. Closure (5 min):</strong> Review and preview next lesson</p>
+                </div>
+
+                <div style="margin: 20px 0; padding: 20px; background: white; border-radius: 10px;">
+                    <h4 style="color: #5B7C99; margin-bottom: 10px;">💡 Teaching Tips:</h4>
+                    <p>• Use real-world examples to make ${topic} relevant</p>
+                    <p>• Check for understanding frequently</p>
+                    <p>• Provide differentiated support for various learning levels</p>
+                    <p>• Incorporate movement and engagement strategies</p>
+                </div>
+
+                <p style="margin-top: 20px; padding: 15px; background: #E0FBFC; border-radius: 10px;">
+                    <strong>✏️ Next Steps:</strong> Add your personal examples, adjust timing based on your class, 
+                    and incorporate any materials or resources specific to your school!
+                </p>
+            `;
+
+            document.getElementById('lessonOutput').innerHTML = lesson;
+            document.getElementById('lessonOutput').classList.add('active');
+            document.getElementById('lessonOutput').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Mom Tools
+        function showMomTool(tool) {
+            if (tool === 'content') {
+                document.getElementById('contentTool').style.display = 'block';
+                document.getElementById('contentTool').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                alert('💼 This tool is coming soon! Try the Content Creator first! Building your empire one tool at a time! 🚀');
+            }
+        }
+
+        function generateContent() {
+            const product = document.getElementById('contentProduct').value;
+            const audience = document.getElementById('contentAudience').value;
+            const platform = document.getElementById('contentPlatform').value;
+
+            if (!product || !audience) {
+                alert('Please fill in your product and audience! 😊');
+                return;
+            }
+
+            const content = `
+                <h3>📱 Your ${platform} Post</h3>
+                
+                <div style="background: white; padding: 25px; border-radius: 15px; margin: 20px 0; border-left: 5px solid #457B9D;">
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        <strong>✨ Are you tired of [problem your audience has]?</strong><br><br>
+                        
+                        I get it. As ${audience}, you're juggling SO much. But what if I told you there's a better way?<br><br>
+                        
+                        💪 Introducing: ${product}<br><br>
+                        
+                        This is exactly what I needed when I was in your shoes. And now I'm sharing it with YOU because I believe 
+                        every person deserves to [benefit they'll get].<br><br>
+                        
+                        ✅ [Key benefit 1]<br>
+                        ✅ [Key benefit 2]<br>
+                        ✅ [Key benefit 3]<br><br>
+                        
+                        Ready to transform your life? Link in bio! 🔗<br><br>
+                        
+                        P.S. - Drop a 💖 if this resonates with you!<br><br>
+                        
+                        #[YourNiche] #[YourIndustry] #SingleMom #MomBoss #WorkFromHome
+                    </p>
+                </div>
+
+                <div style="background: #F1FAEE; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <h4 style="color: #457B9D;">💡 How to Use This:</h4>
+                    <p>1. Replace the bracketed parts with YOUR specific details</p>
+                    <p>2. Add YOUR voice and story - that's what makes it authentic!</p>
+                    <p>3. Add a relevant photo or video</p>
+                    <p>4. Post and engage with comments!</p>
+                </div>
+            `;
+
+            document.getElementById('contentOutput').innerHTML = content;
+            document.getElementById('contentOutput').classList.add('active');
+            document.getElementById('contentOutput').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+</body>
+</html>
