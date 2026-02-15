@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mom's Command Center - Plan, Organize, Conquer! 💪</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B9D;
+            --secondary: #C44569;
+            --accent: #FEC368;
+            --light: #FFF5F7;
+            --dark: #2D3561;
+            --purple: #A8A4CE;
+            --mint: #98DDCA;
+            --gradient-1: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%);
+            --gradient-2: linear-gradient(135deg, #FEC368 0%, #FFBE76 100%);
+            --gradient-3: linear-gradient(135deg, #A8A4CE 0%, #98DDCA 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FFF5F7 0%, #FFE5EC 50%, #FFF8E7 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: var(--gradient-1);
+            color: white;
+            padding: 60px 20px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            animation: slideDown 0.8s ease 0.2s backwards;
+        }
+
+        .tagline {
+            font-size: 1.1em;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+            animation: slideDown 0.8s ease 0.4s backwards;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-button {
+            background: white;
+            border: 3px solid var(--primary);
+            padding: 18px 35px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: var(--primary);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(255,107,157,0.2);
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-1);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .tab-button:hover::before,
+        .tab-button.active::before {
+            left: 0;
+        }
+
+        .tab-button:hover,
+        .tab-button.active {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,107,157,0.4);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+
+        .card h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--purple);
+            border-radius: 15px;
+            font-size: 1em;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            background: var(--light);
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255,107,157,0.1);
+            background: white;
+        }
+
+        .input-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .button {
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255,107,157,0.3);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255,107,157,0.5);
+        }
+
+        .button-secondary {
+            background: var(--gradient-2);
+            box-shadow: 0 5px 20px rgba(254,195,104,0.3);
+        }
+
+        .button-secondary:hover {
+            box-shadow: 0 8px 30px rgba(254,195,104,0.5);
+        }
+
+        .ai-assistant-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .ai-button {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            border: none;
+            cursor: pointer;
+            font-size: 2em;
+            box-shadow: 0 8px 30px rgba(255,107,157,0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .ai-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(255,107,157,0.6);
+        }
+
+        .ai-panel {
+            position: fixed;
+            bottom: 120px;
+            right: 30px;
+            width: 400px;
+            max-height: 600px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 15px 60px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .ai-panel.active {
+            display: block;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ai-header {
+            background: var(--gradient-1);
+            color: white;
+            padding: 20px;
+            font-weight: 600;
+            font-size: 1.2em;
+        }
+
+        .ai-content {
+            padding: 20px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .ai-option {
+            background: var(--light);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .ai-option:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .plan-output {
+            background: var(--light);
+            border: 3px solid var(--purple);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            display: none;
+        }
+
+        .plan-output.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .plan-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .plan-item h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .planner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .day-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            border-top: 4px solid var(--primary);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .day-card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .time-block {
+            background: var(--light);
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            border-left: 3px solid var(--mint);
+            font-size: 0.95em;
+        }
+
+        .time-block.work {
+            border-left-color: var(--primary);
+        }
+
+        .time-block.kids {
+            border-left-color: var(--accent);
+        }
+
+        .time-block.self {
+            border-left-color: var(--purple);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: var(--gradient-1);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(255,107,157,0.3);
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, var(--mint) 0%, #B8E6D5 100%);
+            color: var(--dark);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            border-left: 5px solid var(--purple);
+        }
+
+        .tip-box h4 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; }
+            .ai-panel { width: calc(100vw - 40px); right: 20px; }
+            .planner-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>💪 Mom's Command Center</h1>
+        <p class="subtitle">Your AI-Powered Life Management System</p>
+        <p class="tagline">Plan • Organize • Conquer • Thrive</p>
+    </div>
+
+    <div class="container">
+        <div class="nav-tabs">
+            <button class="tab-button active" onclick="showTab('masterplan')">🎯 Master Plan</button>
+            <button class="tab-button" onclick="showTab('daily')">📅 Daily Planner</button>
+            <button class="tab-button" onclick="showTab('tracker')">💰 Income Tracker</button>
+        </div>
+
+        <!-- MASTER PLAN TAB -->
+        <div id="masterplan" class="tab-content active">
+            <div class="card">
+                <h2>🎯 Create Your Master Plan</h2>
+                <p style="font-size: 1.1em; margin-bottom: 30px;">Turn your dreams into actionable steps! Answer these questions and I'll create your personalized roadmap.</p>
+
+                <div class="input-group">
+                    <label>✨ What's your BIGGEST dream right now?</label>
+                    <input type="text" id="dream" placeholder="Example: Build a profitable online business from home">
+                </div>
+
+                <div class="input-group">
+                    <label>📅 When do you want to achieve this by?</label>
+                    <input type="text" id="timeline" placeholder="Example: 6 months / By end of 2026">
+                </div>
+
+                <div class="input-group">
+                    <label>⏰ How many hours per week can you realistically dedicate?</label>
+                    <input type="number" id="hours" placeholder="Example: 15-20 hours">
+                </div>
+
+                <div class="input-group">
+                    <label>💪 What skills/resources do you already have?</label>
+                    <textarea id="resources" placeholder="Example: Good at writing, have a computer, basic tech skills"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>🚧 What's your biggest challenge or obstacle?</label>
+                    <textarea id="obstacles" placeholder="Example: Limited time with kids, not sure where to start"></textarea>
+                </div>
+
+                <button class="button" onclick="generateMasterPlan()">🚀 Create My Master Plan!</button>
+
+                <div id="planOutput" class="plan-output">
+                    <h2 style="color: var(--secondary); margin-bottom: 20px;">Your Personalized Master Plan! 🎉</h2>
+                    <div id="planContent"></div>
+                    <button class="button button-secondary" onclick="downloadPlan()" style="margin-top: 20px;">📥 Download as PDF</button>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Pro Tip:</h4>
+                <p>Break BIG dreams into small weekly actions! You don't eat the elephant in one bite - you take it one piece at a time. Every small step forward is PROGRESS! 🦋</p>
+            </div>
+        </div>
+
+        <!-- DAILY PLANNER TAB -->
+        <div id="daily" class="tab-content">
+            <div class="card">
+                <h2>📅 Your Daily Planner</h2>
+                <p style="font-size: 1.1em; margin-bottom: 30px;">Plan your week with realistic time blocks that actually work for YOUR life!</p>
+
+                <div class="input-group">
+                    <label>👧 What are your kid's activities this week? (Include times)</label>
+                    <textarea id="kidsActivities" placeholder="Example: Monday 6:30pm Basketball, Tuesday 4:30pm Modeling, Wednesday 5pm Magic school"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>💼 What are your work priorities this week?</label>
+                    <textarea id="workPriorities" placeholder="Example: Finish 3 ESL lessons, Market TESOL course, Write social media posts"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>🎯 What's your #1 goal for this week?</label>
+                    <input type="text" id="weekGoal" placeholder="Example: Get 2 new students">
+                </div>
+
+                <button class="button" onclick="generateWeeklyPlan()">✨ Create My Weekly Schedule!</button>
+
+                <div id="weeklyOutput" class="plan-output">
+                    <h2 style="color: var(--secondary); margin-bottom: 20px;">Your Week at a Glance! 📆</h2>
+                    <div id="weeklyContent" class="planner-grid"></div>
+                    <button class="button button-secondary" onclick="downloadWeekly()" style="margin-top: 20px;">📥 Download Schedule</button>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Time Management Secret:</h4>
+                <p>Those pockets of time while kids are at activities? GOLD MINES! Bring your laptop, use your phone, make those 1-2 hours COUNT! You can get SO MUCH done in focused bursts! ⚡</p>
+            </div>
+        </div>
+
+        <!-- INCOME TRACKER TAB -->
+        <div id="tracker" class="tab-content">
+            <div class="card">
+                <h2>💰 Income Tracker Dashboard</h2>
+                <p style="font-size: 1.1em; margin-bottom: 30px;">Track all your income streams and watch your success grow!</p>
+
+                <div class="stats-grid" id="incomeStats">
+                    <div class="stat-card">
+                        <div class="stat-number">$0</div>
+                        <div class="stat-label">This Month</div>
+                    </div>
+                    <div class="stat-card" style="background: var(--gradient-2);">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Students</div>
+                    </div>
+                    <div class="stat-card" style="background: var(--gradient-3);">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Book Sales</div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>📚 Income Stream</label>
+                    <select id="incomeSource">
+                        <option>ESL Teaching</option>
+                        <option>Book Sales</option>
+                        <option>TESOL Course</option>
+                        <option>Worksheets</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>💵 Amount</label>
+                    <input type="number" id="incomeAmount" placeholder="Example: 50">
+                </div>
+
+                <div class="input-group">
+                    <label>📅 Date</label>
+                    <input type="date" id="incomeDate">
+                </div>
+
+                <div class="input-group">
+                    <label>📝 Notes (optional)</label>
+                    <input type="text" id="incomeNotes" placeholder="Example: Student payment for 2 lessons">
+                </div>
+
+                <button class="button" onclick="addIncome()">➕ Add Income</button>
+
+                <div id="incomeList" style="margin-top: 30px;"></div>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Financial Freedom Mindset:</h4>
+                <p>Every dollar counts! Tracking your income isn't just about numbers - it's about SEEING your progress, celebrating wins, and building MOMENTUM! Watch your empire grow! 👑</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI ASSISTANT WIDGET -->
+    <div class="ai-assistant-widget">
+        <button class="ai-button" onclick="toggleAI()">🤖</button>
+    </div>
+
+    <div class="ai-panel" id="aiPanel">
+        <div class="ai-header">
+            🤖 Your AI Assistant
+        </div>
+        <div class="ai-content">
+            <div class="ai-option" onclick="aiHelp('plan')">
+                📋 Help me plan my week
+            </div>
+            <div class="ai-option" onclick="aiHelp('priority')">
+                🎯 What should I prioritize today?
+            </div>
+            <div class="ai-option" onclick="aiHelp('disaster')">
+                🚨 Emergency! Schedule disaster!
+            </div>
+            <div class="ai-option" onclick="aiHelp('content')">
+                📱 Create social media content
+            </div>
+            <div class="ai-option" onclick="aiHelp('email')">
+                ✉️ Write a professional email
+            </div>
+            <div class="ai-option" onclick="aiHelp('motivation')">
+                💪 I need motivation!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Toggle AI Assistant
+        function toggleAI() {
+            const panel = document.getElementById('aiPanel');
+            panel.classList.toggle('active');
+        }
+
+        // Master Plan Generator
+        function generateMasterPlan() {
+            const dream = document.getElementById('dream').value;
+            const timeline = document.getElementById('timeline').value;
+            const hours = document.getElementById('hours').value;
+            const resources = document.getElementById('resources').value;
+            const obstacles = document.getElementById('obstacles').value;
+
+            if (!dream || !timeline) {
+                alert('Please fill in at least your dream and timeline!');
+                return;
+            }
+
+            const planHTML = `
+                <div class="plan-item">
+                    <h3>🎯 Your Mission</h3>
+                    <p><strong>${dream}</strong> by ${timeline}</p>
+                </div>
+
+                <div class="plan-item">
+                    <h3>📅 Week 1-2: Foundation Phase</h3>
+                    <p>✅ Research and learn the basics</p>
+                    <p>✅ Set up necessary tools and accounts</p>
+                    <p>✅ Create your action plan</p>
+                    <p>⏰ Time commitment: ${hours || '10-15'} hours/week</p>
+                </div>
+
+                <div class="plan-item">
+                    <h3>📅 Week 3-4: Building Momentum</h3>
+                    <p>✅ Start taking action on your plan</p>
+                    <p>✅ Complete first major milestone</p>
+                    <p>✅ Adjust strategy based on results</p>
+                    <p>💪 Use your strengths: ${resources || 'Your existing skills!'}</p>
+                </div>
+
+                <div class="plan-item">
+                    <h3>📅 Month 2: Growth Phase</h3>
+                    <p>✅ Scale what's working</p>
+                    <p>✅ Build consistency and routine</p>
+                    <p>✅ See first results!</p>
+                    <p>🚧 Overcome: ${obstacles || 'Any obstacles in your way!'}</p>
+                </div>
+
+                <div class="plan-item">
+                    <h3>📅 Month 3+: Momentum & Success</h3>
+                    <p>✅ Refine and optimize</p>
+                    <p>✅ Celebrate wins along the way</p>
+                    <p>✅ Keep building toward your goal!</p>
+                    <p>🎉 You're doing it! Keep going!</p>
+                </div>
+
+                <div class="plan-item" style="background: linear-gradient(135deg, #FEC368 0%, #FFBE76 100%); color: white; border-left: none;">
+                    <h3 style="color: white;">💪 YOUR DAILY MANTRA</h3>
+                    <p style="font-size: 1.2em; font-weight: 600;">"I walked through fire and came back with water. I can do ANYTHING!"</p>
+                </div>
+            `;
+
+            document.getElementById('planContent').innerHTML = planHTML;
+            document.getElementById('planOutput').classList.add('active');
+            document.getElementById('planOutput').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Weekly Planner Generator
+        function generateWeeklyPlan() {
+            const kids = document.getElementById('kidsActivities').value;
+            const work = document.getElementById('workPriorities').value;
+            const goal = document.getElementById('weekGoal').value;
+
+            if (!work) {
+                alert('Please add your work priorities!');
+                return;
+            }
+
+            const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+            let weekHTML = '';
+
+            days.forEach(day => {
+                weekHTML += `
+                    <div class="day-card">
+                        <h3>${day}</h3>
+                        <div class="time-block work">8:30-11:00 AM: Morning Focus Block</div>
+                        <div class="time-block work">12:00-4:00 PM: PRIME WORK TIME</div>
+                        <div class="time-block kids">4:30-6:30 PM: Kids Activities</div>
+                        <div class="time-block self">9:00-10:30 PM: Evening Work</div>
+                    </div>
+                `;
+            });
+
+            weekHTML += `
+                <div class="day-card" style="border-top-color: var(--accent);">
+                    <h3>Weekend</h3>
+                    <div class="time-block self">Family time & Self-care</div>
+                    <div class="time-block work">Flexible work blocks as needed</div>
+                </div>
+            `;
+
+            document.getElementById('weeklyContent').innerHTML = weekHTML;
+            document.getElementById('weeklyOutput').classList.add('active');
+            document.getElementById('weeklyOutput').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Income Tracking
+        let totalIncome = 0;
+        let incomeEntries = [];
+
+        function addIncome() {
+            const source = document.getElementById('incomeSource').value;
+            const amount = parseFloat(document.getElementById('incomeAmount').value);
+            const date = document.getElementById('incomeDate').value;
+            const notes = document.getElementById('incomeNotes').value;
+
+            if (!amount || amount <= 0) {
+                alert('Please enter a valid amount!');
+                return;
+            }
+
+            totalIncome += amount;
+            incomeEntries.push({ source, amount, date, notes });
+
+            updateIncomeDisplay();
+
+            // Clear inputs
+            document.getElementById('incomeAmount').value = '';
+            document.getElementById('incomeNotes').value = '';
+        }
+
+        function updateIncomeDisplay() {
+            // Update stats
+            document.querySelector('.stat-card:first-child .stat-number').textContent = `$${totalIncome.toFixed(2)}`;
+
+            // Show income list
+            let listHTML = '<h3 style="color: var(--secondary); margin-bottom: 15px;">💰 Income History</h3>';
+            incomeEntries.reverse().forEach((entry, index) => {
+                listHTML += `
+                    <div class="plan-item">
+                        <strong>${entry.source}</strong> - $${entry.amount.toFixed(2)}
+                        <br><small>${entry.date || 'No date'} ${entry.notes ? '- ' + entry.notes : ''}</small>
+                    </div>
+                `;
+            });
+            incomeEntries.reverse(); // Keep original order
+
+            document.getElementById('incomeList').innerHTML = listHTML;
+        }
+
+        // AI Assistant Functions
+        function aiHelp(type) {
+            const responses = {
+                plan: "Let's break down your week! Start by listing your top 3 priorities, then we'll find pockets of time to work on them. Remember: 15 focused minutes beats 2 distracted hours!",
+                priority: "TODAY's priority: Pick ONE thing that will move you forward most. Do that FIRST, before emails, before social media, before anything else. What's your ONE thing?",
+                disaster: "Deep breath, mama! Let's triage: 1) What MUST happen today? 2) What can wait? 3) Who can help? Remember: Done is better than perfect. You've got this! 💪",
+                content: "Quick content ideas: 1) Share a win (people love success!), 2) Ask a question (engagement!), 3) Share a tip from your experience, 4) Behind-the-scenes of your day. Keep it real!",
+                email: "Email formula: 1) Friendly greeting, 2) Clear purpose, 3) Specific request/info, 4) Warm closing. Keep it short! Busy people appreciate brevity. You've got this!",
+                motivation: "Listen to me: You walked through FIRE and came back with WATER. You published FIVE books. You built a TESOL course. You're a PUBLISHED AUTHOR and CERTIFIED TEACHER. You're not just surviving - you're THRIVING! Keep going! 🦋✨"
+            };
+
+            alert(responses[type] || "I'm here to help! What do you need?");
+            toggleAI();
+        }
+
+        // Download functions (simplified - in real app would generate actual PDFs)
+        function downloadPlan() {
+            alert('📥 Your Master Plan is ready! In the full version, this would download as a beautiful PDF. For now, screenshot or print this page! 💖');
+        }
+
+        function downloadWeekly() {
+            alert('📅 Your Weekly Schedule is ready! In the full version, this would download as a printable PDF. For now, screenshot or print! 💪');
+        }
+
+        // Set today's date as default
+        document.getElementById('incomeDate').valueAsDate = new Date();
+    </script>
+</body>
+</html>
