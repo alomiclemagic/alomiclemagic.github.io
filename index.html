@@ -1,973 +1,704 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ alo.micle.magic ✨</title>
-    <meta name="description" content="Elena Micle - Where Stories Come Alive ✨ | Children's Books, Educational Courses, ESL Teaching Resources, Parenting Guides & Romance">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 3px solid #764ba2;
-        }
-        
-        h1 {
-            font-size: 2.5em;
-            color: #764ba2;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .tagline {
-            font-size: 1.2em;
-            color: #667eea;
-            font-style: italic;
-            margin-bottom: 25px;
-        }
-        
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        nav a {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-            font-weight: 500;
-        }
-        
-        nav a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>alo.micle.magic ✨ | Elena Micle — Author, Educator &amp; Creator</title>
+<meta name="description" content="Books, courses and tools for kids, teachers and moms. Created by Elena Micle — author, Russian language expert, ESL educator and mom of Lexi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#F5A623;--coral:#FF6B6B;--teal:#4ECDC4;--purple:#9B59B6;
+  --blue:#3498DB;--green:#2ECC71;--ruRed:#CC0000;--ruBlue:#003399;
+  --cream:#FFFDF7;--dark:#1a1a2e;--text:#333;--muted:#777;
+  --shadow:0 8px 32px rgba(0,0,0,.10);--radius:18px
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.section-label{font-size:.72rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);line-height:1.15;margin-bottom:12px}
+.section-sub{font-size:1rem;color:var(--muted);line-height:1.7;max-width:580px}
+.badge-new{background:#FF6B6B;color:#fff;font-size:.62rem;font-weight:900;padding:2px 7px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-left:5px;vertical-align:middle}
+section{padding:72px 0}
 
-        .new-badge {
-            background: #FF6B9D;
-            color: white;
-            padding: 3px 8px;
-            border-radius: 10px;
-            font-size: 0.7em;
-            margin-left: 5px;
-            animation: pulse 2s infinite;
-        }
+/* ── TOPBAR ── */
+#topbar{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(255,253,247,.97);backdrop-filter:blur(12px);border-bottom:3px solid var(--gold);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 16px rgba(0,0,0,.07)}
+.logo{font-family:'Pacifico',cursive;font-size:1.35rem;color:var(--gold);text-decoration:none}
+.nav-pills{display:flex;gap:8px;align-items:center}
+.nav-pill{text-decoration:none;font-weight:800;font-size:.82rem;padding:9px 18px;border-radius:50px;transition:all .2s;border:2px solid transparent;white-space:nowrap}
+.np-kids{color:var(--coral);border-color:var(--coral)}
+.np-kids:hover{background:var(--coral);color:#fff}
+.np-teachers{color:var(--teal);border-color:var(--teal)}
+.np-teachers:hover{background:var(--teal);color:#fff}
+.np-moms{color:var(--purple);border-color:var(--purple)}
+.np-moms:hover{background:var(--purple);color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2.5px;background:var(--dark);border-radius:2px}
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        .emoji-divider {
-            text-align: center;
-            font-size: 2em;
-            margin: 30px 0;
-            letter-spacing: 10px;
-        }
-        
-        .intro {
-            text-align: center;
-            padding: 30px;
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            border-radius: 15px;
-            margin-bottom: 40px;
-        }
-        
-        .intro h2 {
-            color: #764ba2;
-            margin-bottom: 15px;
-        }
-        
-        .intro p {
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: #555;
-        }
-        
-        .amazon-button {
-            display: inline-block;
-            background: #FF9900;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            margin-top: 20px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        
-        .amazon-button:hover {
-            background: #E68A00;
-        }
-        
-        section {
-            margin-bottom: 50px;
-        }
-        
-        section h2 {
-            color: #764ba2;
-            font-size: 2em;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #667eea;
-        }
-        
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .product-card {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 2px solid transparent;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            border-color: #667eea;
-        }
-        
-        .product-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
-        
-        .product-card h3 {
-            color: #333;
-            font-size: 1.4em;
-            margin-bottom: 15px;
-        }
-        
-        .product-card p {
-            color: #666;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-        
-        .price {
-            font-weight: bold;
-            color: #764ba2;
-            margin: 15px 0;
-            font-size: 1.1em;
-        }
-        
-        .button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            margin: 5px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            font-weight: 500;
-        }
-        
-        .button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
-        }
-        
-        .button-secondary {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-        
-        .button-success {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        }
+/* ── HERO ── */
+.hero{min-height:100vh;padding-top:64px;background:linear-gradient(135deg,#FFF9F0 0%,#FFF5E6 40%,#F0F8FF 100%);display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.35;pointer-events:none}
+.hero-inner{position:relative;z-index:2;padding:60px 24px 80px}
+.hero-hello{font-size:.9rem;font-weight:700;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,7vw,4.8rem);line-height:1.08;color:var(--dark);margin-bottom:16px}
+.hero-title .hi-gold{color:var(--gold)}
+.hero-title .hi-coral{color:var(--coral)}
+.hero-byline{font-size:1.05rem;color:var(--muted);max-width:580px;margin:0 auto 48px;line-height:1.7;font-weight:600}
+.hero-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:860px;margin:0 auto}
+.hero-card{border-radius:var(--radius);padding:32px 20px 28px;text-align:center;text-decoration:none;transition:all .28s;box-shadow:var(--shadow)}
+.hero-card:hover{transform:translateY(-6px);box-shadow:0 22px 52px rgba(0,0,0,.18)}
+.hc-kids{background:linear-gradient(135deg,#FF6B6B,#FF8E53)}
+.hc-teachers{background:linear-gradient(135deg,#4ECDC4,#26A69A)}
+.hc-moms{background:linear-gradient(135deg,#9B59B6,#6C3483)}
+.hc-icon{font-size:3rem;display:block;margin-bottom:14px}
+.hc-title{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;font-weight:700;margin-bottom:6px}
+.hc-sub{font-size:.83rem;color:rgba(255,255,255,.85);font-weight:600;line-height:1.5}
+.hc-arrow{font-size:1.1rem;color:rgba(255,255,255,.65);margin-top:14px;display:block;transition:transform .2s}
+.hero-card:hover .hc-arrow{transform:translateX(5px)}
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.75rem;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:5px;animation:bob 2s infinite}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-        .button-download {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-        }
-        
-        .new-badge {
-            background: #ff6b6b;
-            color: white;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: bold;
-            margin-left: 10px;
-        }
-        
-        .bundle-card {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            border: 3px solid #764ba2;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 2px solid #764ba2;
-            color: #666;
-        }
-        
-        footer a {
-            color: #667eea;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
-        }
-        
-        .highlight-box {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-            border-left: 5px solid #764ba2;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 1.8em;
-            }
-            
-            nav {
-                flex-direction: column;
-            }
-            
-            nav a {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Teacher section styles */
-        .teacher-section {
-            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-            padding: 30px;
-            border-radius: 20px;
-            margin: 40px 0;
-        }
-        
-        .worksheet-pack {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 15px 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .worksheet-pack h4 {
-            color: #764ba2;
-            margin-bottom: 10px;
-            font-size: 1.3em;
-        }
-        
-        .worksheet-topics {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 15px 0;
-        }
-        
-        .topic-tag {
-            background: #e0c3fc;
-            color: #333;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.9em;
-        }
+/* ── RUSSIAN SPOTLIGHT ── */
+.ru-section{background:linear-gradient(135deg,#001f6b 0%,#003399 55%,#0044cc 100%);position:relative;overflow:hidden}
+.ru-section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:6px;background:var(--ruRed)}
+.flag-bar{display:flex;height:7px;border-radius:4px;overflow:hidden;width:65px;margin-bottom:18px}
+.fb-w{background:#fff;flex:1}.fb-b{background:#003399;flex:1}.fb-r{background:#CC0000;flex:1}
+.ru-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.ru-list{list-style:none;margin:18px 0 26px}
+.ru-list li{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.9);font-size:.93rem;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.ru-list li:last-child{border:none}
+.ru-list .ico{width:30px;text-align:center;font-size:1rem;flex-shrink:0}
+.new-pill{display:inline-flex;align-items:center;gap:6px;background:var(--ruRed);color:#fff;padding:5px 14px;border-radius:30px;font-size:.8rem;font-weight:800;margin-bottom:18px}
+.ru-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ru-card{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);border-radius:14px;padding:22px 16px;text-align:center;backdrop-filter:blur(6px);transition:all .22s}
+.ru-card:hover{background:rgba(255,255,255,.18);transform:translateY(-3px)}
+.ru-price{font-family:'Playfair Display',serif;font-size:2rem;color:#FFD700;font-weight:700;display:block;line-height:1}
+.ru-tier{font-size:.75rem;font-weight:900;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:1px;margin:4px 0 10px}
+.ru-feat{font-size:.79rem;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:14px}
+.ru-btn{display:block;padding:10px 16px;border-radius:30px;font-size:.82rem;font-weight:800;text-decoration:none;transition:all .2s}
+.rb-ind{background:#FFD700;color:#003399}.rb-ind:hover{background:#fff;color:#003399}
+.rb-tch{background:rgba(255,215,0,.15);color:#FFD700;border:1.5px solid #FFD700}.rb-tch:hover{background:#FFD700;color:#003399}
+.rb-sch{background:rgba(204,0,0,.3);color:#fff;border:1.5px solid rgba(255,255,255,.4)}.rb-sch:hover{background:var(--ruRed)}
+.ru-span{grid-column:1/-1}
 
-        .pdf-preview {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin: 15px 0;
-        }
+/* ── PRODUCT CARD ── */
+.pcard{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .22s;display:flex;flex-direction:column;background:#fff}
+.pcard:hover{transform:translateY(-4px)}
+.pcard-hd{padding:22px 20px 16px;display:flex;align-items:flex-start;gap:13px}
+.pcard-ico{font-size:2.2rem;flex-shrink:0}
+.pcard-ttl{font-weight:900;font-size:.98rem;color:var(--dark);line-height:1.3}
+.pcard-sub{font-size:.78rem;margin-top:3px;font-weight:600}
+.pcard-body{padding:0 20px 14px;font-size:.86rem;color:#555;line-height:1.65;flex:1}
+.pcard-tags{display:flex;flex-wrap:wrap;gap:5px;padding:0 20px 14px}
+.pcard-tag{background:#f0f0f0;color:#555;font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:20px}
+.pcard-footer{padding:12px 20px 18px;border-top:1px solid #f0f0f0}
+.pcard-price{font-weight:900;font-size:.88rem;color:var(--dark);margin-bottom:8px}
+.pcard-acts{display:flex;flex-wrap:wrap;gap:8px}
+.pbtn{text-decoration:none;font-size:.79rem;font-weight:800;padding:9px 16px;border-radius:30px;transition:all .2s;display:inline-flex;align-items:center;gap:5px}
+.pbtn:hover{transform:scale(1.04)}
+.pbtn-2{background:#f5f5f5;color:#555;border:1px solid #ddd}.pbtn-2:hover{background:#eee}
+.pbtn-warn{background:#FFF3CD;color:#7d5a00;border:1.5px solid var(--gold)}
 
-        .pdf-preview a {
-            font-size: 0.9em;
-            text-decoration: none;
-            color: #667eea;
-        }
+/* ── GRIDS ── */
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;margin-top:44px}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:44px}
 
-        .pdf-preview a:hover {
-            text-decoration: underline;
-        }
-    </style>
+/* ── TEACHERS ── */
+#teachers-sec{background:linear-gradient(135deg,#F0FFFE,#E8F8F5)}
+.tcard{background:#fff;border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);border-top:4px solid var(--teal);transition:transform .22s}
+.tcard:hover{transform:translateY(-4px)}
+.tcard-ico{font-size:2.2rem;margin-bottom:12px;display:block}
+.tcard-ttl{font-weight:900;font-size:1rem;color:var(--dark);margin-bottom:6px}
+.tcard-desc{font-size:.86rem;color:#555;line-height:1.65;margin-bottom:14px}
+.tcard-price{font-weight:900;font-size:.88rem;color:var(--dark);margin-bottom:12px}
+.tcard-acts{display:flex;flex-wrap:wrap;gap:8px}
+.tbtn{text-decoration:none;font-size:.79rem;font-weight:800;padding:9px 16px;border-radius:30px;transition:all .2s;display:inline-flex;align-items:center;gap:5px}
+.tbtn:hover{transform:scale(1.04)}
+.tbtn-p{background:var(--teal);color:#fff}.tbtn-p:hover{background:#26A69A}
+.tbtn-s{background:#f0fdfc;color:var(--teal);border:1.5px solid var(--teal)}.tbtn-s:hover{background:var(--teal);color:#fff}
+.tbtn-ru{background:var(--ruBlue);color:#fff}.tbtn-ru:hover{background:#001f6b}
+.broken-note{background:#FFF3CD;border:1.5px solid var(--gold);border-radius:10px;padding:10px 14px;font-size:.79rem;color:#7d5a00;font-weight:700;margin-top:10px;display:flex;align-items:flex-start;gap:7px}
+
+/* ── MOMS ── */
+#moms-sec{background:#fff}
+.mcard{background:linear-gradient(135deg,#FAF5FF,#F3E5F5);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);border-top:4px solid var(--purple);transition:transform .22s}
+.mcard:hover{transform:translateY(-4px)}
+.mcard-ico{font-size:2.2rem;margin-bottom:12px;display:block}
+.mcard-ttl{font-weight:900;font-size:1rem;color:var(--dark);margin-bottom:6px}
+.mcard-desc{font-size:.86rem;color:#555;line-height:1.65;margin-bottom:14px}
+.mcard-price{font-weight:900;font-size:.88rem;color:var(--dark);margin-bottom:12px}
+.mcard-acts{display:flex;flex-wrap:wrap;gap:8px}
+.mbtn{text-decoration:none;font-size:.79rem;font-weight:800;padding:9px 16px;border-radius:30px;transition:all .2s;display:inline-flex;align-items:center;gap:5px}
+.mbtn:hover{transform:scale(1.04)}
+.mbtn-p{background:var(--purple);color:#fff}.mbtn-p:hover{background:#6C3483}
+.mbtn-s{background:#fff;color:var(--purple);border:1.5px solid var(--purple)}.mbtn-s:hover{background:var(--purple);color:#fff}
+.mbtn-free{background:var(--green);color:#fff}.mbtn-free:hover{background:#27AE60}
+.crisis-box{background:var(--ruRed);color:#fff;border-radius:12px;padding:14px;margin-top:14px;font-size:.81rem;line-height:1.7;font-weight:600}
+.crisis-box strong{color:#FFD700}
+.span-full{grid-column:1/-1}
+
+/* ── BOOKS ── */
+#books-sec{background:linear-gradient(135deg,#FFF9F0,#FFF5E6)}
+.bcard{background:#fff;border-radius:var(--radius);padding:26px 22px;box-shadow:var(--shadow);text-align:center;transition:transform .22s}
+.bcard:hover{transform:translateY(-4px)}
+.bcard-cov{font-size:3.8rem;margin-bottom:12px;display:block}
+.bcard-ttl{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:6px}
+.bcard-desc{font-size:.81rem;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.bcard-price{font-weight:900;font-size:.86rem;color:var(--dark);margin-bottom:12px}
+.bcard-btn{display:inline-flex;align-items:center;gap:6px;text-decoration:none;background:var(--gold);color:#fff;padding:10px 22px;border-radius:30px;font-weight:800;font-size:.81rem;transition:all .2s}
+.bcard-btn:hover{background:#E09700;transform:scale(1.04)}
+
+/* ── LEXI ── */
+#lexi-sec{background:#FFF9F0;text-align:center}
+.lexi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-top:34px}
+.lcard{background:linear-gradient(135deg,#FFF9F0,#FFF3DC);border:2px solid #FFD700;border-radius:var(--radius);padding:24px 16px;text-align:center;transition:transform .22s;text-decoration:none;display:block}
+.lcard:hover{transform:translateY(-4px)}
+.lcard-ico{font-size:2.4rem;display:block;margin-bottom:10px}
+.lcard-name{font-weight:900;font-size:.93rem;color:var(--dark);margin-bottom:3px}
+.lcard-sub{font-size:.76rem;color:var(--muted)}
+
+/* ── ABOUT ── */
+#about-sec{background:linear-gradient(135deg,var(--dark),#0d0d2b);padding:72px 0}
+.about-inner{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center}
+.about-avatar{width:126px;height:126px;background:linear-gradient(135deg,var(--gold),var(--coral));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:3.8rem;flex-shrink:0;box-shadow:0 8px 32px rgba(245,166,35,.4)}
+.about-creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.about-cred{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.85);padding:5px 13px;border-radius:30px;font-size:.78rem;font-weight:700}
+.amz-btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:var(--gold);color:var(--dark);padding:12px 26px;border-radius:30px;font-weight:800;font-size:.88rem;margin-top:20px;transition:all .2s}
+.amz-btn:hover{background:#fff}
+
+/* ── FOOTER ── */
+footer{background:#0a0a1a;padding:40px 24px;text-align:center}
+.f-logo{font-family:'Pacifico',cursive;font-size:1.5rem;color:var(--gold);margin-bottom:10px}
+.f-links{display:flex;justify-content:center;flex-wrap:wrap;gap:18px;margin:12px 0}
+.f-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.83rem;font-weight:600;transition:color .2s}
+.f-links a:hover{color:var(--gold)}
+.f-copy{color:rgba(255,255,255,.3);font-size:.78rem;margin-top:10px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  .hero-trio{grid-template-columns:1fr}
+  .ru-inner{grid-template-columns:1fr}
+  .ru-cards{grid-template-columns:1fr}
+  .about-inner{grid-template-columns:1fr;text-align:center}
+  .about-avatar{margin:0 auto}
+  .about-creds{justify-content:center}
+  .nav-pills{display:none;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:#fff;padding:16px;border-bottom:2px solid var(--gold);box-shadow:0 8px 24px rgba(0,0,0,.1);z-index:998}
+  .nav-pills.open{display:flex}
+  .hamburger{display:flex}
+}
+@media(max-width:560px){
+  .g3,.g2{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>✨ alo.micle.magic ✨</h1>
-            <p class="tagline">Where Stories, Love & Creativity Come Alive</p>
-            
-            <nav>
-                <a href="#books">Children's Books</a>
-                <a href="#teachers">👩‍🏫 ESL Worksheets</a>
-                <a href="#tesol">🎓 TESOL Course</a>
-                <a href="#ai-tools">🤖 AI Tools <span class="new-badge">NEW!</span></a>
-                <a href="#haven">💪 Haven <span class="new-badge">NEW!</span></a>
-                <a href="#parenting">Parenting</a>
-                <a href="#romance">Romance</a>
-                <a href="#tools">Tools & Apps</a>
-                <a href="#courses">📚 Courses</a>
-                <a href="lexi-projects-page.html">🌟 Lexi's Projects</a>
-            </nav>
-        </header>
 
-        <div class="emoji-divider">📚 💖 🎨 🌈 ✨</div>
+<!-- ══ NAV ══════════════════════════════════════════ -->
+<nav id="topbar">
+  <a href="#" class="logo">✨ alo.micle.magic</a>
+  <div class="nav-pills" id="navPills">
+    <a href="#kids-sec" class="nav-pill np-kids">📚 For Kids &amp; Families</a>
+    <a href="#teachers-sec" class="nav-pill np-teachers">👩‍🏫 For Teachers</a>
+    <a href="#moms-sec" class="nav-pill np-moms">💜 For Moms</a>
+  </div>
+  <button class="hamburger" id="hbg" onclick="document.getElementById('navPills').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-        <div class="intro">
-            <h2>Hi! I'm <strong>Elena Micle</strong> – author, mother, and creator.</h2>
-            <p>Every project here is crafted with love for YOU!</p>
-            <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" class="amazon-button">📚 Visit My Amazon Author Page</a>
-        </div>
+<!-- ══ HERO ══════════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="blob" style="width:480px;height:480px;background:var(--gold);top:-140px;right:-110px"></div>
+  <div class="blob" style="width:340px;height:340px;background:var(--coral);bottom:-70px;left:-70px"></div>
+  <div class="blob" style="width:220px;height:220px;background:var(--teal);top:42%;right:6%"></div>
 
-        <!-- TEACHER SECTION -->
-        <section id="teachers" class="teacher-section">
-            <h2>👩‍🏫 ESL Teaching Resources for Primary & Gymnasium Levels</h2>
-            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1em;">
-                <strong>Professional, ready-to-use worksheets designed specifically for Romanian and Serbian ESL students!</strong><br>
-                Each pack includes 20 comprehensive worksheets with answer keys and teaching tips.
-            </p>
+  <div class="hero-inner">
+    <p class="hero-hello">Welcome to</p>
+    <h1 class="hero-title">
+      Where Stories, <span class="hi-gold">Love</span><br>&amp; <span class="hi-coral">Creativity</span> Come Alive
+    </h1>
+    <p class="hero-byline">Books, courses and free tools made with heart — for curious kids, dedicated teachers and amazing moms. Created by Elena Micle.</p>
 
-            <div class="worksheet-pack">
-                <div class="product-icon">📝</div>
-                <h4>ESL Grammar Essentials - Pack 1</h4>
-                <p><strong>40 Worksheets (80 pages)</strong> - Romanian & Serbian Versions</p>
-                <div class="worksheet-topics">
-                    <span class="topic-tag">Articles (A/An/The)</span>
-                    <span class="topic-tag">Is/Am/Are</span>
-                    <span class="topic-tag">Was/Were</span>
-                    <span class="topic-tag">Prepositions (In/On/At)</span>
-                    <span class="topic-tag">Pronouns</span>
-                    <span class="topic-tag">Mixed Reviews</span>
-                </div>
-                <p>Perfect for introducing fundamental English grammar concepts with culturally relevant examples.</p>
-                
-                <div class="pdf-preview">
-                    <a href="Romanian_ESL_Worksheets_Pack.pdf" target="_blank">📄 Preview Romanian Pack</a>
-                    <a href="Serbian_ESL_Worksheets_Pack.pdf" target="_blank">📄 Preview Serbian Pack</a>
-                </div>
-                
-                <div class="price">$19.99 per language pack | $34.99 both languages</div>
-                <a href="https://alomiclemagic.gumroad.com/l/kdgwo" class="button">🇷🇴 Buy Romanian Pack</a>
-                <a href="https://alomiclemagic.gumroad.com/l/njiuut" class="button">🇷🇸 Buy Serbian Pack</a>
-                <a href="https://alomiclemagic.gumroad.com/l/hsudq" class="button-secondary">🎁 Buy Both & Save</a>
-            </div>
-
-            <div class="worksheet-pack">
-                <div class="product-icon">✏️</div>
-                <h4>ESL Grammar Essentials - Pack 2</h4>
-                <p><strong>40 Worksheets (80 pages)</strong> - Romanian & Serbian Versions</p>
-                <div class="worksheet-topics">
-                    <span class="topic-tag">Simple Present</span>
-                    <span class="topic-tag">Plurals</span>
-                    <span class="topic-tag">This/That/These/Those</span>
-                    <span class="topic-tag">There Is/Are</span>
-                    <span class="topic-tag">Can/Can't</span>
-                    <span class="topic-tag">Have/Has</span>
-                    <span class="topic-tag">Question Words</span>
-                    <span class="topic-tag">Adjectives</span>
-                    <span class="topic-tag">Adverbs of Frequency</span>
-                    <span class="topic-tag">Contractions</span>
-                </div>
-                <p>Build on essential skills with more advanced grammar topics and practical exercises.</p>
-                
-                <div class="pdf-preview">
-                    <a href="Romanian_ESL_Worksheets_Pack_2.pdf" target="_blank">📄 Preview Romanian Pack 2</a>
-                    <a href="Serbian_ESL_Worksheets_Pack_2.pdf" target="_blank">📄 Preview Serbian Pack 2</a>
-                </div>
-                
-                <div class="price">$19.99 per language pack | $34.99 both languages</div>
-                <a href="https://alomiclemagic.gumroad.com/l/khdqg" class="button">🇷🇴 Buy Romanian Pack</a>
-                <a href="https://alomiclemagic.gumroad.com/l/btukoh" class="button">🇷🇸 Buy Serbian Pack</a>
-                <a href="https://alomiclemagic.gumroad.com/l/frzdrze" class="button-secondary">🎁 Buy Both & Save</a>
-            </div>
-
-            <div class="worksheet-pack bundle-card">
-                <div class="product-icon">🎓</div>
-                <h4>Complete ESL Grammar Bundle - All Packs</h4>
-                <p><strong>80 Worksheets Total (160 pages with answer keys)</strong></p>
-                <p>Get the complete collection and cover all essential ESL grammar topics!</p>
-                <div class="highlight-box">
-                    <strong>🎁 Bundle Pricing:</strong><br>
-                    Romanian Complete Bundle: $34.99 (save $5!)<br>
-                    Serbian Complete Bundle: $34.99 (save $5!)<br>
-                    <strong>Ultimate Bundle (Both Languages): $59.99 (save $20!)</strong>
-                </div>
-                <a href="https://alomiclemagic.gumroad.com/l/zdoci" class="button-success">🇷🇴 Complete Romanian Bundle</a>
-                <a href="https://alomiclemagic.gumroad.com/l/fylmy" class="button-success">🇷🇸 Complete Serbian Bundle</a>
-                <a href="https://alomiclemagic.gumroad.com/l/iqdfpl" class="button-success">🌟 Ultimate Bundle - Both Languages</a>
-            </div>
-
-            <div class="highlight-box">
-                <p><strong>✨ What's Included:</strong></p>
-                <ul style="margin-left: 20px; line-height: 2;">
-                    <li>✅ 20 exercises per worksheet (400 practice questions per pack!)</li>
-                    <li>✅ Complete answer keys for every worksheet</li>
-                    <li>✅ Teaching tips and grammar rules explained</li>
-                    <li>✅ Colorful, engaging design that kids love</li>
-                    <li>✅ Print-ready PDF format</li>
-                    <li>✅ Culturally adapted for Romanian and Serbian students</li>
-                    <li>✅ Perfect for classroom use, tutoring, or homeschool</li>
-                    <li>✅ Instant digital download</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- TESOL CERTIFICATION COURSE SECTION -->
-        <section id="tesol" style="background: linear-gradient(135deg, #2C5F2D 0%, #1e4620 100%); padding: 60px 30px; border-radius: 20px; margin: 50px 0; color: white; position: relative; overflow: hidden;">
-            
-            <!-- Decorative background elements -->
-            <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius: 50%;"></div>
-            <div style="position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); border-radius: 50%;"></div>
-            
-            <div style="position: relative; z-index: 1; max-width: 1000px; margin: 0 auto;">
-                <div style="text-align: center; margin-bottom: 40px;">
-                    <div style="background: #FFB627; color: #1A1A1D; display: inline-block; padding: 10px 30px; border-radius: 50px; font-weight: bold; margin-bottom: 20px; animation: pulse 2s infinite;">
-                        🎊 NOW COMPLETE - ALL 12 MODULES! 🎊
-                    </div>
-                    <h2 style="font-size: 2.8em; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
-                        🎓 Complete TESOL Certification Course
-                    </h2>
-                    <p style="font-size: 1.4em; line-height: 1.6; margin-bottom: 15px; opacity: 0.95;">
-                        Become a Certified ESL Teacher in 12 Weeks
-                    </p>
-                    <p style="font-size: 1.2em; opacity: 0.9;">
-                        Perfect for Single Moms, Teachers, & Anyone Wanting Flexible Work-from-Home Income!
-                    </p>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.95); color: #1A1A1D; border-radius: 20px; padding: 40px; margin-bottom: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
-                    
-                    <div style="background: linear-gradient(135deg, #FFB627 0%, #FFC857 100%); padding: 25px; border-radius: 15px; margin-bottom: 30px; text-align: center;">
-                        <h3 style="margin-bottom: 15px; font-size: 1.5em;">✨ COMPLETE COURSE - ALL 12 MODULES! ✨</h3>
-                        <p style="font-size: 1.1em; line-height: 1.8;">
-                            <strong>The full 120-hour TESOL course is NOW AVAILABLE!</strong><br>
-                            <span style="font-size: 0.95em;">Start your teaching career TODAY with instant access to everything!</span>
-                        </p>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
-                        <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-                            <div style="font-size: 2.5em; margin-bottom: 10px;">✅</div>
-                            <h4 style="color: #2C5F2D; margin-bottom: 10px;">12 Modules Complete</h4>
-                            <p style="font-size: 0.95em;">120 hours of content READY NOW</p>
-                        </div>
-                        <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-                            <div style="font-size: 2.5em; margin-bottom: 10px;">📚</div>
-                            <h4 style="color: #2C5F2D; margin-bottom: 10px;">Full Certification</h4>
-                            <p style="font-size: 0.95em;">Official TESOL certificate included</p>
-                        </div>
-                        <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-                            <div style="font-size: 2.5em; margin-bottom: 10px;">🏠</div>
-                            <h4 style="color: #2C5F2D; margin-bottom: 10px;">Work From Home</h4>
-                            <p style="font-size: 0.95em;">Earn $15-$80/hour teaching online</p>
-                        </div>
-                        <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-                            <div style="font-size: 2.5em; margin-bottom: 10px;">🎯</div>
-                            <h4 style="color: #2C5F2D; margin-bottom: 10px;">Self-Paced</h4>
-                            <p style="font-size: 0.95em;">Study on your own schedule</p>
-                        </div>
-                    </div>
-
-                    <div style="background: linear-gradient(135deg, #FFF8E7 0%, #F0E6D2 100%); padding: 25px; border-radius: 15px; margin: 25px 0;">
-                        <h3 style="color: #2C5F2D; margin-bottom: 15px; font-size: 1.4em;">📖 All 12 Modules (Click to Preview!):</h3>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                            <div>
-                                <p>✅ <strong><a href="TESOL_Module1_App.html" style="color: #2C5F2D;">Module 1:</a></strong> Introduction to ESL Teaching</p>
-                                <p>✅ <strong><a href="TESOL_Module2_App.html" style="color: #2C5F2D;">Module 2:</a></strong> Grammar Fundamentals</p>
-                                <p>✅ <strong><a href="TESOL_Module3_App.html" style="color: #2C5F2D;">Module 3:</a></strong> Lesson Planning</p>
-                                <p>✅ <strong><a href="TESOL_Module4_App.html" style="color: #2C5F2D;">Module 4:</a></strong> Teaching Methods</p>
-                                <p>✅ <strong><a href="TESOL_Module5_App.html" style="color: #2C5F2D;">Module 5:</a></strong> Classroom Management</p>
-                                <p>✅ <strong><a href="TESOL_Module6_App.html" style="color: #2C5F2D;">Module 6:</a></strong> Teaching Different Ages</p>
-                            </div>
-                            <div>
-                                <p>✅ <strong><a href="TESOL_Module7_App.html" style="color: #2C5F2D;">Module 7:</a></strong> The Four Skills</p>
-                                <p>✅ <strong><a href="TESOL_Module8_App.html" style="color: #2C5F2D;">Module 8:</a></strong> Vocabulary & Pronunciation</p>
-                                <p>✅ <strong><a href="TESOL_Module9_App.html" style="color: #2C5F2D;">Module 9:</a></strong> Assessment</p>
-                                <p>✅ <strong><a href="TESOL_Module10_App.html" style="color: #2C5F2D;">Module 10:</a></strong> Technology in Teaching</p>
-                                <p>✅ <strong><a href="TESOL_Module11_App.html" style="color: #2C5F2D;">Module 11:</a></strong> Specialized Teaching</p>
-                                <p>✅ <strong><a href="TESOL_Module12_App.html" style="color: #2C5F2D;">Module 12:</a></strong> Building Your Career</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="background: linear-gradient(135deg, #FFF8E7 0%, #F0E6D2 100%); padding: 25px; border-radius: 15px; margin: 25px 0;">
-                        <h3 style="color: #2C5F2D; margin-bottom: 15px; font-size: 1.4em;">✨ What's Included:</h3>
-                        <ul style="margin-left: 20px; line-height: 2.2; font-size: 1.05em;">
-                            <li>✅ Interactive web apps for each module</li>
-                            <li>✅ 200+ downloadable resources (lesson plans, worksheets, templates)</li>
-                            <li>✅ Video lessons & demonstrations</li>
-                            <li>✅ Module quizzes with instant feedback</li>
-                            <li>✅ Official TESOL Certificate upon completion</li>
-                            <li>✅ 100 ready-to-use ESL lesson plans</li>
-                            <li>✅ 500 printable worksheets & activities</li>
-                            <li>✅ Job board access with teaching opportunities</li>
-                            <li>✅ <strong>Lifetime access to ALL 12 modules & updates</strong></li>
-                            <li>✅ <strong>Immediate access to complete course!</strong></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.1); border: 3px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 35px; margin-bottom: 40px; text-align: center;">
-                    <h3 style="font-size: 2em; margin-bottom: 25px;">💰 Course Pricing</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
-                        <div style="background: white; color: #1A1A1D; padding: 25px; border-radius: 15px;">
-                            <h4 style="color: #2C5F2D; font-size: 1.3em; margin-bottom: 10px;">Individual</h4>
-                            <div style="font-size: 2.5em; font-weight: bold; color: #2C5F2D; margin: 15px 0;">$199</div>
-                            <p style="margin-bottom: 15px;">Complete course + certification<br><small>Start learning TODAY!</small></p>
-                            <div style="background: #FFB627; color: #1A1A1D; padding: 5px 15px; border-radius: 20px; display: inline-block; font-weight: 600; font-size: 0.9em;">Complete Access!</div>
-                        </div>
-                        <div style="background: white; color: #1A1A1D; padding: 25px; border-radius: 15px;">
-                            <h4 style="color: #2C5F2D; font-size: 1.3em; margin-bottom: 10px;">Payment Plan</h4>
-                            <div style="font-size: 2.5em; font-weight: bold; color: #2C5F2D; margin: 15px 0;">$59/mo</div>
-                            <p style="margin-bottom: 15px;">4 monthly payments<br>Start immediately!</p>
-                            <div style="background: #97BC62; color: white; padding: 5px 15px; border-radius: 20px; display: inline-block; font-weight: 600; font-size: 0.9em;">Flexible</div>
-                        </div>
-                        <div style="background: linear-gradient(135deg, #FFB627 0%, #FFC857 100%); color: #1A1A1D; padding: 25px; border-radius: 15px; border: 3px solid white; transform: scale(1.05);">
-                            <h4 style="font-weight: bold; font-size: 1.3em; margin-bottom: 10px;">Teacher PRO</h4>
-                            <div style="font-size: 2.5em; font-weight: bold; margin: 15px 0;">$299</div>
-                            <p style="margin-bottom: 15px;">+ Commercial License<br>+ Master Certificate</p>
-                            <div style="background: #2C5F2D; color: white; padding: 5px 15px; border-radius: 20px; display: inline-block; font-weight: 600; font-size: 0.9em;">BEST VALUE</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="text-align: center;">
-                    <a href="TESOL_Module1_App.html" style="display: inline-block; background: linear-gradient(135deg, #FFB627 0%, #FFC857 100%); color: #1A1A1D; padding: 20px 50px; border-radius: 50px; text-decoration: none; font-size: 1.3em; font-weight: 700; margin: 10px; box-shadow: 0 8px 20px rgba(255,182,39,0.4); transition: all 0.3s ease;">
-                        🚀 Preview Module 1 FREE
-                    </a>
-                    <a href="https://alomiclemagic.gumroad.com/l/tesol-early-access" style="display: inline-block; background: white; color: #2C5F2D; padding: 20px 50px; border-radius: 50px; text-decoration: none; font-size: 1.3em; font-weight: 700; margin: 10px; box-shadow: 0 8px 20px rgba(255,255,255,0.3); transition: all 0.3s ease;">
-                        💳 Enroll Now - Early Access
-                    </a>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 15px; margin-top: 40px; text-align: center;">
-                    <p style="font-size: 1.1em; margin-bottom: 10px;">🎁 <strong>Enrollment Includes:</strong></p>
-                    <p style="font-size: 1.2em; line-height: 1.8;">
-                        All 12 modules <strong>available immediately!</strong><br>
-                        <strong>PLUS</strong> lifetime access & all future updates!
-                    </p>
-                </div>
-
-                <div style="margin-top: 40px; text-align: center; font-size: 0.95em; opacity: 0.9;">
-                    <p>✨ 30-Day Money-Back Guarantee • Lifetime Access • Certificate Included ✨</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- AI TOOLS SECTION -->
-        <section id="ai-tools" style="background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%); padding: 60px 30px; border-radius: 20px; margin: 50px 0; color: white; position: relative; overflow: hidden;">
-            
-            <!-- Decorative background -->
-            <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius: 50%;"></div>
-            <div style="position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); border-radius: 50%;"></div>
-            
-            <div style="position: relative; z-index: 1; max-width: 1000px; margin: 0 auto;">
-                <div style="text-align: center; margin-bottom: 40px;">
-                    <div style="background: #FF6B9D; color: white; display: inline-block; padding: 10px 30px; border-radius: 50px; font-weight: bold; margin-bottom: 20px; animation: pulse 2s infinite;">
-                        🚀 NEW! AI-POWERED TOOLS FOR EVERYONE!
-                    </div>
-                    <h2 style="font-size: 2.8em; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
-                        🤖 AI Tools & Learning Hub
-                    </h2>
-                    <p style="font-size: 1.4em; line-height: 1.6; margin-bottom: 15px; opacity: 0.95;">
-                        Work Smarter, Learn Faster, Build Better
-                    </p>
-                    <p style="font-size: 1.2em; opacity: 0.9;">
-                        Free Tools for Kids, Teachers, and Single Moms!
-                    </p>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.95); color: #1A1A1D; border-radius: 20px; padding: 40px; margin-bottom: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
-                    
-                    <h3 style="color: #667EEA; text-align: center; font-size: 2em; margin-bottom: 30px;">💪 Mom's Command Center</h3>
-                    <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px; color: #555;">
-                        Your AI-powered life management system! Plan your week, track income, stay organized!
-                    </p>
-
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 30px;">
-                        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #FFE4E9 0%, #FFF0F5 100%); border-radius: 15px; border: 3px solid #FF6B9D;">
-                            <div style="font-size: 2.5em; margin-bottom: 10px;">🎯</div>
-                            <h4 style="color: #FF6B9D; margin-bottom: 10px;">Master Plan Creator</h4>
-                            <p style="font-size: 0.95em; color: #666;">Turn dreams into actionable steps!</p>
-                        </div>
-                        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #FFF8E7 0%, #FFE4B3 100%); border-radius: 15px; border: 3px solid #FFB627;">
-                            <div style="font-size: 2.5em; margin-bottom: 10px;">📅</div>
-                            <h4 style="color: #FF9900; margin-bottom: 10px;">Daily Planner</h4>
-                            <p style="font-size: 0.95em; color: #666;">Organize chaos into productivity!</p>
-                        </div>
-                        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #E0F4F1 0%, #C5E4E7 100%); border-radius: 15px; border: 3px solid #457B9D;">
-                            <div style="font-size: 2.5em; margin-bottom: 10px;">💰</div>
-                            <h4 style="color: #457B9D; margin-bottom: 10px;">Income Tracker</h4>
-                            <p style="font-size: 0.95em; color: #666;">Watch your empire grow!</p>
-                        </div>
-                        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #E8EAF6 0%, #D1D5F0 100%); border-radius: 15px; border: 3px solid #764BA2;">
-                            <div style="font-size: 2.5em; margin-bottom: 10px;">🤖</div>
-                            <h4 style="color: #764BA2; margin-bottom: 10px;">AI Assistant</h4>
-                            <p style="font-size: 0.95em; color: #666;">24/7 help at your fingertips!</p>
-                        </div>
-                    </div>
-
-                    <div style="text-align: center;">
-                        <a href="Moms_Command_Center.html" class="button" style="font-size: 1.2em; padding: 18px 40px; background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%); box-shadow: 0 5px 20px rgba(255,107,157,0.4);">
-                            🚀 Launch Mom's Command Center (FREE!)
-                        </a>
-                    </div>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.95); color: #1A1A1D; border-radius: 20px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
-                    
-                    <h3 style="color: #667EEA; text-align: center; font-size: 2em; margin-bottom: 30px;">🎓 AI Literacy Hub</h3>
-                    <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px; color: #555;">
-                        Learn AI safely and smartly - for kids, teachers, and moms!
-                    </p>
-
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 30px;">
-                        <div style="padding: 25px; background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E9 100%); border-radius: 15px; text-align: center; border: 3px solid #FF6B9D;">
-                            <div style="font-size: 3em; margin-bottom: 15px;">👧🎮</div>
-                            <h4 style="color: #FF6B9D; margin-bottom: 10px;">For Kids</h4>
-                            <p style="color: #666;">Fun, safe AI learning tools!</p>
-                            <ul style="text-align: left; margin: 15px 0; color: #666; line-height: 2;">
-                                <li>✨ Story Creator</li>
-                                <li>🤔 Homework Helper</li>
-                                <li>🎨 Creative Ideas</li>
-                                <li>🌍 Learn Anything!</li>
-                            </ul>
-                        </div>
-
-                        <div style="padding: 25px; background: linear-gradient(135deg, #E0FBFC 0%, #D4F1F4 100%); border-radius: 15px; text-align: center; border: 3px solid #5B7C99;">
-                            <div style="font-size: 3em; margin-bottom: 15px;">👩‍🏫📚</div>
-                            <h4 style="color: #5B7C99; margin-bottom: 10px;">For Teachers</h4>
-                            <p style="color: #666;">Save HOURS with AI tools!</p>
-                            <ul style="text-align: left; margin: 15px 0; color: #666; line-height: 2;">
-                                <li>📝 Lesson Planner</li>
-                                <li>📄 Worksheet Generator</li>
-                                <li>✅ Assessment Creator</li>
-                                <li>✉️ Parent Emails</li>
-                            </ul>
-                        </div>
-
-                        <div style="padding: 25px; background: linear-gradient(135deg, #F1FAEE 0%, #E0F4F1 100%); border-radius: 15px; text-align: center; border: 3px solid #457B9D;">
-                            <div style="font-size: 3em; margin-bottom: 15px;">💪👑</div>
-                            <h4 style="color: #457B9D; margin-bottom: 10px;">For Moms</h4>
-                            <p style="color: #666;">Build your business with AI!</p>
-                            <ul style="text-align: left; margin: 15px 0; color: #666; line-height: 2;">
-                                <li>💼 Business Plans</li>
-                                <li>📱 Content Creator</li>
-                                <li>📝 Product Descriptions</li>
-                                <li>📢 Marketing Ideas</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div style="text-align: center;">
-                        <a href="AI_Literacy_Hub.html" class="button" style="font-size: 1.2em; padding: 18px 40px; background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%); box-shadow: 0 5px 20px rgba(102,126,234,0.4);">
-                            🎓 Explore AI Literacy Hub (FREE!)
-                        </a>
-                    </div>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 15px; margin-top: 40px; text-align: center;">
-                    <p style="font-size: 1.1em; margin-bottom: 10px;">💡 <strong>Why AI Tools?</strong></p>
-                    <p style="font-size: 1.1em; line-height: 1.8;">
-                        AI isn't here to replace you - it's here to EMPOWER you! Work smarter, save time, and build the life you deserve. 
-                        <strong>These tools are 100% FREE</strong> because every mom, teacher, and kid deserves access to the future! 🦋✨
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- HAVEN - SINGLE MOM SUPPORT SECTION -->
-        <section id="haven" style="background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%); padding: 60px 30px; border-radius: 20px; margin: 50px 0; color: white; position: relative; overflow: hidden;">
-            
-            <!-- Decorative background -->
-            <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius: 50%;"></div>
-            <div style="position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); border-radius: 50%;"></div>
-            
-            <div style="position: relative; z-index: 1; max-width: 1000px; margin: 0 auto;">
-                <div style="text-align: center; margin-bottom: 40px;">
-                    <div style="background: #6BCF7F; color: white; display: inline-block; padding: 10px 30px; border-radius: 50px; font-weight: bold; margin-bottom: 20px; animation: pulse 2s infinite;">
-                        💪 FOR EVERY MOM WHO NEEDS HOPE 💖
-                    </div>
-                    <h2 style="font-size: 2.8em; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
-                        HAVEN - Single Mom Support Program
-                    </h2>
-                    <p style="font-size: 1.4em; line-height: 1.6; margin-bottom: 15px; opacity: 0.95;">
-                        You're Not Alone. You're Not Broken. You've Got This.
-                    </p>
-                    <p style="font-size: 1.2em; opacity: 0.9;">
-                        100% Free Support, Resources & Community
-                    </p>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.95); color: #1A1A1D; border-radius: 20px; padding: 40px; margin-bottom: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);">
-                    
-                    <div style="background: linear-gradient(135deg, #6BCF7F 0%, #8FE0A0 100%); color: white; padding: 25px; border-radius: 15px; margin-bottom: 30px; text-align: center;">
-                        <h3 style="margin-bottom: 15px; font-size: 1.5em;">💔 In Memory of Those We Lost</h3>
-                        <p style="font-size: 1.05em; line-height: 1.8;">
-                            This program is dedicated to every single mom who didn't make it. The ones who felt too alone, too overwhelmed, too broken. 
-                            <strong>Their children remain. We honor them by making sure NO MORE MOMS slip through the cracks.</strong>
-                        </p>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 30px;">
-                        <div style="text-align: center; padding: 20px; background: #FFF0F5; border-radius: 15px; border: 3px solid #FF6B9D;">
-                            <div style="font-size: 2.5em; margin-bottom: 10px;">📋</div>
-                            <h4 style="color: #C44569; margin-bottom: 10px;">Daily Support Tools</h4>
-                            <p style="font-size: 0.95em; color: #666;">Checklists, planners, schedules</p>
-                        </div>
-                        <div style="text-align: center; padding: 20px; background: #FFF8E7; border-radius: 15px; border: 3px solid #FEC368;">
-                            <div style="font-size: 2.5em; margin-bottom: 10px;">💪</div>
-                            <h4 style="color: #FF9900; margin-bottom: 10px;">Motivation & Mindset</h4>
-                            <p style="font-size: 0.95em; color: #666;">For hard days when you need hope</p>
-                        </div>
-                        <div style="text-align: center; padding: 20px; background: #F0F8FF; border-radius: 15px; border: 3px solid #A8DADC;">
-                            <div style="font-size: 2.5em; margin-bottom: 10px;">💰</div>
-                            <h4 style="color: #457B9D; margin-bottom: 10px;">Income Paths</h4>
-                            <p style="font-size: 0.95em; color: #666;">Work-from-home opportunities</p>
-                        </div>
-                        <div style="text-align: center; padding: 20px; background: #F5F5F5; border-radius: 15px; border: 3px solid #764BA2;">
-                            <div style="font-size: 2.5em; margin-bottom: 10px;">👥</div>
-                            <h4 style="color: #667EEA; margin-bottom: 10px;">Community</h4>
-                            <p style="font-size: 0.95em; color: #666;">Safe space, zero judgment</p>
-                        </div>
-                    </div>
-
-                    <div style="background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%); color: white; padding: 25px; border-radius: 15px; margin: 25px 0; text-align: center;">
-                        <h4 style="margin-bottom: 15px; font-size: 1.3em;">🚨 In Crisis? Call NOW</h4>
-                        <p style="font-size: 1.1em; line-height: 1.8;">
-                            <strong>US:</strong> 988 (Suicide Prevention) | Text HOME to 741741<br>
-                            <strong>Romania:</strong> 0800 801 200 | 116 123 (LifeLine)<br>
-                            <strong>Domestic Violence (RO):</strong> 0800 500 333
-                        </p>
-                        <p style="margin-top: 15px; font-size: 1.05em;">
-                            You are NOT crazy. You are OVERWHELMED. There is help. Please stay. 💖
-                        </p>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 30px;">
-                        <p style="font-size: 1.15em; color: #555; margin-bottom: 20px;">
-                            <strong>Available in English & Romanian (Refugiu)</strong>
-                        </p>
-                        <a href="Haven_Single_Mom_Support.html" class="button" style="background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%); box-shadow: 0 5px 20px rgba(255,107,157,0.4); margin: 10px; font-size: 1.1em;">
-                            💪 Enter Haven (English)
-                        </a>
-                        <a href="Refugiu_Mame_Single_RO.html" class="button" style="background: linear-gradient(135deg, #6BCF7F 0%, #8FE0A0 100%); box-shadow: 0 5px 20px rgba(107,207,127,0.4); margin: 10px; font-size: 1.1em;">
-                            🇷🇴 Intră în Refugiu (Română)
-                        </a>
-                    </div>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 15px; text-align: center;">
-                    <p style="font-size: 1.15em; line-height: 1.8;">
-                        <em>"I walked through fire and came back with water. Now I'm throwing YOU a rope."</em><br>
-                        <strong>- Elena</strong>
-                    </p>
-                    <p style="font-size: 1.05em; margin-top: 15px;">
-                        💖 Built by a single mom who survived, for single moms who are surviving.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Educational Courses -->
-        <section id="courses">
-            <h2>📚 Educational Courses for Kids</h2>
-            <p style="text-align: center; margin-bottom: 30px;">Complete curriculum packages for teaching financial literacy and respectful behavior to kids ages 8-12!</p>
-            
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-icon">💰</div>
-                    <h3>The Ultimate Kids' Money Guide</h3>
-                    <p><strong>Financial Literacy Course</strong></p>
-                    <p>Teach your kids about money, saving, smart spending, and building wealth! Complete 8-week curriculum with interactive app, worksheets, quizzes, and teacher guides.</p>
-                    <p><strong>Perfect for:</strong> Homeschool families, teachers, parents</p>
-                    <div class="price">$29.99 Individual | $49.99 Teacher | $199.99 School</div>
-                    <a href="Financial_Guide_App_English.html" class="button">🚀 Launch Course App</a>
-                    <a href="https://alomiclemagic.gumroad.com/l/qyoeiv" class="button-secondary">💰 Buy Individual License</a>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-icon">💕</div>
-                    <h3>Raising Respectful Humans</h3>
-                    <p><strong>Manners & Social Skills Course</strong></p>
-                    <p>Teach kindness, empathy, respectful communication, and digital citizenship! Complete 8-week curriculum with interactive app, worksheets, quizzes, and teacher guides.</p>
-                    <p><strong>Perfect for:</strong> Character education, SEL curriculum, families</p>
-                    <div class="price">$29.99 Individual | $49.99 Teacher | $199.99 School</div>
-                    <a href="Manners_Guide_App_English.html" class="button">🚀 Launch Course App</a>
-                    <a href="https://alomiclemagic.gumroad.com/l/oyllc" class="button-secondary">💰 Buy Individual License</a>
-                </div>
-
-                <div class="product-card bundle-card">
-                    <div class="product-icon">🎁</div>
-                    <h3>Bundle & Save!</h3>
-                    <p><strong>Both Courses Together</strong></p>
-                    <p>Get BOTH complete courses at a discounted price! Teach financial literacy AND respectful behavior - the two most important life skills kids need.</p>
-                    <div class="price">
-                        Individual: $49.99 (save $10!)<br>
-                        Teacher: $79.99 (save $20!)<br>
-                        School: $349.99 (save $50!)
-                    </div>
-                    <a href="https://alomiclemagic.gumroad.com/l/edsdka" class="button-success">🎁 Buy Bundle & Save</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Children's Books -->
-        <section id="books">
-            <h2>📖 Children's Books</h2>
-            
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-icon">💝</div>
-                    <h3>Stories for My Daughter</h3>
-                    <p>10 beautifully illustrated stories teaching kindness, courage, empathy, and self-confidence. Perfect for ages 8-12.</p>
-                    <div class="price">eBook: $4.00 | Paperback: $16.99 | Hardcover: $35.00</div>
-                    <a href="https://www.amazon.com/dp/B0GGZ8YSKF" class="button">Buy on Amazon</a>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-icon">🤖</div>
-                    <h3>Understanding Claude: A Kid's Guide to AI Friends</h3>
-                    <p>How to Talk to AI, Learn Together, and Keep Your Conversations Safe. Ages 8-14.</p>
-                    <div class="price">eBook: $4.00 | Paperback: $12.99 | Hardcover: $22.00</div>
-                    <a href="https://www.amazon.com/dp/B0GJ3ZP7ZK" class="button">Buy on Amazon</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Parenting -->
-        <section id="parenting">
-            <h2>👨‍👩‍👧‍👦 Parenting Guides & Journals</h2>
-            
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-icon">💌</div>
-                    <h3>Letters to My Daughter</h3>
-                    <p>A Mother-Daughter Journal for Building Memories, Connection, and Love. 70 heartfelt prompts. Ages 8-18.</p>
-                    <div class="price">Paperback: $13.00</div>
-                    <a href="https://www.amazon.com/dp/B0GHWWPCPM" class="button">Buy on Amazon</a>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-icon">📚</div>
-                    <h3>The Parent's Survival Guide</h3>
-                    <p>Raising Happy, Healthy Kids Ages 8-12 with routines, activities, and plenty of humor!</p>
-                    <a href="parents-survival-guide-app.html" class="button">🎯 Try Interactive App</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Romance -->
-        <section id="romance">
-            <h2>💕 Romance Novels</h2>
-            
-            <div class="product-card">
-                <div class="product-icon">❤️</div>
-                <h3>One More Valentine</h3>
-                <p>A Second Chance Romance - Ten years later, five days together, one hotel room.</p>
-                <p>Heat Level: 🌶️🌶️🌶️</p>
-                <div class="price">eBook: $2.99 | Paperback: $7.00</div>
-                <a href="https://www.amazon.com/dp/B0GJPTJNVP" class="button">Buy on Amazon</a>
-            </div>
-        </section>
-
-        <!-- Tools & Apps -->
-        <section id="tools">
-            <h2>🛠️ Interactive Tools & Apps</h2>
-            
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-icon">🌊</div>
-                    <h3>Ocean Phenomena Explorer</h3>
-                    <p>Interactive guide for kids to discover ocean wonders! Created for Lexi with love!</p>
-                    <a href="ocean-explorer.html" class="button">🌊 Explore Ocean</a>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-icon">🌱</div>
-                    <h3>Kids Gardening Guide</h3>
-                    <p>My First Garden Adventure! Learn to grow herbs indoors and vegetables outdoors!</p>
-                    <a href="kids-garden-guide.html" class="button">🌱 Start Gardening</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Lexi's Projects -->
-        <section>
-            <h2>🌟 Lexi's Learning Corner 🌟</h2>
-            <p style="text-align: center; margin-bottom: 20px;">School projects, stories, and adventures created with Claude!</p>
-            
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-icon">🐯</div>
-                    <h3>Tigrul Siberian Project</h3>
-                    <a href="lexi-projects-page.html" class="button">View Project</a>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-icon">📚</div>
-                    <h3>Poveștile Șoarecilor</h3>
-                    <a href="soareci-stories-page.html" class="button">Read Stories</a>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <h3>About Elena Micle ✨</h3>
-            <p>Author, mother, and creator passionate about storytelling, parenting wisdom, and educational tools.</p>
-            <p>
-                <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL">Amazon Author Page</a> |
-                <a href="lexi-projects-page.html">Lexi's Projects</a>
-            </p>
-            <p style="margin-top: 20px;">© 2026 Elena Micle | alo.micle.magic ✨ All rights reserved.</p>
-            <p>Made with ❤️, dedication, and a sprinkle of magic 🌟</p>
-        </footer>
+    <div class="hero-trio">
+      <a href="#kids-sec" class="hero-card hc-kids">
+        <span class="hc-icon">📚</span>
+        <div class="hc-title">For Kids &amp; Families</div>
+        <div class="hc-sub">Russian for Kids · Children's Books · Money &amp; Manners Courses · Free Learning Apps</div>
+        <span class="hc-arrow">→</span>
+      </a>
+      <a href="#teachers-sec" class="hero-card hc-teachers">
+        <span class="hc-icon">👩‍🏫</span>
+        <div class="hc-title">For Teachers</div>
+        <div class="hc-sub">ESL Worksheets (RO &amp; SR) · TESOL Certification · Russian Course Teacher License · Free AI Tools</div>
+        <span class="hc-arrow">→</span>
+      </a>
+      <a href="#moms-sec" class="hero-card hc-moms">
+        <span class="hc-icon">💜</span>
+        <div class="hc-title">For Moms</div>
+        <div class="hc-sub">HAVEN Support Program · AI Tools · Parenting Guides · Romance Novels</div>
+        <span class="hc-arrow">→</span>
+      </a>
     </div>
+  </div>
+  <div class="hero-scroll"><span>↓</span><span>Explore</span></div>
+</section>
+
+<!-- ══ RUSSIAN SPOTLIGHT ══════════════════════════════ -->
+<section class="ru-section" id="russian-sec">
+  <div class="container">
+    <div class="ru-inner">
+      <div>
+        <div class="flag-bar"><div class="fb-w"></div><div class="fb-b"></div><div class="fb-r"></div></div>
+        <div class="new-pill">🆕 NEW COURSE</div>
+        <div class="section-label" style="color:#FFD700">Featured Launch</div>
+        <h2 class="section-title" style="color:#FFD700;font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem)">Russian for Kids</h2>
+        <p style="font-size:1.3rem;color:rgba(173,216,230,.9);font-style:italic;font-family:'Playfair Display',serif;margin-bottom:14px">Русский для детей</p>
+        <p class="section-sub" style="color:rgba(255,255,255,.8);max-width:100%">25 interactive lessons teaching the Cyrillic alphabet, 200+ vocabulary words, simple conversations and Russian culture. Perfect for ages 6–12. No Russian needed!</p>
+        <ul class="ru-list">
+          <li><span class="ico">🔤</span>Read &amp; write all 33 Cyrillic letters from Lesson 1</li>
+          <li><span class="ico">💬</span>200+ vocabulary words across 5 themed units</li>
+          <li><span class="ico">🌍</span>Culture, history, geography &amp; famous Russians</li>
+          <li><span class="ico">⭐</span>7 gorgeous bonus printables included FREE</li>
+          <li><span class="ico">🖨️</span>Print-and-go worksheets — zero prep required</li>
+          <li><span class="ico">👩‍🏫</span>Created by Elena Micle — Russian Language Major &amp; Mom</li>
+        </ul>
+      </div>
+      <div>
+        <div class="ru-cards">
+          <div class="ru-card">
+            <span class="ru-price">$79</span>
+            <div class="ru-tier">Individual</div>
+            <div class="ru-feat">All 25 lessons · 7 bonus materials · Lifetime access · 1 family use</div>
+            <a href="https://alomiclemagic.gumroad.com/l/rdvsj" target="_blank" class="ru-btn rb-ind">🛒 Buy Individual</a>
+          </div>
+          <div class="ru-card">
+            <span class="ru-price">$149</span>
+            <div class="ru-tier">Teacher ⭐ Popular</div>
+            <div class="ru-feat">Multiple students · Commercial use · Teaching guides included</div>
+            <a href="https://alomiclemagic.gumroad.com/l/svjtnz" target="_blank" class="ru-btn rb-tch">🎓 Buy Teacher</a>
+          </div>
+          <div class="ru-card ru-span">
+            <span class="ru-price">$299</span>
+            <div class="ru-tier">School License</div>
+            <div class="ru-feat">Unlimited students · School-wide use · Priority support · Everything included</div>
+            <a href="https://alomiclemagic.gumroad.com/l/gfrsen" target="_blank" class="ru-btn rb-sch">🏫 Buy School License</a>
+          </div>
+        </div>
+        <p style="color:rgba(255,255,255,.45);font-size:.73rem;text-align:center;margin-top:10px">✅ Secure checkout via Gumroad &nbsp;·&nbsp; Instant download &nbsp;·&nbsp; 30-day guarantee</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOR KIDS ═══════════════════════════════════════ -->
+<section id="kids-sec">
+  <div class="container">
+    <div class="section-label" style="color:var(--coral)">For Kids &amp; Families</div>
+    <h2 class="section-title">Learning That Feels Like Play 📚</h2>
+    <p class="section-sub">Courses and tools designed to make kids fall in love with learning — languages, money skills, kindness and more.</p>
+
+    <div class="g3">
+      <!-- Russian for Kids -->
+      <div class="pcard">
+        <div class="pcard-hd" style="background:linear-gradient(135deg,#001f6b,#003399)">
+          <span class="pcard-ico">🇷🇺</span>
+          <div>
+            <div class="pcard-ttl" style="color:#FFD700">Russian for Kids</div>
+            <div class="pcard-sub" style="color:rgba(255,255,255,.7)">Complete Beginner Course · 25 Lessons <span class="badge-new">NEW</span></div>
+          </div>
+        </div>
+        <div class="pcard-body">Teach your child the Cyrillic alphabet, 200+ words, simple conversations and Russian culture. Ages 6–12. Created by Elena Micle — Russian Language Major and Mom of Lexi!</div>
+        <div class="pcard-tags"><span class="pcard-tag">Ages 6–12</span><span class="pcard-tag">Cyrillic</span><span class="pcard-tag">Culture</span><span class="pcard-tag">Beginner</span></div>
+        <div class="pcard-footer">
+          <div class="pcard-price">$79 Individual · $149 Teacher · $299 School</div>
+          <div class="pcard-acts">
+            <a href="https://alomiclemagic.gumroad.com/l/rdvsj" target="_blank" class="pbtn" style="background:var(--ruRed);color:#fff">🛒 Buy — $79</a>
+            <a href="#russian-sec" class="pbtn pbtn-2">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Money Guide -->
+      <div class="pcard">
+        <div class="pcard-hd" style="background:linear-gradient(135deg,#F5A623,#E09700)">
+          <span class="pcard-ico">💰</span>
+          <div>
+            <div class="pcard-ttl" style="color:#fff">Kids' Money Guide</div>
+            <div class="pcard-sub" style="color:rgba(255,255,255,.8)">Financial Literacy Course · Ages 8–12</div>
+          </div>
+        </div>
+        <div class="pcard-body">Teach your kids about money, saving, smart spending and building wealth! Complete 8-week curriculum with interactive app, worksheets, quizzes and teacher guides.</div>
+        <div class="pcard-tags"><span class="pcard-tag">Ages 8–12</span><span class="pcard-tag">Finance</span><span class="pcard-tag">Homeschool</span></div>
+        <div class="pcard-footer">
+          <div class="pcard-price">$29.99 Individual · $49.99 Teacher · $199.99 School</div>
+          <div class="pcard-acts">
+            <a href="https://alomiclemagic.gumroad.com/l/qyoeiv" target="_blank" class="pbtn" style="background:var(--gold);color:#fff">🛒 Buy Now</a>
+            <a href="Financial_Guide_App_English.html" class="pbtn pbtn-2">🚀 Free Preview</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manners -->
+      <div class="pcard">
+        <div class="pcard-hd" style="background:linear-gradient(135deg,#FF6B6B,#E04040)">
+          <span class="pcard-ico">💕</span>
+          <div>
+            <div class="pcard-ttl" style="color:#fff">Raising Respectful Humans</div>
+            <div class="pcard-sub" style="color:rgba(255,255,255,.8)">Manners &amp; Social Skills · Ages 8–12</div>
+          </div>
+        </div>
+        <div class="pcard-body">Teach kindness, empathy, respectful communication and digital citizenship. 8-week curriculum perfect for character education, SEL programs and families.</div>
+        <div class="pcard-tags"><span class="pcard-tag">Ages 8–12</span><span class="pcard-tag">SEL</span><span class="pcard-tag">Character</span></div>
+        <div class="pcard-footer">
+          <div class="pcard-price">$29.99 Individual · $49.99 Teacher · $199.99 School</div>
+          <div class="pcard-acts">
+            <a href="https://alomiclemagic.gumroad.com/l/oyllc" target="_blank" class="pbtn" style="background:var(--coral);color:#fff">🛒 Buy Now</a>
+            <a href="Manners_Guide_App_English.html" class="pbtn pbtn-2">🚀 Free Preview</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bundle -->
+      <div class="pcard">
+        <div class="pcard-hd" style="background:linear-gradient(135deg,#2ECC71,#1A9E50)">
+          <span class="pcard-ico">🎁</span>
+          <div>
+            <div class="pcard-ttl" style="color:#fff">Money + Manners Bundle</div>
+            <div class="pcard-sub" style="color:rgba(255,255,255,.8)">Both Courses Together &amp; Save!</div>
+          </div>
+        </div>
+        <div class="pcard-body">Get BOTH complete courses at a great price! Financial literacy AND respectful behaviour — the two most important life skills every child needs.</div>
+        <div class="pcard-tags"><span class="pcard-tag">Best Value</span><span class="pcard-tag">Bundle</span></div>
+        <div class="pcard-footer">
+          <div class="pcard-price">$49.99 Individual · $79.99 Teacher · $349.99 School</div>
+          <div class="pcard-acts">
+            <a href="https://alomiclemagic.gumroad.com/l/edsdka" target="_blank" class="pbtn" style="background:var(--green);color:#fff">🎁 Buy Bundle &amp; Save</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Free Apps -->
+      <div class="pcard">
+        <div class="pcard-hd" style="background:linear-gradient(135deg,#4ECDC4,#26A69A)">
+          <span class="pcard-ico">🌊</span>
+          <div>
+            <div class="pcard-ttl" style="color:#fff">Free Fun Learning Apps</div>
+            <div class="pcard-sub" style="color:rgba(255,255,255,.8)">Ocean Explorer &amp; Garden Guide</div>
+          </div>
+        </div>
+        <div class="pcard-body">Explore ocean wonders and learn to grow a first garden! Interactive apps created by Elena for Lexi — and every curious kid who loves discovering the world.</div>
+        <div class="pcard-tags"><span class="pcard-tag">FREE</span><span class="pcard-tag">Interactive</span><span class="pcard-tag">Science</span></div>
+        <div class="pcard-footer">
+          <div class="pcard-price">100% Free — always</div>
+          <div class="pcard-acts">
+            <a href="ocean-explorer.html" class="pbtn" style="background:var(--teal);color:#fff">🌊 Ocean Explorer</a>
+            <a href="kids-garden-guide.html" class="pbtn pbtn-2">🌱 Garden Guide</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOR TEACHERS ═══════════════════════════════════ -->
+<section id="teachers-sec">
+  <div class="container">
+    <div class="section-label" style="color:var(--teal)">For Teachers &amp; Educators</div>
+    <h2 class="section-title">Resources That Save You Hours 👩‍🏫</h2>
+    <p class="section-sub">Ready-to-use worksheets, full certification and curriculum — designed by a fellow educator who knows what actually works in the classroom.</p>
+
+    <div class="g2">
+
+      <!-- ESL Pack 1 -->
+      <div class="tcard">
+        <span class="tcard-ico">📝</span>
+        <div class="tcard-ttl">ESL Grammar Essentials — Pack 1</div>
+        <div class="tcard-desc"><strong>40 Worksheets (80 pages)</strong> in Romanian &amp; Serbian versions. Articles, Is/Am/Are, Was/Were, Prepositions, Pronouns, Mixed Reviews. 20 exercises per sheet, complete answer keys and teaching tips included.</div>
+        <div class="tcard-price">$19.99 per language &nbsp;·&nbsp; $34.99 both languages</div>
+        <div class="tcard-acts">
+          <a href="https://alomiclemagic.gumroad.com/l/kdgwo" target="_blank" class="tbtn tbtn-p">🇷🇴 Romanian Pack</a>
+          <a href="https://alomiclemagic.gumroad.com/l/njiuut" target="_blank" class="tbtn tbtn-p">🇷🇸 Serbian Pack</a>
+          <a href="https://alomiclemagic.gumroad.com/l/hsudq" target="_blank" class="tbtn tbtn-s">🎁 Both &amp; Save</a>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <a href="Romanian_ESL_Worksheets_Pack.pdf" class="tbtn tbtn-s" style="font-size:.73rem">📄 Preview RO</a>
+          <a href="Serbian_ESL_Worksheets_Pack.pdf" class="tbtn tbtn-s" style="font-size:.73rem">📄 Preview SR</a>
+        </div>
+      </div>
+
+      <!-- ESL Pack 2 -->
+      <div class="tcard">
+        <span class="tcard-ico">✏️</span>
+        <div class="tcard-ttl">ESL Grammar Essentials — Pack 2</div>
+        <div class="tcard-desc"><strong>40 Worksheets (80 pages)</strong> in Romanian &amp; Serbian. Simple Present, Plurals, This/That, There Is/Are, Can/Can't, Have/Has, Question Words, Adjectives, Adverbs and Contractions.</div>
+        <div class="tcard-price">$19.99 per language &nbsp;·&nbsp; $34.99 both languages</div>
+        <div class="tcard-acts">
+          <a href="https://alomiclemagic.gumroad.com/l/khdqg" target="_blank" class="tbtn tbtn-p">🇷🇴 Romanian Pack 2</a>
+          <a href="https://alomiclemagic.gumroad.com/l/btukoh" target="_blank" class="tbtn tbtn-p">🇷🇸 Serbian Pack 2</a>
+          <a href="https://alomiclemagic.gumroad.com/l/frzdrze" target="_blank" class="tbtn tbtn-s">🎁 Both &amp; Save</a>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <a href="Romanian_ESL_Worksheets_Pack_2.pdf" class="tbtn tbtn-s" style="font-size:.73rem">📄 Preview RO</a>
+          <a href="Serbian_ESL_Worksheets_Pack_2.pdf" class="tbtn tbtn-s" style="font-size:.73rem">📄 Preview SR</a>
+        </div>
+      </div>
+
+      <!-- Complete ESL Bundle -->
+      <div class="tcard" style="border-color:var(--gold);background:linear-gradient(135deg,#FFFDF0,#FFF9DC)">
+        <span class="tcard-ico">🎓</span>
+        <div class="tcard-ttl">Complete ESL Grammar Bundle — All Packs</div>
+        <div class="tcard-desc"><strong>80 Worksheets Total (160 pages with answer keys)</strong> — the complete collection covering all essential ESL grammar topics. Best value for regular teachers and tutors!</div>
+        <div class="tcard-price">Romanian Bundle $34.99 &nbsp;·&nbsp; Serbian $34.99 &nbsp;·&nbsp; <strong>Ultimate Both: $59.99</strong></div>
+        <div class="tcard-acts">
+          <a href="https://alomiclemagic.gumroad.com/l/zdoci" target="_blank" class="tbtn tbtn-p">🇷🇴 Full Romanian Bundle</a>
+          <a href="https://alomiclemagic.gumroad.com/l/fylmy" target="_blank" class="tbtn tbtn-p">🇷🇸 Full Serbian Bundle</a>
+          <a href="https://alomiclemagic.gumroad.com/l/iqdfpl" target="_blank" class="tbtn tbtn-s">🌟 Ultimate — Both Languages</a>
+        </div>
+      </div>
+
+      <!-- Russian Teacher / School -->
+      <div class="tcard" style="border-color:var(--ruBlue);background:linear-gradient(135deg,#EEF3FF,#E0E8FF)">
+        <span class="tcard-ico">🇷🇺</span>
+        <div class="tcard-ttl">Russian for Kids — Teacher &amp; School License</div>
+        <div class="tcard-desc">The complete 25-lesson Russian for Kids course with Teacher or School License. Use commercially with as many students as you like. All bonus materials and teaching guides included.</div>
+        <div class="tcard-price">$149 Teacher License &nbsp;·&nbsp; $299 School License</div>
+        <div class="tcard-acts">
+          <a href="https://alomiclemagic.gumroad.com/l/svjtnz" target="_blank" class="tbtn tbtn-ru">🎓 Teacher — $149</a>
+          <a href="https://alomiclemagic.gumroad.com/l/gfrsen" target="_blank" class="tbtn tbtn-s" style="color:var(--ruBlue);border-color:var(--ruBlue)">🏫 School — $299</a>
+        </div>
+      </div>
+
+      <!-- TESOL -->
+      <div class="tcard">
+        <span class="tcard-ico">🏆</span>
+        <div class="tcard-ttl">Complete TESOL Certification Course</div>
+        <div class="tcard-desc">Become a Certified ESL Teacher in 12 weeks! 120 hours of content across 12 complete modules. Earn $15–$80/hour teaching online. Perfect for teachers, moms and career changers.</div>
+        <div class="tcard-price">$199 Individual &nbsp;·&nbsp; $59/mo payment plan &nbsp;·&nbsp; $299 Teacher PRO</div>
+        <div class="tcard-acts">
+          <a href="TESOL_Module1_App.html" class="tbtn tbtn-p">🚀 Preview Module 1 — Free</a>
+          <a href="mailto:liza.elena.micle@gmail.com?subject=TESOL Enrollment" class="tbtn tbtn-s">📧 Enroll via Email</a>
+        </div>
+        <div class="broken-note">⚠️ The online enrollment link is being updated. To enroll now, simply email Elena at <strong>liza.elena.micle@gmail.com</strong> — she will set you up right away!</div>
+        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
+          <a href="TESOL_Module1_App.html"  class="tbtn tbtn-s" style="font-size:.7rem;padding:6px 10px">M1</a>
+          <a href="TESOL_Module2_App.html"  class="tbtn tbtn-s" style="font-size:.7rem;padding:6px 10px">M2</a>
+          <a href="TESOL_Module3_App.html"  class="tbtn tbtn-s" style="font-size:.7rem;padding:6px 10px">M3</a>
+          <a href="TESOL_Module4_App.html"  class="tbtn tbtn-s" style="font-size:.7rem;padding:6px 10px">M4</a>
+          <a href="TESOL_Module5_App.html"  class="tbtn tbtn-s" style="font-size:.7rem;padding:6px 10px">M5</a>
+          <a href="TESOL_Module6_App.html"  class="tbtn tbtn-s" style="font-size:.7rem;padding:6px 10px">M6</a>
+          <a href="TESOL_Module7_App.html"  class="tbtn tbtn-s" style="font-size:.7rem;padding:6px 10px">M7</a>
+          <a href="TESOL_Module8_App.html"  class="tbtn tbtn-s" style="font-size:.7rem;padding:6px 10px">M8</a>
+          <a href="TESOL_Module9_App.html"  class="tbtn tbtn-s" style="font-size:.7rem;padding:6px 10px">M9</a>
+          <a href="TESOL_Module10_App.html" class="tbtn tbtn-s" style="font-size:.7rem;padding:6px 10px">M10</a>
+          <a href="TESOL_Module11_App.html" class="tbtn tbtn-s" style="font-size:.7rem;padding:6px 10px">M11</a>
+          <a href="TESOL_Module12_App.html" class="tbtn tbtn-s" style="font-size:.7rem;padding:6px 10px">M12</a>
+        </div>
+      </div>
+
+      <!-- AI Tools for Teachers -->
+      <div class="tcard" style="border-color:var(--blue)">
+        <span class="tcard-ico">🤖</span>
+        <div class="tcard-ttl">AI Literacy Hub — Free Tools for Teachers</div>
+        <div class="tcard-desc">Save hours every week! AI-powered lesson planner, worksheet generator, assessment creator and parent email writer. Learn to use AI smartly and safely in your classroom.</div>
+        <div class="tcard-price">100% Free — always</div>
+        <div class="tcard-acts">
+          <a href="AI_Literacy_Hub.html" class="tbtn" style="background:var(--blue);color:#fff">🎓 Open AI Literacy Hub</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOR MOMS ═══════════════════════════════════════ -->
+<section id="moms-sec">
+  <div class="container">
+    <div class="section-label" style="color:var(--purple)">For Moms</div>
+    <h2 class="section-title">You Are Stronger Than You Know 💜</h2>
+    <p class="section-sub">Support, tools and resources made by a mom who has been there — for every mom who is still in it. You are not alone.</p>
+
+    <div class="g2">
+
+      <!-- HAVEN -->
+      <div class="mcard span-full" style="background:linear-gradient(135deg,#FFF0FF,#F9E6FF)">
+        <span class="mcard-ico" style="font-size:2.6rem">💪</span>
+        <div class="mcard-ttl" style="font-size:1.2rem">HAVEN — Single Mom Support Program</div>
+        <div class="mcard-desc">Free support, resources and community for single moms. Daily planners, motivation, income paths and a safe space with zero judgment. Available in English and Romanian. Created in memory of those we lost — so no more moms slip through the cracks.</div>
+        <div class="mcard-price">100% Free — Always</div>
+        <div class="mcard-acts">
+          <a href="Haven_Single_Mom_Support.html" class="mbtn mbtn-free">💪 Enter HAVEN (English)</a>
+          <a href="Refugiu_Mame_Single_RO.html" class="mbtn mbtn-s">🇷🇴 Refugiu (Română)</a>
+        </div>
+        <div class="crisis-box">
+          🚨 <strong>In Crisis? Call NOW:</strong> US: 988 (Suicide Prevention) · Text HOME to 741741<br>
+          Romania: <strong>0800 801 200</strong> · 116 123 (LifeLine) · Domestic Violence: 0800 500 333<br>
+          You are NOT crazy. You are OVERWHELMED. There is help. Please stay. 💖
+        </div>
+      </div>
+
+      <!-- Mom's Command Center -->
+      <div class="mcard">
+        <span class="mcard-ico">🎯</span>
+        <div class="mcard-ttl">Mom's Command Center</div>
+        <div class="mcard-desc">Your AI-powered life management system! Plan your week, track income, stay organised and get 24/7 AI assistance — all in one place designed for busy moms.</div>
+        <div class="mcard-price">100% Free</div>
+        <div class="mcard-acts">
+          <a href="Moms_Command_Center.html" class="mbtn mbtn-free">🚀 Open Free App</a>
+        </div>
+      </div>
+
+      <!-- AI for Moms -->
+      <div class="mcard">
+        <span class="mcard-ico">🤖</span>
+        <div class="mcard-ttl">AI Tools for Moms</div>
+        <div class="mcard-desc">Build your business with AI! Business plans, content creation, product descriptions, marketing ideas — work smarter and build the life you truly deserve.</div>
+        <div class="mcard-price">100% Free</div>
+        <div class="mcard-acts">
+          <a href="AI_Literacy_Hub.html" class="mbtn mbtn-free">🤖 Open AI Hub</a>
+        </div>
+      </div>
+
+      <!-- Parent's Guide -->
+      <div class="mcard">
+        <span class="mcard-ico">📚</span>
+        <div class="mcard-ttl">The Parent's Survival Guide</div>
+        <div class="mcard-desc">Raising happy, healthy kids ages 8–12 with routines, activities and plenty of humour! Interactive app packed with real-life advice from a mom who truly gets it.</div>
+        <div class="mcard-price">Free Interactive App</div>
+        <div class="mcard-acts">
+          <a href="parents-survival-guide-app.html" class="mbtn mbtn-p">🎯 Open Guide</a>
+        </div>
+      </div>
+
+      <!-- Letters -->
+      <div class="mcard">
+        <span class="mcard-ico">💌</span>
+        <div class="mcard-ttl">Letters to My Daughter</div>
+        <div class="mcard-desc">A Mother-Daughter Journal for building memories, connection and love. 70 heartfelt prompts for ages 8–18. The most beautiful gift you can give yourself and your daughter.</div>
+        <div class="mcard-price">Paperback $13.00 on Amazon</div>
+        <div class="mcard-acts">
+          <a href="https://www.amazon.com/dp/B0GHWWPCPM" target="_blank" class="mbtn mbtn-p">📖 Buy on Amazon</a>
+        </div>
+      </div>
+
+      <!-- Romance -->
+      <div class="mcard">
+        <span class="mcard-ico">❤️</span>
+        <div class="mcard-ttl">One More Valentine</div>
+        <div class="mcard-desc">A Second Chance Romance — ten years later, five days together, one hotel room. Heat level 🌶️🌶️🌶️ — for when the kids are in bed and it is finally your time.</div>
+        <div class="mcard-price">eBook $2.99 · Paperback $7.00</div>
+        <div class="mcard-acts">
+          <a href="https://www.amazon.com/dp/B0GJPTJNVP" target="_blank" class="mbtn" style="background:#E91E63;color:#fff">❤️ Buy on Amazon</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ BOOKS ══════════════════════════════════════════ -->
+<section id="books-sec">
+  <div class="container">
+    <div class="section-label" style="color:var(--gold)">Children's Books</div>
+    <h2 class="section-title">Stories That Stay With Them Forever 📖</h2>
+    <p class="section-sub">Beautifully crafted books for curious, brave, kind-hearted kids — and the adults who love them.</p>
+    <div class="g3">
+      <div class="bcard">
+        <span class="bcard-cov">💝</span>
+        <div class="bcard-ttl">Stories for My Daughter</div>
+        <div class="bcard-desc">10 illustrated stories teaching kindness, courage, empathy and self-confidence. Ages 8–12.</div>
+        <div class="bcard-price">eBook $4.00 · Paperback $16.99 · Hardcover $35.00</div>
+        <a href="https://www.amazon.com/dp/B0GGZ8YSKF" target="_blank" class="bcard-btn">📖 Buy on Amazon</a>
+      </div>
+      <div class="bcard">
+        <span class="bcard-cov">🤖</span>
+        <div class="bcard-ttl">Understanding Claude: A Kid's Guide to AI Friends</div>
+        <div class="bcard-desc">How to talk to AI, learn together and stay safe. The AI literacy book every child ages 8–14 needs right now.</div>
+        <div class="bcard-price">eBook $4.00 · Paperback $12.99 · Hardcover $22.00</div>
+        <a href="https://www.amazon.com/dp/B0GJ3ZP7ZK" target="_blank" class="bcard-btn">📖 Buy on Amazon</a>
+      </div>
+      <div class="bcard">
+        <span class="bcard-cov">✨</span>
+        <div class="bcard-ttl">All Books by Elena Micle</div>
+        <div class="bcard-desc">Browse all 5 published books — children's stories, parenting guides, journals and romance novels.</div>
+        <div class="bcard-price">Available in eBook, Paperback &amp; Hardcover</div>
+        <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" target="_blank" class="bcard-btn">📚 Visit Author Page</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LEXI'S CORNER ══════════════════════════════════ -->
+<section id="lexi-sec" style="background:#FFF9F0;text-align:center">
+  <div class="container">
+    <div class="section-label" style="color:var(--gold)">Lexi's Learning Corner</div>
+    <h2 class="section-title">🌟 Adventures by Lexi</h2>
+    <p class="section-sub" style="margin:0 auto 0">School projects, stories and adventures created with Claude — because curiosity is the best teacher.</p>
+    <div class="lexi-grid">
+      <a href="lexi-projects-page.html" class="lcard"><span class="lcard-ico">🐯</span><div class="lcard-name">Tigrul Siberian</div><div class="lcard-sub">Research project</div></a>
+      <a href="soareci-stories-page.html" class="lcard"><span class="lcard-ico">📚</span><div class="lcard-name">Poveștile Șoarecilor</div><div class="lcard-sub">Stories collection</div></a>
+      <a href="ocean-explorer.html" class="lcard"><span class="lcard-ico">🌊</span><div class="lcard-name">Ocean Explorer</div><div class="lcard-sub">Interactive learning</div></a>
+      <a href="kids-garden-guide.html" class="lcard"><span class="lcard-ico">🌱</span><div class="lcard-name">My First Garden</div><div class="lcard-sub">Gardening adventure</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══════════════════════════════════════════ -->
+<section id="about-sec">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-avatar">👩‍🏫</div>
+      <div>
+        <div class="section-label" style="color:var(--gold)">About Elena Micle</div>
+        <h2 class="section-title" style="color:#FFD700;font-family:'Playfair Display',serif">Author, Educator &amp; Creator</h2>
+        <p class="section-sub" style="color:rgba(255,255,255,.75);max-width:100%">Every project here is made with love — for the kids who deserve better, the teachers who go above and beyond, and the moms who hold everything together. Elena Micle is a Russian Language Major, 22+ year educator, TESOL certified expert, published author of 5 books, and mom of the wonderfully curious Lexi.</p>
+        <div class="about-creds">
+          <span class="about-cred">Russian Language Major</span>
+          <span class="about-cred">22+ Years Teaching</span>
+          <span class="about-cred">TESOL Certified</span>
+          <span class="about-cred">ESL Expert</span>
+          <span class="about-cred">Published Author × 5</span>
+          <span class="about-cred">Mom of Lexi 💙</span>
+        </div>
+        <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" target="_blank" class="amz-btn">📚 Visit My Amazon Author Page</a>
+        <p style="color:rgba(255,255,255,.4);font-size:.8rem;margin-top:12px">Questions? I personally reply to every email — <a href="mailto:liza.elena.micle@gmail.com" style="color:var(--gold)">liza.elena.micle@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════ -->
+<footer>
+  <div class="f-logo">✨ alo.micle.magic</div>
+  <p style="color:rgba(255,255,255,.4);font-size:.83rem">Where Stories, Love &amp; Creativity Come Alive</p>
+  <div class="f-links">
+    <a href="#kids-sec">For Kids</a>
+    <a href="#teachers-sec">For Teachers</a>
+    <a href="#moms-sec">For Moms</a>
+    <a href="#books-sec">Books</a>
+    <a href="#russian-sec">Russian Course</a>
+    <a href="#lexi-sec">Lexi's Corner</a>
+    <a href="#about-sec">About Elena</a>
+    <a href="mailto:liza.elena.micle@gmail.com">Contact</a>
+    <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" target="_blank">Amazon</a>
+  </div>
+  <p class="f-copy">© 2026 Elena Micle · alo.micle.magic ✨ All rights reserved · Made with ❤️, dedication and a sprinkle of magic 🌟</p>
+</footer>
+
+<script>
+// Mobile nav toggle
+document.getElementById('hbg').addEventListener('click',function(){
+  document.getElementById('navPills').classList.toggle('open');
+});
+// Close on link click
+document.querySelectorAll('.nav-pill').forEach(function(l){
+  l.addEventListener('click',function(){
+    document.getElementById('navPills').classList.remove('open');
+  });
+});
+</script>
 </body>
 </html>
