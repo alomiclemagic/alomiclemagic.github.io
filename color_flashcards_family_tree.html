@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Color Flashcards & Family Tree | Russian for Kids</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Playfair+Display:wght@700&display=swap');
+  * { box-sizing:border-box;margin:0;padding:0; }
+  body { font-family:'Nunito',sans-serif;background:#f5f0e8;padding:20px; }
+
+  .page { width:210mm;background:white;margin:0 auto 20px;padding:10mm;box-shadow:0 4px 20px rgba(0,0,0,0.15); }
+
+  /* COLOR FLASHCARDS */
+  .header { background:linear-gradient(135deg,#003399,#0044CC);color:white;padding:5mm 8mm;border-radius:10px;margin-bottom:6mm;text-align:center; }
+  .header h1 { font-family:'Playfair Display',serif;font-size:18pt;color:#FFD700; }
+  .header p { font-size:9pt;opacity:.9; }
+
+  .colors-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:4mm; }
+
+  .color-card {
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 3px 12px rgba(0,0,0,0.15);
+    border:2px solid rgba(0,0,0,0.1);
+  }
+
+  .color-swatch { height:22mm; }
+
+  .color-info {
+    background:white;
+    padding:3mm;
+    text-align:center;
+  }
+
+  .color-ru { font-size:12pt;font-weight:900;color:#003399;display:block;line-height:1.2; }
+  .color-pron { font-size:7.5pt;color:#888;font-style:italic;display:block; }
+  .color-en { font-size:8pt;font-weight:800;color:#CC0000;display:block; }
+
+  /* FAMILY TREE */
+  .tree-header { background:linear-gradient(135deg,#CC0000,#ff2222);color:white;padding:5mm 8mm;border-radius:10px;margin-bottom:6mm;text-align:center; }
+  .tree-header h1 { font-family:'Playfair Display',serif;font-size:18pt;color:#FFD700; }
+
+  .family-tree {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0;
+  }
+
+  .tree-level {
+    display:flex;
+    justify-content:center;
+    gap:8mm;
+    position:relative;
+    padding:0 5mm;
+    width:100%;
+  }
+
+  .person-box {
+    border:2px solid #003399;
+    border-radius:10px;
+    padding:3mm 4mm;
+    text-align:center;
+    background:#EEF3FF;
+    min-width:28mm;
+    position:relative;
+  }
+
+  .person-box.grandparent { background:#E8F5E9;border-color:#008080; }
+  .person-box.parent { background:#EEF3FF;border-color:#003399; }
+  .person-box.child-main { background:linear-gradient(135deg,#FFF9DC,#FFE580);border:2.5px solid #CC0000; }
+  .person-box.sibling { background:#FFF0F5;border-color:#7B1FA2; }
+  .person-box.aunt-uncle { background:#FFF5E6;border-color:#E65100; }
+
+  .person-role { font-size:7pt;font-weight:900;color:#CC0000;text-transform:uppercase;letter-spacing:0.5px;display:block; }
+  .person-role-ru { font-size:10pt;font-weight:900;color:#003399;display:block;margin:1mm 0; }
+  .person-pron { font-size:7pt;color:#777;font-style:italic;display:block; }
+  .name-line { border-bottom:1.5px dashed #999;width:100%;height:8mm;margin-top:2mm;display:block; }
+
+  .connector {
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin:0;
+    padding:0;
+    height:6mm;
+    position:relative;
+  }
+
+  .connector::after {
+    content:'';
+    position:absolute;
+    top:0;
+    left:50%;
+    width:1.5px;
+    height:100%;
+    background:#999;
+  }
+
+  .horiz-connector {
+    height:3mm;
+    background:transparent;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+  }
+
+  .footer { text-align:center;margin-top:5mm;font-size:7.5pt;color:#999;font-weight:700;border-top:1px solid #eee;padding-top:3mm; }
+  @media print { body{background:white;} .page{box-shadow:none;} }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: COLOR FLASHCARDS -->
+<div class="page">
+  <div class="header">
+    <h1>🎨 Russian Colors — Цвета</h1>
+    <p>Russian for Kids: Lesson 4 — Flashcards &nbsp;|&nbsp; Created by Elena Micle &nbsp;|&nbsp; alo.micle.magic</p>
+  </div>
+
+  <div class="colors-grid">
+    <div class="color-card">
+      <div class="color-swatch" style="background:#CC0000;"></div>
+      <div class="color-info">
+        <span class="color-ru">красный</span>
+        <span class="color-pron">KRAS-nyy</span>
+        <span class="color-en">RED</span>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#003399;"></div>
+      <div class="color-info">
+        <span class="color-ru">синий</span>
+        <span class="color-pron">SI-niy</span>
+        <span class="color-en">DARK BLUE</span>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#6EB5FF;"></div>
+      <div class="color-info">
+        <span class="color-ru">голубой</span>
+        <span class="color-pron">go-lu-BOY</span>
+        <span class="color-en">LIGHT BLUE</span>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#FFD700;"></div>
+      <div class="color-info">
+        <span class="color-ru">жёлтый</span>
+        <span class="color-pron">ZHOL-tyy</span>
+        <span class="color-en">YELLOW</span>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#228B22;"></div>
+      <div class="color-info">
+        <span class="color-ru">зелёный</span>
+        <span class="color-pron">ze-LYO-nyy</span>
+        <span class="color-en">GREEN</span>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#F5F5F5;border-bottom:1px solid #eee;"></div>
+      <div class="color-info">
+        <span class="color-ru">белый</span>
+        <span class="color-pron">BE-lyy</span>
+        <span class="color-en">WHITE</span>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#1a1a1a;"></div>
+      <div class="color-info">
+        <span class="color-ru">чёрный</span>
+        <span class="color-pron">CHOR-nyy</span>
+        <span class="color-en">BLACK</span>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#FF6B35;"></div>
+      <div class="color-info">
+        <span class="color-ru">оранжевый</span>
+        <span class="color-pron">o-RAN-zhe-vyy</span>
+        <span class="color-en">ORANGE</span>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#FFB6C1;"></div>
+      <div class="color-info">
+        <span class="color-ru">розовый</span>
+        <span class="color-pron">RO-zo-vyy</span>
+        <span class="color-en">PINK</span>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#7B1FA2;"></div>
+      <div class="color-info">
+        <span class="color-ru">фиолетовый</span>
+        <span class="color-pron">fi-o-LE-to-vyy</span>
+        <span class="color-en">PURPLE</span>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#8B4513;"></div>
+      <div class="color-info">
+        <span class="color-ru">коричневый</span>
+        <span class="color-pron">ko-RICH-ne-vyy</span>
+        <span class="color-en">BROWN</span>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#808080;"></div>
+      <div class="color-info">
+        <span class="color-ru">серый</span>
+        <span class="color-pron">SE-ryy</span>
+        <span class="color-en">GREY</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#FFF9F0;border:2px solid #FFD700;border-radius:10px;padding:4mm;margin-top:5mm;text-align:center;">
+    <strong style="color:#CC0000;font-size:9pt;">🌟 Fun Fact!</strong>
+    <span style="font-size:8.5pt;color:#444;"> Russian has TWO words for blue: <strong>синий</strong> (dark blue) and <strong>голубой</strong> (sky/light blue). They are considered completely different colors in Russian culture!</span>
+  </div>
+
+  <div class="footer">Russian for Kids — Lesson 4: Colors &nbsp;|&nbsp; alo.micle.magic &nbsp;|&nbsp; © 2026 Elena Micle</div>
+</div>
+
+<!-- PAGE 2: FAMILY TREE -->
+<div class="page">
+  <div class="tree-header">
+    <h1>👨‍👩‍👧 Family Tree Template — Моя Семья (My Family)</h1>
+    <p>Russian for Kids: Lesson 6 — Fill in names, draw faces, and label family members in Russian!</p>
+  </div>
+
+  <div class="family-tree">
+
+    <!-- GRANDPARENTS ROW -->
+    <div class="tree-level">
+      <div class="person-box grandparent">
+        <span class="person-role">Grandfather</span>
+        <span class="person-role-ru">дедушка</span>
+        <span class="person-pron">(DE-dush-ka)</span>
+        <span class="name-line"></span>
+      </div>
+      <div class="person-box grandparent">
+        <span class="person-role">Grandmother</span>
+        <span class="person-role-ru">бабушка</span>
+        <span class="person-pron">(BA-bush-ka)</span>
+        <span class="name-line"></span>
+      </div>
+      <div style="width:8mm;"></div>
+      <div class="person-box grandparent">
+        <span class="person-role">Grandfather</span>
+        <span class="person-role-ru">дедушка</span>
+        <span class="person-pron">(DE-dush-ka)</span>
+        <span class="name-line"></span>
+      </div>
+      <div class="person-box grandparent">
+        <span class="person-role">Grandmother</span>
+        <span class="person-role-ru">бабушка</span>
+        <span class="person-pron">(BA-bush-ka)</span>
+        <span class="name-line"></span>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- PARENTS + AUNT/UNCLE ROW -->
+    <div class="tree-level">
+      <div class="person-box aunt-uncle">
+        <span class="person-role">Uncle/Aunt</span>
+        <span class="person-role-ru">дядя / тётя</span>
+        <span class="person-pron">(DYA-dya / TYO-tya)</span>
+        <span class="name-line"></span>
+      </div>
+      <div class="person-box parent">
+        <span class="person-role">Dad</span>
+        <span class="person-role-ru">папа</span>
+        <span class="person-pron">(PA-pa)</span>
+        <span class="name-line"></span>
+      </div>
+      <div class="person-box parent">
+        <span class="person-role">Mom</span>
+        <span class="person-role-ru">мама</span>
+        <span class="person-pron">(MA-ma)</span>
+        <span class="name-line"></span>
+      </div>
+      <div class="person-box aunt-uncle">
+        <span class="person-role">Uncle/Aunt</span>
+        <span class="person-role-ru">дядя / тётя</span>
+        <span class="person-pron">(DYA-dya / TYO-tya)</span>
+        <span class="name-line"></span>
+      </div>
+    </div>
+
+    <div class="connector"></div>
+
+    <!-- CHILDREN ROW -->
+    <div class="tree-level">
+      <div class="person-box sibling">
+        <span class="person-role">Brother</span>
+        <span class="person-role-ru">брат</span>
+        <span class="person-pron">(brat)</span>
+        <span class="name-line"></span>
+      </div>
+      <div class="person-box child-main">
+        <span class="person-role" style="color:#CC0000;">ME! — Я</span>
+        <span class="person-role-ru" style="color:#003399;font-size:14pt;">⭐ Я ⭐</span>
+        <span class="person-pron">( ya = I / me )</span>
+        <span class="name-line"></span>
+      </div>
+      <div class="person-box sibling">
+        <span class="person-role">Sister</span>
+        <span class="person-role-ru">сестра</span>
+        <span class="person-pron">(ses-TRA)</span>
+        <span class="name-line"></span>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="background:#EEF3FF;border:2px solid #003399;border-radius:10px;padding:4mm 6mm;margin-top:5mm;">
+    <div style="font-weight:900;color:#CC0000;font-size:9pt;margin-bottom:3mm;">📝 Practice Sentences:</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2mm;font-size:9pt;">
+      <div>• <strong>Это моя мама.</strong> = This is my mom.</div>
+      <div>• <strong>Это мой папа.</strong> = This is my dad.</div>
+      <div>• <strong>У меня есть брат.</strong> = I have a brother.</div>
+      <div>• <strong>Моя бабушка добрая.</strong> = My grandma is kind.</div>
+    </div>
+  </div>
+
+  <div class="footer">Russian for Kids — Lesson 6: Family &nbsp;|&nbsp; alo.micle.magic &nbsp;|&nbsp; © 2026 Elena Micle</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russian Alphabet Poster | Russian for Kids</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Nunito:wght@400;600;700;800&display=swap');
+  
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #fff;
+    min-height: 100vh;
+  }
+
+  .poster {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #001f6b 0%, #003399 60%, #0044cc 100%);
+    padding: 12mm;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .poster::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 8mm;
+    background: #fff;
+  }
+  .poster::after {
+    content: '';
+    position: absolute;
+    top: 8mm; left: 0; right: 0;
+    height: 4mm;
+    background: #CC0000;
+  }
+
+  .header {
+    text-align: center;
+    padding-top: 8mm;
+    margin-bottom: 6mm;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28pt;
+    color: #FFD700;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+
+  .header h2 {
+    font-size: 13pt;
+    color: rgba(255,255,255,0.9);
+    font-weight: 600;
+    margin-top: 2mm;
+  }
+
+  .stars {
+    color: #FFD700;
+    font-size: 18pt;
+    margin: 3mm 0;
+    letter-spacing: 6px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 3mm;
+    margin: 0;
+  }
+
+  .letter-card {
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    border-radius: 6px;
+    padding: 3mm 2mm;
+    text-align: center;
+    backdrop-filter: blur(4px);
+    transition: transform 0.2s;
+  }
+
+  .letter-cyrillic {
+    font-size: 24pt;
+    font-weight: 800;
+    color: #FFD700;
+    line-height: 1;
+    display: block;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  }
+
+  .letter-lower {
+    font-size: 18pt;
+    font-weight: 600;
+    color: rgba(255,220,100,0.8);
+    line-height: 1;
+    display: block;
+  }
+
+  .letter-sound {
+    font-size: 7.5pt;
+    color: rgba(255,255,255,0.85);
+    margin-top: 2px;
+    display: block;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .letter-example {
+    font-size: 6.5pt;
+    color: rgba(200,230,255,0.8);
+    display: block;
+    font-style: italic;
+    margin-top: 1px;
+  }
+
+  .special-card {
+    background: rgba(255,215,0,0.15);
+    border-color: rgba(255,215,0,0.5);
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 5mm;
+    padding-top: 3mm;
+    border-top: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .footer p {
+    color: rgba(255,255,255,0.7);
+    font-size: 8pt;
+    font-weight: 600;
+  }
+
+  .footer .brand {
+    color: #FFD700;
+    font-size: 9pt;
+    font-weight: 800;
+  }
+
+  .info-strip {
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 3mm 5mm;
+    margin: 4mm 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .info-item {
+    text-align: center;
+    color: white;
+  }
+
+  .info-item .num {
+    font-size: 16pt;
+    font-weight: 800;
+    color: #FFD700;
+    display: block;
+  }
+
+  .info-item .label {
+    font-size: 7pt;
+    opacity: 0.8;
+  }
+
+  @media print {
+    body { background: white; }
+    .poster { margin: 0; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="header">
+    <div class="stars">★ ★ ★ ★ ★</div>
+    <h1>Русский Алфавит</h1>
+    <h2>The Russian Alphabet — All 33 Letters</h2>
+  </div>
+
+  <div class="info-strip">
+    <div class="info-item"><span class="num">33</span><span class="label">Letters Total</span></div>
+    <div class="info-item"><span class="num">10</span><span class="label">Vowels</span></div>
+    <div class="info-item"><span class="num">21</span><span class="label">Consonants</span></div>
+    <div class="info-item"><span class="num">2</span><span class="label">Signs (ъ, ь)</span></div>
+    <div class="info-item"><span class="num">9th</span><span class="label">Century Origin</span></div>
+  </div>
+
+  <div class="grid">
+
+    <div class="letter-card">
+      <span class="letter-cyrillic">А</span><span class="letter-lower">а</span>
+      <span class="letter-sound">AH</span>
+      <span class="letter-example">like "father"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">Б</span><span class="letter-lower">б</span>
+      <span class="letter-sound">BEH</span>
+      <span class="letter-example">like "boy"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">В</span><span class="letter-lower">в</span>
+      <span class="letter-sound">VEH</span>
+      <span class="letter-example">like "victory"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">Г</span><span class="letter-lower">г</span>
+      <span class="letter-sound">GEH</span>
+      <span class="letter-example">like "go"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">Д</span><span class="letter-lower">д</span>
+      <span class="letter-sound">DEH</span>
+      <span class="letter-example">like "dog"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">Е</span><span class="letter-lower">е</span>
+      <span class="letter-sound">YEH</span>
+      <span class="letter-example">like "yes"</span>
+    </div>
+    <div class="letter-card special-card">
+      <span class="letter-cyrillic">Ё</span><span class="letter-lower">ё</span>
+      <span class="letter-sound">YO</span>
+      <span class="letter-example">like "yolk"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">Ж</span><span class="letter-lower">ж</span>
+      <span class="letter-sound">ZHEH</span>
+      <span class="letter-example">like "measure"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">З</span><span class="letter-lower">з</span>
+      <span class="letter-sound">ZEH</span>
+      <span class="letter-example">like "zoo"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">И</span><span class="letter-lower">и</span>
+      <span class="letter-sound">EE</span>
+      <span class="letter-example">like "meet"</span>
+    </div>
+    <div class="letter-card special-card">
+      <span class="letter-cyrillic">Й</span><span class="letter-lower">й</span>
+      <span class="letter-sound">YOTE</span>
+      <span class="letter-example">like "boy"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">К</span><span class="letter-lower">к</span>
+      <span class="letter-sound">KAH</span>
+      <span class="letter-example">like "kite"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">Л</span><span class="letter-lower">л</span>
+      <span class="letter-sound">EL</span>
+      <span class="letter-example">like "lamp"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">М</span><span class="letter-lower">м</span>
+      <span class="letter-sound">EM</span>
+      <span class="letter-example">like "map"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">Н</span><span class="letter-lower">н</span>
+      <span class="letter-sound">EN</span>
+      <span class="letter-example">like "no"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">О</span><span class="letter-lower">о</span>
+      <span class="letter-sound">OH</span>
+      <span class="letter-example">like "oh"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">П</span><span class="letter-lower">п</span>
+      <span class="letter-sound">PEH</span>
+      <span class="letter-example">like "park"</span>
+    </div>
+    <div class="letter-card special-card">
+      <span class="letter-cyrillic">Р</span><span class="letter-lower">р</span>
+      <span class="letter-sound">ER</span>
+      <span class="letter-example">rolled "r"!</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">С</span><span class="letter-lower">с</span>
+      <span class="letter-sound">ES</span>
+      <span class="letter-example">like "sun"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">Т</span><span class="letter-lower">т</span>
+      <span class="letter-sound">TEH</span>
+      <span class="letter-example">like "top"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">У</span><span class="letter-lower">у</span>
+      <span class="letter-sound">OO</span>
+      <span class="letter-example">like "moon"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">Ф</span><span class="letter-lower">ф</span>
+      <span class="letter-sound">EF</span>
+      <span class="letter-example">like "fun"</span>
+    </div>
+    <div class="letter-card special-card">
+      <span class="letter-cyrillic">Х</span><span class="letter-lower">х</span>
+      <span class="letter-sound">KHA</span>
+      <span class="letter-example">like "Bach"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">Ц</span><span class="letter-lower">ц</span>
+      <span class="letter-sound">TSEH</span>
+      <span class="letter-example">like "cats"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">Ч</span><span class="letter-lower">ч</span>
+      <span class="letter-sound">CHEH</span>
+      <span class="letter-example">like "chair"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">Ш</span><span class="letter-lower">ш</span>
+      <span class="letter-sound">SHA</span>
+      <span class="letter-example">like "shop"</span>
+    </div>
+    <div class="letter-card special-card">
+      <span class="letter-cyrillic">Щ</span><span class="letter-lower">щ</span>
+      <span class="letter-sound">SHCHA</span>
+      <span class="letter-example">soft "shch"</span>
+    </div>
+    <div class="letter-card" style="background:rgba(100,100,100,0.2);">
+      <span class="letter-cyrillic">Ъ</span><span class="letter-lower">ъ</span>
+      <span class="letter-sound">—</span>
+      <span class="letter-example">hard sign</span>
+    </div>
+    <div class="letter-card special-card">
+      <span class="letter-cyrillic">Ы</span><span class="letter-lower">ы</span>
+      <span class="letter-sound">YERY</span>
+      <span class="letter-example">like "bit"</span>
+    </div>
+    <div class="letter-card" style="background:rgba(100,100,100,0.2);">
+      <span class="letter-cyrillic">Ь</span><span class="letter-lower">ь</span>
+      <span class="letter-sound">—</span>
+      <span class="letter-example">soft sign</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">Э</span><span class="letter-lower">э</span>
+      <span class="letter-sound">EH</span>
+      <span class="letter-example">like "echo"</span>
+    </div>
+    <div class="letter-card">
+      <span class="letter-cyrillic">Ю</span><span class="letter-lower">ю</span>
+      <span class="letter-sound">YU</span>
+      <span class="letter-example">like "you"</span>
+    </div>
+    <div class="letter-card special-card">
+      <span class="letter-cyrillic">Я</span><span class="letter-lower">я</span>
+      <span class="letter-sound">YA</span>
+      <span class="letter-example">like "yard"</span>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>Created by <span class="brand">Elena Micle</span> &nbsp;|&nbsp; Russian for Kids — 25-Lesson Beginner Course &nbsp;|&nbsp; <span class="brand">alo.micle.magic</span></p>
+    <p style="margin-top:2px;">Saints Cyril &amp; Methodius created the Cyrillic alphabet in the 9th century AD &nbsp;🇷🇺</p>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Progress Tracker | Russian for Kids</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Nunito', sans-serif; background: #f5f0e8; padding: 20px; }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    background: white;
+    margin: 0 auto;
+    padding: 12mm;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  .header {
+    background: linear-gradient(135deg, #003399, #0044CC);
+    color: white;
+    padding: 8mm 10mm;
+    border-radius: 10px;
+    margin-bottom: 6mm;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: #CC0000;
+  }
+
+  .header h1 { font-family: 'Playfair Display', serif; font-size: 22pt; color: #FFD700; }
+  .header p { font-size: 10pt; opacity: 0.9; margin-top: 2mm; }
+
+  .student-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3mm;
+    margin-bottom: 6mm;
+  }
+
+  .info-field {
+    border-bottom: 2px solid #003399;
+    padding-bottom: 2mm;
+  }
+  .info-label { font-size: 7pt; color: #999; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .info-value { font-size: 11pt; color: #333; min-height: 7mm; }
+
+  .unit-section { margin-bottom: 4mm; }
+
+  .unit-header {
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+    padding: 3mm 5mm;
+    border-radius: 6px;
+    margin-bottom: 2mm;
+  }
+  .unit-header h3 { font-size: 10pt; font-weight: 800; }
+  .unit-header .unit-desc { font-size: 8pt; opacity: 0.85; margin-left: auto; font-weight: 600; }
+
+  .lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2mm;
+  }
+
+  .lesson-box {
+    border: 1.5px solid #ddd;
+    border-radius: 6px;
+    padding: 2mm;
+    text-align: center;
+    position: relative;
+    background: #fafafa;
+    min-height: 18mm;
+  }
+
+  .lesson-num {
+    font-size: 7pt;
+    font-weight: 800;
+    color: #999;
+    display: block;
+  }
+
+  .lesson-topic {
+    font-size: 6.5pt;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.3;
+    display: block;
+    margin-top: 1mm;
+  }
+
+  .star-row {
+    display: flex;
+    justify-content: center;
+    gap: 1px;
+    margin-top: 2mm;
+  }
+
+  .star {
+    font-size: 9pt;
+    color: #ddd;
+    cursor: default;
+  }
+
+  .date-line {
+    width: 100%;
+    border-top: 1px dotted #ccc;
+    margin-top: 2mm;
+    padding-top: 1mm;
+    font-size: 6pt;
+    color: #bbb;
+    text-align: left;
+    padding-left: 2mm;
+  }
+
+  .u1 { background: linear-gradient(135deg, #003399, #0055CC); color: white; }
+  .u2 { background: linear-gradient(135deg, #CC0000, #ff2222); color: white; }
+  .u3 { background: linear-gradient(135deg, #008080, #00a0a0); color: white; }
+  .u4 { background: linear-gradient(135deg, #7B1FA2, #9c27b0); color: white; }
+  .u5 { background: linear-gradient(135deg, #E65100, #ff6d00); color: white; }
+
+  .b1 { border-color: #003399; }
+  .b2 { border-color: #CC0000; }
+  .b3 { border-color: #008080; }
+  .b4 { border-color: #7B1FA2; }
+  .b5 { border-color: #E65100; }
+
+  .reward-section {
+    margin-top: 5mm;
+    background: linear-gradient(135deg, #FFF9F0, #FFF3DC);
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+    padding: 4mm 5mm;
+  }
+
+  .reward-section h3 {
+    font-size: 10pt;
+    color: #CC0000;
+    font-weight: 800;
+    margin-bottom: 3mm;
+  }
+
+  .rewards-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2mm;
+  }
+
+  .reward-milestone {
+    text-align: center;
+    padding: 2mm;
+    border: 1.5px dashed #FFD700;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.7);
+  }
+  .reward-milestone .trophy { font-size: 18pt; display: block; }
+  .reward-milestone .label { font-size: 7pt; font-weight: 700; color: #555; }
+  .reward-milestone .lessons { font-size: 6pt; color: #999; }
+
+  .footer {
+    margin-top: 4mm;
+    text-align: center;
+    font-size: 7.5pt;
+    color: #999;
+    font-weight: 600;
+    border-top: 1px solid #eee;
+    padding-top: 3mm;
+  }
+
+  @media print { body { background: white; } .page { box-shadow: none; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <h1>🇷🇺 My Russian Journey — Progress Tracker</h1>
+    <p>Russian for Kids: 25-Lesson Complete Beginner Course &nbsp;|&nbsp; Created by Elena Micle</p>
+  </div>
+
+  <div class="student-info">
+    <div class="info-field">
+      <div class="info-label">Student Name</div>
+      <div class="info-value">&nbsp;</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">Started On</div>
+      <div class="info-value">&nbsp;</div>
+    </div>
+    <div class="info-field">
+      <div class="info-label">Completed On</div>
+      <div class="info-value">&nbsp;</div>
+    </div>
+  </div>
+
+  <!-- UNIT 1: FOUNDATION -->
+  <div class="unit-section">
+    <div class="unit-header u1">
+      <h3>🔤 UNIT 1: FOUNDATION</h3>
+      <div class="unit-desc">Lessons 1–5 · Alphabet, Numbers, Colors & Greetings</div>
+    </div>
+    <div class="lessons-grid">
+      <div class="lesson-box b1">
+        <span class="lesson-num">LESSON 1</span>
+        <span class="lesson-topic">Alphabet Part 1<br>А–К</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b1">
+        <span class="lesson-num">LESSON 2</span>
+        <span class="lesson-topic">Alphabet Part 2<br>Л–Я</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b1">
+        <span class="lesson-num">LESSON 3</span>
+        <span class="lesson-topic">Numbers<br>1–20</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b1">
+        <span class="lesson-num">LESSON 4</span>
+        <span class="lesson-topic">Colors &amp;<br>Adjectives</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b1">
+        <span class="lesson-num">LESSON 5</span>
+        <span class="lesson-topic">Basic<br>Greetings</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNIT 2: COMMUNICATION -->
+  <div class="unit-section">
+    <div class="unit-header u2">
+      <h3>💬 UNIT 2: COMMUNICATION</h3>
+      <div class="unit-desc">Lessons 6–10 · Family, Home, Food, Toys & Weather</div>
+    </div>
+    <div class="lessons-grid">
+      <div class="lesson-box b2">
+        <span class="lesson-num">LESSON 6</span>
+        <span class="lesson-topic">Family<br>Members</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b2">
+        <span class="lesson-num">LESSON 7</span>
+        <span class="lesson-topic">My<br>House</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b2">
+        <span class="lesson-num">LESSON 8</span>
+        <span class="lesson-topic">Food &amp;<br>Drinks</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b2">
+        <span class="lesson-num">LESSON 9</span>
+        <span class="lesson-topic">Toys &amp;<br>Games</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b2">
+        <span class="lesson-num">LESSON 10</span>
+        <span class="lesson-topic">Weather &amp;<br>Seasons</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNIT 3: LIFE SKILLS -->
+  <div class="unit-section">
+    <div class="unit-header u3">
+      <h3>🌟 UNIT 3: LIFE SKILLS</h3>
+      <div class="unit-desc">Lessons 11–15 · Zoo, Doctor, Transport & Shopping</div>
+    </div>
+    <div class="lessons-grid">
+      <div class="lesson-box b3">
+        <span class="lesson-num">LESSON 11</span>
+        <span class="lesson-topic">At the<br>Zoo</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b3">
+        <span class="lesson-num">LESSON 12</span>
+        <span class="lesson-topic">At the<br>Doctor</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b3">
+        <span class="lesson-num">LESSON 13</span>
+        <span class="lesson-topic">Train<br>Station</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b3">
+        <span class="lesson-num">LESSON 14</span>
+        <span class="lesson-topic">At the<br>Airport</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b3">
+        <span class="lesson-num">LESSON 15</span>
+        <span class="lesson-topic">Shopping &amp;<br>Money</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNIT 4: CULTURE -->
+  <div class="unit-section">
+    <div class="unit-header u4">
+      <h3>🎭 UNIT 4: CULTURE</h3>
+      <div class="unit-desc">Lessons 16–20 · Literature, Music, Ballet, Skating & History</div>
+    </div>
+    <div class="lessons-grid">
+      <div class="lesson-box b4">
+        <span class="lesson-num">LESSON 16</span>
+        <span class="lesson-topic">Famous<br>Writers</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b4">
+        <span class="lesson-num">LESSON 17</span>
+        <span class="lesson-topic">Music &amp;<br>Musicians</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b4">
+        <span class="lesson-num">LESSON 18</span>
+        <span class="lesson-topic">Ballet<br>History</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b4">
+        <span class="lesson-num">LESSON 19</span>
+        <span class="lesson-topic">Ice<br>Skating</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b4">
+        <span class="lesson-num">LESSON 20</span>
+        <span class="lesson-topic">Famous<br>Rulers</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNIT 5: GEOGRAPHY -->
+  <div class="unit-section">
+    <div class="unit-header u5">
+      <h3>🗺️ UNIT 5: GEOGRAPHY</h3>
+      <div class="unit-desc">Lessons 21–25 · Geography, Climate, Cities & Celebration</div>
+    </div>
+    <div class="lessons-grid">
+      <div class="lesson-box b5">
+        <span class="lesson-num">LESSON 21</span>
+        <span class="lesson-topic">Russian<br>Geography</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b5">
+        <span class="lesson-num">LESSON 22</span>
+        <span class="lesson-topic">Temperature<br>&amp; Climate</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b5">
+        <span class="lesson-num">LESSON 23</span>
+        <span class="lesson-topic">Impossible<br>Cities</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b5">
+        <span class="lesson-num">LESSON 24</span>
+        <span class="lesson-topic">Moscow<br>Capital</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+      <div class="lesson-box b5" style="background:linear-gradient(135deg,#FFF9E0,#FFFACC);border:2px solid #FFD700;">
+        <span class="lesson-num" style="color:#CC0000;">LESSON 25</span>
+        <span class="lesson-topic" style="color:#003399;font-weight:800;">🎉 REVIEW &amp;<br>CELEBRATION!</span>
+        <div class="star-row"><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span></div>
+        <div class="date-line">Date: _________</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MILESTONES -->
+  <div class="reward-section">
+    <h3>🏆 Achievement Milestones — Color in when reached!</h3>
+    <div class="rewards-grid">
+      <div class="reward-milestone">
+        <span class="trophy">🌱</span>
+        <div class="label">First Steps</div>
+        <div class="lessons">5 Lessons Done</div>
+      </div>
+      <div class="reward-milestone">
+        <span class="trophy">📖</span>
+        <div class="label">Reader</div>
+        <div class="lessons">10 Lessons Done</div>
+      </div>
+      <div class="reward-milestone">
+        <span class="trophy">💬</span>
+        <div class="label">Speaker</div>
+        <div class="lessons">15 Lessons Done</div>
+      </div>
+      <div class="reward-milestone">
+        <span class="trophy">🎭</span>
+        <div class="label">Culture Star</div>
+        <div class="lessons">20 Lessons Done</div>
+      </div>
+      <div class="reward-milestone" style="border-color:#CC0000;background:linear-gradient(135deg,#FFF0F0,#FFE0E0);">
+        <span class="trophy">🏅</span>
+        <div class="label" style="color:#CC0000;">GRADUATE!</div>
+        <div class="lessons">All 25 Done!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    ☆ Rating: ☆ = Needs Practice &nbsp;|&nbsp; ☆☆ = Getting Good &nbsp;|&nbsp; ☆☆☆ = Mastered! &nbsp;&nbsp;•&nbsp;&nbsp;
+    alo.micle.magic &nbsp;|&nbsp; © 2026 Elena Micle
+  </div>
+</div>
+</body>
+</html>
