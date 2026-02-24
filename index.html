@@ -192,6 +192,52 @@ footer{background:#0a0a1a;padding:40px 24px;text-align:center}
 @media(max-width:560px){
   .g3,.g2{grid-template-columns:1fr}
 }
+
+/* ── CLAUDE AI SPOTLIGHT ── */
+.ai-section{background:linear-gradient(135deg,#0d0d2b 0%,#1a1a4e 55%,#2d1b69 100%);position:relative;overflow:hidden}
+.ai-section::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#6C3483,#9B59B6,#4ECDC4,#F5A623)}
+.ai-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.ai-list{list-style:none;margin:18px 0 26px}
+.ai-list li{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.9);font-size:.93rem;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.ai-list li:last-child{border:none}
+.ai-list .ico{width:30px;text-align:center;font-size:1rem;flex-shrink:0}
+.ai-pill{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(90deg,#6C3483,#9B59B6);color:#fff;padding:5px 14px;border-radius:30px;font-size:.8rem;font-weight:800;margin-bottom:18px}
+.ai-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ai-card{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.18);border-radius:14px;padding:22px 16px;text-align:center;backdrop-filter:blur(6px);transition:all .22s}
+.ai-card:hover{background:rgba(255,255,255,.16);transform:translateY(-3px)}
+.ai-price{font-family:'Playfair Display',serif;font-size:2rem;color:#F5A623;font-weight:700;display:block;line-height:1}
+.ai-tier{font-size:.75rem;font-weight:900;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;margin:4px 0 10px}
+.ai-feat{font-size:.79rem;color:rgba(255,255,255,.72);line-height:1.6;margin-bottom:14px}
+.ai-btn{display:block;padding:10px 16px;border-radius:30px;font-size:.82rem;font-weight:800;text-decoration:none;transition:all .2s}
+.ab-ind{background:#F5A623;color:#0d0d2b}.ab-ind:hover{background:#fff;color:#0d0d2b}
+.ab-tch{background:rgba(245,166,35,.15);color:#F5A623;border:1.5px solid #F5A623}.ab-tch:hover{background:#F5A623;color:#0d0d2b}
+.ab-sch{background:rgba(108,52,131,.4);color:#fff;border:1.5px solid rgba(255,255,255,.35)}.ab-sch:hover{background:#6C3483}
+.ai-span{grid-column:1/-1}
+.unit-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.unit-chip{padding:5px 13px;border-radius:20px;font-size:.75rem;font-weight:800;color:#fff;border:1px solid rgba(255,255,255,.3)}
+
+/* ── BUNDLE SECTION ── */
+.bundle-section{background:linear-gradient(135deg,#1a0a00 0%,#3d1f00 50%,#1a0a00 100%);position:relative;overflow:hidden}
+.bundle-section::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#CC0000,#F5A623,#003399,#F5A623,#CC0000)}
+.bundle-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.bundle-price-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bundle-card{background:rgba(255,255,255,.07);border:1.5px solid rgba(245,166,35,.3);border-radius:14px;padding:22px 16px;text-align:center;transition:all .22s}
+.bundle-card:hover{background:rgba(255,255,255,.13);transform:translateY(-3px);border-color:rgba(245,166,35,.6)}
+.bundle-price{font-family:'Playfair Display',serif;font-size:2rem;color:#F5A623;font-weight:700;display:block;line-height:1}
+.bundle-was{font-size:.72rem;color:rgba(255,255,255,.4);text-decoration:line-through;margin-top:2px}
+.bundle-tier{font-size:.72rem;font-weight:900;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1px;margin:4px 0 8px}
+.bundle-save{display:inline-block;background:#2ECC71;color:#fff;font-size:.62rem;font-weight:900;padding:2px 8px;border-radius:20px;letter-spacing:.5px;margin-bottom:10px}
+.bundle-feat{font-size:.76rem;color:rgba(255,255,255,.68);line-height:1.55;margin-bottom:14px}
+.bundle-btn{display:block;padding:10px 16px;border-radius:30px;font-size:.82rem;font-weight:800;text-decoration:none;transition:all .2s}
+.bb-ind{background:#F5A623;color:#1a0a00}.bb-ind:hover{background:#fff;color:#1a0a00}
+.bb-tch{background:rgba(245,166,35,.15);color:#F5A623;border:1.5px solid #F5A623}.bb-tch:hover{background:#F5A623;color:#1a0a00}
+.bb-sch{background:rgba(245,166,35,.08);color:#F5A623;border:1.5px solid rgba(245,166,35,.35)}.bb-sch:hover{background:#F5A623;color:#1a0a00}
+.bundle-span{grid-column:1/-1}
+.bundle-includes{display:flex;gap:18px;margin-top:22px;flex-wrap:wrap}
+.bundle-inc-box{flex:1;min-width:160px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px;text-align:center}
+.bundle-inc-icon{font-size:2rem;margin-bottom:6px;display:block}
+.bundle-inc-title{font-weight:900;font-size:.85rem;color:#F5A623;margin-bottom:4px}
+.bundle-inc-sub{font-size:.75rem;color:rgba(255,255,255,.55);line-height:1.5}
 </style>
 </head>
 <body>
@@ -226,13 +272,13 @@ footer{background:#0a0a1a;padding:40px 24px;text-align:center}
       <a href="#kids-sec" class="hero-card hc-kids">
         <span class="hc-icon">📚</span>
         <div class="hc-title">For Kids &amp; Families</div>
-        <div class="hc-sub">Russian for Kids · Children's Books · Money &amp; Manners Courses · Free Learning Apps</div>
+        <div class="hc-sub">Russian for Kids · Understanding Claude AI · Children's Books · Money &amp; Manners · Free Apps</div>
         <span class="hc-arrow">→</span>
       </a>
       <a href="#teachers-sec" class="hero-card hc-teachers">
         <span class="hc-icon">👩‍🏫</span>
         <div class="hc-title">For Teachers</div>
-        <div class="hc-sub">ESL Worksheets (RO &amp; SR) · TESOL Certification · Russian Course Teacher License · Free AI Tools</div>
+        <div class="hc-sub">ESL Worksheets · TESOL Certification · Russian + AI Teacher Licenses · Bundle Deals · Free AI Tools</div>
         <span class="hc-arrow">→</span>
       </a>
       <a href="#moms-sec" class="hero-card hc-moms">
@@ -293,6 +339,119 @@ footer{background:#0a0a1a;padding:40px 24px;text-align:center}
   </div>
 </section>
 
+<!-- ══ CLAUDE AI SPOTLIGHT ══════════════════════════════ -->
+<section class="ai-section" id="claude-sec">
+  <div class="container">
+    <div class="ai-inner">
+      <div>
+        <div class="ai-pill">🆕 NEW COURSE</div>
+        <div class="section-label" style="color:#F5A623">Featured Launch</div>
+        <h2 class="section-title" style="color:#F5A623;font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem)">Understanding Claude</h2>
+        <p style="font-size:1.2rem;color:rgba(180,180,255,.85);font-style:italic;font-family:'Playfair Display',serif;margin-bottom:14px">A Kid's Complete Guide to AI</p>
+        <p class="section-sub" style="color:rgba(255,255,255,.78);max-width:100%">25 interactive lessons teaching kids ages 8–14 what AI really is, how to use it safely, how to think critically about it — and how to shape its future. Created by Elena Micle using the exact same proven curriculum blueprint as Russian for Kids!</p>
+        <ul class="ai-list">
+          <li><span class="ico">🤔</span>What AI really is — and how Claude actually works</li>
+          <li><span class="ico">💬</span>Writing great prompts — the skill of the future</li>
+          <li><span class="ico">🛡️</span>Online safety, privacy and healthy AI habits</li>
+          <li><span class="ico">🌍</span>AI in medicine, art, space, environment &amp; jobs</li>
+          <li><span class="ico">⚖️</span>Ethics, bias, responsibility and the big questions</li>
+          <li><span class="ico">👩‍🏫</span>Same proven format as Russian for Kids — 25 lessons, 5 units</li>
+        </ul>
+        <div class="unit-chips">
+          <span class="unit-chip" style="background:#6C3483">Unit 1: What Is AI?</span>
+          <span class="unit-chip" style="background:#1A5276">Unit 2: Talking to Claude</span>
+          <span class="unit-chip" style="background:#117A65">Unit 3: Staying Safe</span>
+          <span class="unit-chip" style="background:#BA4A00">Unit 4: AI in the World</span>
+          <span class="unit-chip" style="background:#1B2631">Unit 5: Ethics &amp; Future</span>
+        </div>
+      </div>
+      <div>
+        <div class="ai-cards">
+          <div class="ai-card">
+            <span class="ai-price">$79</span>
+            <div class="ai-tier">Individual</div>
+            <div class="ai-feat">All 25 lessons · Complete course PDF · Lifetime access · 1 family use</div>
+            <a href="https://alomiclemagic.gumroad.com/l/txbjp" target="_blank" class="ai-btn ab-ind">🛒 Buy Individual</a>
+          </div>
+          <div class="ai-card">
+            <span class="ai-price">$149</span>
+            <div class="ai-tier">Teacher ⭐ Popular</div>
+            <div class="ai-feat">Multiple students · Commercial use · Classroom-ready guides included</div>
+            <a href="https://alomiclemagic.gumroad.com/l/syzdu" target="_blank" class="ai-btn ab-tch">🎓 Buy Teacher</a>
+          </div>
+          <div class="ai-card ai-span">
+            <span class="ai-price">$299</span>
+            <div class="ai-tier">School License</div>
+            <div class="ai-feat">Unlimited students · School-wide use · Priority support · Everything included</div>
+            <a href="https://alomiclemagic.gumroad.com/l/cgfkso" target="_blank" class="ai-btn ab-sch">🏫 Buy School License</a>
+          </div>
+        </div>
+        <p style="color:rgba(255,255,255,.4);font-size:.73rem;text-align:center;margin-top:10px">✅ Secure checkout via Gumroad &nbsp;·&nbsp; Instant download &nbsp;·&nbsp; 30-day guarantee</p>
+        <div style="margin-top:18px;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.4);border-radius:12px;padding:14px;text-align:center">
+          <p style="color:rgba(255,255,255,.8);font-size:.85rem;line-height:1.7;font-weight:700">🎁 <strong style="color:#F5A623">Bundle Available Now!</strong><br>Russian for Kids + Understanding Claude together — save up to $99.<br><a href="#bundle-sec" style="color:#F5A623;font-weight:800;text-decoration:underline">→ See Bundle Pricing Below</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BUNDLE SPOTLIGHT ══════════════════════════════════ -->
+<section class="bundle-section" id="bundle-sec">
+  <div class="container">
+    <div class="bundle-inner">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(90deg,#CC0000,#F5A623);color:#fff;padding:5px 16px;border-radius:30px;font-size:.8rem;font-weight:800;margin-bottom:18px">🎁 BUNDLE — BEST VALUE</div>
+        <div class="section-label" style="color:#F5A623">Two Courses · One Amazing Price</div>
+        <h2 class="section-title" style="color:#F5A623;font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem)">Russian + AI Bundle</h2>
+        <p style="font-size:1.1rem;color:rgba(255,230,180,.85);font-style:italic;font-family:'Playfair Display',serif;margin-bottom:14px">Language &amp; AI Literacy — the two most future-ready skills in one bundle</p>
+        <p class="section-sub" style="color:rgba(255,255,255,.75);max-width:100%">Give your child the ultimate learning advantage — a beautiful human language AND the language of the future. Two complete 25-lesson courses by the same expert educator, designed to be taken together.</p>
+        <div class="bundle-includes">
+          <div class="bundle-inc-box">
+            <span class="bundle-inc-icon">🇷🇺</span>
+            <div class="bundle-inc-title">Russian for Kids</div>
+            <div class="bundle-inc-sub">25 lessons · Cyrillic · 200+ words · Culture · 7 bonus materials</div>
+          </div>
+          <div class="bundle-inc-box">
+            <span class="bundle-inc-icon">🤖</span>
+            <div class="bundle-inc-title">Understanding Claude</div>
+            <div class="bundle-inc-sub">25 lessons · AI literacy · Safety · Ethics · 4 bonus materials</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="bundle-price-cards">
+          <div class="bundle-card">
+            <span class="bundle-price">$129</span>
+            <div class="bundle-was">$158 separately</div>
+            <div class="bundle-tier">Individual</div>
+            <div class="bundle-save">SAVE $29</div>
+            <div class="bundle-feat">Both complete courses · All bonus materials · Lifetime access · 1 family</div>
+            <a href="https://alomiclemagic.gumroad.com/l/wqvyu" target="_blank" class="bundle-btn bb-ind">🎁 Buy Bundle — $129</a>
+          </div>
+          <div class="bundle-card">
+            <span class="bundle-price">$239</span>
+            <div class="bundle-was">$298 separately</div>
+            <div class="bundle-tier">Teacher ⭐</div>
+            <div class="bundle-save">SAVE $59</div>
+            <div class="bundle-feat">Both courses · Multiple students · Commercial use · All guides</div>
+            <a href="https://alomiclemagic.gumroad.com/l/intfwu" target="_blank" class="bundle-btn bb-tch">🎓 Teacher Bundle — $239</a>
+          </div>
+          <div class="bundle-card bundle-span">
+            <span class="bundle-price">$499</span>
+            <div class="bundle-was">$598 separately</div>
+            <div class="bundle-tier">School License</div>
+            <div class="bundle-save">SAVE $99</div>
+            <div class="bundle-feat">Both courses · Unlimited students · School-wide use · Priority support · Everything included</div>
+            <a href="https://alomiclemagic.gumroad.com/l/vijhd" target="_blank" class="bundle-btn bb-sch">🏫 School Bundle — $499</a>
+          </div>
+        </div>
+        <p style="color:rgba(255,255,255,.35);font-size:.73rem;text-align:center;margin-top:12px">✅ Secure checkout via Gumroad &nbsp;·&nbsp; Instant download &nbsp;·&nbsp; 30-day guarantee</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- ══ FOR KIDS ═══════════════════════════════════════ -->
 <section id="kids-sec">
   <div class="container">
@@ -317,6 +476,27 @@ footer{background:#0a0a1a;padding:40px 24px;text-align:center}
           <div class="pcard-acts">
             <a href="https://alomiclemagic.gumroad.com/l/rdvsj" target="_blank" class="pbtn" style="background:var(--ruRed);color:#fff">🛒 Buy — $79</a>
             <a href="#russian-sec" class="pbtn pbtn-2">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Understanding Claude AI Course -->
+      <div class="pcard">
+        <div class="pcard-hd" style="background:linear-gradient(135deg,#0d0d2b,#2d1b69)">
+          <span class="pcard-ico">🤖</span>
+          <div>
+            <div class="pcard-ttl" style="color:#F5A623">Understanding Claude</div>
+            <div class="pcard-sub" style="color:rgba(255,255,255,.7)">A Kid's Complete Guide to AI · 25 Lessons <span class="badge-new">NEW</span></div>
+          </div>
+        </div>
+        <div class="pcard-body">25 lessons teaching kids what AI really is, how to use it safely, how to think critically about it, and how to shape its future. Ages 8–14. The AI literacy course every child needs right now!</div>
+        <div class="pcard-tags"><span class="pcard-tag">Ages 8–14</span><span class="pcard-tag">AI Literacy</span><span class="pcard-tag">Digital Safety</span><span class="pcard-tag">Ethics</span></div>
+        <div class="pcard-footer">
+          <div class="pcard-price">$79 Individual · $149 Teacher · $299 School</div>
+          <div class="pcard-acts">
+            <a href="https://alomiclemagic.gumroad.com/l/txbjp" target="_blank" class="pbtn" style="background:#6C3483;color:#fff">🛒 Buy — $79</a>
+            <a href="#claude-sec" class="pbtn pbtn-2">Learn More</a>
           </div>
         </div>
       </div>
@@ -472,6 +652,19 @@ footer{background:#0a0a1a;padding:40px 24px;text-align:center}
         </div>
       </div>
 
+
+      <!-- Claude AI Course Teacher License -->
+      <div class="tcard" style="border-color:#6C3483;background:linear-gradient(135deg,#F5F0FF,#EDE0FF)">
+        <span class="tcard-ico">🤖</span>
+        <div class="tcard-ttl">Understanding Claude — Teacher &amp; School License</div>
+        <div class="tcard-desc">The complete 25-lesson AI literacy course with Teacher or School License. Teach your students what AI is, how to use it safely, digital citizenship and ethics. Pairs perfectly with the Russian for Kids curriculum. Commercial teaching use included.</div>
+        <div class="tcard-price">$149 Teacher License &nbsp;·&nbsp; $299 School License</div>
+        <div class="tcard-acts">
+          <a href="https://alomiclemagic.gumroad.com/l/syzdu" target="_blank" class="tbtn" style="background:#6C3483;color:#fff">🎓 Teacher — $149</a>
+          <a href="https://alomiclemagic.gumroad.com/l/cgfkso" target="_blank" class="tbtn tbtn-s" style="color:#6C3483;border-color:#6C3483">🏫 School — $299</a>
+        </div>
+      </div>
+
       <!-- TESOL -->
       <div class="tcard">
         <span class="tcard-ico">🏆</span>
@@ -480,9 +673,9 @@ footer{background:#0a0a1a;padding:40px 24px;text-align:center}
         <div class="tcard-price">$199 Individual &nbsp;·&nbsp; $59/mo payment plan &nbsp;·&nbsp; $299 Teacher PRO</div>
         <div class="tcard-acts">
           <a href="TESOL_Module1_App.html" class="tbtn tbtn-p">🚀 Preview Module 1 — Free</a>
-          <a href="mailto:liza.elena.micle@gmail.com?subject=TESOL Enrollment" class="tbtn tbtn-s">📧 Enroll via Email</a>
+          <a href="/cdn-cgi/l/email-protection#dcb0b5a6bdf2b9b0b9b2bdf2b1b5bfb0b99cbbb1bdb5b0f2bfb3b1e3afa9beb6b9bfa8e188998f9390fc99b2aeb3b0b0b1b9b2a8" class="tbtn tbtn-s">📧 Enroll via Email</a>
         </div>
-        <div class="broken-note">⚠️ The online enrollment link is being updated. To enroll now, simply email Elena at <strong>liza.elena.micle@gmail.com</strong> — she will set you up right away!</div>
+        <div class="broken-note">⚠️ The online enrollment link is being updated. To enroll now, simply email Elena at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="04686d7e652a6168616a652a696d676861446369656d682a676b69">[email&#160;protected]</a></strong> — she will set you up right away!</div>
         <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
           <a href="TESOL_Module1_App.html"  class="tbtn tbtn-s" style="font-size:.7rem;padding:6px 10px">M1</a>
           <a href="TESOL_Module2_App.html"  class="tbtn tbtn-s" style="font-size:.7rem;padding:6px 10px">M2</a>
@@ -664,7 +857,7 @@ footer{background:#0a0a1a;padding:40px 24px;text-align:center}
           <span class="about-cred">Mom of Lexi 💙</span>
         </div>
         <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" target="_blank" class="amz-btn">📚 Visit My Amazon Author Page</a>
-        <p style="color:rgba(255,255,255,.4);font-size:.8rem;margin-top:12px">Questions? I personally reply to every email — <a href="mailto:liza.elena.micle@gmail.com" style="color:var(--gold)">liza.elena.micle@gmail.com</a></p>
+        <p style="color:rgba(255,255,255,.4);font-size:.8rem;margin-top:12px">Questions? I personally reply to every email — <a href="/cdn-cgi/l/email-protection#422e2b38236c272e272c236c2f2b212e2702252f232b2e6c212d2f" style="color:var(--gold)"><span class="__cf_email__" data-cfemail="ec8085968dc2898089828dc281858f8089ac8b818d8580c28f8381">[email&#160;protected]</span></a></p>
       </div>
     </div>
   </div>
@@ -680,25 +873,12 @@ footer{background:#0a0a1a;padding:40px 24px;text-align:center}
     <a href="#moms-sec">For Moms</a>
     <a href="#books-sec">Books</a>
     <a href="#russian-sec">Russian Course</a>
+    <a href="#claude-sec">Claude AI Course</a>
+    <a href="#bundle-sec">🎁 Bundle</a>
     <a href="#lexi-sec">Lexi's Corner</a>
     <a href="#about-sec">About Elena</a>
-    <a href="mailto:liza.elena.micle@gmail.com">Contact</a>
+    <a href="/cdn-cgi/l/email-protection#412d283b206f242d242f206f2c28222d2401262c20282d6f222e2c">Contact</a>
     <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" target="_blank">Amazon</a>
   </div>
   <p class="f-copy">© 2026 Elena Micle · alo.micle.magic ✨ All rights reserved · Made with ❤️, dedication and a sprinkle of magic 🌟</p>
-</footer>
-
-<script>
-// Mobile nav toggle
-document.getElementById('hbg').addEventListener('click',function(){
-  document.getElementById('navPills').classList.toggle('open');
-});
-// Close on link click
-document.querySelectorAll('.nav-pill').forEach(function(l){
-  l.addEventListener('click',function(){
-    document.getElementById('navPills').classList.remove('open');
-  });
-});
-</script>
-</body>
-</html>
+</
