@@ -1,513 +1,683 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haven - Single Mom Support Program 💪💖</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAVEN 💜 Single Mom Support Program — Elena Micle</title>
+<meta name="description" content="HAVEN — Free support, resources and community for single moms. You are not alone. You are not broken. You are SURVIVING. And we're here to help you THRIVE.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #6b21a8;
+    --purple-mid: #9333ea;
+    --purple-light: #e9d5ff;
+    --pink: #ec4899;
+    --pink-light: #fce7f3;
+    --gold: #f59e0b;
+    --navy: #0f0a1e;
+    --text: #1f1535;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --white: #ffffff;
+  }
 
-        :root {
-            --primary: #FF6B9D;
-            --secondary: #C44569;
-            --accent: #FEC368;
-            --hope: #6BCF7F;
-            --peace: #A8DADC;
-            --strength: #457B9D;
-            --dark: #2D3561;
-            --light: #FFF5F7;
-        }
+  * { margin:0; padding:0; box-sizing:border-box; }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #FFF5F7 0%, #FFE5EC 50%, #FFF8E7 100%);
-            color: var(--dark);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #faf7ff;
+    color: var(--text);
+    line-height: 1.7;
+  }
 
-        .hero {
-            background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%);
-            color: white;
-            padding: 80px 20px 60px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+  /* ── CRISIS BANNER ── */
+  .crisis-banner {
+    background: #7f1d1d;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: white;
+  }
+  .crisis-banner strong { color: #fca5a5; }
+  .crisis-banner a { color: #fde68a; font-weight: 700; text-decoration: none; }
 
-        .hero::before {
-            content: '💪';
-            position: absolute;
-            font-size: 20em;
-            opacity: 0.1;
-            top: -80px;
-            right: -50px;
-            animation: float 8s ease-in-out infinite;
-        }
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, #0f0a1e 0%, #1e1035 40%, #2d1b4e 100%);
+    padding: 80px 24px 70px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 15% 50%, rgba(236,72,153,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 30%, rgba(147,51,234,0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 100%, rgba(245,158,11,0.08) 0%, transparent 40%);
+  }
+  .hero-inner { position: relative; max-width: 680px; margin: 0 auto; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(236,72,153,0.2);
+    border: 1px solid rgba(236,72,153,0.4);
+    color: #f9a8d4;
+    padding: 6px 18px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .hero h1 span { color: #f9a8d4; }
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 12px;
+    font-weight: 300;
+  }
+  .hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-bottom: 36px;
+    font-style: italic;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--pink), var(--purple-mid));
+    color: white;
+    padding: 16px 36px;
+    border-radius: 100px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(236,72,153,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(236,72,153,0.5); }
+  .hero-free { margin-top: 12px; color: rgba(255,255,255,0.5); font-size: 0.85rem; }
 
-        .hero::after {
-            content: '💖';
-            position: absolute;
-            font-size: 15em;
-            opacity: 0.1;
-            bottom: -50px;
-            left: -30px;
-            animation: float 6s ease-in-out infinite reverse;
-        }
+  /* ── MEMORY SECTION ── */
+  .memory {
+    background: linear-gradient(135deg, #1e0a2e, #2d1135);
+    padding: 52px 24px;
+    text-align: center;
+  }
+  .memory-inner { max-width: 640px; margin: 0 auto; }
+  .memory-icon { font-size: 2.5rem; margin-bottom: 16px; }
+  .memory h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #f9a8d4;
+    margin-bottom: 16px;
+  }
+  .memory p { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.8; }
+  .memory p strong { color: white; }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(10deg); }
-        }
+  /* ── SECTION WRAPPER ── */
+  .section { max-width: 900px; margin: 64px auto; padding: 0 24px; }
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--purple-light);
+    color: var(--purple);
+    padding: 5px 14px; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; color: var(--text); margin-bottom: 8px;
+  }
+  .section-desc { color: var(--muted); font-size: 0.95rem; margin-bottom: 36px; }
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4em;
-            font-weight: 900;
-            margin-bottom: 20px;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 1;
-        }
+  /* ── SUPPORT GRID ── */
+  .support-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  @media(max-width:700px){ .support-grid { grid-template-columns: 1fr 1fr; } }
+  @media(max-width:440px){ .support-grid { grid-template-columns: 1fr; } }
 
-        .subtitle {
-            font-size: 1.6em;
-            margin-bottom: 15px;
-            opacity: 0.95;
-            position: relative;
-            z-index: 1;
-        }
+  .support-card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px 24px;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .support-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(107,33,168,0.1); }
+  .support-icon { font-size: 2rem; margin-bottom: 12px; }
+  .support-title { font-weight: 700; font-size: 1rem; color: var(--text); margin-bottom: 8px; }
+  .support-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; flex: 1; margin-bottom: 20px; }
+  .support-list { list-style: none; margin-bottom: 20px; flex: 1; }
+  .support-list li {
+    font-size: 0.82rem; color: #4b5563;
+    padding: 3px 0;
+    display: flex; align-items: flex-start; gap: 6px;
+  }
+  .support-list li::before { content: '✦'; color: var(--purple-mid); font-size: 0.6rem; margin-top: 4px; flex-shrink: 0; }
 
-        .tagline {
-            font-size: 1.3em;
-            font-weight: 300;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
-        }
+  .btn {
+    display: block; text-align: center;
+    padding: 11px 20px;
+    border-radius: 100px;
+    font-weight: 700; font-size: 0.85rem;
+    text-decoration: none;
+    transition: transform 0.15s, opacity 0.15s;
+    cursor: pointer;
+  }
+  .btn:hover { transform: translateY(-1px); opacity: 0.9; }
+  .btn-purple { background: linear-gradient(135deg, var(--purple), var(--purple-mid)); color: white; }
+  .btn-pink   { background: linear-gradient(135deg, var(--pink), #f472b6); color: white; }
+  .btn-gold   { background: linear-gradient(135deg, var(--gold), #fbbf24); color: #1f1535; }
+  .btn-outline { background: transparent; border: 2px solid var(--purple-mid); color: var(--purple-mid); }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+  /* ── ELENA'S STORY ── */
+  .story {
+    background: linear-gradient(135deg, var(--navy), #1e1035);
+    border-radius: 24px;
+    padding: 48px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .story::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: rgba(236,72,153,0.08);
+  }
+  .story-inner { position: relative; }
+  .story-label {
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--gold); margin-bottom: 16px;
+  }
+  .story h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; color: white; margin-bottom: 20px; line-height: 1.3;
+  }
+  .story-quote {
+    background: rgba(255,255,255,0.06);
+    border-left: 3px solid var(--pink);
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  .story p { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.8; margin-bottom: 16px; }
+  .story p strong { color: white; }
+  .story-sig { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-top: 24px; }
 
-        .mission-statement {
-            background: white;
-            border-radius: 25px;
-            padding: 50px;
-            margin: -50px auto 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            text-align: center;
-            max-width: 900px;
-        }
+  /* ── INCOME PATHS ── */
+  .income-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  @media(max-width:560px){ .income-grid { grid-template-columns: 1fr; } }
 
-        .mission-statement h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary);
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
+  .income-card {
+    background: white; border-radius: 14px;
+    padding: 20px; border: 1px solid var(--border);
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .income-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .income-title { font-weight: 700; font-size: 0.9rem; color: var(--text); margin-bottom: 4px; }
+  .income-desc { font-size: 0.8rem; color: var(--muted); }
+  .income-earn { font-size: 0.78rem; color: var(--tpt-green, #16a34a); font-weight: 600; margin-top: 4px; }
 
-        .mission-statement p {
-            font-size: 1.2em;
-            line-height: 1.8;
-            color: var(--dark);
-        }
+  /* ── AFFIRMATIONS ── */
+  .affirmations {
+    background: linear-gradient(135deg, #fdf4ff, #fce7f3);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+  }
+  .affirmations h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; color: var(--purple); margin-bottom: 28px;
+  }
+  .affirm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media(max-width:560px){ .affirm-grid { grid-template-columns: 1fr; } }
+  .affirm-item {
+    background: white; border-radius: 14px;
+    padding: 20px 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem; color: var(--purple);
+    line-height: 1.5;
+    border: 1px solid var(--purple-light);
+  }
+  .affirm-item span { display: block; font-size: 1.4rem; margin-bottom: 8px; }
 
-        .dedication {
-            background: linear-gradient(135deg, var(--hope) 0%, #8FE0A0 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 20px;
-            margin: 30px 0;
-            box-shadow: 0 10px 30px rgba(107,207,127,0.3);
-            text-align: center;
-        }
+  /* ── DAILY TOOLS ── */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  @media(max-width:700px){ .tools-grid { grid-template-columns: repeat(2, 1fr); } }
+  .tool-card {
+    background: white; border-radius: 14px;
+    padding: 20px 16px; border: 1px solid var(--border);
+    text-align: center;
+    text-decoration: none; color: inherit;
+    display: block;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .tool-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(107,33,168,0.1); }
+  .tool-card .icon { font-size: 1.8rem; margin-bottom: 8px; }
+  .tool-card .name { font-weight: 700; font-size: 0.85rem; color: var(--text); margin-bottom: 4px; }
+  .tool-card .desc { font-size: 0.75rem; color: var(--muted); }
+  .tool-card .tag {
+    display: inline-block; margin-top: 10px;
+    background: var(--purple-light); color: var(--purple);
+    padding: 3px 10px; border-radius: 100px;
+    font-size: 0.7rem; font-weight: 700;
+  }
+  .tool-card .tag.free { background: #dcfce7; color: #166534; }
 
-        .dedication h3 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
+  /* ── JOIN CTA ── */
+  .join-cta {
+    background: linear-gradient(160deg, #2d1b4e, #1e1035, #0f0a1e);
+    border-radius: 24px;
+    padding: 56px 40px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .join-cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(236,72,153,0.2) 0%, transparent 60%);
+  }
+  .join-cta-inner { position: relative; }
+  .join-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; margin-bottom: 12px; line-height: 1.2;
+  }
+  .join-cta p { color: rgba(255,255,255,0.65); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .join-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-large {
+    padding: 16px 36px; border-radius: 100px;
+    font-weight: 700; font-size: 1rem;
+    text-decoration: none; display: inline-block;
+    transition: transform 0.2s;
+  }
+  .btn-large:hover { transform: translateY(-2px); }
+  .btn-large.primary { background: linear-gradient(135deg, var(--pink), var(--purple-mid)); color: white; box-shadow: 0 8px 32px rgba(236,72,153,0.4); }
+  .btn-large.secondary { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); color: white; }
 
-        .dedication p {
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
+  /* ── NAV ── */
+  nav {
+    background: rgba(15,10,30,0.97);
+    padding: 16px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+    backdrop-filter: blur(10px);
+  }
+  .nav-brand { color: #f9a8d4; font-family: 'Playfair Display', serif; font-size: 1.2rem; text-decoration: none; }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  .nav-links a:hover { color: white; }
+  .nav-back { color: var(--gold); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+  @media(max-width:560px){ .nav-links { display: none; } }
 
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .resource-card {
-            background: white;
-            border-radius: 25px;
-            padding: 35px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border-top: 5px solid var(--primary);
-        }
-
-        .resource-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-        }
-
-        .resource-card .icon {
-            font-size: 4em;
-            margin-bottom: 20px;
-        }
-
-        .resource-card h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--secondary);
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-
-        .resource-card p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        .resource-card ul {
-            margin-left: 20px;
-            line-height: 2;
-        }
-
-        .button {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(255,107,157,0.3);
-            border: none;
-            cursor: pointer;
-            font-size: 1.1em;
-        }
-
-        .button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(255,107,157,0.5);
-        }
-
-        .emergency-box {
-            background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 25px;
-            margin: 40px 0;
-            box-shadow: 0 10px 40px rgba(255,107,107,0.3);
-            text-align: center;
-        }
-
-        .emergency-box h3 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        .emergency-box p {
-            font-size: 1.2em;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .success-stories {
-            background: white;
-            border-radius: 25px;
-            padding: 50px;
-            margin: 40px 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .success-stories h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary);
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .story {
-            background: var(--light);
-            padding: 30px;
-            border-radius: 20px;
-            margin: 20px 0;
-            border-left: 5px solid var(--hope);
-        }
-
-        .story h4 {
-            color: var(--secondary);
-            font-size: 1.4em;
-            margin-bottom: 15px;
-        }
-
-        .story p {
-            line-height: 1.8;
-            font-style: italic;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, var(--peace) 0%, var(--strength) 100%);
-            color: white;
-            padding: 60px;
-            border-radius: 25px;
-            text-align: center;
-            margin: 40px 0;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
-        }
-
-        .cta-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8em;
-            margin-bottom: 20px;
-        }
-
-        .cta-section p {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5em; }
-            .resource-grid { grid-template-columns: 1fr; }
-            .mission-statement { padding: 30px; }
-        }
-    </style>
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 32px 24px;
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+  }
+  footer strong { color: var(--gold); }
+  footer a { color: #f9a8d4; text-decoration: none; }
+</style>
 </head>
 <body>
-    <div class="hero">
-        <h1>💪 HAVEN 💖</h1>
-        <p class="subtitle">Single Mom Support Program</p>
-        <p class="tagline">You're Not Alone. You're Not Broken. You've Got This.</p>
+
+<!-- CRISIS BANNER — always visible -->
+<div class="crisis-banner">
+  🚨 <strong>In crisis right now?</strong> US: <a href="tel:988">988</a> · Text HOME to <a href="sms:741741">741741</a> · Romania: <a href="tel:0800801200">0800 801 200</a> · <a href="https://findahelpline.com" target="_blank">findahelpline.com</a> — You are NOT alone. Please stay. 💙
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">💜 HAVEN</a>
+  <div class="nav-links">
+    <a href="#support">Support</a>
+    <a href="#tools">Tools</a>
+    <a href="#income">Income</a>
+    <a href="#story">Elena's Story</a>
+  </div>
+  <a href="index.html" class="nav-back">← Back to alo.micle.magic</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">💜 100% Free · Always · No Judgment</div>
+    <h1>💪 <span>HAVEN</span> 💖</h1>
+    <div class="hero-subtitle">Single Mom Support Program</div>
+    <div class="hero-tagline">"You're not alone. You're not broken. You've got this."</div>
+    <a href="#support" class="hero-cta">💜 Enter HAVEN — It's Free</a>
+    <p class="hero-free">No sign-up required for resources · No credit card · No judgment · Ever</p>
+  </div>
+</div>
+
+<!-- MEMORY -->
+<div class="memory">
+  <div class="memory-inner">
+    <div class="memory-icon">🦋</div>
+    <h2>💔 In Memory of Those We Lost 💔</h2>
+    <p>This program is dedicated to every single mom who didn't make it.<br>
+    The ones who felt too alone, too overwhelmed, too broken.<br><br>
+    <strong>Their children remain. We honor them by making sure NO MORE MOMS slip through the cracks.</strong><br><br>
+    You are not crazy. You are not sick. You are SURVIVING.<br>And we're here to help you THRIVE. 🦋</p>
+  </div>
+</div>
+
+<!-- SUPPORT TOOLS -->
+<div class="section" id="support">
+  <div class="section-label">💜 What We Offer</div>
+  <h2 class="section-title">Everything You Need — 100% Free</h2>
+  <p class="section-desc">Real tools for real life. No fluff. No sales pitches. Just support.</p>
+
+  <div class="support-grid">
+
+    <div class="support-card">
+      <div class="support-icon">📋</div>
+      <div class="support-title">Daily Support Tools</div>
+      <ul class="support-list">
+        <li>Daily checklists</li>
+        <li>Weekly planners</li>
+        <li>Budget trackers</li>
+        <li>Meal planning templates</li>
+        <li>Kid activity schedules</li>
+        <li>Homework helpers</li>
+      </ul>
+      <a href="Moms_Command_Center.html" class="btn btn-purple">📋 Access Tools</a>
     </div>
 
-    <div class="container">
-        <div class="mission-statement">
-            <h2>Our Mission</h2>
-            <p style="font-size: 1.3em; line-height: 1.9; margin-bottom: 25px;">
-                <strong>Every single mom deserves support, resources, and a community that believes in her.</strong>
-            </p>
-            <p style="line-height: 1.8;">
-                We know what it's like to feel alone, overwhelmed, and exhausted. We know the weight of being the only adult in the room, the only income, the only everything. We know the guilt, the fear, the endless juggling act.
-            </p>
-            <p style="line-height: 1.8; margin-top: 15px;">
-                <strong>But we also know something else:</strong> You are STRONGER than you know. You are CAPABLE of incredible things. And with the right support, you can not only survive – you can THRIVE.
-            </p>
-        </div>
-
-        <div class="dedication">
-            <h3>💔 In Memory of Those We Lost 💔</h3>
-            <p style="font-size: 1.15em; line-height: 1.9;">
-                This program is dedicated to every single mom who didn't make it. The ones who felt too alone, too overwhelmed, too broken. 
-                The mothers, sisters, daughters, friends who couldn't hold on any longer.
-            </p>
-            <p style="font-size: 1.15em; line-height: 1.9; margin-top: 15px;">
-                <strong>Their children remain. We honor them by making sure NO MORE MOMS slip through the cracks.</strong>
-            </p>
-            <p style="font-size: 1.2em; font-weight: 600; margin-top: 20px;">
-                You are not crazy. You are not sick. You are SURVIVING. And we're here to help you THRIVE. 🦋
-            </p>
-        </div>
-
-        <h2 style="font-family: 'Playfair Display', serif; color: var(--secondary); font-size: 2.5em; text-align: center; margin: 50px 0 30px;">
-            What We Offer (100% FREE)
-        </h2>
-
-        <div class="resource-grid">
-            <div class="resource-card">
-                <div class="icon">📋</div>
-                <h3>Daily Support Tools</h3>
-                <p>Practical, actionable resources to help you organize the chaos:</p>
-                <ul>
-                    <li>Daily checklists</li>
-                    <li>Weekly planners</li>
-                    <li>Kid activity schedules</li>
-                    <li>Meal planning templates</li>
-                    <li>Budget trackers</li>
-                    <li>Homework helpers</li>
-                    <li>Quick healthy recipes</li>
-                </ul>
-                <button class="button" onclick="alert('Coming soon! Building this WITH single moms FOR single moms!')">Access Tools</button>
-            </div>
-
-            <div class="resource-card" style="border-top-color: var(--hope);">
-                <div class="icon">💪</div>
-                <h3>Motivation & Mindset</h3>
-                <p>When you're drowning, we throw you a rope:</p>
-                <ul>
-                    <li>Daily encouragement</li>
-                    <li>Affirmations for hard days</li>
-                    <li>Success stories</li>
-                    <li>Celebration milestones</li>
-                    <li>Reminders of your WHY</li>
-                    <li>You've got this messages</li>
-                </ul>
-                <button class="button" onclick="alert('Download coming soon!')">Download Now</button>
-            </div>
-
-            <div class="resource-card" style="border-top-color: var(--accent);">
-                <div class="icon">💰</div>
-                <h3>Income Paths for Every Mom</h3>
-                <p>Multiple ways to earn - find what fits YOU:</p>
-                <ul>
-                    <li>Teaching online (ANY subject!)</li>
-                    <li>Freelance writing/editing</li>
-                    <li>Virtual assistant work</li>
-                    <li>Social media management</li>
-                    <li>Graphic design</li>
-                    <li>Transcription/data entry</li>
-                    <li>Selling crafts/skills</li>
-                    <li>AND MORE!</li>
-                </ul>
-                <button class="button" onclick="alert('Income guides coming soon!')">Explore Paths</button>
-            </div>
-
-            <div class="resource-card" style="border-top-color: var(--peace);">
-                <div class="icon">🏠</div>
-                <h3>Practical Life Help</h3>
-                <p>Everything that makes daily life easier:</p>
-                <ul>
-                    <li>Local activity finders</li>
-                    <li>Free/cheap family fun</li>
-                    <li>Grocery lists</li>
-                    <li>Time-saving hacks</li>
-                    <li>Self-care ideas (5 min!)</li>
-                    <li>Emergency contacts</li>
-                </ul>
-                <button class="button" onclick="alert('Building this resource library!')">Explore Resources</button>
-            </div>
-
-            <div class="resource-card" style="border-top-color: var(--strength);">
-                <div class="icon">👥</div>
-                <h3>Community & Connection</h3>
-                <p>You are NOT alone:</p>
-                <ul>
-                    <li>Safe space to share</li>
-                    <li>Zero judgment zone</li>
-                    <li>Other moms who GET IT</li>
-                    <li>Accountability partners</li>
-                    <li>Celebration of wins</li>
-                    <li>Support in struggles</li>
-                </ul>
-                <button class="button" onclick="alert('Community forum coming soon!')">Join Community</button>
-            </div>
-
-            <div class="resource-card" style="border-top-color: var(--secondary);">
-                <div class="icon">🎯</div>
-                <h3>AI Assistant Access</h3>
-                <p>24/7 support when you need it:</p>
-                <ul>
-                    <li>Mom's Command Center</li>
-                    <li>Planning & scheduling</li>
-                    <li>Income tracking</li>
-                    <li>Content creation help</li>
-                    <li>Email writing</li>
-                    <li>Problem-solving partner</li>
-                </ul>
-                <button class="button" onclick="window.location.href='Moms_Command_Center.html'">Launch AI Tools</button>
-            </div>
-        </div>
-
-        <div class="emergency-box">
-            <h3>🚨 If You're in Crisis RIGHT NOW 🚨</h3>
-            <p style="font-size: 1.3em; font-weight: 600;">
-                If you're thinking about ending your life, PLEASE reach out:
-            </p>
-            <p style="font-size: 1.2em;">
-                <strong>National Suicide Prevention Lifeline:</strong> 988 (US)<br>
-                <strong>Crisis Text Line:</strong> Text HOME to 741741<br>
-                <strong>International:</strong> findahelpline.com
-            </p>
-            <p style="font-size: 1.15em; margin-top: 25px;">
-                You are NOT crazy. You are NOT broken. You are OVERWHELMED. And that's okay. 
-                <strong>There is help. There is hope. Please stay.</strong>
-            </p>
-        </div>
-
-        <div class="success-stories">
-            <h2>You Can Make It Through 💪</h2>
-            
-            <div class="story">
-                <h4>Elena's Story</h4>
-                <p>
-                    "Six weeks ago, I was eating altered food to survive, sick, alone, and losing hope. 
-                    Today? I'm a published author with 5 books, a TESOL course creator, and building an empire 
-                    that helps other single moms. If I can do it, YOU can do it. I promise."
-                </p>
-            </div>
-
-            <div class="story">
-                <h4>Your Story Goes Here</h4>
-                <p>
-                    Because you WILL make it through. You WILL survive this. You WILL thrive. 
-                    And one day, you'll share your story to give hope to another mom who's where you are now. 💖
-                </p>
-            </div>
-        </div>
-
-        <div class="cta-section">
-            <h2>Ready to Start?</h2>
-            <p>
-                Join thousands of single moms who are choosing to THRIVE, not just survive.
-            </p>
-            <p style="font-size: 1.1em;">
-                <strong>It's 100% free. No credit card. No judgment. Just support.</strong>
-            </p>
-            <button class="button" style="background: white; color: var(--primary); font-size: 1.3em; padding: 20px 50px;" onclick="alert('Email signup form coming soon! For now, use our free AI tools!')">
-                Join Haven (FREE!)
-            </button>
-            <p style="margin-top: 30px; font-size: 1.1em;">
-                💖 <em>Built by a single mom who survived, for single moms who are surviving.</em>
-            </p>
-        </div>
-
-        <div style="background: white; border-radius: 25px; padding: 50px; text-align: center; margin: 40px 0;">
-            <h2 style="font-family: 'Playfair Display', serif; color: var(--secondary); font-size: 2.2em; margin-bottom: 20px;">
-                A Note From Elena
-            </h2>
-            <p style="font-size: 1.1em; line-height: 1.9; color: var(--dark);">
-                I created Haven because someone I loved didn't make it. A young mother who felt too alone, 
-                too overwhelmed, too broken. Who left behind a small child who still carries that loss.
-            </p>
-            <p style="font-size: 1.1em; line-height: 1.9; color: var(--dark); margin-top: 20px;">
-                <strong>Everyone called her crazy, sick, put her in hospitals, judged her, mocked her.</strong>
-            </p>
-            <p style="font-size: 1.1em; line-height: 1.9; color: var(--dark); margin-top: 20px;">
-                <strong>But she wasn't crazy. She was DROWNING. And no one threw her a rope.</strong>
-            </p>
-            <p style="font-size: 1.1em; line-height: 1.9; color: var(--dark); margin-top: 20px;">
-                In many ways, I walked that same path. I know that edge. I know that darkness. I know what it feels like 
-                when the world tells you to "just try harder" when you're already giving everything you have.
-            </p>
-            <p style="font-size: 1.2em; line-height: 1.9; color: var(--primary); margin-top: 25px; font-weight: 600;">
-                But I found help. I found hope. I found water. And now I'm coming back to throw YOU a rope.
-            </p>
-            <p style="font-size: 1.15em; line-height: 1.9; color: var(--dark); margin-top: 25px;">
-                You are not alone. You are not broken. You are SURVIVING something incredibly hard. 
-                And with support, you won't just survive – you'll THRIVE.
-            </p>
-            <p style="font-size: 1.15em; color: var(--secondary); margin-top: 30px; font-weight: 600;">
-                This is for those we lost. For their children. For every mom at the edge. For YOU. 🦋💧
-            </p>
-            <p style="font-size: 1em; color: var(--dark); margin-top: 30px; font-style: italic;">
-                With love and hope,<br>
-                Elena & Claude
-            </p>
-        </div>
+    <div class="support-card">
+      <div class="support-icon">💪</div>
+      <div class="support-title">Motivation & Mindset</div>
+      <ul class="support-list">
+        <li>Daily encouragement</li>
+        <li>Affirmations for hard days</li>
+        <li>Reminders of your WHY</li>
+        <li>Milestone celebrations</li>
+        <li>Success stories</li>
+        <li>"You've got this" messages</li>
+      </ul>
+      <a href="#affirmations" class="btn btn-pink">💪 Get Inspired</a>
     </div>
+
+    <div class="support-card">
+      <div class="support-icon">💰</div>
+      <div class="support-title">Income Paths</div>
+      <ul class="support-list">
+        <li>Teaching online (any subject!)</li>
+        <li>Freelance writing/editing</li>
+        <li>Virtual assistant work</li>
+        <li>Social media management</li>
+        <li>Selling skills & crafts</li>
+        <li>And so much more!</li>
+      </ul>
+      <a href="#income" class="btn btn-gold">💰 Explore Paths</a>
+    </div>
+
+    <div class="support-card">
+      <div class="support-icon">🏠</div>
+      <div class="support-title">Practical Life Help</div>
+      <ul class="support-list">
+        <li>Free & cheap family fun ideas</li>
+        <li>Time-saving hacks</li>
+        <li>Grocery & meal lists</li>
+        <li>Self-care in 5 minutes</li>
+        <li>Emergency contacts by country</li>
+        <li>Local resource finders</li>
+      </ul>
+      <a href="parents-survival-guide-app.html" class="btn btn-outline">🏠 Explore Resources</a>
+    </div>
+
+    <div class="support-card">
+      <div class="support-icon">👥</div>
+      <div class="support-title">Community & Connection</div>
+      <ul class="support-list">
+        <li>Safe space to share</li>
+        <li>Zero judgment zone</li>
+        <li>Moms who truly GET IT</li>
+        <li>Accountability partners</li>
+        <li>Celebrate every win</li>
+        <li>Support in struggles</li>
+      </ul>
+      <a href="mailto:liza.elena.micle@gmail.com?subject=HAVEN Community" class="btn btn-purple">👥 Connect With Elena</a>
+    </div>
+
+    <div class="support-card">
+      <div class="support-icon">🤖</div>
+      <div class="support-title">AI Assistant — 24/7</div>
+      <ul class="support-list">
+        <li>Mom's Command Center</li>
+        <li>Planning & scheduling help</li>
+        <li>Income tracking tools</li>
+        <li>Content creation help</li>
+        <li>Email writing assistance</li>
+        <li>Problem-solving partner</li>
+      </ul>
+      <a href="Moms_Command_Center.html" class="btn btn-pink">🤖 Launch AI Tools</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- AFFIRMATIONS -->
+<div class="section" id="affirmations">
+  <div class="affirmations">
+    <h3>💜 When You Need to Hear This</h3>
+    <div class="affirm-grid">
+      <div class="affirm-item"><span>🌟</span>"You are stronger than you know."</div>
+      <div class="affirm-item"><span>💙</span>"You are not failing. You are surviving something incredibly hard."</div>
+      <div class="affirm-item"><span>🔥</span>"Every single day you show up for your child is a victory."</div>
+      <div class="affirm-item"><span>🌱</span>"You are allowed to ask for help. That is strength, not weakness."</div>
+      <div class="affirm-item"><span>✨</span>"The fact that you're still here means you haven't given up. Don't start now."</div>
+      <div class="affirm-item"><span>💜</span>"One day your story will give another mom the courage to keep going."</div>
+    </div>
+  </div>
+</div>
+
+<!-- DAILY TOOLS -->
+<div class="section" id="tools">
+  <div class="section-label">🛠️ Free Tools</div>
+  <h2 class="section-title">Your Toolkit — Always Open, Always Free</h2>
+  <p class="section-desc">Click anything. Use everything. No sign-up needed.</p>
+
+  <div class="tools-grid">
+    <a href="Moms_Command_Center.html" class="tool-card">
+      <div class="icon">🎯</div>
+      <div class="name">Mom's Command Center</div>
+      <div class="desc">AI-powered life management for busy moms</div>
+      <span class="tag free">FREE</span>
+    </a>
+    <a href="AI_Literacy_Hub.html" class="tool-card">
+      <div class="icon">🤖</div>
+      <div class="name">AI Tools for Moms</div>
+      <div class="desc">Build income with AI — business plans, content, more</div>
+      <span class="tag free">FREE</span>
+    </a>
+    <a href="parents-survival-guide-app.html" class="tool-card">
+      <div class="icon">📚</div>
+      <div class="name">Parent's Survival Guide</div>
+      <div class="desc">Real advice from a mom who truly gets it</div>
+      <span class="tag free">FREE</span>
+    </a>
+    <a href="Refugiu_Mame_Single_RO.html" class="tool-card">
+      <div class="icon">🇷🇴</div>
+      <div class="name">Refugiu (Română)</div>
+      <div class="desc">HAVEN în limba română — pentru mamele singure din România</div>
+      <span class="tag free">GRATUIT</span>
+    </a>
+    <a href="https://alomiclemagic.gumroad.com/l/wqvyu" target="_blank" class="tool-card">
+      <div class="icon">📖</div>
+      <div class="name">Genius Kid Bundle</div>
+      <div class="desc">Russian + AI courses — earn while your kids learn</div>
+      <span class="tag">$129</span>
+    </a>
+    <a href="https://www.amazon.com/dp/B0GHWWPCPM" target="_blank" class="tool-card">
+      <div class="icon">💌</div>
+      <div class="name">Letters to My Daughter</div>
+      <div class="desc">Mother-daughter journal — 70 heartfelt prompts</div>
+      <span class="tag">$13</span>
+    </a>
+    <a href="mailto:liza.elena.micle@gmail.com?subject=HAVEN - I need support" class="tool-card">
+      <div class="icon">💜</div>
+      <div class="name">Email Elena Directly</div>
+      <div class="desc">She personally replies to every single email</div>
+      <span class="tag free">FREE</span>
+    </a>
+    <a href="https://findahelpline.com" target="_blank" class="tool-card">
+      <div class="icon">🆘</div>
+      <div class="name">Find a Helpline</div>
+      <div class="desc">Crisis support in your country — available 24/7</div>
+      <span class="tag free">24/7</span>
+    </a>
+  </div>
+</div>
+
+<!-- INCOME PATHS -->
+<div class="section" id="income">
+  <div class="section-label">💰 Income Paths</div>
+  <h2 class="section-title">Ways to Earn — Find What Fits You</h2>
+  <p class="section-desc">You have more skills than you think. Here are real paths that work for single moms.</p>
+
+  <div class="income-grid">
+    <div class="income-card">
+      <div class="income-icon" style="background:#fce7f3">👩‍🏫</div>
+      <div>
+        <div class="income-title">Teaching Online</div>
+        <div class="income-desc">Teach any subject — English, math, art, music, ANY skill you have — via Zoom, TpT, Udemy or your own site.</div>
+        <div class="income-earn">💰 $15–$80/hour</div>
+      </div>
+    </div>
+    <div class="income-card">
+      <div class="income-icon" style="background:#eff6ff">✍️</div>
+      <div>
+        <div class="income-title">Freelance Writing</div>
+        <div class="income-desc">Content writing, blog posts, social media captions, product descriptions. Platforms: Upwork, Fiverr, LinkedIn.</div>
+        <div class="income-earn">💰 $20–$100/article</div>
+      </div>
+    </div>
+    <div class="income-card">
+      <div class="income-icon" style="background:#f0fdf4">💻</div>
+      <div>
+        <div class="income-title">Virtual Assistant</div>
+        <div class="income-desc">Email management, scheduling, data entry, research. Work from home, flexible hours, any timezone.</div>
+        <div class="income-earn">💰 $12–$35/hour</div>
+      </div>
+    </div>
+    <div class="income-card">
+      <div class="income-icon" style="background:#faf5ff">📱</div>
+      <div>
+        <div class="income-title">Social Media Manager</div>
+        <div class="income-desc">Help small businesses with their Instagram, Facebook, TikTok. You already know how — you do it every day!</div>
+        <div class="income-earn">💰 $300–$1500/month per client</div>
+      </div>
+    </div>
+    <div class="income-card">
+      <div class="income-icon" style="background:#fff7ed">🎨</div>
+      <div>
+        <div class="income-title">Sell Digital Products</div>
+        <div class="income-desc">Worksheets, templates, printables, courses. Create once, sell forever. Elena built an empire this way!</div>
+        <div class="income-earn">💰 Passive income — unlimited</div>
+      </div>
+    </div>
+    <div class="income-card">
+      <div class="income-icon" style="background:#ecfdf5">🤖</div>
+      <div>
+        <div class="income-title">AI-Powered Business</div>
+        <div class="income-desc">Use AI to create content, products and services faster than ever. The AI Tools hub shows you exactly how.</div>
+        <div class="income-earn">💰 Your imagination is the limit</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:20px; text-align:center;">
+    <a href="AI_Literacy_Hub.html" class="btn btn-purple" style="display:inline-block; padding:14px 32px; font-size:0.95rem;">
+      🤖 Open AI Tools for Moms — Free
+    </a>
+  </div>
+</div>
+
+<!-- ELENA'S STORY -->
+<div class="section" id="story">
+  <div class="story">
+    <div class="story-inner">
+      <div class="story-label">👩‍💙 A Note From Elena</div>
+      <h2>"I created HAVEN because someone I loved didn't make it."</h2>
+      <div class="story-quote">
+        "Six weeks ago, I was eating altered food to survive, sick, alone, and losing hope. Today? I'm a published author with 8 books, a TESOL course creator, and building an empire that helps other single moms. If I can do it, YOU can do it. I promise."
+      </div>
+      <p>I created HAVEN because someone I loved didn't make it. A young mother who felt too alone, too overwhelmed, too broken. Who left behind a small child who still carries that loss.</p>
+      <p><strong>Everyone called her crazy, sick, put her in hospitals, judged her, mocked her. But she wasn't crazy. She was DROWNING. And no one threw her a rope.</strong></p>
+      <p>In many ways, I walked that same path. I know that edge. I know that darkness. I know what it feels like when the world tells you to "just try harder" when you're already giving everything you have.</p>
+      <p>But I found help. I found hope. I found water. And now I'm coming back to throw YOU a rope.</p>
+      <p>You are not alone. You are not broken. You are SURVIVING something incredibly hard. And with support, you won't just survive — you'll THRIVE.</p>
+      <p><strong>This is for those we lost. For their children. For every mom at the edge. For YOU. 🦋💧</strong></p>
+      <div class="story-sig">With love and hope,<br>Elena & Claude 💙</div>
+    </div>
+  </div>
+</div>
+
+<!-- JOIN CTA -->
+<div class="section">
+  <div class="join-cta">
+    <div class="join-cta-inner">
+      <h2>Ready to Start? 💜<br>You don't have to do this alone.</h2>
+      <p>Everything in HAVEN is 100% free. No credit card. No judgment. Just support from a mom who has been exactly where you are.</p>
+      <div class="join-btns">
+        <a href="Moms_Command_Center.html" class="btn-large primary">💜 Open Mom's Command Center</a>
+        <a href="Refugiu_Mame_Single_RO.html" class="btn-large secondary">🇷🇴 Versiunea în Română</a>
+      </div>
+      <p style="margin-top:20px; font-size:0.8rem; color:rgba(255,255,255,0.4);">
+        Built by a single mom who survived — for single moms who are surviving. 💖
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>HAVEN</strong> — Single Mom Support Program · Part of <a href="index.html">alo.micle.magic</a> ✨<br>
+  Created with love by <strong>Elena Micle</strong> & Claude · For those we lost, and for those still fighting 💜<br><br>
+  🚨 Crisis lines: US <a href="tel:988">988</a> · Text HOME to 741741 · Romania <a href="tel:0800801200">0800 801 200</a> · <a href="https://findahelpline.com" target="_blank">findahelpline.com</a>
+</footer>
+
 </body>
 </html>
