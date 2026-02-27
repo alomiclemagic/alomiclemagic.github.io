@@ -1,843 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TESOL Course - Module 1: Introduction to ESL Teaching</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TESOL Certification Course — Elena Micle | Become a Certified ESL Teacher</title>
+<meta name="description" content="Complete TESOL Certification in 12 weeks. 120 hours of content. Earn $15–$80/hour teaching online. Created by Elena Micle — TESOL Certified, 22+ years teaching.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#0d1b2a; --gold:#f4a416; --green:#16a34a;
+    --blue:#1a73e8; --red:#dc2626;
+    --text:#1a1a2e; --muted:#6b7280; --border:#e5e7eb; --light:#f9fafb;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'DM Sans',sans-serif;background:#f8f6f2;color:var(--text);line-height:1.7;}
 
-        :root {
-            --primary: #2C5F2D;
-            --secondary: #97BC62;
-            --accent: #FFB627;
-            --dark: #1A1A1D;
-            --light: #F8F9FA;
-            --cream: #FFF8E7;
-        }
+  /* NAV */
+  nav{background:var(--navy);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+  .nav-brand{color:var(--gold);font-family:'Playfair Display',serif;font-size:1.1rem;text-decoration:none;}
+  .nav-back{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;}
+  .nav-back:hover{color:white;}
 
-        body {
-            font-family: 'Work Sans', sans-serif;
-            background: linear-gradient(135deg, #FFF8E7 0%, #F0E6D2 100%);
-            color: var(--dark);
-            line-height: 1.6;
-        }
+  /* HERO */
+  .hero{background:linear-gradient(160deg,#0d1b2a 0%,#1a2e4a 50%,#0d3320 100%);padding:72px 24px 60px;text-align:center;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(244,164,22,0.12) 0%,transparent 55%),radial-gradient(ellipse at 70% 30%,rgba(22,163,74,0.1) 0%,transparent 50%);}
+  .hero-inner{position:relative;max-width:720px;margin:0 auto;}
+  .hero-badge{display:inline-block;background:rgba(244,164,22,0.15);border:1px solid rgba(244,164,22,0.35);color:var(--gold);padding:6px 18px;border-radius:100px;font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);color:white;line-height:1.15;margin-bottom:12px;}
+  .hero h1 span{color:var(--gold);}
+  .hero-sub{font-size:1.1rem;color:rgba(255,255,255,0.7);margin-bottom:32px;max-width:560px;margin-left:auto;margin-right:auto;}
+  .hero-stats{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;}
+  .hero-stat{text-align:center;}
+  .hero-stat-num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);font-weight:900;line-height:1;}
+  .hero-stat-label{font-size:0.78rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.05em;}
 
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+  .enroll-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold),#f59e0b);color:var(--navy);padding:18px 44px;border-radius:100px;font-size:1.1rem;font-weight:800;text-decoration:none;box-shadow:0 8px 32px rgba(244,164,22,0.4);transition:transform 0.2s,box-shadow 0.2s;}
+  .enroll-btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(244,164,22,0.5);}
+  .enroll-note{margin-top:12px;color:rgba(255,255,255,0.45);font-size:0.82rem;}
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
+  /* SECTIONS */
+  .section{max-width:900px;margin:56px auto;padding:0 24px;}
+  .section-label{display:inline-flex;align-items:center;gap:8px;background:rgba(244,164,22,0.1);color:#92400e;padding:5px 14px;border-radius:100px;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;}
+  .section-title{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--navy);margin-bottom:8px;}
+  .section-desc{color:var(--muted);font-size:0.95rem;margin-bottom:32px;}
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
+  /* OUTCOMES */
+  .outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px;}
+  @media(max-width:650px){.outcomes-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:420px){.outcomes-grid{grid-template-columns:1fr;}}
+  .outcome-card{background:white;border-radius:16px;padding:20px;border:1px solid var(--border);text-align:center;}
+  .outcome-icon{font-size:1.8rem;margin-bottom:8px;}
+  .outcome-title{font-weight:700;font-size:0.88rem;color:var(--navy);margin-bottom:4px;}
+  .outcome-desc{font-size:0.78rem;color:var(--muted);}
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3em;
-            font-weight: 900;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            position: relative;
-            z-index: 1;
-        }
+  /* MODULES */
+  .modules-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media(max-width:600px){.modules-grid{grid-template-columns:1fr;}}
+  .module-card{background:white;border-radius:14px;padding:20px 22px;border:1px solid var(--border);display:flex;gap:14px;align-items:flex-start;transition:box-shadow 0.2s;}
+  .module-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.08);}
+  .module-num{width:36px;height:36px;border-radius:10px;background:var(--navy);color:var(--gold);font-weight:800;font-size:0.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .module-title{font-weight:700;font-size:0.9rem;color:var(--navy);margin-bottom:4px;}
+  .module-topics{font-size:0.78rem;color:var(--muted);line-height:1.5;}
+  .module-hours{display:inline-block;margin-top:6px;background:#f0fdf4;color:var(--green);padding:2px 8px;border-radius:100px;font-size:0.72rem;font-weight:700;}
 
-        .subtitle {
-            font-size: 1.3em;
-            font-weight: 300;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            position: relative;
-            z-index: 1;
-        }
+  /* PRICING */
+  .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:560px){.pricing-grid{grid-template-columns:1fr;}}
+  .price-card{background:white;border-radius:20px;padding:32px;border:2px solid var(--border);text-align:center;position:relative;}
+  .price-card.featured{border-color:var(--gold);background:linear-gradient(160deg,#0d1b2a,#1a2e4a);color:white;}
+  .price-popular{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);padding:4px 16px;border-radius:100px;font-size:0.72rem;font-weight:800;letter-spacing:0.05em;white-space:nowrap;}
+  .price-plan{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:8px;}
+  .price-card.featured .price-plan{color:rgba(255,255,255,0.55);}
+  .price-amount{font-family:'Playfair Display',serif;font-size:3rem;color:var(--navy);font-weight:900;line-height:1;}
+  .price-card.featured .price-amount{color:var(--gold);}
+  .price-period{font-size:0.85rem;color:var(--muted);margin-bottom:20px;}
+  .price-card.featured .price-period{color:rgba(255,255,255,0.55);}
+  .price-features{list-style:none;margin-bottom:28px;text-align:left;}
+  .price-features li{font-size:0.85rem;padding:5px 0;display:flex;gap:8px;color:#374151;}
+  .price-card.featured .price-features li{color:rgba(255,255,255,0.8);}
+  .price-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
+  .price-card.featured .price-features li::before{color:var(--gold);}
+  .price-cta{display:block;padding:14px;border-radius:100px;font-weight:800;font-size:0.95rem;text-decoration:none;text-align:center;transition:transform 0.2s,opacity 0.2s;}
+  .price-cta:hover{transform:translateY(-1px);opacity:0.9;}
+  .price-cta.gold{background:var(--gold);color:var(--navy);}
+  .price-cta.outline{background:transparent;border:2px solid var(--navy);color:var(--navy);}
 
-        .progress-bar {
-            max-width: 800px;
-            margin: 30px auto;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50px;
-            padding: 8px;
-            position: relative;
-            z-index: 1;
-        }
+  /* WHO IS THIS FOR */
+  .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  @media(max-width:600px){.who-grid{grid-template-columns:1fr;}}
+  .who-card{background:white;border-radius:14px;padding:20px;border:1px solid var(--border);text-align:center;}
+  .who-icon{font-size:2rem;margin-bottom:8px;}
+  .who-title{font-weight:700;font-size:0.88rem;color:var(--navy);margin-bottom:6px;}
+  .who-desc{font-size:0.8rem;color:var(--muted);}
 
-        .progress-fill {
-            background: linear-gradient(90deg, var(--accent) 0%, #FFC857 100%);
-            height: 20px;
-            border-radius: 50px;
-            width: 0%;
-            transition: width 0.5s ease;
-            box-shadow: 0 4px 10px rgba(255,182,39,0.4);
-        }
+  /* GUARANTEE */
+  .guarantee{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:16px;padding:28px 32px;display:flex;gap:20px;align-items:center;border:1px solid #bbf7d0;}
+  .guarantee-icon{font-size:3rem;flex-shrink:0;}
+  .guarantee h3{font-weight:700;color:#14532d;margin-bottom:6px;}
+  .guarantee p{font-size:0.88rem;color:#166534;}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+  /* FINAL CTA */
+  .final-cta{background:linear-gradient(160deg,var(--navy),#1a3a5c);border-radius:24px;padding:52px 40px;text-align:center;color:white;}
+  .final-cta h2{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:12px;}
+  .final-cta p{color:rgba(255,255,255,0.65);margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;}
 
-        .nav-tabs {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .tab-button {
-            background: white;
-            border: 3px solid var(--secondary);
-            padding: 15px 30px;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 1.1em;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            color: var(--primary);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tab-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--secondary);
-            transition: left 0.3s ease;
-            z-index: -1;
-        }
-
-        .tab-button:hover::before,
-        .tab-button.active::before {
-            left: 0;
-        }
-
-        .tab-button:hover,
-        .tab-button.active {
-            color: white;
-            border-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(44,95,45,0.3);
-        }
-
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .lesson-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-left: 5px solid var(--accent);
-            transition: transform 0.3s ease;
-        }
-
-        .lesson-card:hover {
-            transform: translateX(5px);
-        }
-
-        .lesson-card h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary);
-            font-size: 2.2em;
-            margin-bottom: 20px;
-        }
-
-        .lesson-card h3 {
-            color: var(--secondary);
-            font-size: 1.5em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .lesson-card ul {
-            margin-left: 25px;
-            margin-bottom: 20px;
-        }
-
-        .lesson-card li {
-            margin-bottom: 12px;
-            line-height: 1.8;
-        }
-
-        .video-player {
-            background: var(--dark);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 30px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .video-placeholder {
-            background: linear-gradient(135deg, #2C5F2D 0%, #1e4620 100%);
-            border-radius: 10px;
-            padding: 80px 40px;
-            color: white;
-            font-size: 1.2em;
-        }
-
-        .video-placeholder::before {
-            content: '▶';
-            display: block;
-            font-size: 4em;
-            margin-bottom: 20px;
-            opacity: 0.8;
-        }
-
-        .download-section {
-            background: linear-gradient(135deg, var(--cream) 0%, #FFF 100%);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 30px 0;
-            border: 3px dashed var(--secondary);
-        }
-
-        .download-button {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent) 0%, #FFC857 100%);
-            color: var(--dark);
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1em;
-            margin: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255,182,39,0.3);
-        }
-
-        .download-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255,182,39,0.5);
-        }
-
-        .quiz-section {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 30px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .quiz-question {
-            margin-bottom: 30px;
-            padding: 25px;
-            background: var(--cream);
-            border-radius: 15px;
-            border-left: 4px solid var(--secondary);
-        }
-
-        .quiz-question h4 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .quiz-option {
-            display: block;
-            padding: 15px 20px;
-            margin: 10px 0;
-            background: white;
-            border: 2px solid var(--secondary);
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .quiz-option:hover {
-            background: var(--secondary);
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .quiz-option input {
-            margin-right: 10px;
-        }
-
-        .submit-quiz {
-            background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%);
-            color: white;
-            border: none;
-            padding: 18px 50px;
-            border-radius: 50px;
-            font-size: 1.2em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(44,95,45,0.3);
-        }
-
-        .submit-quiz:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(44,95,45,0.5);
-        }
-
-        .success-message {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            font-size: 1.3em;
-            margin: 30px 0;
-            display: none;
-            animation: slideDown 0.5s ease;
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .badge {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--dark);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9em;
-            margin: 5px;
-        }
-
-        .next-module {
-            background: linear-gradient(135deg, var(--cream) 0%, white 100%);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            margin-top: 50px;
-            border: 3px solid var(--secondary);
-        }
-
-        .next-module h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary);
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-
-            .subtitle {
-                font-size: 1.1em;
-            }
-
-            .lesson-card {
-                padding: 25px;
-            }
-
-            .nav-tabs {
-                flex-direction: column;
-            }
-
-            .tab-button {
-                width: 100%;
-            }
-        }
-    </style>
+  footer{background:var(--navy);padding:24px;text-align:center;color:rgba(255,255,255,0.45);font-size:0.82rem;}
+  footer a{color:var(--gold);text-decoration:none;}
+</style>
 </head>
 <body>
-    <div class="hero">
-        <h1>🎓 Module 1</h1>
-        <p class="subtitle">Introduction to ESL Teaching</p>
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressBar"></div>
-        </div>
-        <p style="font-size: 0.9em; opacity: 0.9; position: relative; z-index: 1;">Your Progress: <span id="progressText">0%</span></p>
+
+<nav>
+  <a href="index.html" class="nav-brand">✨ alo.micle.magic</a>
+  <a href="index.html" class="nav-back">← Back to all courses</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🏆 Complete TESOL Certification</div>
+    <h1>Become a <span>Certified ESL Teacher</span><br>in 12 Weeks</h1>
+    <p class="hero-sub">120 hours of professional content across 12 complete modules. Earn $15–$80/hour teaching English online — from anywhere in the world.</p>
+
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">12</div><div class="hero-stat-label">Modules</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">120</div><div class="hero-stat-label">Hours</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">$80</div><div class="hero-stat-label">Max/Hour Earnings</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">22+</div><div class="hero-stat-label">Years Experience</div></div>
     </div>
 
-    <div class="container">
-        <div class="nav-tabs">
-            <button class="tab-button active" onclick="showTab('overview')">📚 Overview</button>
-            <button class="tab-button" onclick="showTab('lesson')">🎬 Video Lesson</button>
-            <button class="tab-button" onclick="showTab('resources')">📥 Resources</button>
-            <button class="tab-button" onclick="showTab('quiz')">✅ Quiz</button>
-        </div>
+    <a href="https://alomiclemagic.gumroad.com/l/tesol" target="_blank" class="enroll-btn">
+      🎓 Enroll Now — $199
+    </a>
+    <p class="enroll-note">Also available: $59/month payment plan · Instant access · 30-day guarantee</p>
+  </div>
+</div>
 
-        <!-- OVERVIEW TAB -->
-        <div id="overview" class="tab-content active">
-            <div class="lesson-card">
-                <h2>Welcome to Your TESOL Journey! 🌍</h2>
-                <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
-                    Congratulations on taking the first step toward becoming a certified ESL teacher! This module will introduce you to the exciting world of Teaching English to Speakers of Other Languages.
-                </p>
+<!-- WHAT YOU'LL BE ABLE TO DO -->
+<div class="section">
+  <div class="section-label">🎯 What You'll Be Able to Do</div>
+  <h2 class="section-title">Your Life After This Certification</h2>
+  <p class="section-desc">This isn't just a certificate. It's a career. A flexible income. A future you can build around your family.</p>
 
-                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin: 25px 0;">
-                    <h3 style="margin-top: 0;">⏱️ Module Details</h3>
-                    <p><strong>Duration:</strong> Week 1 (approximately 10 hours)</p>
-                    <p><strong>Videos:</strong> 6 lessons (60 minutes total)</p>
-                    <p><strong>Reading:</strong> 30 pages</p>
-                    <p><strong>Activities:</strong> 5 reflective exercises</p>
-                    <p><strong>Quiz:</strong> 10 questions (pass with 70%)</p>
-                </div>
+  <div class="outcomes-grid">
+    <div class="outcome-card">
+      <div class="outcome-icon">💻</div>
+      <div class="outcome-title">Teach Online from Home</div>
+      <div class="outcome-desc">Platforms like Preply, iTalki, VIPKid and your own students</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-icon">🌍</div>
+      <div class="outcome-title">Teach Anywhere in the World</div>
+      <div class="outcome-desc">International schools, language centres, private academies</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-icon">💰</div>
+      <div class="outcome-title">Earn $15–$80/Hour</div>
+      <div class="outcome-desc">Set your own rates. Work your own hours. Keep what you earn.</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-icon">📚</div>
+      <div class="outcome-title">Create Your Own Curriculum</div>
+      <div class="outcome-desc">Design courses, worksheets and lessons to sell digitally</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-icon">👶</div>
+      <div class="outcome-title">Work Around Your Kids</div>
+      <div class="outcome-desc">Morning classes, evening classes, weekend-only — you choose</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-icon">🏆</div>
+      <div class="outcome-title">Internationally Recognized</div>
+      <div class="outcome-desc">Certificate accepted by schools and employers worldwide</div>
+    </div>
+  </div>
+</div>
 
-                <h3>What You'll Learn in This Module</h3>
-                <ul>
-                    <li>✅ What TESOL, TEFL, and ESL mean and how they differ</li>
-                    <li>✅ The global demand for English teachers and career opportunities</li>
-                    <li>✅ Different teaching contexts: online, in-person, abroad, and corporate</li>
-                    <li>✅ How to develop your unique teaching philosophy and style</li>
-                    <li>✅ Professional ethics and best practices in ESL teaching</li>
-                    <li>✅ Practical steps to set up your teaching business</li>
-                </ul>
+<!-- 12 MODULES -->
+<div class="section">
+  <div class="section-label">📚 The Curriculum</div>
+  <h2 class="section-title">12 Complete Modules — 120 Hours</h2>
+  <p class="section-desc">Everything a professional ESL teacher needs — from your very first class to advanced methodology.</p>
 
-                <h3>By the End of This Module, You Will:</h3>
-                <ul>
-                    <li>🎯 Understand the ESL teaching landscape and your career options</li>
-                    <li>🎯 Have a clear teaching philosophy statement</li>
-                    <li>🎯 Know the ethical guidelines for professional teachers</li>
-                    <li>🎯 Have a business setup checklist ready to implement</li>
-                    <li>🎯 Feel confident about your decision to become an ESL teacher</li>
-                </ul>
+  <div class="modules-grid">
+    <div class="module-card">
+      <div class="module-num">1</div>
+      <div>
+        <div class="module-title">Foundations of ESL Teaching</div>
+        <div class="module-topics">History of ELT · Key methodologies · Communicative approach · Teacher vs facilitator</div>
+        <span class="module-hours">10 hours</span>
+      </div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">2</div>
+      <div>
+        <div class="module-title">How Language is Acquired</div>
+        <div class="module-topics">SLA theory · Krashen's hypotheses · Input & output · Affective filter</div>
+        <span class="module-hours">10 hours</span>
+      </div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">3</div>
+      <div>
+        <div class="module-title">Lesson Planning Mastery</div>
+        <div class="module-topics">PPP & TBL frameworks · Aims & objectives · Timing · Contingency planning</div>
+        <span class="module-hours">10 hours</span>
+      </div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">4</div>
+      <div>
+        <div class="module-title">Teaching Grammar Effectively</div>
+        <div class="module-topics">Inductive vs deductive · Error correction · Concept checking · Grammar games</div>
+        <span class="module-hours">10 hours</span>
+      </div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">5</div>
+      <div>
+        <div class="module-title">Teaching the Four Skills</div>
+        <div class="module-topics">Reading · Writing · Listening · Speaking · Integrated skills approach</div>
+        <span class="module-hours">10 hours</span>
+      </div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">6</div>
+      <div>
+        <div class="module-title">Vocabulary & Pronunciation</div>
+        <div class="module-topics">Lexical approach · Teaching phonemes · Stress & intonation · Word families</div>
+        <span class="module-hours">10 hours</span>
+      </div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">7</div>
+      <div>
+        <div class="module-title">Classroom Management</div>
+        <div class="module-topics">Online & in-person dynamics · Mixed levels · Difficult students · Engagement techniques</div>
+        <span class="module-hours">10 hours</span>
+      </div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">8</div>
+      <div>
+        <div class="module-title">Teaching Different Learners</div>
+        <div class="module-topics">Young learners · Adults · Business English · Exam preparation (IELTS/TOEFL)</div>
+        <span class="module-hours">10 hours</span>
+      </div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">9</div>
+      <div>
+        <div class="module-title">Materials & Resource Design</div>
+        <div class="module-topics">Creating worksheets · Adapting authentic materials · Digital resources · Canva for teachers</div>
+        <span class="module-hours">10 hours</span>
+      </div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">10</div>
+      <div>
+        <div class="module-title">Assessment & Feedback</div>
+        <div class="module-topics">Formative vs summative · Writing rubrics · Giving feedback · Student self-assessment</div>
+        <span class="module-hours">10 hours</span>
+      </div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">11</div>
+      <div>
+        <div class="module-title">Teaching Online Successfully</div>
+        <div class="module-topics">Platform setup · Virtual engagement · Tech tools · Building your online reputation</div>
+        <span class="module-hours">10 hours</span>
+      </div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">12</div>
+      <div>
+        <div class="module-title">Building Your ESL Career</div>
+        <div class="module-topics">Finding students · Setting rates · Contracts · Marketing yourself · Scaling your income</div>
+        <span class="module-hours">10 hours</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-                <div style="background: linear-gradient(135deg, var(--primary) 0%, #1e4620 100%); color: white; padding: 30px; border-radius: 15px; margin-top: 30px;">
-                    <h3 style="color: white; margin-top: 0;">💡 Why This Matters</h3>
-                    <p style="font-size: 1.1em; line-height: 1.8;">
-                        Understanding the foundation of ESL teaching is crucial for your success. This module sets the stage for everything else you'll learn. Whether you're a single mom looking for flexible work, a teacher expanding your skills, or someone passionate about education - this is where your transformation begins!
-                    </p>
-                </div>
-            </div>
-        </div>
+<!-- WHO IS THIS FOR -->
+<div class="section">
+  <div class="section-label">👥 Who This Is For</div>
+  <h2 class="section-title">This Course Was Made For You If...</h2>
+  <p class="section-desc">You don't need any prior teaching experience. Just dedication and a desire to change your life.</p>
+  <div class="who-grid">
+    <div class="who-card">
+      <div class="who-icon">👩‍👧</div>
+      <div class="who-title">Single Moms</div>
+      <div class="who-desc">Build flexible income that works around your children's schedule — mornings, evenings or weekends</div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">👩‍🏫</div>
+      <div class="who-title">Current Teachers</div>
+      <div class="who-desc">Formalize your skills, earn more per hour and open international opportunities</div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">🔄</div>
+      <div class="who-title">Career Changers</div>
+      <div class="who-desc">Leave a job that doesn't serve you and build something that does — in 12 weeks</div>
+    </div>
+  </div>
+</div>
 
-        <!-- VIDEO LESSON TAB -->
-        <div id="lesson" class="tab-content">
-            <div class="lesson-card">
-                <h2>📹 Video Lessons</h2>
-                <p style="margin-bottom: 30px;">Watch all 6 video lessons below. Each video is designed to be engaging, practical, and actionable.</p>
+<!-- PRICING -->
+<div class="section">
+  <div class="section-label">💰 Investment</div>
+  <h2 class="section-title">Choose Your Plan</h2>
+  <p class="section-desc">One certification. Two ways to pay. Zero excuses not to start.</p>
 
-                <h3>Lesson 1.1: What is TESOL? (12 minutes)</h3>
-                <div class="video-player">
-                    <div class="video-placeholder">
-                        Video: Introduction to TESOL, TEFL, ESL
-                        <br><small>(Video content will be added here)</small>
-                    </div>
-                </div>
-                <p><strong>Topics covered:</strong> Definitions, certifications, global recognition, career paths</p>
-
-                <h3>Lesson 1.2: The Global Demand for English Teachers (10 minutes)</h3>
-                <div class="video-player">
-                    <div class="video-placeholder">
-                        Video: Market Demand & Opportunities
-                        <br><small>(Video content will be added here)</small>
-                    </div>
-                </div>
-                <p><strong>Topics covered:</strong> Statistics, high-demand countries, online vs in-person opportunities</p>
-
-                <h3>Lesson 1.3: Teaching Contexts Explained (8 minutes)</h3>
-                <div class="video-player">
-                    <div class="video-placeholder">
-                        Video: Where Can You Teach?
-                        <br><small>(Video content will be added here)</small>
-                    </div>
-                </div>
-                <p><strong>Topics covered:</strong> Online platforms, language schools, private tutoring, corporate training, teaching abroad</p>
-
-                <h3>Lesson 1.4: Developing Your Teaching Philosophy (12 minutes)</h3>
-                <div class="video-player">
-                    <div class="video-placeholder">
-                        Video: Finding Your Teaching Style
-                        <br><small>(Video content will be added here)</small>
-                    </div>
-                </div>
-                <p><strong>Topics covered:</strong> Teaching approaches, personal values, learning styles, creating your philosophy statement</p>
-
-                <h3>Lesson 1.5: Ethics & Professionalism (10 minutes)</h3>
-                <div class="video-player">
-                    <div class="video-placeholder">
-                        Video: Being a Professional Teacher
-                        <br><small>(Video content will be added here)</small>
-                    </div>
-                </div>
-                <p><strong>Topics covered:</strong> Teacher responsibilities, cultural sensitivity, boundaries, confidentiality, continuing education</p>
-
-                <h3>Lesson 1.6: Setting Up Your Teaching Business (8 minutes)</h3>
-                <div class="video-player">
-                    <div class="video-placeholder">
-                        Video: From Student to Teacher-Entrepreneur
-                        <br><small>(Video content will be added here)</small>
-                    </div>
-                </div>
-                <p><strong>Topics covered:</strong> Legal requirements, pricing, marketing, finding students, managing finances</p>
-            </div>
-        </div>
-
-        <!-- RESOURCES TAB -->
-        <div id="resources" class="tab-content">
-            <div class="lesson-card">
-                <h2>📚 Downloadable Resources</h2>
-                <p style="margin-bottom: 30px;">All resources are professionally designed and ready to use immediately. Click to download!</p>
-
-                <div class="download-section">
-                    <h3 style="margin-top: 0;">📄 Required Reading Materials</h3>
-                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
-                        📖 Module 1 Course Guide (30 pages)
-                    </a>
-                    <p style="margin-top: 15px;"><em>Complete overview of everything covered in this module</em></p>
-                </div>
-
-                <div class="download-section">
-                    <h3 style="margin-top: 0;">✍️ Worksheets & Activities</h3>
-                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
-                        📝 Teaching Philosophy Worksheet
-                    </a>
-                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
-                        📝 Self-Assessment: Are You Ready to Teach?
-                    </a>
-                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
-                        📝 Business Setup Checklist
-                    </a>
-                    <p style="margin-top: 15px;"><em>Interactive worksheets to help you apply what you learn</em></p>
-                </div>
-
-                <div class="download-section">
-                    <h3 style="margin-top: 0;">📊 Reference Guides</h3>
-                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
-                        📋 TESOL vs TEFL vs ESL Comparison Chart
-                    </a>
-                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
-                        📋 Professional Ethics Code for ESL Teachers
-                    </a>
-                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
-                        📋 Teaching Context Comparison Guide
-                    </a>
-                    <p style="margin-top: 15px;"><em>Quick-reference materials for your teaching career</em></p>
-                </div>
-
-                <div class="download-section">
-                    <h3 style="margin-top: 0;">💼 Business Tools</h3>
-                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
-                        💰 Pricing Calculator Spreadsheet
-                    </a>
-                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
-                        📧 Email Templates for Students
-                    </a>
-                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
-                        🌐 Teacher Website Template
-                    </a>
-                    <p style="margin-top: 15px;"><em>Ready-to-use templates to start your teaching business</em></p>
-                </div>
-
-                <div style="background: var(--cream); padding: 25px; border-radius: 15px; margin-top: 30px; text-align: center;">
-                    <h3>📦 All Resources in One Package</h3>
-                    <p>Or download everything at once in a convenient ZIP file</p>
-                    <a href="#" class="download-button" onclick="alert('Download link will be provided after enrollment'); return false;">
-                        ⬇️ Download All Module 1 Resources (ZIP)
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- QUIZ TAB -->
-        <div id="quiz" class="tab-content">
-            <div class="quiz-section">
-                <h2 style="font-family: 'Playfair Display', serif; color: var(--primary); font-size: 2.2em; margin-bottom: 20px;">
-                    ✅ Module 1 Quiz
-                </h2>
-                <p style="font-size: 1.1em; margin-bottom: 30px;">
-                    Test your knowledge! You need 70% (7 out of 10 correct) to pass and move to Module 2.
-                </p>
-
-                <form id="quizForm">
-                    <div class="quiz-question">
-                        <h4>1. What does TESOL stand for?</h4>
-                        <label class="quiz-option">
-                            <input type="radio" name="q1" value="a"> Teaching English as a Second or Other Language
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q1" value="b"> Teaching English to Speakers of Other Languages ✓
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q1" value="c"> Teaching English Schools of Language
-                        </label>
-                    </div>
-
-                    <div class="quiz-question">
-                        <h4>2. Which statement about ESL teaching is TRUE?</h4>
-                        <label class="quiz-option">
-                            <input type="radio" name="q2" value="a"> You must be a native English speaker to teach ESL
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q2" value="b"> ESL teachers can only work in language schools
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q2" value="c"> ESL teachers can work online, in-person, or both ✓
-                        </label>
-                    </div>
-
-                    <div class="quiz-question">
-                        <h4>3. What is the PRIMARY focus of a teaching philosophy?</h4>
-                        <label class="quiz-option">
-                            <input type="radio" name="q3" value="a"> Your beliefs about learning and how you'll teach ✓
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q3" value="b"> How much money you want to make
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q3" value="c"> The textbooks you'll use
-                        </label>
-                    </div>
-
-                    <div class="quiz-question">
-                        <h4>4. Which is an example of professional ethics in ESL teaching?</h4>
-                        <label class="quiz-option">
-                            <input type="radio" name="q4" value="a"> Sharing student information with friends
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q4" value="b"> Maintaining confidentiality about students ✓
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q4" value="c"> Only teaching students you like
-                        </label>
-                    </div>
-
-                    <div class="quiz-question">
-                        <h4>5. What is cultural sensitivity in ESL teaching?</h4>
-                        <label class="quiz-option">
-                            <input type="radio" name="q5" value="a"> Teaching only American culture
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q5" value="b"> Respecting and adapting to students' cultural backgrounds ✓
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q5" value="c"> Avoiding all cultural topics
-                        </label>
-                    </div>
-
-                    <div class="quiz-question">
-                        <h4>6. Which teaching context allows the most flexibility for single moms?</h4>
-                        <label class="quiz-option">
-                            <input type="radio" name="q6" value="a"> Teaching abroad in another country
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q6" value="b"> Online teaching from home ✓
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q6" value="c"> Full-time language school position
-                        </label>
-                    </div>
-
-                    <div class="quiz-question">
-                        <h4>7. What should you do FIRST when setting up your teaching business?</h4>
-                        <label class="quiz-option">
-                            <input type="radio" name="q7" value="a"> Buy expensive equipment
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q7" value="b"> Research legal requirements and register if needed ✓
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q7" value="c"> Rent an office space
-                        </label>
-                    </div>
-
-                    <div class="quiz-question">
-                        <h4>8. How many hours of instruction does this TESOL course provide?</h4>
-                        <label class="quiz-option">
-                            <input type="radio" name="q8" value="a"> 50 hours
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q8" value="b"> 120 hours ✓
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q8" value="c"> 200 hours
-                        </label>
-                    </div>
-
-                    <div class="quiz-question">
-                        <h4>9. What is a key benefit of online ESL teaching?</h4>
-                        <label class="quiz-option">
-                            <input type="radio" name="q9" value="a"> You can work from anywhere with internet ✓
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q9" value="b"> You never need to plan lessons
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q9" value="c"> Students teach themselves
-                        </label>
-                    </div>
-
-                    <div class="quiz-question">
-                        <h4>10. What should a professional ESL teacher do regularly?</h4>
-                        <label class="quiz-option">
-                            <input type="radio" name="q10" value="a"> Use the same lesson forever
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q10" value="b"> Continue learning and improving their skills ✓
-                        </label>
-                        <label class="quiz-option">
-                            <input type="radio" name="q10" value="c"> Avoid feedback from students
-                        </label>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 40px;">
-                        <button type="button" class="submit-quiz" onclick="gradeQuiz()">
-                            Submit Quiz 🎯
-                        </button>
-                    </div>
-                </form>
-
-                <div class="success-message" id="successMessage">
-                    <h3 style="margin-bottom: 15px;">🎉 Congratulations!</h3>
-                    <p id="scoreText"></p>
-                    <p style="margin-top: 20px;">You've completed Module 1! Ready for Module 2?</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="next-module">
-            <h3>📍 Coming Next:</h3>
-            <p style="font-size: 1.2em; margin: 20px 0;">
-                <strong>Module 2: English Grammar Fundamentals for Teachers</strong>
-            </p>
-            <p style="margin-bottom: 20px;">
-                Master the grammar you'll need to teach with confidence!
-            </p>
-            <div>
-                <span class="badge">Parts of Speech</span>
-                <span class="badge">Verb Tenses</span>
-                <span class="badge">Articles</span>
-                <span class="badge">Sentence Structure</span>
-            </div>
-        </div>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-plan">Payment Plan</div>
+      <div class="price-amount">$59</div>
+      <div class="price-period">per month × 4 months</div>
+      <ul class="price-features">
+        <li>Full access to all 12 modules</li>
+        <li>120 hours of content</li>
+        <li>Official certificate on completion</li>
+        <li>Lifetime access</li>
+        <li>Email support from Elena</li>
+      </ul>
+      <a href="https://alomiclemagic.gumroad.com/l/tesol-plan" target="_blank" class="price-cta outline">Start for $59/month</a>
     </div>
 
-    <script>
-        // Tab switching
-        function showTab(tabName) {
-            // Hide all tabs
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => tab.classList.remove('active'));
+    <div class="price-card featured">
+      <div class="price-popular">⭐ BEST VALUE — Save $37</div>
+      <div class="price-plan">Pay in Full</div>
+      <div class="price-amount">$199</div>
+      <div class="price-period">one-time payment</div>
+      <ul class="price-features">
+        <li>Full access to all 12 modules</li>
+        <li>120 hours of content</li>
+        <li>Official certificate on completion</li>
+        <li>Lifetime access</li>
+        <li>Priority email support from Elena</li>
+        <li>30-day money-back guarantee</li>
+        <li>Bonus: Career Launch Guide</li>
+      </ul>
+      <a href="https://alomiclemagic.gumroad.com/l/tesol" target="_blank" class="price-cta gold">🎓 Enroll Now — $199</a>
+    </div>
+  </div>
+</div>
 
-            // Remove active class from all buttons
-            const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(btn => btn.classList.remove('active'));
+<!-- GUARANTEE -->
+<div class="section">
+  <div class="guarantee">
+    <div class="guarantee-icon">🛡️</div>
+    <div>
+      <h3>30-Day Money-Back Guarantee</h3>
+      <p>If you go through the first 3 modules and feel this course isn't for you — email Elena directly and she will refund every cent. No questions, no forms, no waiting. Because she believes in this course that much.</p>
+    </div>
+  </div>
+</div>
 
-            // Show selected tab
-            document.getElementById(tabName).classList.add('active');
+<!-- ABOUT ELENA -->
+<div class="section">
+  <div style="background:var(--navy);border-radius:20px;padding:36px;color:white;display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap;">
+    <div style="font-size:4rem;flex-shrink:0;">👩‍🏫</div>
+    <div>
+      <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:8px;">Your Instructor</div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:white;margin-bottom:12px;">Elena Micle</h3>
+      <p style="color:rgba(255,255,255,0.7);font-size:0.9rem;line-height:1.8;margin-bottom:16px;">Russian Language Major · TESOL Certified · 22+ years teaching ESL · Published author of 8 books · Created curriculum used by teachers in Romania, Serbia and beyond · Mom of Lexi · Built her entire teaching empire from scratch as a single mom.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span style="background:rgba(244,164,22,0.15);border:1px solid rgba(244,164,22,0.3);color:var(--gold);padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:600;">22+ Years Teaching</span>
+        <span style="background:rgba(244,164,22,0.15);border:1px solid rgba(244,164,22,0.3);color:var(--gold);padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:600;">TESOL Certified</span>
+        <span style="background:rgba(244,164,22,0.15);border:1px solid rgba(244,164,22,0.3);color:var(--gold);padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:600;">8 Published Books</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-            // Add active class to clicked button
-            event.target.classList.add('active');
+<!-- FINAL CTA -->
+<div class="section">
+  <div class="final-cta">
+    <h2>Your New Career Starts Today 🎓</h2>
+    <p>12 weeks from now you could be teaching your first paid English lesson. The only thing standing between you and that moment is this decision.</p>
+    <a href="https://alomiclemagic.gumroad.com/l/tesol" target="_blank" class="enroll-btn" style="display:inline-flex;">
+      🎓 Enroll Now — $199
+    </a>
+    <p style="margin-top:12px;color:rgba(255,255,255,0.4);font-size:0.8rem;">Questions? Email Elena directly — liza.elena.micle@gmail.com · She replies personally.</p>
+  </div>
+</div>
 
-            // Update progress
-            updateProgress();
-        }
+<footer>
+  <a href="index.html">✨ alo.micle.magic</a> · TESOL Certification Course · © 2026 Elena Micle · All rights reserved
+</footer>
 
-        // Progress tracking
-        function updateProgress() {
-            let progress = 0;
-            const videosWatched = localStorage.getItem('module1_videos') === 'true';
-            const resourcesViewed = localStorage.getItem('module1_resources') === 'true';
-            const quizCompleted = localStorage.getItem('module1_quiz') === 'true';
-
-            if (videosWatched) progress += 40;
-            if (resourcesViewed) progress += 30;
-            if (quizCompleted) progress += 30;
-
-            document.getElementById('progressBar').style.width = progress + '%';
-            document.getElementById('progressText').textContent = progress + '%';
-
-            // Mark sections as viewed
-            const currentTab = document.querySelector('.tab-content.active').id;
-            if (currentTab === 'lesson') {
-                localStorage.setItem('module1_videos', 'true');
-            } else if (currentTab === 'resources') {
-                localStorage.setItem('module1_resources', 'true');
-            }
-        }
-
-        // Quiz grading
-        function gradeQuiz() {
-            const answers = {
-                q1: 'b',
-                q2: 'c',
-                q3: 'a',
-                q4: 'b',
-                q5: 'b',
-                q6: 'b',
-                q7: 'b',
-                q8: 'b',
-                q9: 'a',
-                q10: 'b'
-            };
-
-            let correct = 0;
-            let total = 10;
-
-            for (let i = 1; i <= total; i++) {
-                const selected = document.querySelector(`input[name="q${i}"]:checked`);
-                if (selected && selected.value === answers[`q${i}`]) {
-                    correct++;
-                }
-            }
-
-            const percentage = (correct / total) * 100;
-            const passed = percentage >= 70;
-
-            const successMessage = document.getElementById('successMessage');
-            const scoreText = document.getElementById('scoreText');
-
-            if (passed) {
-                scoreText.innerHTML = `You scored <strong>${correct} out of ${total}</strong> (${percentage}%)!<br>You PASSED! 🎊`;
-                successMessage.style.display = 'block';
-                successMessage.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
-                localStorage.setItem('module1_quiz', 'true');
-                updateProgress();
-            } else {
-                scoreText.innerHTML = `You scored <strong>${correct} out of ${total}</strong> (${percentage}%).<br>You need 70% to pass. Please review the materials and try again!`;
-                successMessage.style.display = 'block';
-                successMessage.style.background = 'linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%)';
-            }
-
-            // Scroll to results
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
-        // Initialize progress on page load
-        window.onload = function() {
-            updateProgress();
-        };
-    </script>
 </body>
 </html>
