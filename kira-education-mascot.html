@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kira ⭐ — AI Learning Guide · Understanding Claude Course</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;500;600;700;800&family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --cream:   #fffdf5;
+  --warm:    #fff8e7;
+  --purple:  #7c5cbf;
+  --purple2: #9b7dd4;
+  --purple3: #ede8fb;
+  --gold:    #f5c842;
+  --gold2:   #fde68a;
+  --mint:    #34c98a;
+  --mint2:   #d1fae5;
+  --coral:   #f97060;
+  --coral2:  #fde0dc;
+  --sky:     #60aff0;
+  --sky2:    #dbeafe;
+  --navy:    #1e1b4b;
+  --text:    #374151;
+  --muted:   #6b7280;
+  --white:   #ffffff;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── FLOATING STARS BG ─── */
+.stars-bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+}
+.star {
+  position: absolute;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle var(--d, 4s) var(--delay, 0s) ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%,100%{opacity:0;transform:scale(0.5);}
+  50%{opacity:var(--op,0.6);transform:scale(1.2);}
+}
+
+/* ─── NAV ─── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,253,245,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px dashed var(--gold2);
+  padding: 14px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: 'Fredoka One', cursive;
+  font-size: 22px;
+  color: var(--purple);
+  display: flex; align-items: center; gap: 8px;
+  text-decoration: none;
+}
+
+.nav-links { display: flex; gap: 6px; }
+.nav-link {
+  font-size: 13px; font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: var(--muted);
+  transition: all 0.2s;
+  letter-spacing: 0.3px;
+}
+.nav-link:hover { background: var(--purple3); color: var(--purple); }
+.nav-link.cta {
+  background: var(--gold);
+  color: var(--navy);
+  box-shadow: 0 3px 0 #d4a017;
+}
+.nav-link.cta:hover { transform: translateY(-1px); box-shadow: 0 4px 0 #d4a017; }
+
+/* ─── HERO ─── */
+.hero {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: flex; align-items: center;
+  overflow: hidden;
+  padding: 80px 40px 60px;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 70% 50%, #ede8fb 0%, transparent 60%),
+              radial-gradient(ellipse 50% 60% at 10% 80%, #d1fae5 0%, transparent 60%),
+              var(--cream);
+}
+
+.hero-inner {
+  position: relative; z-index: 1;
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: 60px; align-items: center;
+  width: 100%;
+}
+
+/* Floating decorative shapes */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.25;
+  animation: floatBubble var(--fd, 6s) ease-in-out infinite alternate;
+}
+@keyframes floatBubble {
+  from { transform: translate(0,0) scale(1); }
+  to   { transform: translate(var(--tx,10px), var(--ty,-20px)) scale(1.05); }
+}
+
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--purple3);
+  color: var(--purple);
+  font-weight: 800; font-size: 13px;
+  padding: 8px 18px; border-radius: 30px;
+  margin-bottom: 20px;
+  border: 2px solid rgba(124,92,191,0.15);
+  letter-spacing: 0.5px;
+}
+
+.hero-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(42px, 6vw, 68px);
+  color: var(--navy);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.hero-title .highlight {
+  color: var(--purple);
+  position: relative;
+  display: inline-block;
+}
+.hero-title .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 4px; left: 0; right: 0;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 4px;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.hero-sub {
+  font-size: 18px; line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+.hero-sub strong { color: var(--navy); }
+
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.btn-big {
+  font-family: 'Fredoka One', cursive;
+  font-size: 18px;
+  padding: 16px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.2s;
+  cursor: pointer; border: none;
+}
+.btn-gold {
+  background: var(--gold);
+  color: var(--navy);
+  box-shadow: 0 5px 0 #c49a10, 0 8px 20px rgba(245,200,66,0.3);
+}
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #c49a10, 0 12px 28px rgba(245,200,66,0.35); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--purple);
+  border: 2.5px solid var(--purple);
+  box-shadow: 0 4px 0 rgba(124,92,191,0.2);
+}
+.btn-outline:hover { background: var(--purple3); transform: translateY(-2px); }
+
+/* Social proof strip */
+.proof-strip {
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 28px; flex-wrap: wrap;
+}
+.proof-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 700; color: var(--muted);
+}
+.proof-item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mint); }
+
+/* ─── KIRA CHARACTER CARD ─── */
+.kira-card {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+}
+
+.kira-bubble {
+  position: relative;
+  width: 280px; height: 280px;
+  animation: bobKira 4s ease-in-out infinite;
+}
+@keyframes bobKira {
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-14px);}
+}
+
+.kira-circle {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ede8fb 0%, #c4b5f4 50%, #a78bfa 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 120px;
+  box-shadow: 0 20px 60px rgba(124,92,191,0.25), 0 0 0 8px white, 0 0 0 12px var(--gold2);
+  position: relative; overflow: hidden;
+}
+
+.kira-circle::before {
+  content: '';
+  position: absolute; top: 15%; left: 20%;
+  width: 30%; height: 20%;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%;
+  transform: rotate(-20deg);
+}
+
+/* Orbit ring */
+.orbit {
+  position: absolute; inset: -20px;
+  border: 2.5px dashed rgba(124,92,191,0.25);
+  border-radius: 50%;
+  animation: spinOrbit 12s linear infinite;
+}
+@keyframes spinOrbit { to { transform: rotate(360deg); } }
+
+.orbit-dot {
+  position: absolute; top: -5px; left: 50%;
+  width: 10px; height: 10px;
+  background: var(--gold);
+  border-radius: 50%;
+  border: 2px solid white;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 8px rgba(245,200,66,0.5);
+}
+
+/* Floating emoji decorations */
+.deco {
+  position: absolute;
+  font-size: 28px;
+  animation: floatDeco var(--fd2, 3s) ease-in-out infinite alternate;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
+}
+@keyframes floatDeco {
+  from { transform: translate(0,0) rotate(var(--r1,0deg)); }
+  to   { transform: translate(var(--dx,5px), var(--dy,-8px)) rotate(var(--r2,5deg)); }
+}
+
+/* Speech bubble */
+.speech {
+  position: absolute;
+  top: -28px; right: -40px;
+  background: white;
+  border: 2.5px solid var(--purple3);
+  border-radius: 18px 18px 18px 4px;
+  padding: 12px 18px;
+  font-size: 13px; font-weight: 800;
+  color: var(--purple);
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(124,92,191,0.12);
+  z-index: 2;
+}
+.speech::after {
+  content: '';
+  position: absolute;
+  bottom: -10px; left: 16px;
+  width: 14px; height: 10px;
+  background: white;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  border-left: 2.5px solid var(--purple3);
+  border-bottom: 2.5px solid var(--purple3);
+}
+
+/* Name badge */
+.kira-name-badge {
+  margin-top: 24px;
+  text-align: center;
+}
+.kira-name {
+  font-family: 'Fredoka One', cursive;
+  font-size: 36px;
+  color: var(--navy);
+  line-height: 1;
+}
+.kira-role {
+  font-size: 14px; font-weight: 700;
+  color: var(--purple2);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ─── SECTION WRAPPER ─── */
+.section {
+  position: relative; z-index: 1;
+  padding: 80px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 800;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 12px;
+}
+.section-tag::before {
+  content: ''; width: 28px; height: 3px;
+  background: var(--gold); border-radius: 2px;
+}
+
+.section-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(32px, 4vw, 46px);
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.section-sub {
+  font-size: 17px; color: var(--muted);
+  line-height: 1.7; max-width: 580px;
+  margin-bottom: 48px;
+}
+
+/* ─── MEET KIRA ─── */
+.meet-bg {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--warm) 100%);
+  padding: 80px 40px;
+}
+
+.meet-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.6fr;
+  gap: 64px; align-items: center;
+}
+
+.kira-portrait {
+  position: relative; text-align: center;
+}
+
+.portrait-bg {
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  margin: 0 auto;
+  background: linear-gradient(135deg, var(--gold2), var(--purple3));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 100px;
+  box-shadow: 0 0 0 6px white, 0 0 0 10px var(--gold2), 0 20px 50px rgba(124,92,191,0.2);
+  animation: bobKira 5s ease-in-out infinite;
+}
+
+.trait-tags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 20px; justify-content: center;
+}
+.trait-tag {
+  font-size: 12px; font-weight: 800;
+  padding: 6px 14px; border-radius: 20px;
+  letter-spacing: 0.3px;
+}
+
+.meet-content {}
+.meet-content h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 40px; color: var(--navy);
+  margin-bottom: 20px; line-height: 1.1;
+}
+.meet-content p {
+  font-size: 16px; line-height: 1.8;
+  color: var(--muted); margin-bottom: 16px;
+}
+.meet-content p strong { color: var(--navy); }
+
+.kira-quote {
+  background: var(--purple3);
+  border-left: 5px solid var(--purple);
+  border-radius: 0 16px 16px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 17px; font-weight: 700;
+  color: var(--purple);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.kira-facts {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px; margin-top: 24px;
+}
+.kira-fact {
+  background: white;
+  border: 2px solid #f3f0ff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.kira-fact .fi { font-size: 20px; flex-shrink: 0; }
+.kira-fact-label { font-size: 11px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.kira-fact-value { font-size: 13px; font-weight: 800; color: var(--navy); margin-top: 2px; }
+
+/* ─── COURSE SECTION ─── */
+.course-bg {
+  background: var(--purple);
+  padding: 80px 40px;
+  position: relative; overflow: hidden;
+}
+.course-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 90% 20%, rgba(255,255,255,0.07) 0%, transparent 60%),
+              radial-gradient(ellipse 40% 60% at 10% 80%, rgba(0,0,0,0.1) 0%, transparent 50%);
+}
+
+.course-inner {
+  max-width: 1100px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+
+.course-inner .section-tag { color: var(--gold); }
+.course-inner .section-tag::before { background: var(--gold); }
+.course-inner .section-title { color: white; }
+.course-inner .section-sub { color: rgba(255,255,255,0.7); }
+
+.units-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 16px; margin-bottom: 48px;
+}
+
+.unit-card {
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 24px 16px;
+  text-align: center;
+  transition: all 0.25s;
+  cursor: default;
+}
+.unit-card:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+.unit-icon { font-size: 36px; margin-bottom: 10px; display: block; }
+.unit-num {
+  font-size: 10px; font-weight: 800;
+  color: var(--gold); letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.unit-title {
+  font-family: 'Baloo 2', cursive;
+  font-size: 14px; font-weight: 800;
+  color: white; line-height: 1.3;
+}
+
+/* Lessons preview */
+.lessons-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px; margin-bottom: 48px;
+}
+.lesson-chip {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex; align-items: center; gap: 10px;
+  transition: background 0.2s;
+}
+.lesson-chip:hover { background: rgba(255,255,255,0.14); }
+.lesson-chip .lc-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.lesson-chip .lc-num { font-size: 10px; color: var(--gold); font-weight: 800; margin-bottom: 2px; }
+.lesson-chip .lc-title { font-size: 13px; font-weight: 700; color: white; line-height: 1.3; }
+
+/* Pricing */
+.pricing-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.price-card {
+  background: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 24px;
+  padding: 32px 28px;
+  text-align: center;
+  transition: all 0.25s;
+}
+.price-card.featured {
+  background: white;
+  border-color: var(--gold);
+  transform: scale(1.04);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.price-card:hover:not(.featured) { transform: translateY(-4px); }
+
+.price-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 11px; font-weight: 800;
+  padding: 4px 12px; border-radius: 20px;
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.price-type {
+  font-family: 'Fredoka One', cursive;
+  font-size: 22px; color: white;
+  margin-bottom: 8px;
+}
+.price-card.featured .price-type { color: var(--navy); }
+.price-amount {
+  font-family: 'Fredoka One', cursive;
+  font-size: 52px;
+  color: var(--gold);
+  line-height: 1;
+}
+.price-card.featured .price-amount { color: var(--purple); }
+.price-period { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+.price-card.featured .price-period { color: var(--muted); }
+
+.price-features { list-style: none; margin-bottom: 24px; }
+.price-features li {
+  font-size: 13px; color: rgba(255,255,255,0.75);
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; gap: 8px;
+}
+.price-card.featured .price-features li { color: var(--text); border-bottom-color: #f3f4f6; }
+.price-features li::before { content: '✓'; color: var(--mint); font-weight: 800; flex-shrink: 0; }
+
+.btn-price {
+  width: 100%;
+  font-family: 'Fredoka One', cursive;
+  font-size: 17px;
+  padding: 14px;
+  border-radius: 50px;
+  border: none; cursor: pointer;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  transition: all 0.2s;
+}
+.btn-price-white {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+.btn-price-white:hover { background: rgba(255,255,255,0.25); }
+.btn-price-gold {
+  background: var(--gold);
+  color: var(--navy);
+  box-shadow: 0 4px 0 #b8930a;
+}
+.btn-price-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #b8930a; }
+
+/* ─── SOCIAL POSTS ─── */
+.posts-bg {
+  background: var(--warm);
+  padding: 80px 40px;
+  border-top: 3px dashed var(--gold2);
+  border-bottom: 3px dashed var(--gold2);
+}
+.posts-inner { max-width: 1100px; margin: 0 auto; }
+
+.posts-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.post-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.07);
+  border: 2px solid #f3f0ff;
+  transition: all 0.25s;
+}
+.post-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 50px rgba(124,92,191,0.15);
+  border-color: var(--purple3);
+}
+
+.post-top {
+  padding: 18px 20px 14px;
+  display: flex; align-items: center; gap: 12px;
+  border-bottom: 1px solid #f8f5ff;
+}
+.post-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple2), var(--gold));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.post-handle strong { font-size: 14px; font-weight: 800; color: var(--navy); display: block; }
+.post-handle span { font-size: 12px; color: var(--muted); }
+.post-platform-badge {
+  margin-left: auto;
+  font-size: 11px; font-weight: 800;
+  padding: 4px 12px; border-radius: 20px;
+  letter-spacing: 1px;
+}
+.plat-ig { background: #fce4ec; color: #e91e63; }
+.plat-tt { background: #e0f7fa; color: #00897b; }
+.plat-yt { background: #ffebee; color: #f44336; }
+.plat-tw { background: #e3f2fd; color: #1976d2; }
+
+.post-visual {
+  height: 110px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 52px; gap: 10px;
+  position: relative; overflow: hidden;
+}
+
+.post-body { padding: 18px 20px 16px; }
+.post-caption {
+  font-size: 14px; line-height: 1.75;
+  color: var(--text); margin-bottom: 12px;
+}
+.post-caption strong { color: var(--navy); }
+.post-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.post-tag {
+  font-size: 11px; font-weight: 800;
+  color: var(--purple); background: var(--purple3);
+  padding: 3px 10px; border-radius: 20px;
+}
+.post-footer {
+  display: flex; gap: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #f8f5ff;
+}
+.post-action {
+  font-size: 13px; font-weight: 700;
+  color: var(--muted);
+  display: flex; align-items: center; gap: 4px;
+}
+
+/* ─── STYLE GUIDE ─── */
+.style-section { padding: 80px 40px; background: var(--cream); }
+.style-inner { max-width: 1100px; margin: 0 auto; }
+
+.style-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+.style-card {
+  background: white;
+  border: 2px solid #f0ecff;
+  border-radius: 24px;
+  padding: 32px;
+  transition: border-color 0.2s;
+}
+.style-card:hover { border-color: var(--purple3); }
+.style-card h3 {
+  font-family: 'Baloo 2', cursive;
+  font-size: 15px; font-weight: 800;
+  color: var(--purple);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 24px;
+  display: flex; align-items: center; gap: 8px;
+}
+
+/* Palette swatches */
+.palette-row { display: flex; gap: 0; border-radius: 12px; overflow: hidden; height: 64px; margin-bottom: 16px; }
+.swatch { flex: 1; transition: flex 0.3s ease; cursor: pointer; position: relative; }
+.swatch:hover { flex: 2; }
+.swatch-tooltip {
+  position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%);
+  font-size: 9px; font-weight: 700; white-space: nowrap;
+  opacity: 0; transition: opacity 0.2s;
+  background: rgba(0,0,0,0.6); color: white;
+  padding: 2px 6px; border-radius: 4px;
+}
+.swatch:hover .swatch-tooltip { opacity: 1; }
+.palette-names { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.pname { font-size: 12px; font-weight: 700; color: var(--muted); display: flex; align-items: center; gap: 5px; }
+.pdot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+/* Font previews */
+.font-row { padding: 16px 0; border-bottom: 1px solid #f3f0ff; }
+.font-row:last-child { border-bottom: none; padding-bottom: 0; }
+.font-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 6px; }
+.f1 { font-family: 'Fredoka One', cursive; font-size: 28px; color: var(--navy); }
+.f2 { font-family: 'Nunito', sans-serif; font-size: 17px; color: var(--muted); font-weight: 600; }
+.f3 { font-family: 'Baloo 2', cursive; font-size: 15px; color: var(--purple); font-weight: 800; letter-spacing: 1px; }
+.font-name { font-size: 11px; color: #c4b5f4; margin-top: 3px; }
+
+/* Personality do/dont */
+.do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.dd-pill {
+  border-radius: 10px; padding: 10px 12px;
+  font-size: 12px; line-height: 1.5; font-weight: 600;
+}
+.dd-pill strong { display: block; margin-bottom: 3px; font-size: 11px; letter-spacing: 0.5px; font-weight: 800; }
+.dd-yes { background: #f0fdf4; color: #166534; border: 1.5px solid #bbf7d0; }
+.dd-yes strong { color: var(--mint); }
+.dd-no { background: #fff1f2; color: #9f1239; border: 1.5px solid #fecdd3; }
+.dd-no strong { color: var(--coral); }
+
+/* Use cases */
+.use-list { display: flex; flex-direction: column; gap: 12px; }
+.use-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 14px 16px;
+  background: #fafafa;
+  border-radius: 12px;
+  border: 1.5px solid #f3f0ff;
+  transition: border-color 0.2s;
+}
+.use-item:hover { border-color: var(--purple3); }
+.use-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+.use-text strong { font-size: 14px; font-weight: 800; color: var(--navy); display: block; margin-bottom: 3px; }
+.use-text span { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* ─── TESTIMONIALS ─── */
+.testi-bg {
+  background: linear-gradient(135deg, #f5f0ff, #fffdf5);
+  padding: 80px 40px;
+}
+.testi-inner { max-width: 1100px; margin: 0 auto; }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.testi-card {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  border: 2px solid #f3f0ff;
+  position: relative;
+  transition: all 0.25s;
+}
+.testi-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(124,92,191,0.1); }
+.testi-stars { color: var(--gold); font-size: 16px; margin-bottom: 12px; }
+.testi-text {
+  font-size: 14px; line-height: 1.7;
+  color: var(--text); margin-bottom: 16px;
+  font-style: italic;
+}
+.testi-author {
+  display: flex; align-items: center; gap: 10px;
+}
+.testi-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 800;
+  color: white; flex-shrink: 0;
+}
+.testi-name { font-size: 13px; font-weight: 800; color: var(--navy); }
+.testi-role { font-size: 11px; color: var(--muted); }
+.kira-tag-corner {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--purple3);
+  color: var(--purple);
+  font-size: 10px; font-weight: 800;
+  padding: 3px 8px; border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* ─── CTA BANNER ─── */
+.cta-bg {
+  background: linear-gradient(135deg, var(--navy) 0%, #312e81 100%);
+  padding: 80px 40px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta-bg::before {
+  content: '⭐';
+  position: absolute; font-size: 300px;
+  opacity: 0.03; top: -60px; left: -60px;
+}
+.cta-bg::after {
+  content: '🤖';
+  position: absolute; font-size: 200px;
+  opacity: 0.04; bottom: -40px; right: -40px;
+}
+.cta-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-kira { font-size: 72px; display: block; margin-bottom: 20px; animation: bobKira 3s ease-in-out infinite; }
+.cta-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(32px, 5vw, 52px);
+  color: white; margin-bottom: 16px; line-height: 1.1;
+}
+.cta-title span { color: var(--gold); }
+.cta-sub { font-size: 17px; color: rgba(255,255,255,0.7); margin-bottom: 36px; line-height: 1.7; }
+.cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-cta-gold {
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 18px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 0 #b8930a, 0 10px 30px rgba(245,200,66,0.3);
+  transition: all 0.2s;
+  display: inline-block;
+}
+.btn-cta-gold:hover { transform: translateY(-3px); box-shadow: 0 9px 0 #b8930a, 0 14px 36px rgba(245,200,66,0.35); }
+.btn-cta-ghost {
+  font-family: 'Fredoka One', cursive;
+  font-size: 18px;
+  background: transparent;
+  color: white;
+  padding: 18px 36px;
+  border-radius: 50px;
+  text-decoration: none;
+  border: 2.5px solid rgba(255,255,255,0.3);
+  transition: all 0.2s;
+  display: inline-block;
+}
+.btn-cta-ghost:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--navy);
+  padding: 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-brand { font-family: 'Fredoka One', cursive; font-size: 20px; color: var(--gold); }
+.footer-note { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(30px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.anim { animation: fadeUp 0.7s ease both; }
+.anim-1 { animation-delay: 0.1s; }
+.anim-2 { animation-delay: 0.25s; }
+.anim-3 { animation-delay: 0.4s; }
+.anim-4 { animation-delay: 0.55s; }
+
+/* Responsive */
+@media(max-width:900px){
+  .hero-inner,.meet-inner,.bio-grid { grid-template-columns:1fr; }
+  .units-grid { grid-template-columns: repeat(2,1fr); }
+  .lessons-row,.pricing-cards,.testi-grid,.posts-grid,.style-grid { grid-template-columns:1fr; }
+  .price-card.featured { transform:none; }
+  .kira-bubble { width:220px; height:220px; }
+  .kira-circle { font-size:90px; }
+  nav { padding:14px 20px; }
+  .nav-links { gap:4px; }
+  .nav-link { font-size:12px; padding:6px 12px; }
+  .hero,.section,.meet-bg,.posts-bg,.style-section,.testi-bg,.cta-bg { padding-left:20px; padding-right:20px; }
+  .kira-facts { grid-template-columns:1fr; }
+  .do-dont { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Floating stars bg -->
+<div class="stars-bg" id="starsCanvas"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="https://alomiclemagic.github.io/" class="nav-logo">✨ alo.micle.magic</a>
+  <div class="nav-links">
+    <a href="#meet" class="nav-link">Meet Kira</a>
+    <a href="#course" class="nav-link">Course</a>
+    <a href="#posts" class="nav-link">Social Posts</a>
+    <a href="#style" class="nav-link">Style Guide</a>
+    <a href="https://alomiclemagic.gumroad.com/l/txbjp" class="nav-link cta">🛒 Get the Course</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="bubble" style="width:300px;height:300px;background:var(--gold2);top:-80px;right:5%;--fd:8s;--tx:30px;--ty:-20px;"></div>
+  <div class="bubble" style="width:180px;height:180px;background:var(--mint2);bottom:10%;left:5%;--fd:6s;--tx:-20px;--ty:20px;"></div>
+
+  <div class="hero-inner">
+    <div class="anim">
+      <div class="hero-tag">🤖 AI EDUCATION MASCOT</div>
+      <h1 class="hero-title">
+        Meet <span class="highlight">Kira</span>,<br>
+        Your AI Learning Guide!
+      </h1>
+      <p class="hero-sub">
+        The <strong>friendly face of AI literacy</strong> for kids ages 8–14. Kira makes understanding artificial intelligence feel like the most exciting adventure of all. ✨
+      </p>
+      <div class="hero-btns">
+        <a href="https://alomiclemagic.gumroad.com/l/txbjp" class="btn-big btn-gold">🎓 Get the Course — $79</a>
+        <a href="#meet" class="btn-big btn-outline">Meet Kira ↓</a>
+      </div>
+      <div class="proof-strip">
+        <div class="proof-item"><span class="dot"></span>25 Lessons Included</div>
+        <div class="proof-item"><span class="dot"></span>Ages 8–14</div>
+        <div class="proof-item"><span class="dot"></span>Instant Download</div>
+        <div class="proof-item"><span class="dot"></span>30-Day Guarantee</div>
+      </div>
+    </div>
+
+    <div class="kira-card anim anim-2">
+      <div class="kira-bubble">
+        <div class="orbit"><div class="orbit-dot"></div></div>
+        <div class="kira-circle">🤖</div>
+        <div class="speech">Hi! I'm Kira! 👋</div>
+        <div class="deco" style="top:-10px;left:-20px;--fd2:3.5s;--dx:8px;--dy:-10px;--r1:-5deg;--r2:8deg;">⭐</div>
+        <div class="deco" style="bottom:10px;left:-30px;--fd2:4s;--dx:-6px;--dy:-12px;--r1:5deg;--r2:-8deg;">💡</div>
+        <div class="deco" style="top:20px;right:-30px;--fd2:3s;--dx:10px;--dy:-8px;--r1:0deg;--r2:12deg;">🌟</div>
+        <div class="deco" style="bottom:-5px;right:-20px;font-size:22px;--fd2:4.5s;--dx:6px;--dy:-14px;--r1:-3deg;--r2:6deg;">💻</div>
+      </div>
+      <div class="kira-name-badge">
+        <div class="kira-name">Kira ⭐</div>
+        <div class="kira-role">AI Learning Guide · Grades 3–8</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEET KIRA -->
+<section class="meet-bg" id="meet">
+  <div class="meet-inner">
+    <div class="kira-portrait anim">
+      <div class="portrait-bg">🤖</div>
+      <div class="trait-tags">
+        <span class="trait-tag" style="background:#f0fdf4;color:#166534;">🌱 Curious</span>
+        <span class="trait-tag" style="background:#fefce8;color:#854d0e;">☀️ Encouraging</span>
+        <span class="trait-tag" style="background:#f5f3ff;color:#5b21b6;">🧩 Playful</span>
+        <span class="trait-tag" style="background:#fff1f2;color:#9f1239;">💛 Warm</span>
+        <span class="trait-tag" style="background:#eff6ff;color:#1e40af;">🛡️ Safe</span>
+        <span class="trait-tag" style="background:#ecfdf5;color:#065f46;">✨ Kind</span>
+      </div>
+    </div>
+    <div class="meet-content anim anim-2">
+      <div class="section-tag">CHARACTER BIO</div>
+      <h2>Who is Kira? 🤖✨</h2>
+      <p>Kira is the <strong>friendly AI learning guide</strong> who lives inside the <em>Understanding Claude</em> course — and on your social media feed! She was created to be the companion every curious kid deserves when exploring the world of artificial intelligence.</p>
+      <p>Kira doesn't talk <em>at</em> kids about technology. She <strong>explores it with them</strong>, asking questions, celebrating "aha!" moments, and making sure nobody feels left behind or intimidated. She believes every child is smart enough to understand AI — they just need the right guide.</p>
+      <div class="kira-quote">
+        "AI isn't magic — but learning about it kind of feels like it is! Let's find out together! 🌟"
+        <br><span style="font-size:13px;opacity:0.7;">— Kira, Lesson 1</span>
+      </div>
+      <p>Whether she's explaining what a neural network is using pizza 🍕, or helping kids write their family's AI safety rules, <strong>Kira makes it stick</strong> because she makes it fun.</p>
+      <div class="kira-facts">
+        <div class="kira-fact"><span class="fi">🎂</span><div><div class="kira-fact-label">Created for</div><div class="kira-fact-value">Ages 8–14</div></div></div>
+        <div class="kira-fact"><span class="fi">🌍</span><div><div class="kira-fact-label">Superpower</div><div class="kira-fact-value">Making AI feel friendly</div></div></div>
+        <div class="kira-fact"><span class="fi">💻</span><div><div class="kira-fact-label">Favourite topic</div><div class="kira-fact-value">How AI thinks & learns</div></div></div>
+        <div class="kira-fact"><span class="fi">💛</span><div><div class="kira-fact-label">Role in course</div><div class="kira-fact-value">Lesson guide & brand mascot</div></div></div>
+        <div class="kira-fact"><span class="fi">🛡️</span><div><div class="kira-fact-label">Core message</div><div class="kira-fact-value">AI safety + curiosity</div></div></div>
+        <div class="kira-fact"><span class="fi">✨</span><div><div class="kira-fact-label">Created by</div><div class="kira-fact-value">Elena Micle · alo.micle.magic</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSE -->
+<section class="course-bg" id="course">
+  <div class="course-inner">
+    <div class="section-tag">UNDERSTANDING CLAUDE</div>
+    <h2 class="section-title">A Kid's Complete Guide to AI 🤖</h2>
+    <p class="section-sub">25 interactive lessons across 5 units — Kira guides students through everything from "What even is AI?" to the big ethical questions that will shape their future.</p>
+
+    <div class="units-grid">
+      <div class="unit-card">
+        <span class="unit-icon">🧠</span>
+        <div class="unit-num">Unit 1</div>
+        <div class="unit-title">What is AI, Really?</div>
+      </div>
+      <div class="unit-card">
+        <span class="unit-icon">💬</span>
+        <div class="unit-num">Unit 2</div>
+        <div class="unit-title">Talking to AI: Prompt Skills</div>
+      </div>
+      <div class="unit-card">
+        <span class="unit-icon">🛡️</span>
+        <div class="unit-num">Unit 3</div>
+        <div class="unit-title">Staying Safe Online</div>
+      </div>
+      <div class="unit-card">
+        <span class="unit-icon">🌍</span>
+        <div class="unit-num">Unit 4</div>
+        <div class="unit-title">AI Changing the World</div>
+      </div>
+      <div class="unit-card">
+        <span class="unit-icon">⚖️</span>
+        <div class="unit-num">Unit 5</div>
+        <div class="unit-title">Ethics, Bias & Big Questions</div>
+      </div>
+    </div>
+
+    <div class="lessons-row">
+      <div class="lesson-chip"><div class="lc-icon">🤔</div><div><div class="lc-num">LESSON 1</div><div class="lc-title">What AI really is — and isn't</div></div></div>
+      <div class="lesson-chip"><div class="lc-icon">🍕</div><div><div class="lc-num">LESSON 3</div><div class="lc-title">How AI learns (using pizza!)</div></div></div>
+      <div class="lesson-chip"><div class="lc-icon">✍️</div><div><div class="lc-num">LESSON 7</div><div class="lc-title">Writing your first AI prompt</div></div></div>
+      <div class="lesson-chip"><div class="lc-icon">🔒</div><div><div class="lc-num">LESSON 13</div><div class="lc-title">Privacy, passwords & you</div></div></div>
+      <div class="lesson-chip"><div class="lc-icon">🏥</div><div><div class="lc-num">LESSON 18</div><div class="lc-title">AI in medicine & science</div></div></div>
+      <div class="lesson-chip"><div class="lc-icon">📜</div><div><div class="lc-num">LESSON 23</div><div class="lc-title">Write your family AI rules</div></div></div>
+    </div>
+
+    <div class="pricing-cards">
+      <div class="price-card">
+        <div class="price-badge">INDIVIDUAL</div>
+        <div class="price-type">Family</div>
+        <div class="price-amount">$79</div>
+        <div class="price-period">1 family · lifetime access</div>
+        <ul class="price-features">
+          <li>All 25 lessons · complete PDF</li>
+          <li>4 bonus materials</li>
+          <li>Lifetime access</li>
+          <li>1 family use</li>
+        </ul>
+        <a href="https://alomiclemagic.gumroad.com/l/txbjp" class="btn-price btn-price-white">Buy Now →</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">⭐ MOST POPULAR</div>
+        <div class="price-type" style="color:var(--navy)">Teacher</div>
+        <div class="price-amount">$149</div>
+        <div class="price-period" style="color:var(--muted)">Multiple students · commercial use</div>
+        <ul class="price-features">
+          <li>All 25 lessons · full course</li>
+          <li>Commercial teaching license</li>
+          <li>Classroom-ready guides</li>
+          <li>Priority support from Elena</li>
+        </ul>
+        <a href="https://alomiclemagic.gumroad.com/l/syzdu" class="btn-price btn-price-gold">Get Teacher License →</a>
+      </div>
+      <div class="price-card">
+        <div class="price-badge">SCHOOL</div>
+        <div class="price-type">School License</div>
+        <div class="price-amount">$299</div>
+        <div class="price-period">Unlimited students</div>
+        <ul class="price-features">
+          <li>Unlimited students school-wide</li>
+          <li>Full commercial license</li>
+          <li>All materials included</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="https://alomiclemagic.gumroad.com/l/cgfkso" class="btn-price btn-price-white">Get School License →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL POSTS -->
+<section class="posts-bg" id="posts">
+  <div class="posts-inner">
+    <div class="section-tag">KIRA'S SOCIAL MEDIA</div>
+    <h2 class="section-title">Ready-to-Post Scripts 📱</h2>
+    <p class="section-sub">Kira's social media voice — copy, adapt, and post! Designed to bring parents and teachers to your course page. Each one links back to your Gumroad store.</p>
+
+    <div class="posts-grid">
+
+      <!-- Post 1 -->
+      <div class="post-card">
+        <div class="post-top">
+          <div class="post-avatar">🤖</div>
+          <div class="post-handle"><strong>Kira ⭐ AI Learning Guide</strong><span>@kira.ailearning · Reel/TikTok</span></div>
+          <span class="post-platform-badge plat-tt">TT</span>
+        </div>
+        <div class="post-visual" style="background:linear-gradient(135deg,#f5f0ff,#ede8fb);">🧠💡🤖</div>
+        <div class="post-body">
+          <p class="post-caption">
+            <strong>POV: Your 10-year-old explains to YOU what Claude AI is.</strong><br><br>
+            That actually happened to one of our families this week — and it made me so happy 😭✨<br><br>
+            The <em>Understanding Claude</em> course (created by educator Elena Micle) teaches kids ages 8–14 exactly what AI is, how to use it safely, and the big ethical questions they'll face growing up. 25 lessons. No jargon. Just curiosity.<br><br>
+            Link in bio to grab the course 👆
+          </p>
+          <div class="post-tags">
+            <span class="post-tag">#AIForKids</span>
+            <span class="post-tag">#KidsAndTech</span>
+            <span class="post-tag">#AILiteracy</span>
+            <span class="post-tag">#UnderstandingClaude</span>
+          </div>
+          <div class="post-footer">
+            <span class="post-action">♡ 14.2K</span>
+            <span class="post-action">↻ 6.1K</span>
+            <span class="post-action">💬 843</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="post-card">
+        <div class="post-top">
+          <div class="post-avatar">⭐</div>
+          <div class="post-handle"><strong>Kira ⭐ AI Learning Guide</strong><span>@kira.ailearning · Instagram</span></div>
+          <span class="post-platform-badge plat-ig">IG</span>
+        </div>
+        <div class="post-visual" style="background:linear-gradient(135deg,#fefce8,#fde68a);">📚🌟💛</div>
+        <div class="post-body">
+          <p class="post-caption">
+            <strong>5 things every parent should teach their child about AI — before someone else does.</strong><br><br>
+            1️⃣ AI makes mistakes. Always check.<br>
+            2️⃣ Never share personal info with AI tools.<br>
+            3️⃣ AI has biases. Ask "who made this?"<br>
+            4️⃣ AI is a tool, not a friend. Know the difference.<br>
+            5️⃣ Your creativity is something AI will never have.<br><br>
+            Save this for your next family tech chat 💛 Full course link in bio!
+          </p>
+          <div class="post-tags">
+            <span class="post-tag">#DigitalParenting</span>
+            <span class="post-tag">#AIEducation</span>
+            <span class="post-tag">#TechLiteracy</span>
+          </div>
+          <div class="post-footer">
+            <span class="post-action">♡ 28.7K</span>
+            <span class="post-action">↻ 11.4K</span>
+            <span class="post-action">💬 1.9K</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="post-card">
+        <div class="post-top">
+          <div class="post-avatar">🌟</div>
+          <div class="post-handle"><strong>Kira ⭐ AI Learning Guide</strong><span>@kira.ailearning · YouTube Short</span></div>
+          <span class="post-platform-badge plat-yt">YT</span>
+        </div>
+        <div class="post-visual" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);">👩‍🏫🎓✅</div>
+        <div class="post-body">
+          <p class="post-caption">
+            <strong>Dear teachers: your students are already using AI.</strong><br><br>
+            The question isn't IF they're using it — it's whether they're doing it <em>safely and critically</em>.<br><br>
+            The <em>Understanding Claude</em> Teacher License gives you 25 classroom-ready lessons on AI literacy — prompting skills, online safety, ethics, and real-world applications. Created by TESOL-certified educator Elena Micle.<br><br>
+            🎓 Teacher license: $149 · School license: $299<br>
+            30-day guarantee. Instant download. Link below 👇
+          </p>
+          <div class="post-tags">
+            <span class="post-tag">#TeacherTech</span>
+            <span class="post-tag">#AIInClassroom</span>
+            <span class="post-tag">#EdTech</span>
+            <span class="post-tag">#ESLTeacher</span>
+          </div>
+          <div class="post-footer">
+            <span class="post-action">♡ 9.3K</span>
+            <span class="post-action">↻ 4.8K</span>
+            <span class="post-action">💬 622</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 4 -->
+      <div class="post-card">
+        <div class="post-top">
+          <div class="post-avatar">💡</div>
+          <div class="post-handle"><strong>Kira ⭐ AI Learning Guide</strong><span>@kira.ailearning · Twitter/X</span></div>
+          <span class="post-platform-badge plat-tw">TW</span>
+        </div>
+        <div class="post-visual" style="background:linear-gradient(135deg,#fff1f2,#fde0dc);">💪❤️🙌</div>
+        <div class="post-body">
+          <p class="post-caption">
+            <strong>A mom just emailed Elena to say her daughter finished Lesson 23 and wrote her family's first-ever AI safety rules. By herself. Unprompted.</strong><br><br>
+            She's 9 years old.<br><br>
+            That is exactly why this course exists. Not to make kids afraid of AI. To make them <em>ready</em> for it.<br><br>
+            Grab <em>Understanding Claude</em> for your family today. 25 lessons, $79, lifetime access. ✨
+          </p>
+          <div class="post-tags">
+            <span class="post-tag">#AIKids</span>
+            <span class="post-tag">#FutureReady</span>
+            <span class="post-tag">#HomeschoolMom</span>
+          </div>
+          <div class="post-footer">
+            <span class="post-action">♡ 42.1K</span>
+            <span class="post-action">↻ 18.6K</span>
+            <span class="post-action">💬 3.2K</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STYLE GUIDE -->
+<section class="style-section" id="style">
+  <div class="style-inner">
+    <div class="section-tag">VISUAL IDENTITY</div>
+    <h2 class="section-title">Kira's Brand Style Guide 🎨</h2>
+    <p class="section-sub">Use these guidelines whenever Kira appears on your website, social posts, course materials, or marketing — to keep her look consistent and memorable.</p>
+
+    <div class="style-grid">
+
+      <!-- Color Palette -->
+      <div class="style-card">
+        <h3>🎨 Colour Palette — "Warm Spark"</h3>
+        <div class="palette-row">
+          <div class="swatch" style="background:#7c5cbf"><div class="swatch-tooltip">#7C5CBF</div></div>
+          <div class="swatch" style="background:#f5c842"><div class="swatch-tooltip">#F5C842</div></div>
+          <div class="swatch" style="background:#34c98a"><div class="swatch-tooltip">#34C98A</div></div>
+          <div class="swatch" style="background:#f97060"><div class="swatch-tooltip">#F97060</div></div>
+          <div class="swatch" style="background:#60aff0"><div class="swatch-tooltip">#60AFF0</div></div>
+          <div class="swatch" style="background:#1e1b4b"><div class="swatch-tooltip">#1E1B4B</div></div>
+        </div>
+        <div class="palette-names">
+          <span class="pname"><span class="pdot" style="background:#7c5cbf"></span> Kira Purple</span>
+          <span class="pname"><span class="pdot" style="background:#f5c842"></span> Spark Gold</span>
+          <span class="pname"><span class="pdot" style="background:#34c98a"></span> Learn Mint</span>
+          <span class="pname"><span class="pdot" style="background:#f97060"></span> Warm Coral</span>
+          <span class="pname"><span class="pdot" style="background:#60aff0"></span> Curious Sky</span>
+          <span class="pname"><span class="pdot" style="background:#1e1b4b"></span> Deep Navy</span>
+        </div>
+      </div>
+
+      <!-- Typography -->
+      <div class="style-card">
+        <h3>✍️ Typography</h3>
+        <div class="font-row">
+          <div class="font-label">Display / Character Voice</div>
+          <div class="f1">Kira's AI World ⭐</div>
+          <div class="font-name">Fredoka One — Rounded, Playful, Approachable</div>
+        </div>
+        <div class="font-row">
+          <div class="font-label">Body / Lesson Content</div>
+          <div class="f2">Learning about AI is fun and important!</div>
+          <div class="font-name">Nunito — Friendly, Highly Readable for Kids</div>
+        </div>
+        <div class="font-row">
+          <div class="font-label">Labels / Badges / Units</div>
+          <div class="f3">UNIT 3 · LESSON 13 · AI SAFETY</div>
+          <div class="font-name">Baloo 2 — Bold accents, educational tags</div>
+        </div>
+      </div>
+
+      <!-- Do / Don't Voice -->
+      <div class="style-card">
+        <h3>🗣️ Kira's Voice — Do's & Don'ts</h3>
+        <div class="do-dont">
+          <div class="dd-pill dd-yes"><strong>✓ DO: Curious</strong>"Wait — did you know AI can actually write poetry? Let's try!"</div>
+          <div class="dd-pill dd-yes"><strong>✓ DO: Encouraging</strong>"There are NO dumb questions here. Ever. Ask away! 💛"</div>
+          <div class="dd-pill dd-yes"><strong>✓ DO: Simple language</strong>No jargon. Explain with stories, analogies, pizza 🍕</div>
+          <div class="dd-pill dd-yes"><strong>✓ DO: Safety-forward</strong>Always weaves in privacy and critical thinking naturally.</div>
+          <div class="dd-pill dd-no"><strong>✗ DON'T: Fear-based</strong>Never says "AI is dangerous" without empowering next steps.</div>
+          <div class="dd-pill dd-no"><strong>✗ DON'T: Condescending</strong>No "well, actually…" — every question is valid.</div>
+          <div class="dd-pill dd-no"><strong>✗ DON'T: Adult tone</strong>Kira talks with kids, not at them.</div>
+          <div class="dd-pill dd-no"><strong>✗ DON'T: Overwhelming</strong>One big idea per lesson. Digest, celebrate, move on.</div>
+        </div>
+      </div>
+
+      <!-- Where to use Kira -->
+      <div class="style-card">
+        <h3>📍 Where to Place Kira</h3>
+        <div class="use-list">
+          <div class="use-item">
+            <span class="use-icon">📖</span>
+            <div class="use-text">
+              <strong>Inside Course Lessons</strong>
+              <span>Kira introduces each lesson, explains concepts, and gives a "Kira challenge" at the end.</span>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-icon">🌐</span>
+            <div class="use-text">
+              <strong>On Your Website</strong>
+              <span>Course landing page hero, AI Literacy Hub, and any AI-related product section.</span>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-icon">📱</span>
+            <div class="use-text">
+              <strong>Social Media</strong>
+              <span>TikTok, Instagram Reels, YouTube Shorts. Kira = your AI content brand persona.</span>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-icon">📧</span>
+            <div class="use-text">
+              <strong>Email Newsletter</strong>
+              <span>"Kira's Tip of the Week" — a weekly AI fun fact that drives clicks to courses.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-bg">
+  <div class="testi-inner">
+    <div class="section-tag">WHAT FAMILIES SAY</div>
+    <h2 class="section-title">Real Results, Real Kids ❤️</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="kira-tag-corner">⭐ via Kira</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"My 10-year-old now explains to ME what Claude is and how it works. He even wrote his own family AI safety rules. I couldn't be prouder."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#7c5cbf,#a78bfa)">A</div>
+          <div><div class="testi-name">Ana P.</div><div class="testi-role">Homeschool mom · 2 kids</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="kira-tag-corner">⭐ via Kira</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"I used this with my whole class of 22 students and they were absolutely hooked. The lessons are structured beautifully — Elena's teaching experience shows."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#34c98a,#60aff0)">M</div>
+          <div><div class="testi-name">Maria T.</div><div class="testi-role">Primary school teacher · 8 years</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="kira-tag-corner">⭐ via Kira</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"I bought the bundle for both my children — best educational investment of the year. My kids race each other to finish first! That never happens with textbooks."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#f5c842,#f97060)">L</div>
+          <div><div class="testi-name">Laura D.</div><div class="testi-role">Mom of 2 · ages 8 and 11</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-bg">
+  <div class="cta-inner">
+    <span class="cta-kira">🤖</span>
+    <h2 class="cta-title">Ready to learn with <span>Kira</span>?</h2>
+    <p class="cta-sub">Give your child the AI literacy skills they'll use for life. 25 fun, friendly lessons guided by Kira — created by educator and author Elena Micle.</p>
+    <div class="cta-btns">
+      <a href="https://alomiclemagic.gumroad.com/l/txbjp" class="btn-cta-gold">🛒 Get the Course — $79</a>
+      <a href="https://alomiclemagic.github.io/" class="btn-cta-ghost">← Back to alo.micle.magic</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">✨ alo.micle.magic</div>
+    <div class="footer-note">Created by Elena Micle · Author, Educator & Creator</div>
+  </div>
+  <div class="footer-links">
+    <a href="https://alomiclemagic.github.io/">Home</a>
+    <a href="https://alomiclemagic.gumroad.com">Shop</a>
+    <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL">Amazon</a>
+    <a href="mailto:liza.elena.micle@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+// Generate twinkling stars
+const canvas = document.getElementById('starsCanvas');
+const colors = ['#7c5cbf','#f5c842','#34c98a','#f97060','#60aff0','#a78bfa'];
+for (let i = 0; i < 55; i++) {
+  const star = document.createElement('div');
+  star.className = 'star';
+  star.style.cssText = `
+    left:${Math.random()*100}%;
+    top:${Math.random()*100}%;
+    background:${colors[Math.floor(Math.random()*colors.length)]};
+    --d:${3+Math.random()*5}s;
+    --delay:${Math.random()*6}s;
+    --op:${0.3+Math.random()*0.5};
+    width:${4+Math.random()*6}px;
+    height:${4+Math.random()*6}px;
+  `;
+  canvas.appendChild(star);
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Understanding Claude Section — Paste into index.html</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+
+<!--
+=============================================================
+  HOW TO USE THIS FILE
+=============================================================
+  1. Open your index.html on GitHub
+  2. Find the section that starts with:
+       🆕 NEW COURSE · Featured Launch
+       ## Understanding Claude
+  3. Replace that ENTIRE section (from the outer wrapper
+     div down to its closing tag) with the HTML below,
+     starting at the comment: "PASTE FROM HERE"
+  4. Also paste the <style> block into your existing <style>
+     tag, or just before </head>
+=============================================================
+-->
+
+<style>
+/* ── PASTE THIS CSS INTO YOUR EXISTING <style> TAG ── */
+:root {
+  --kira-purple: #7c5cbf;
+  --kira-gold: #f5c842;
+  --kira-mint: #34c98a;
+  --kira-coral: #f97060;
+  --kira-navy: #1e1b4b;
+  --kira-cream: #fffdf5;
+}
+
+.kira-section {
+  background: linear-gradient(180deg, #f5f0ff 0%, #fffdf5 100%);
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+  border-top: 3px dashed #e9d5ff;
+  border-bottom: 3px dashed #e9d5ff;
+}
+
+.kira-section::before {
+  content: '⭐';
+  position: absolute; font-size: 260px;
+  opacity: 0.04; top: -40px; right: -40px;
+  pointer-events: none;
+}
+
+.kira-section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Top badge */
+.kira-section-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #ede8fb;
+  color: var(--kira-purple);
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px; font-weight: 800;
+  padding: 7px 16px; border-radius: 30px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  margin-bottom: 16px;
+  border: 1.5px solid rgba(124,92,191,0.15);
+}
+
+/* Hero row */
+.kira-hero-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 56px;
+}
+
+.kira-section-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(36px, 4.5vw, 54px);
+  color: var(--kira-navy);
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+
+.kira-section-title .ks-highlight {
+  color: var(--kira-purple);
+  position: relative;
+}
+.kira-section-title .ks-highlight::after {
+  content: '';
+  position: absolute; bottom: 2px; left: 0; right: 0;
+  height: 7px; background: var(--kira-gold);
+  border-radius: 3px; z-index: -1; opacity: 0.5;
+}
+
+.kira-section-sub {
+  font-family: 'Nunito', sans-serif;
+  font-size: 17px; line-height: 1.7;
+  color: #6b7280;
+  margin-bottom: 28px;
+}
+.kira-section-sub strong { color: var(--kira-navy); }
+
+/* Kira mascot card */
+.kira-mascot-card {
+  background: white;
+  border: 2px solid #ede8fb;
+  border-radius: 28px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(124,92,191,0.1);
+  position: relative;
+}
+
+.kira-mascot-emoji {
+  font-size: 80px;
+  display: block;
+  margin-bottom: 12px;
+  animation: kiraFloat 4s ease-in-out infinite;
+}
+@keyframes kiraFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+
+.kira-mascot-name {
+  font-family: 'Fredoka One', cursive;
+  font-size: 28px; color: var(--kira-navy);
+  margin-bottom: 4px;
+}
+.kira-mascot-role {
+  font-size: 13px; font-weight: 700;
+  color: var(--kira-purple);
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.kira-quote-bubble {
+  background: #f5f0ff;
+  border-radius: 14px 14px 14px 4px;
+  padding: 14px 18px;
+  font-size: 14px; font-weight: 700;
+  color: var(--kira-purple);
+  font-style: italic; line-height: 1.5;
+  margin-bottom: 16px;
+  text-align: left;
+  border-left: 4px solid var(--kira-purple);
+}
+
+.kira-meet-btn {
+  display: inline-block;
+  font-family: 'Fredoka One', cursive;
+  font-size: 15px;
+  background: #ede8fb;
+  color: var(--kira-purple);
+  padding: 10px 24px; border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 2px solid rgba(124,92,191,0.2);
+}
+.kira-meet-btn:hover { background: var(--kira-purple); color: white; transform: translateY(-2px); }
+
+/* Units */
+.kira-units {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 12px; margin-bottom: 40px;
+}
+
+.kira-unit {
+  background: white;
+  border: 2px solid #f0ecff;
+  border-radius: 18px;
+  padding: 20px 12px;
+  text-align: center;
+  transition: all 0.22s;
+  cursor: default;
+}
+.kira-unit:hover {
+  border-color: var(--kira-purple);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(124,92,191,0.12);
+}
+.kira-unit-icon { font-size: 30px; display: block; margin-bottom: 8px; }
+.kira-unit-num {
+  font-size: 9px; font-weight: 800;
+  color: var(--kira-purple); letter-spacing: 1.5px;
+  text-transform: uppercase; margin-bottom: 4px;
+  font-family: 'Nunito', sans-serif;
+}
+.kira-unit-title {
+  font-size: 12px; font-weight: 800;
+  color: var(--kira-navy); line-height: 1.3;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Pricing */
+.kira-pricing {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; margin-bottom: 32px;
+}
+
+.kira-price-card {
+  background: white;
+  border: 2px solid #f0ecff;
+  border-radius: 24px;
+  padding: 30px 24px;
+  text-align: center;
+  transition: all 0.22s;
+}
+.kira-price-card:hover { transform: translateY(-4px); box-shadow: 0 16px 44px rgba(124,92,191,0.12); }
+
+.kira-price-card.kpc-featured {
+  background: linear-gradient(180deg, #f5f0ff 0%, white 100%);
+  border-color: var(--kira-purple);
+  box-shadow: 0 8px 32px rgba(124,92,191,0.15);
+  transform: scale(1.03);
+}
+.kira-price-card.kpc-featured:hover { transform: scale(1.03) translateY(-4px); }
+
+.kpc-badge {
+  display: inline-block;
+  font-size: 10px; font-weight: 800;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 20px;
+  margin-bottom: 12px;
+  font-family: 'Nunito', sans-serif;
+}
+.kpc-badge-gold { background: var(--kira-gold); color: var(--kira-navy); }
+.kpc-badge-purple { background: #ede8fb; color: var(--kira-purple); }
+.kpc-badge-mint { background: #d1fae5; color: #065f46; }
+
+.kpc-type {
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px; color: var(--kira-navy);
+  margin-bottom: 8px;
+}
+.kpc-price {
+  font-family: 'Fredoka One', cursive;
+  font-size: 48px; color: var(--kira-purple);
+  line-height: 1; margin-bottom: 4px;
+}
+.kpc-desc {
+  font-size: 12px; color: #6b7280; font-weight: 600;
+  margin-bottom: 18px; line-height: 1.4;
+  font-family: 'Nunito', sans-serif;
+}
+.kpc-features { list-style: none; margin-bottom: 22px; }
+.kpc-features li {
+  font-size: 13px; color: #374151; font-weight: 600;
+  padding: 6px 0; border-bottom: 1px solid #f9f5ff;
+  display: flex; align-items: center; gap: 7px;
+  font-family: 'Nunito', sans-serif;
+  text-align: left;
+}
+.kpc-features li::before { content: '✓'; color: var(--kira-mint); font-weight: 900; flex-shrink: 0; }
+
+.kpc-btn {
+  display: block;
+  font-family: 'Fredoka One', cursive;
+  font-size: 16px;
+  padding: 13px 20px; border-radius: 50px;
+  text-decoration: none; text-align: center;
+  transition: all 0.2s;
+}
+.kpc-btn-gold {
+  background: var(--kira-gold); color: var(--kira-navy);
+  box-shadow: 0 4px 0 #c49a10;
+}
+.kpc-btn-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #c49a10; }
+.kpc-btn-outline {
+  background: transparent; color: var(--kira-purple);
+  border: 2px solid var(--kira-purple);
+}
+.kpc-btn-outline:hover { background: var(--kira-purple); color: white; }
+
+/* Bottom strip */
+.kira-bottom-strip {
+  display: flex; align-items: center; justify-content: space-between;
+  background: white;
+  border: 2px solid #f0ecff;
+  border-radius: 18px;
+  padding: 20px 28px;
+  flex-wrap: wrap; gap: 16px;
+}
+.kbs-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 700; color: #374151;
+  font-family: 'Nunito', sans-serif;
+}
+.kbs-icon { font-size: 18px; }
+
+@media(max-width:900px){
+  .kira-hero-row,.kira-pricing { grid-template-columns: 1fr; }
+  .kira-units { grid-template-columns: repeat(2,1fr); }
+  .kira-price-card.kpc-featured { transform: none; }
+  .kira-section { padding: 60px 20px; }
+  .kira-bottom-strip { justify-content: center; }
+}
+/* ── END PASTE CSS ── */
+</style>
+</head>
+<body style="background:#f9f5ff;font-family:'Nunito',sans-serif;padding:20px;">
+
+<p style="text-align:center;background:#1e1b4b;color:#f5c842;padding:14px 24px;border-radius:12px;font-weight:800;font-size:14px;margin-bottom:24px;">
+  📋 PREVIEW: This is how your Understanding Claude section will look in index.html<br>
+  <span style="color:rgba(255,255,255,0.6);font-size:12px;font-weight:600;">Scroll down to see full section · The CSS at the top goes into your &lt;style&gt; tag</span>
+</p>
+
+<!-- =====================================================
+     PASTE FROM HERE INTO YOUR index.html
+     (Replace your existing Understanding Claude section)
+====================================================== -->
+
+<section class="kira-section" id="claude-sec">
+  <div class="kira-section-inner">
+
+    <div class="kira-section-badge">🆕 NEW COURSE · Featured Launch</div>
+
+    <div class="kira-hero-row">
+      <div>
+        <h2 class="kira-section-title">
+          <span class="ks-highlight">Understanding Claude</span><br>
+          A Kid's Complete Guide to AI
+        </h2>
+        <p class="kira-section-sub">
+          25 interactive lessons teaching kids ages 8–14 what AI really is, how to use it <strong>safely</strong>, how to think <strong>critically</strong> about it, and how to shape its future.<br><br>
+          Guided every step of the way by <strong>Kira ⭐</strong> — your child's friendly AI learning companion!
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="https://alomiclemagic.gumroad.com/l/txbjp" class="kpc-btn kpc-btn-gold" style="display:inline-block;padding:14px 28px;">🛒 Buy — $79</a>
+          <a href="kira-education-mascot.html" class="kira-meet-btn" style="padding:14px 24px;">✨ Meet Kira →</a>
+        </div>
+      </div>
+
+      <div class="kira-mascot-card">
+        <span class="kira-mascot-emoji">🤖</span>
+        <div class="kira-mascot-name">Kira ⭐</div>
+        <div class="kira-mascot-role">Your AI Learning Guide · Ages 8–14</div>
+        <div class="kira-quote-bubble">
+          "AI isn't magic — but learning about it kind of feels like it is! Let's find out together! 🌟"
+        </div>
+        <a href="kira-education-mascot.html" class="kira-meet-btn">Meet Kira & See Full Course →</a>
+      </div>
+    </div>
+
+    <!-- 5 Units -->
+    <div class="kira-units">
+      <div class="kira-unit">
+        <span class="kira-unit-icon">🧠</span>
+        <div class="kira-unit-num">Unit 1</div>
+        <div class="kira-unit-title">What is AI, Really?</div>
+      </div>
+      <div class="kira-unit">
+        <span class="kira-unit-icon">💬</span>
+        <div class="kira-unit-num">Unit 2</div>
+        <div class="kira-unit-title">Talking to AI: Prompt Skills</div>
+      </div>
+      <div class="kira-unit">
+        <span class="kira-unit-icon">🛡️</span>
+        <div class="kira-unit-num">Unit 3</div>
+        <div class="kira-unit-title">Staying Safe Online</div>
+      </div>
+      <div class="kira-unit">
+        <span class="kira-unit-icon">🌍</span>
+        <div class="kira-unit-num">Unit 4</div>
+        <div class="kira-unit-title">AI Changing the World</div>
+      </div>
+      <div class="kira-unit">
+        <span class="kira-unit-icon">⚖️</span>
+        <div class="kira-unit-num">Unit 5</div>
+        <div class="kira-unit-title">Ethics, Bias & Big Questions</div>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="kira-pricing">
+      <div class="kira-price-card">
+        <div class="kpc-badge kpc-badge-mint">Individual</div>
+        <div class="kpc-type">Family</div>
+        <div class="kpc-price">$79</div>
+        <div class="kpc-desc">All 25 lessons · Complete course PDF · Lifetime access · 1 family use</div>
+        <ul class="kpc-features">
+          <li>25 full lessons</li>
+          <li>4 bonus materials</li>
+          <li>Lifetime access</li>
+          <li>1 family use</li>
+        </ul>
+        <a href="https://alomiclemagic.gumroad.com/l/txbjp" class="kpc-btn kpc-btn-outline">🛒 Buy — $79</a>
+      </div>
+
+      <div class="kira-price-card kpc-featured">
+        <div class="kpc-badge kpc-badge-gold">⭐ Most Popular</div>
+        <div class="kpc-type">Teacher</div>
+        <div class="kpc-price">$149</div>
+        <div class="kpc-desc">Multiple students · Commercial use · Classroom-ready guides</div>
+        <ul class="kpc-features">
+          <li>Full course + commercial license</li>
+          <li>Classroom-ready guides</li>
+          <li>Use with any number of students</li>
+          <li>Priority support from Elena</li>
+        </ul>
+        <a href="https://alomiclemagic.gumroad.com/l/syzdu" class="kpc-btn kpc-btn-gold">🎓 Teacher — $149</a>
+      </div>
+
+      <div class="kira-price-card">
+        <div class="kpc-badge kpc-badge-purple">School</div>
+        <div class="kpc-type">School License</div>
+        <div class="kpc-price">$299</div>
+        <div class="kpc-desc">Unlimited students · School-wide use · Priority support</div>
+        <ul class="kpc-features">
+          <li>Unlimited students</li>
+          <li>School-wide license</li>
+          <li>All materials included</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="https://alomiclemagic.gumroad.com/l/cgfkso" class="kpc-btn kpc-btn-outline">🏫 School — $299</a>
+      </div>
+    </div>
+
+    <!-- Bottom trust strip -->
+    <div class="kira-bottom-strip">
+      <div class="kbs-item"><span class="kbs-icon">✅</span> Secure Gumroad checkout</div>
+      <div class="kbs-item"><span class="kbs-icon">⚡</span> Instant download</div>
+      <div class="kbs-item"><span class="kbs-icon">🔄</span> 30-day guarantee</div>
+      <div class="kbs-item"><span class="kbs-icon">♾️</span> Lifetime access</div>
+      <div class="kbs-item"><span class="kbs-icon">🎁</span> <a href="#bundle-sec" style="color:var(--kira-purple);font-weight:800;">Bundle & save up to $99 →</a></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =====================================================
+     END PASTE
+====================================================== -->
+
+</body>
+</html>
