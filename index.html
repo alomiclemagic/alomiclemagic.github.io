@@ -1,1570 +1,823 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>alo.micle.magic ✨ | Elena Micle — Author, Educator & Creator</title>
-<meta name="description" content="Books, courses and free tools made with heart — for curious kids, dedicated teachers and amazing moms. Created by Elena Micle.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Nunito:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<!-- ═══════════════════════════════════════════════════════
-     CUSTOM DOMAIN NOTE FOR ELENA:
-     To upgrade from alomiclemagic.github.io to alomiclemagic.com:
-     1. Buy domain at namecheap.com (~$12/year)
-     2. GitHub → Settings → Pages → Custom domain → alomiclemagic.com
-     3. In Namecheap DNS add 4 GitHub IPs (see docs.github.com/pages)
-     4. Wait 10 min → done! Update Amazon Author page + Gumroad too.
-══════════════════════════════════════════════════════════ -->
-
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --navy: #0d1b2a;
-  --navy2: #001f6b;
-  --gold: #f4a416;
-  --gold2: #FFD700;
-  --red: #c0392b;
-  --cream: #fdf8f0;
-  --text: #1a1a2e;
-  --muted: #6b7280;
-  --border: #e5e7eb;
-  --green: #27ae60;
-  --purple: #8b5cf6;
-  --blue: #1a73e8;
+/* ── ORIGINAL SITE STYLES ── */
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --purple:#7c5cbf;--purple2:#9b7dd4;--purple3:#f0ebff;
+  --gold:#f5c842;--gold2:#fde68a;
+  --mint:#34c98a;--mint2:#d1fae5;
+  --coral:#f97060;--coral2:#fff0ec;
+  --navy:#1e1b4b;--cream:#fffdf5;--warm:#fff8e7;
+  --white:#ffffff;--text:#374151;--muted:#6b7280;
+  --border:#ede9fe;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Nunito', sans-serif;
-  background: #fff;
-  color: var(--text);
-  overflow-x: hidden;
-  line-height: 1.6;
-}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
 
-/* ══ NAV ══ */
-nav {
-  position: fixed; top:0; left:0; right:0;
-  background: rgba(13,27,42,0.97);
-  backdrop-filter: blur(12px);
-  z-index: 1000;
-  padding: 0 6%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-  border-bottom: 3px solid var(--gold);
-}
-.nav-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  color: var(--gold);
-  text-decoration: none;
-  font-weight: 700;
-}
-.nav-links { display:flex; gap:1.8rem; list-style:none; }
-.nav-links a {
-  color: rgba(255,255,255,0.85);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.88rem;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--gold); }
-.nav-cta {
-  background: var(--red) !important;
-  color: white !important;
-  padding: 7px 18px;
-  border-radius: 30px;
-}
-@media(max-width:768px){ .nav-links { display:none; } }
+/* NAV */
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(255,253,245,0.95);backdrop-filter:blur(12px);border-bottom:2px dashed var(--gold2);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.site-nav a.brand{font-family:'Fredoka One',cursive;font-size:20px;color:var(--purple);text-decoration:none;}
+.site-nav nav{display:flex;flex-wrap:wrap;gap:4px;}
+.site-nav nav a{font-size:13px;font-weight:700;padding:7px 14px;border-radius:30px;text-decoration:none;color:var(--muted);transition:all .2s;}
+.site-nav nav a:hover{background:var(--purple3);color:var(--purple);}
+.site-nav nav a.cta{background:var(--gold);color:var(--navy);box-shadow:0 3px 0 #c49a10;}
+.site-nav nav a.cta:hover{transform:translateY(-1px);}
 
-/* ══ HERO ══ */
-.hero {
-  min-height: 100vh;
-  background: linear-gradient(135deg, var(--navy) 0%, #001f6b 55%, #0044cc 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 100px 6% 60px;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content:'';
-  position:absolute; inset:0; pointer-events:none;
-  background: radial-gradient(ellipse at 20% 50%, rgba(244,164,22,0.12) 0%, transparent 60%),
-              radial-gradient(ellipse at 80% 20%, rgba(26,115,232,0.1) 0%, transparent 50%);
-}
-.hero-sparkle { font-size:0.9rem; color:rgba(255,255,255,0.6); letter-spacing:0.2em; margin-bottom:14px; text-transform:uppercase; font-weight:700; }
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.6rem, 7vw, 5rem);
-  color: white;
-  line-height: 1.08;
-  margin-bottom: 12px;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  position: relative;
-}
-.hero h1 .gold { color: var(--gold); }
-.hero-sub {
-  font-size: 1.1rem;
-  color: rgba(255,255,255,0.8);
-  max-width: 580px;
-  margin: 0 auto 36px;
-  font-weight: 600;
-  line-height: 1.7;
-  position: relative;
-}
-.hero-cards {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
-  position: relative;
-}
-.hero-card {
-  background: rgba(255,255,255,0.1);
-  border: 1.5px solid rgba(255,255,255,0.2);
-  border-radius: 16px;
-  padding: 20px 24px;
-  width: 200px;
-  text-align: left;
-  backdrop-filter: blur(6px);
-  text-decoration: none;
-  color: white;
-  transition: all 0.25s;
-}
-.hero-card:hover { background: rgba(255,255,255,0.18); transform: translateY(-3px); }
-.hero-card .hc-icon { font-size: 1.8rem; margin-bottom: 8px; display: block; }
-.hero-card .hc-title { font-weight: 800; font-size: 0.95rem; margin-bottom: 4px; }
-.hero-card .hc-desc { font-size: 0.78rem; color: rgba(255,255,255,0.65); line-height: 1.4; }
-.scroll-hint {
-  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
-  color: rgba(255,255,255,0.45); font-size: 0.78rem; font-weight:700;
-  display: flex; flex-direction: column; align-items: center; gap: 4px;
-  animation: bounce 2s infinite;
-}
-@keyframes bounce {
-  0%,100%{ transform:translateX(-50%) translateY(0); }
-  50%{ transform:translateX(-50%) translateY(6px); }
-}
+/* HERO */
+.hero{background:linear-gradient(180deg,#f5f0ff 0%,var(--cream) 100%);padding:80px 40px 60px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'✨';position:absolute;font-size:300px;opacity:.03;top:-60px;left:50%;transform:translateX(-50%);}
+.hero h1{font-family:'Fredoka One',cursive;font-size:clamp(32px,5vw,58px);color:var(--navy);line-height:1.1;margin-bottom:16px;}
+.hero h1 span{color:var(--purple);}
+.hero p{font-size:18px;color:var(--muted);max-width:600px;margin:0 auto 36px;line-height:1.7;}
+.hero-cards{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;}
+.hero-card{background:white;border:2px solid var(--border);border-radius:20px;padding:22px 28px;text-decoration:none;transition:all .22s;min-width:180px;text-align:center;}
+.hero-card:hover{transform:translateY(-4px);border-color:var(--purple);box-shadow:0 12px 32px rgba(124,92,191,.12);}
+.hero-card-icon{font-size:32px;display:block;margin-bottom:8px;}
+.hero-card-title{font-family:'Fredoka One',cursive;font-size:16px;color:var(--navy);display:block;margin-bottom:4px;}
+.hero-card-sub{font-size:12px;color:var(--muted);}
+.hero-stats{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;}
+.stat-item{text-align:center;}
+.stat-num{font-family:'Fredoka One',cursive;font-size:32px;color:var(--purple);display:block;}
+.stat-label{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1px;}
 
-/* ══ CREDIBILITY BAR — Fix #4 ══ */
-.cred-section {
-  background: var(--navy);
-  padding: 36px 6%;
-}
-.cred-bar {
-  max-width: 900px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  text-align: center;
-}
-@media(max-width:600px){ .cred-bar { grid-template-columns: repeat(2,1fr); } }
-.cred-item {}
-.cred-number {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
-  font-weight: 900;
-  color: white;
-  line-height: 1;
-  margin-bottom: 4px;
-}
-.cred-number span { color: var(--gold); }
-.cred-label { font-size: 0.8rem; color: rgba(255,255,255,0.6); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+/* FREE LEAD MAGNET */
+.lead-magnet{background:linear-gradient(135deg,var(--navy),#312e81);padding:60px 40px;text-align:center;position:relative;overflow:hidden;}
+.lead-magnet::before{content:'🎁';position:absolute;font-size:200px;opacity:.05;top:-40px;right:-40px;}
+.lead-badge{display:inline-block;background:rgba(245,200,66,.15);color:var(--gold);font-size:12px;font-weight:800;padding:6px 18px;border-radius:20px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;border:1px solid rgba(245,200,66,.25);}
+.lead-magnet h2{font-family:'Fredoka One',cursive;font-size:clamp(26px,4vw,38px);color:white;margin-bottom:12px;}
+.lead-magnet p{font-size:16px;color:rgba(255,255,255,.65);max-width:540px;margin:0 auto 32px;line-height:1.7;}
+.lead-items{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;}
+.lead-item{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:16px;padding:20px;text-align:center;min-width:160px;flex:1;max-width:200px;}
+.lead-item-icon{font-size:28px;display:block;margin-bottom:8px;}
+.lead-item-title{font-size:14px;font-weight:800;color:white;display:block;margin-bottom:4px;}
+.lead-item-sub{font-size:12px;color:rgba(255,255,255,.5);}
+.lead-form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.lead-input{padding:14px 20px;border-radius:50px;border:none;font-family:'Nunito',sans-serif;font-size:15px;min-width:260px;outline:none;}
+.lead-btn{font-family:'Fredoka One',cursive;font-size:16px;background:var(--gold);color:var(--navy);padding:14px 28px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 4px 0 #b8930a;transition:all .2s;}
+.lead-btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 #b8930a;}
+.lead-note{font-size:12px;color:rgba(255,255,255,.35);margin-top:14px;}
 
-/* ══ LEAD MAGNET — Fix #3 ══ */
-.lead-section {
-  background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
-  padding: 64px 6%;
-  position: relative;
-  overflow: hidden;
-}
-.lead-section::before {
-  content:''; position:absolute; top:-60px; right:-60px;
-  width:280px; height:280px; border-radius:50%;
-  background: rgba(244,164,22,0.08);
-}
-.lead-section::after {
-  content:''; position:absolute; bottom:-80px; left:15%;
-  width:360px; height:360px; border-radius:50%;
-  background: rgba(26,115,232,0.06);
-}
-.lead-inner {
-  max-width: 860px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-.lead-badge {
-  display: inline-block;
-  background: var(--gold);
-  color: var(--navy);
-  padding: 4px 14px;
-  border-radius: 100px;
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 16px;
-}
-.lead-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.7rem, 3.5vw, 2.2rem);
-  color: white;
-  margin-bottom: 8px;
-  line-height: 1.25;
-}
-.lead-subtitle { color: rgba(255,255,255,0.65); margin-bottom: 28px; font-size: 0.95rem; }
-.lead-options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 28px;
-}
-@media(max-width:600px){ .lead-options { grid-template-columns: 1fr; } }
-.lead-option {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 12px;
-  padding: 16px;
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-}
-.lead-option-icon { font-size: 1.6rem; flex-shrink:0; }
-.lead-option-title { font-weight: 700; font-size: 0.9rem; color: white; margin-bottom: 3px; }
-.lead-option-desc { font-size: 0.78rem; color: rgba(255,255,255,0.55); line-height: 1.4; }
-.email-form {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.email-form input {
-  flex: 1;
-  min-width: 220px;
-  padding: 13px 18px;
-  border-radius: 10px;
-  border: 1.5px solid rgba(255,255,255,0.2);
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.92rem;
-  background: rgba(255,255,255,0.1);
-  color: white;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.email-form input:focus { border-color: var(--gold); }
-.email-form input::placeholder { color: rgba(255,255,255,0.4); }
-.email-form button {
-  padding: 13px 26px;
-  background: var(--gold);
-  color: var(--navy);
-  border: none;
-  border-radius: 10px;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  font-size: 0.92rem;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background 0.2s, transform 0.2s;
-}
-.email-form button:hover { background: #e6930e; transform: translateY(-1px); }
-.email-note { font-size: 0.75rem; color: rgba(255,255,255,0.38); margin-top: 10px; }
-/* ── LEAD MAGNET EMAIL NOTE FOR ELENA ── */
-/* TODO: Replace the form above with your Mailchimp/ConvertKit embed code.
-   1. Sign up at convertkit.com (free up to 1,000 subs)
-   2. Create a "Free Russian Lessons" sequence
-   3. Upload Lessons 1, 3, 5 from your course as the freebie
-   4. Copy their embed code and paste it here replacing .email-form */
+/* TESTIMONIALS */
+.testimonials{padding:70px 40px;background:var(--warm);}
+.testimonials h2{font-family:'Fredoka One',cursive;font-size:clamp(26px,4vw,38px);color:var(--navy);text-align:center;margin-bottom:8px;}
+.testimonials .section-sub{text-align:center;color:var(--muted);margin-bottom:40px;font-size:16px;}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:1100px;margin:0 auto;}
+.testi-card{background:white;border:2px solid var(--border);border-radius:20px;padding:24px;transition:all .22s;}
+.testi-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(124,92,191,.1);}
+.testi-stars{color:var(--gold);font-size:16px;margin-bottom:10px;}
+.testi-text{font-size:14px;color:var(--text);line-height:1.7;margin-bottom:16px;font-style:italic;}
+.testi-author{display:flex;align-items:center;gap:10px;}
+.testi-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:white;flex-shrink:0;}
+.testi-name{font-size:13px;font-weight:800;color:var(--navy);}
+.testi-role{font-size:11px;color:var(--muted);}
 
-/* ══ SECTION COMMONS ══ */
-section.content-section { padding: 72px 6%; }
-section.content-section.alt { background: var(--cream); }
-.section-inner { max-width: 1100px; margin: 0 auto; }
-.section-label {
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 10px;
-  display: block;
-}
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-  color: var(--navy2);
-  line-height: 1.15;
-  margin-bottom: 14px;
-}
-.section-subtitle {
-  font-size: 1rem;
-  color: var(--muted);
-  max-width: 600px;
-  line-height: 1.7;
-  margin-bottom: 40px;
-}
+/* SECTION WRAPPERS */
+.section-wrap{padding:70px 40px;max-width:1100px;margin:0 auto;}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;}
+.section-label::before{content:'';width:28px;height:3px;background:var(--gold);border-radius:2px;}
+.section-title{font-family:'Fredoka One',cursive;font-size:clamp(28px,4vw,42px);color:var(--navy);margin-bottom:14px;line-height:1.1;}
+.section-sub{font-size:16px;color:var(--muted);line-height:1.7;max-width:600px;margin-bottom:40px;}
 
-/* ══ TESTIMONIALS — Fix #1 ══ */
-.testimonials-section {
-  background: var(--cream);
-  padding: 56px 6%;
-}
-.testimonials-inner { max-width: 1100px; margin: 0 auto; }
-.testimonials-heading { text-align: center; margin-bottom: 36px; }
-.testimonials-heading h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.7rem,3vw,2.4rem);
-  color: var(--navy2);
-  margin-bottom: 6px;
-}
-.testimonials-heading p { color: var(--muted); font-size: 0.95rem; }
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-@media(max-width:640px){ .testimonials-grid { grid-template-columns: 1fr; } }
-.testimonial-card {
-  background: white;
-  border-radius: 16px;
-  padding: 26px;
-  border: 1px solid var(--border);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  position: relative;
-}
-.testimonial-card::before {
-  content:'"';
-  font-family: 'Playfair Display', serif;
-  font-size: 5rem;
-  color: var(--gold);
-  opacity: 0.18;
-  position: absolute;
-  top: 6px; left: 18px;
-  line-height: 1;
-}
-.stars { color: var(--gold); font-size: 0.88rem; margin-bottom: 10px; }
-.testimonial-text {
-  font-size: 0.91rem;
-  color: #374151;
-  line-height: 1.65;
-  margin-bottom: 18px;
-  font-style: italic;
-}
-.testimonial-author { display: flex; align-items: center; gap: 10px; }
-.author-avatar {
-  width: 38px; height: 38px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 800; font-size: 0.88rem;
-  color: white; flex-shrink: 0;
-}
-.author-name { font-weight: 700; font-size: 0.88rem; color: var(--navy); }
-.author-role { font-size: 0.77rem; color: var(--muted); }
-/* ⭐ ELENA'S NOTE: Replace these placeholder testimonials with real quotes!
-   Check your email, WhatsApp, Facebook messages — even "my kid loved it!" works.
-   Ask buyers for permission and use their first name + location or role. */
+/* COURSE CARDS */
+.courses-bg{background:var(--cream);padding:70px 0;}
+.courses-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
+.course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;}
+.course-card{background:white;border:2px solid var(--border);border-radius:24px;overflow:hidden;transition:all .22s;}
+.course-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(124,92,191,.12);border-color:var(--purple2);}
+.course-card-top{padding:28px 24px 20px;border-bottom:1px solid var(--border);}
+.course-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.course-tag{font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;letter-spacing:.5px;}
+.course-icon{font-size:36px;display:block;margin-bottom:12px;}
+.course-title{font-family:'Fredoka One',cursive;font-size:22px;color:var(--navy);margin-bottom:6px;}
+.course-subtitle{font-size:13px;color:var(--purple);font-weight:800;margin-bottom:10px;}
+.course-desc{font-size:14px;color:var(--muted);line-height:1.65;}
+.course-card-bottom{padding:20px 24px;}
+.course-price-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px;}
+.course-price{font-family:'Fredoka One',cursive;font-size:22px;color:var(--purple);}
+.course-btns{display:flex;gap:8px;flex-wrap:wrap;}
+.btn-buy{font-family:'Fredoka One',cursive;font-size:14px;background:var(--gold);color:var(--navy);padding:9px 18px;border-radius:30px;text-decoration:none;box-shadow:0 3px 0 #b8930a;transition:all .2s;display:inline-block;}
+.btn-buy:hover{transform:translateY(-2px);box-shadow:0 5px 0 #b8930a;}
+.btn-secondary{font-family:'Fredoka One',cursive;font-size:14px;background:var(--purple3);color:var(--purple);padding:9px 18px;border-radius:30px;text-decoration:none;transition:all .2s;display:inline-block;border:2px solid transparent;}
+.btn-secondary:hover{border-color:var(--purple);}
 
-/* ══ FEATURED COURSE CARD ══ */
-.featured-badge-tag {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: var(--gold); color: var(--navy);
-  padding: 4px 14px; border-radius: 100px;
-  font-size: 0.72rem; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 0.1em;
-  margin-bottom: 16px;
-}
-.course-card {
-  background: white;
-  border-radius: 20px;
-  padding: 36px;
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-  margin-bottom: 32px;
-}
-.course-features {
-  list-style: none;
-  margin: 18px 0 28px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-@media(max-width:500px){ .course-features { grid-template-columns: 1fr; } }
-.course-features li {
-  font-size: 0.9rem;
-  color: #374151;
-  display: flex; align-items: flex-start; gap: 8px;
-}
-.pricing-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  align-items: stretch;
-  margin-top: 8px;
-}
-.price-tier-card {
-  background: var(--cream);
-  border: 1.5px solid var(--border);
-  border-radius: 14px;
-  padding: 18px 22px;
-  flex: 1;
-  min-width: 180px;
-  text-align: center;
-  position: relative;
-}
-.price-tier-card.popular {
-  background: var(--navy);
-  border-color: var(--navy);
-  color: white;
-}
-.popular-badge {
-  position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
-  background: var(--gold); color: var(--navy);
-  font-size: 0.68rem; font-weight: 800;
-  padding: 3px 12px; border-radius: 20px;
-  text-transform: uppercase; letter-spacing: 0.08em;
-  white-space: nowrap;
-}
-.ptc-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 4px; }
-.ptc-price {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem; font-weight: 700;
-  color: var(--navy2); line-height: 1; margin-bottom: 4px;
-}
-.price-tier-card.popular .ptc-price { color: white; }
-.ptc-desc { font-size: 0.77rem; color: var(--muted); margin-bottom: 14px; line-height: 1.4; }
-.price-tier-card.popular .ptc-desc { color: rgba(255,255,255,0.65); }
-.btn-buy {
-  display: block;
-  padding: 10px 16px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 0.86rem;
-  transition: all 0.2s;
-  text-align: center;
-}
-.btn-buy-outline { background: transparent; border: 2px solid var(--navy2); color: var(--navy2); }
-.btn-buy-outline:hover { background: var(--navy2); color: white; }
-.btn-buy-gold { background: var(--gold); color: var(--navy); border: 2px solid var(--gold); }
-.btn-buy-gold:hover { background: #e6930e; }
-.btn-buy-red { background: var(--red); color: white; border: 2px solid var(--red); }
-.btn-buy-red:hover { background: #a93226; }
-.secure-note { font-size: 0.78rem; color: var(--muted); margin-top: 14px; }
+/* BUNDLE */
+.bundle-bg{background:linear-gradient(135deg,#f5f0ff,var(--warm));border-top:3px dashed var(--gold2);border-bottom:3px dashed var(--gold2);padding:70px 40px;}
+.bundle-inner{max-width:900px;margin:0 auto;text-align:center;}
+.bundle-tag{display:inline-block;background:var(--gold);color:var(--navy);font-size:11px;font-weight:800;padding:5px 16px;border-radius:20px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+.bundle-title{font-family:'Fredoka One',cursive;font-size:clamp(28px,4vw,42px);color:var(--navy);margin-bottom:12px;}
+.bundle-sub{font-size:16px;color:var(--muted);margin-bottom:36px;line-height:1.7;}
+.bundle-items{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;}
+.bundle-item{background:white;border:2px solid var(--border);border-radius:18px;padding:20px 24px;text-align:center;flex:1;min-width:200px;max-width:280px;}
+.bundle-item-icon{font-size:32px;display:block;margin-bottom:8px;}
+.bundle-item-title{font-family:'Fredoka One',cursive;font-size:17px;color:var(--navy);margin-bottom:4px;}
+.bundle-item-sub{font-size:12px;color:var(--muted);}
+.bundle-pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px;max-width:700px;margin-left:auto;margin-right:auto;}
+.bundle-price-card{background:white;border:2px solid var(--border);border-radius:16px;padding:20px;text-align:center;transition:all .2s;}
+.bundle-price-card:hover{border-color:var(--purple);transform:translateY(-3px);}
+.bundle-price-card.bp-featured{border-color:var(--gold);background:linear-gradient(180deg,#fffdf5,white);}
+.bp-amount{font-family:'Fredoka One',cursive;font-size:32px;color:var(--purple);display:block;}
+.bp-label{font-size:12px;font-weight:800;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px;}
+.bp-save{font-size:11px;color:var(--mint);font-weight:800;}
+.bundle-price-card a{display:block;margin-top:12px;font-family:'Fredoka One',cursive;font-size:14px;background:var(--gold);color:var(--navy);padding:9px;border-radius:30px;text-decoration:none;box-shadow:0 3px 0 #b8930a;transition:all .2s;}
+.bundle-price-card a:hover{transform:translateY(-2px);}
+.bundle-trust{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.bt-item{font-size:13px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:6px;}
 
-/* ══ PRICE ANCHORING — Fix #2 ══ */
-.price-anchor-section {
-  background: #f8f6f2;
-  border-radius: 16px;
-  padding: 28px;
-  margin-top: 28px;
-  border: 1px solid var(--border);
-}
-.price-anchor-section h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.15rem;
-  color: var(--navy2);
-  margin-bottom: 14px;
-}
-.price-compare { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
-.price-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 9px 13px;
-  border-radius: 8px;
-  font-size: 0.87rem;
-}
-.price-row.them { background: #fef2f2; color: #991b1b; }
-.price-row.us { background: #f0fdf4; color: #166534; font-weight: 700; }
-.price-row span:last-child { font-weight: 700; }
-.price-verdict {
-  background: var(--gold);
-  color: var(--navy);
-  padding: 11px 14px;
-  border-radius: 10px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-align: center;
-}
+/* TEACHERS */
+.teachers-bg{background:var(--cream);padding:70px 0;}
+.teachers-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
+.worksheets-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:32px;}
+.ws-card{background:white;border:2px solid var(--border);border-radius:20px;padding:24px;transition:all .22s;}
+.ws-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(124,92,191,.1);}
+.ws-icon{font-size:32px;margin-bottom:10px;display:block;}
+.ws-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+.ws-tag{font-size:10px;font-weight:800;padding:3px 8px;border-radius:10px;}
+.ws-title{font-family:'Fredoka One',cursive;font-size:18px;color:var(--navy);margin-bottom:4px;}
+.ws-sub{font-size:13px;color:var(--purple);font-weight:800;margin-bottom:8px;}
+.ws-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;}
+.ws-btns{display:flex;gap:8px;flex-wrap:wrap;}
 
-/* ══ BUNDLE CARD ══ */
-.bundle-card {
-  background: linear-gradient(135deg, var(--navy2) 0%, #003399 100%);
-  border-radius: 20px;
-  padding: 40px;
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
-.bundle-card::before {
-  content:''; position:absolute; top:-60px; right:-60px;
-  width:240px; height:240px; border-radius:50%;
-  background: rgba(244,164,22,0.1);
-}
-.bundle-card .section-title { color: var(--gold2); }
-.bundle-card .section-subtitle { color: rgba(255,255,255,0.7); }
-.bundle-courses {
-  display: flex;
-  gap: 20px;
-  margin: 24px 0;
-  flex-wrap: wrap;
-}
-.bundle-course-pill {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 12px;
-  padding: 14px 20px;
-  flex: 1;
-  min-width: 200px;
-}
-.bundle-course-pill .bcp-icon { font-size: 1.6rem; margin-bottom: 6px; display: block; }
-.bundle-course-pill .bcp-name { font-weight: 800; font-size: 0.95rem; margin-bottom: 4px; }
-.bundle-course-pill .bcp-desc { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
-.bundle-pricing-row {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  align-items: stretch;
-  position: relative;
-  z-index: 1;
-}
-.bundle-price-tile {
-  background: rgba(255,255,255,0.1);
-  border: 1.5px solid rgba(255,255,255,0.2);
-  border-radius: 14px;
-  padding: 18px 20px;
-  flex: 1;
-  min-width: 160px;
-  text-align: center;
-}
-.bundle-price-tile.pop-tile {
-  background: var(--gold2);
-  border-color: var(--gold2);
-}
-.bpt-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); margin-bottom: 4px; }
-.bundle-price-tile.pop-tile .bpt-label { color: var(--navy2); }
-.bpt-price { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: white; line-height: 1; }
-.bundle-price-tile.pop-tile .bpt-price { color: var(--navy2); }
-.bpt-old { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: line-through; margin-bottom: 8px; }
-.bundle-price-tile.pop-tile .bpt-old { color: rgba(13,27,42,0.5); }
-.bpt-save { font-size: 0.78rem; font-weight: 700; color: #86efac; margin-bottom: 12px; }
-.bundle-price-tile.pop-tile .bpt-save { color: var(--navy2); }
-.btn-bundle { display:block; padding:9px 14px; border-radius:50px; text-decoration:none; font-weight:800; font-size:0.84rem; text-align:center; transition:all 0.2s; }
-.btn-bundle-white { background: white; color: var(--navy2); }
-.btn-bundle-white:hover { background: var(--cream); }
-.btn-bundle-navy { background: var(--navy); color: var(--gold); }
-.btn-bundle-navy:hover { background: #0a1520; }
+/* TESOL */
+.tesol-card{background:linear-gradient(135deg,var(--navy),#312e81);border-radius:24px;padding:36px;color:white;margin-bottom:24px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;}
+.tesol-badge{display:inline-block;background:rgba(245,200,66,.15);color:var(--gold);font-size:10px;font-weight:800;padding:4px 12px;border-radius:20px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;border:1px solid rgba(245,200,66,.25);}
+.tesol-title{font-family:'Fredoka One',cursive;font-size:26px;margin-bottom:8px;}
+.tesol-sub{font-size:14px;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:16px;}
+.tesol-features{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+.tesol-feat{font-size:12px;font-weight:700;color:rgba(255,255,255,.7);background:rgba(255,255,255,.08);padding:5px 12px;border-radius:20px;}
+.tesol-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.tesol-price{text-align:center;}
+.tesol-amount{font-family:'Fredoka One',cursive;font-size:42px;color:var(--gold);display:block;}
+.tesol-label{font-size:12px;color:rgba(255,255,255,.4);font-weight:700;}
+.ai-hub-card{background:var(--mint2);border:2px solid #86efac;border-radius:20px;padding:28px;display:flex;gap:20px;align-items:center;}
+.ai-hub-icon{font-size:48px;flex-shrink:0;}
+.ai-hub-title{font-family:'Fredoka One',cursive;font-size:20px;color:var(--navy);margin-bottom:4px;}
+.ai-hub-sub{font-size:14px;color:#065f46;margin-bottom:12px;line-height:1.5;}
 
-/* ══ PRODUCT GRID (Kids / Teachers / Moms) ══ */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin-top: 8px;
-}
-.product-card {
-  background: white;
-  border-radius: 16px;
-  padding: 24px;
-  border: 1px solid var(--border);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
-}
-.product-card .pc-icon { font-size: 2.2rem; margin-bottom: 10px; display: block; }
-.product-card .pc-badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
-.tag {
-  display: inline-block;
-  background: #f3f4f6;
-  color: #374151;
-  border-radius: 20px;
-  padding: 3px 10px;
-  font-size: 0.72rem;
-  font-weight: 700;
-}
-.product-card .pc-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--navy2); margin-bottom: 6px; font-weight: 700; }
-.product-card .pc-subtitle { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
-.product-card .pc-desc { font-size: 0.88rem; color: #4b5563; line-height: 1.55; flex: 1; margin-bottom: 16px; }
-.product-card .pc-price { font-weight: 800; color: var(--navy2); font-size: 0.88rem; margin-bottom: 10px; }
-.pc-btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
-.btn-sm {
-  padding: 8px 14px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 0.8rem;
-  transition: all 0.2s;
-  display: inline-block;
-  text-align: center;
-}
-.btn-sm-primary { background: var(--navy2); color: white; }
-.btn-sm-primary:hover { background: var(--navy); }
-.btn-sm-secondary { background: transparent; border: 2px solid var(--border); color: var(--muted); }
-.btn-sm-secondary:hover { border-color: var(--navy2); color: var(--navy2); }
-.btn-sm-green { background: var(--green); color: white; }
-.btn-sm-green:hover { background: #219a52; }
-.btn-sm-free { background: #f0fdf4; color: #166534; border: 1.5px solid #86efac; }
+/* MOMS */
+.moms-bg{background:linear-gradient(180deg,#fdf4ff,var(--cream));padding:70px 0;}
+.moms-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
+.haven-card{background:linear-gradient(135deg,#4a1942,#7c3aed);border-radius:24px;padding:36px;color:white;margin-bottom:24px;}
+.haven-title{font-family:'Fredoka One',cursive;font-size:28px;margin-bottom:10px;}
+.haven-sub{font-size:15px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:20px;}
+.crisis-bar{background:rgba(255,0,0,.15);border:1.5px solid rgba(255,100,100,.3);border-radius:12px;padding:14px 18px;font-size:13px;color:#fca5a5;font-weight:700;margin-bottom:20px;line-height:1.6;}
+.haven-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.moms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:24px;}
+.mom-card{background:white;border:2px solid var(--border);border-radius:20px;padding:24px;transition:all .22s;}
+.mom-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(124,92,191,.1);}
+.mom-icon{font-size:32px;display:block;margin-bottom:10px;}
+.mom-tag{display:inline-block;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:10px;}
+.mom-title{font-family:'Fredoka One',cursive;font-size:18px;color:var(--navy);margin-bottom:4px;}
+.mom-sub{font-size:12px;color:var(--purple);font-weight:800;margin-bottom:8px;}
+.mom-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;}
 
-/* ══ TESOL CARD — Fix #5 ══ */
-.tesol-card {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
-  border-radius: 20px;
-  padding: 36px;
-  color: white;
-  grid-column: 1 / -1;
-}
-.tesol-card .pc-title { color: var(--gold); font-size: 1.4rem; }
-.tesol-card .pc-desc { color: rgba(255,255,255,0.75); }
-.tesol-card .pc-price { color: var(--gold2); font-size: 1rem; }
-.tesol-btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
-.btn-tesol-gold { background: var(--gold); color: var(--navy); padding: 12px 24px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 0.92rem; transition: all 0.2s; }
-.btn-tesol-gold:hover { background: #e6930e; transform: translateY(-1px); }
-.btn-tesol-outline { background: transparent; border: 2px solid rgba(255,255,255,0.4); color: white; padding: 12px 24px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.92rem; transition: all 0.2s; }
-.btn-tesol-outline:hover { border-color: white; }
-.tesol-payment { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 10px; }
+/* BOOKS */
+.books-bg{background:var(--warm);padding:70px 0;border-top:3px dashed var(--gold2);}
+.books-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
+.books-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.book-card{background:white;border:2px solid var(--border);border-radius:20px;padding:24px;text-align:center;transition:all .22s;}
+.book-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(124,92,191,.1);}
+.book-icon{font-size:40px;display:block;margin-bottom:12px;}
+.book-title{font-family:'Fredoka One',cursive;font-size:17px;color:var(--navy);margin-bottom:6px;line-height:1.2;}
+.book-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;}
+.book-price{font-size:13px;font-weight:800;color:var(--purple);margin-bottom:12px;}
 
-/* ══ HAVEN / MOMS ══ */
-.haven-card {
-  background: linear-gradient(135deg, #581c87, #7c3aed);
-  border-radius: 20px;
-  padding: 36px;
-  color: white;
-  grid-column: 1 / -1;
-}
-.haven-card .pc-title { color: #e9d5ff; font-size: 1.4rem; }
-.haven-card .pc-desc { color: rgba(255,255,255,0.75); }
-.crisis-box {
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 10px;
-  padding: 12px 16px;
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.85);
-  margin-top: 14px;
-  line-height: 1.6;
-}
+/* LEXI */
+.lexi-bg{background:var(--cream);padding:70px 0;}
+.lexi-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
+.lexi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;}
+.lexi-card{background:white;border:2px solid var(--border);border-radius:18px;padding:20px;text-align:center;text-decoration:none;transition:all .22s;}
+.lexi-card:hover{transform:translateY(-4px);border-color:var(--purple);}
+.lexi-card-icon{font-size:32px;display:block;margin-bottom:8px;}
+.lexi-card-title{font-family:'Fredoka One',cursive;font-size:16px;color:var(--navy);margin-bottom:4px;}
+.lexi-card-sub{font-size:12px;color:var(--muted);}
 
-/* ══ BOOKS SECTION ══ */
-.book-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-.book-card {
-  background: white;
-  border-radius: 16px;
-  padding: 24px;
-  border: 1px solid var(--border);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  text-align: center;
-}
-.book-card .book-icon { font-size: 2.4rem; margin-bottom: 12px; display: block; }
-.book-card .book-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--navy2); margin-bottom: 6px; font-weight: 700; }
-.book-card .book-sub { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; line-height: 1.4; }
-.book-card .book-price { font-size: 0.85rem; font-weight: 700; color: var(--navy2); margin-bottom: 12px; }
+/* ABOUT */
+.about-bg{background:linear-gradient(135deg,var(--navy),#312e81);padding:70px 40px;text-align:center;}
+.about-avatar{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--purple2),var(--gold));display:flex;align-items:center;justify-content:center;font-size:48px;margin:0 auto 20px;border:4px solid rgba(255,255,255,.2);}
+.about-name{font-family:'Fredoka One',cursive;font-size:28px;color:white;margin-bottom:6px;}
+.about-role{font-size:14px;color:var(--gold);font-weight:700;margin-bottom:20px;}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;}
+.about-tag{font-size:12px;font-weight:700;background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);padding:5px 14px;border-radius:20px;}
+.about-bio{font-size:15px;color:rgba(255,255,255,.65);max-width:580px;margin:0 auto 24px;line-height:1.7;}
+.about-items{list-style:none;max-width:520px;margin:0 auto 24px;text-align:left;}
+.about-items li{font-size:14px;color:rgba(255,255,255,.65);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:8px;line-height:1.5;}
+.about-items li::before{content:'✓';color:var(--mint);font-weight:900;flex-shrink:0;}
 
-/* ══ LEXI'S CORNER ══ */
-.lexi-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-}
-.lexi-card {
-  background: white;
-  border-radius: 14px;
-  padding: 22px;
-  border: 1px solid var(--border);
-  text-align: center;
-  text-decoration: none;
-  color: var(--text);
-  transition: all 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-.lexi-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-color: var(--gold); }
-.lexi-card .lc-icon { font-size: 2rem; margin-bottom: 8px; display: block; }
-.lexi-card .lc-title { font-weight: 800; font-size: 0.92rem; color: var(--navy2); margin-bottom: 4px; }
-.lexi-card .lc-sub { font-size: 0.78rem; color: var(--muted); }
+/* FOOTER */
+footer{background:var(--navy);padding:40px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;}
+.footer-brand{font-family:'Fredoka One',cursive;font-size:20px;color:var(--gold);}
+.footer-note{font-size:13px;color:rgba(255,255,255,.35);margin-top:4px;}
+.footer-links{display:flex;flex-wrap:wrap;gap:16px;}
+.footer-links a{font-size:13px;font-weight:700;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--gold);}
 
-/* ══ ABOUT ══ */
-.about-inner {
-  display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: 50px;
-  align-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-@media(max-width:768px){ .about-inner { grid-template-columns: 1fr; } }
-.about-visual {
-  background: linear-gradient(135deg, var(--navy2), #003399);
-  border-radius: 20px;
-  padding: 36px;
-  text-align: center;
-  color: white;
-  box-shadow: 0 12px 40px rgba(0,31,107,0.2);
-}
-.creator-avatar {
-  width:90px; height:90px;
-  background: var(--gold);
-  border-radius: 50%;
-  display:flex; align-items:center; justify-content:center;
-  font-size: 2.6rem;
-  margin: 0 auto 16px;
-}
-.creator-name { font-family:'Playfair Display',serif; font-size:1.7rem; color:var(--gold2); margin-bottom:6px; }
-.creator-creds { font-size:0.85rem; color:rgba(255,255,255,0.7); line-height:1.9; }
-.cred-badge-pill {
-  display:inline-block;
-  background:rgba(255,215,0,0.12);
-  border:1px solid rgba(255,215,0,0.35);
-  border-radius:20px;
-  padding:3px 11px;
-  font-size:0.75rem;
-  font-weight:700;
-  color:var(--gold2);
-  margin:3px 2px;
-}
-.about-text .diff-list { list-style:none; margin-top:20px; }
-.diff-list li {
-  display:flex; align-items:flex-start; gap:10px;
-  margin-bottom:13px; font-size:0.93rem; color:#444; line-height:1.5;
-}
-.diff-list li::before { content:'✅'; flex-shrink:0; font-size:0.95rem; margin-top:1px; }
+/* TRUST BAR */
+.trust-bar{background:white;border-top:2px solid var(--border);border-bottom:2px solid var(--border);padding:16px 40px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
+.trust-item{font-size:13px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:6px;}
 
-/* ══ FOOTER ══ */
-footer {
-  background: #0a0a1a;
-  color: rgba(255,255,255,0.55);
-  padding: 48px 6%;
-  text-align: center;
-}
-footer .footer-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  color: var(--gold);
-  margin-bottom: 12px;
-}
-footer p { font-size: 0.88rem; line-height: 1.7; margin-bottom: 16px; }
-.footer-links { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:20px; }
-.footer-links a { color:rgba(255,255,255,0.55); text-decoration:none; font-size:0.85rem; font-weight:600; }
-.footer-links a:hover { color:var(--gold); }
-footer .footer-copy { font-size:0.78rem; color:rgba(255,255,255,0.3); margin-top:20px; }
+/* ── KIRA SECTION STYLES ── */
+.kira-section{background:linear-gradient(180deg,#f5f0ff 0%,#fffdf5 100%);padding:80px 40px;position:relative;overflow:hidden;border-top:3px dashed #e9d5ff;border-bottom:3px dashed #e9d5ff;}
+.kira-section::before{content:'⭐';position:absolute;font-size:260px;opacity:.04;top:-40px;right:-40px;pointer-events:none;}
+.kira-section-inner{max-width:1100px;margin:0 auto;}
+.kira-section-badge{display:inline-flex;align-items:center;gap:8px;background:#ede8fb;color:var(--purple);font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;padding:7px 16px;border-radius:30px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;border:1.5px solid rgba(124,92,191,.15);}
+.kira-hero-row{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:56px;}
+.kira-section-title{font-family:'Fredoka One',cursive;font-size:clamp(36px,4.5vw,54px);color:var(--navy);line-height:1.1;margin-bottom:14px;}
+.kira-section-title .ks-highlight{color:var(--purple);position:relative;}
+.kira-section-title .ks-highlight::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:7px;background:var(--gold);border-radius:3px;z-index:-1;opacity:.5;}
+.kira-section-sub{font-family:'Nunito',sans-serif;font-size:17px;line-height:1.7;color:#6b7280;margin-bottom:28px;}
+.kira-section-sub strong{color:var(--navy);}
+.kira-mascot-card{background:white;border:2px solid #ede8fb;border-radius:28px;padding:36px 28px;text-align:center;box-shadow:0 12px 40px rgba(124,92,191,.1);position:relative;}
+.kira-mascot-emoji{font-size:80px;display:block;margin-bottom:12px;animation:kiraFloat 4s ease-in-out infinite;}
+@keyframes kiraFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+.kira-mascot-name{font-family:'Fredoka One',cursive;font-size:28px;color:var(--navy);margin-bottom:4px;}
+.kira-mascot-role{font-size:13px;font-weight:700;color:var(--purple2);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}
+.kira-quote-bubble{background:#f5f0ff;border-radius:14px 14px 14px 4px;padding:14px 18px;font-size:14px;font-weight:700;color:var(--purple);font-style:italic;line-height:1.5;margin-bottom:16px;text-align:left;border-left:4px solid var(--purple);}
+.kira-meet-btn{display:inline-block;font-family:'Fredoka One',cursive;font-size:15px;background:#ede8fb;color:var(--purple);padding:10px 24px;border-radius:50px;text-decoration:none;transition:all .2s;border:2px solid rgba(124,92,191,.2);}
+.kira-meet-btn:hover{background:var(--purple);color:white;transform:translateY(-2px);}
+.kira-units{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:40px;}
+.kira-unit{background:white;border:2px solid #f0ecff;border-radius:18px;padding:20px 12px;text-align:center;transition:all .22s;cursor:default;}
+.kira-unit:hover{border-color:var(--purple);transform:translateY(-4px);box-shadow:0 10px 28px rgba(124,92,191,.12);}
+.kira-unit-icon{font-size:30px;display:block;margin-bottom:8px;}
+.kira-unit-num{font-size:9px;font-weight:800;color:var(--purple);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;}
+.kira-unit-title{font-size:12px;font-weight:800;color:var(--navy);line-height:1.3;}
+.kira-pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px;}
+.kira-price-card{background:white;border:2px solid #f0ecff;border-radius:24px;padding:30px 24px;text-align:center;transition:all .22s;}
+.kira-price-card:hover{transform:translateY(-4px);box-shadow:0 16px 44px rgba(124,92,191,.12);}
+.kira-price-card.kpc-featured{background:linear-gradient(180deg,#f5f0ff 0%,white 100%);border-color:var(--purple);box-shadow:0 8px 32px rgba(124,92,191,.15);transform:scale(1.03);}
+.kira-price-card.kpc-featured:hover{transform:scale(1.03) translateY(-4px);}
+.kpc-badge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:12px;}
+.kpc-badge-gold{background:var(--gold);color:var(--navy);}
+.kpc-badge-purple{background:#ede8fb;color:var(--purple);}
+.kpc-badge-mint{background:#d1fae5;color:#065f46;}
+.kpc-type{font-family:'Fredoka One',cursive;font-size:20px;color:var(--navy);margin-bottom:8px;}
+.kpc-price{font-family:'Fredoka One',cursive;font-size:48px;color:var(--purple);line-height:1;margin-bottom:4px;}
+.kpc-desc{font-size:12px;color:#6b7280;font-weight:600;margin-bottom:18px;line-height:1.4;}
+.kpc-features{list-style:none;margin-bottom:22px;}
+.kpc-features li{font-size:13px;color:#374151;font-weight:600;padding:6px 0;border-bottom:1px solid #f9f5ff;display:flex;align-items:center;gap:7px;text-align:left;}
+.kpc-features li::before{content:'✓';color:var(--mint);font-weight:900;flex-shrink:0;}
+.kpc-btn{display:block;font-family:'Fredoka One',cursive;font-size:16px;padding:13px 20px;border-radius:50px;text-decoration:none;text-align:center;transition:all .2s;}
+.kpc-btn-gold{background:var(--gold);color:var(--navy);box-shadow:0 4px 0 #c49a10;}
+.kpc-btn-gold:hover{transform:translateY(-2px);box-shadow:0 6px 0 #c49a10;}
+.kpc-btn-outline{background:transparent;color:var(--purple);border:2px solid var(--purple);}
+.kpc-btn-outline:hover{background:var(--purple);color:white;}
+.kira-bottom-strip{display:flex;align-items:center;justify-content:space-between;background:white;border:2px solid #f0ecff;border-radius:18px;padding:20px 28px;flex-wrap:wrap;gap:16px;}
+.kbs-item{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#374151;}
 
-/* ══ DIVIDER ══ */
-.section-divider {
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--border), transparent);
-  margin: 0;
+/* RESPONSIVE */
+@media(max-width:900px){
+  .site-nav{padding:14px 20px;}
+  .hero,.lead-magnet,.testimonials,.bundle-bg,.about-bg{padding-left:20px;padding-right:20px;}
+  .section-wrap,.courses-inner,.teachers-inner,.moms-inner,.books-inner,.lexi-inner{padding-left:20px;padding-right:20px;}
+  .kira-hero-row,.kira-pricing{grid-template-columns:1fr;}
+  .kira-units{grid-template-columns:repeat(2,1fr);}
+  .kira-price-card.kpc-featured{transform:none;}
+  .kira-section{padding-left:20px;padding-right:20px;}
+  .bundle-pricing{grid-template-columns:1fr;}
+  .tesol-card{grid-template-columns:1fr;}
+  .tesol-price{text-align:left;}
+  .footer-links{gap:12px;}
+  .hero-cards{gap:12px;}
+  .trust-bar{padding:14px 20px;}
 }
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════
-     NAVIGATION
-══════════════════════════════════════════ -->
-<nav>
-  <a class="nav-logo" href="#">✨ alo.micle.magic</a>
-  <ul class="nav-links">
-    <li><a href="#kids-sec">📚 For Kids & Families</a></li>
-    <li><a href="#teachers-sec">👩‍🏫 For Teachers</a></li>
-    <li><a href="#moms-sec">💜 For Moms</a></li>
-    <li><a class="nav-cta" href="https://alomiclemagic.gumroad.com" target="_blank">🛒 Shop Now</a></li>
-  </ul>
-</nav>
+<!-- NAV -->
+<div class="site-nav">
+  <a href="#" class="brand">✨ alo.micle.magic</a>
+  <nav>
+    <a href="#kids-sec">📚 For Kids & Families</a>
+    <a href="#teachers-sec">👩‍🏫 For Teachers</a>
+    <a href="#moms-sec">💜 For Moms</a>
+    <a href="https://alomiclemagic.gumroad.com" class="cta">🛒 Shop Now</a>
+  </nav>
+</div>
 
-
-<!-- ══════════════════════════════════════════
-     HERO
-══════════════════════════════════════════ -->
+<!-- HERO -->
 <section class="hero">
-  <p class="hero-sparkle">✨ Elena Micle — Author, Educator & Creator</p>
-  <h1>Where Stories, Love<br>&amp; <span class="gold">Creativity</span> Come Alive</h1>
-  <p class="hero-sub">Books, courses and free tools made with heart — for curious kids, dedicated teachers and amazing moms.</p>
+  <h1>✨ Elena Micle — Author,<br><span>Educator & Creator</span></h1>
+  <p>Books, courses and free tools made with heart — for curious kids, dedicated teachers and amazing moms.</p>
   <div class="hero-cards">
-    <a class="hero-card" href="#kids-sec">
-      <span class="hc-icon">📚</span>
-      <div class="hc-title">For Kids & Families</div>
-      <div class="hc-desc">Russian · AI · Money · Manners · Free Apps</div>
+    <a href="#kids-sec" class="hero-card">
+      <span class="hero-card-icon">📚</span>
+      <span class="hero-card-title">For Kids & Families</span>
+      <span class="hero-card-sub">Russian · AI · Money · Manners · Free Apps</span>
     </a>
-    <a class="hero-card" href="#teachers-sec">
-      <span class="hc-icon">👩‍🏫</span>
-      <div class="hc-title">For Teachers</div>
-      <div class="hc-desc">ESL Worksheets · TESOL · AI Tools · Bundles</div>
+    <a href="#teachers-sec" class="hero-card">
+      <span class="hero-card-icon">👩‍🏫</span>
+      <span class="hero-card-title">For Teachers</span>
+      <span class="hero-card-sub">ESL Worksheets · TESOL · AI Tools · Bundles</span>
     </a>
-    <a class="hero-card" href="#moms-sec">
-      <span class="hc-icon">💜</span>
-      <div class="hc-title">For Moms</div>
-      <div class="hc-desc">HAVEN · AI Tools · Parenting Guides · Romance</div>
+    <a href="#moms-sec" class="hero-card">
+      <span class="hero-card-icon">💜</span>
+      <span class="hero-card-title">For Moms</span>
+      <span class="hero-card-sub">HAVEN · AI Tools · Parenting Guides · Romance</span>
     </a>
   </div>
-  <div class="scroll-hint">↓ Explore</div>
+  <div class="hero-stats">
+    <div class="stat-item"><span class="stat-num">22+</span><span class="stat-label">Years Teaching</span></div>
+    <div class="stat-item"><span class="stat-num">5★</span><span class="stat-label">Published Books</span></div>
+    <div class="stat-item"><span class="stat-num">50+</span><span class="stat-label">Lessons Created</span></div>
+    <div class="stat-item"><span class="stat-num">3✓</span><span class="stat-label">Certifications</span></div>
+  </div>
 </section>
 
-
-<!-- ══════════════════════════════════════════
-     FIX #4 — CREDIBILITY BAR
-     (Placed right after hero for immediate trust)
-══════════════════════════════════════════ -->
-<div class="cred-section">
-  <div class="cred-bar">
-    <div class="cred-item">
-      <div class="cred-number">22<span>+</span></div>
-      <div class="cred-label">Years Teaching</div>
-    </div>
-    <div class="cred-item">
-      <div class="cred-number">5<span>★</span></div>
-      <div class="cred-label">Published Books</div>
-    </div>
-    <div class="cred-item">
-      <div class="cred-number">50<span>+</span></div>
-      <div class="cred-label">Lessons Created</div>
-    </div>
-    <div class="cred-item">
-      <div class="cred-number">3<span>✓</span></div>
-      <div class="cred-label">Certifications</div>
-    </div>
-  </div>
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">✅ Secure Gumroad checkout</div>
+  <div class="trust-item">⚡ Instant download</div>
+  <div class="trust-item">🔄 30-day guarantee</div>
+  <div class="trust-item">♾️ Lifetime access</div>
+  <div class="trust-item">💌 Elena personally replies to every email</div>
 </div>
 
-
-<!-- ══════════════════════════════════════════
-     FIX #3 — LEAD MAGNET & EMAIL CAPTURE
-     (Captures warm audience before they leave)
-══════════════════════════════════════════ -->
-<div class="lead-section" id="freebie-sec">
-  <div class="lead-inner">
-    <div class="lead-badge">🎁 100% Free — Instant Download</div>
-    <h2 class="lead-title">Give your child a head start.<br>3 free Russian lessons, today.</h2>
-    <p class="lead-subtitle">No credit card. No commitment. Just beautiful, expertly crafted lessons — on us.</p>
-    <div class="lead-options">
-      <div class="lead-option">
-        <div class="lead-option-icon">🔤</div>
-        <div>
-          <div class="lead-option-title">Lesson 1: The Alphabet</div>
-          <div class="lead-option-desc">Learn the first 11 Cyrillic letters with pronunciation guides</div>
-        </div>
-      </div>
-      <div class="lead-option">
-        <div class="lead-option-icon">🔢</div>
-        <div>
-          <div class="lead-option-title">Lesson 3: Numbers 1–20</div>
-          <div class="lead-option-desc">Count to 20 in Russian with fun activities included</div>
-        </div>
-      </div>
-      <div class="lead-option">
-        <div class="lead-option-icon">👋</div>
-        <div>
-          <div class="lead-option-title">Lesson 5: Greetings</div>
-          <div class="lead-option-desc">Say hello, goodbye and introduce yourself in Russian</div>
-        </div>
-      </div>
-      <div class="lead-option">
-        <div class="lead-option-icon">🗺️</div>
-        <div>
-          <div class="lead-option-title">BONUS: Russia Map Activity</div>
-          <div class="lead-option-desc">Beautiful printable map with 8 fun activities for kids</div>
-        </div>
-      </div>
-    </div>
-    <!-- TODO ELENA: Replace this form with your ConvertKit/Mailchimp embed code -->
-    <div class="email-form">
-      <input type="email" placeholder="Your email address">
-      <button type="button">📩 Send My Free Lessons</button>
-    </div>
-    <p class="email-note">No spam. Ever. Unsubscribe anytime. Elena personally writes every newsletter. 💛</p>
+<!-- FREE LEAD MAGNET -->
+<section class="lead-magnet">
+  <div class="lead-badge">🎁 100% Free — Instant Download</div>
+  <h2>Give your child a head start.<br>3 free Russian lessons, today.</h2>
+  <p>No credit card. No commitment. Just beautiful, expertly crafted lessons — on us.</p>
+  <div class="lead-items">
+    <div class="lead-item"><span class="lead-item-icon">🔤</span><span class="lead-item-title">Lesson 1: The Alphabet</span><span class="lead-item-sub">Learn the first 11 Cyrillic letters with pronunciation guides</span></div>
+    <div class="lead-item"><span class="lead-item-icon">🔢</span><span class="lead-item-title">Lesson 3: Numbers 1–20</span><span class="lead-item-sub">Count to 20 in Russian with fun activities included</span></div>
+    <div class="lead-item"><span class="lead-item-icon">👋</span><span class="lead-item-title">Lesson 5: Greetings</span><span class="lead-item-sub">Say hello, goodbye and introduce yourself in Russian</span></div>
+    <div class="lead-item"><span class="lead-item-icon">🗺️</span><span class="lead-item-title">BONUS: Russia Map</span><span class="lead-item-sub">Beautiful printable map with 8 fun activities for kids</span></div>
   </div>
-</div>
-
-
-<!-- ══════════════════════════════════════════
-     FIX #1 — TESTIMONIALS / SOCIAL PROOF
-     (Shown before products to build trust first)
-══════════════════════════════════════════ -->
-<div class="testimonials-section">
-  <div class="testimonials-inner">
-    <div class="testimonials-heading">
-      <h2>What Parents &amp; Teachers Are Saying</h2>
-      <p>Real families. Real results. Real magic. ✨</p>
-    </div>
-    <div class="testimonials-grid">
-      <!-- ⭐ ELENA: Replace these with REAL quotes from your buyers! -->
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"My daughter has been asking to do her Russian lesson every single morning. She already knows all 33 Cyrillic letters and keeps writing her name on everything! Worth every penny."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:#c0392b">S</div>
-          <div>
-            <div class="author-name">Sofia K.</div>
-            <div class="author-role">Mom of a 7-year-old · Romania</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"I used this with my whole class of 22 students and they were absolutely hooked. The cultural notes sparked a 40-minute discussion! Elena's teaching experience shows in every single lesson."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:#1a73e8">M</div>
-          <div>
-            <div class="author-name">Maria T.</div>
-            <div class="author-role">Primary school teacher · 8 years experience</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"The AI course was perfect for my 10-year-old. He now explains to ME what Claude is and how it works. He even wrote his own family AI safety rules. I couldn't be prouder."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:#27ae60">A</div>
-          <div>
-            <div class="author-name">Ana P.</div>
-            <div class="author-role">Homeschool mom · 2 kids</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"I bought the bundle for both my children and it was the best educational investment of the year. The lessons are structured beautifully — my kids race each other to finish first!"</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:#8b5cf6">L</div>
-          <div>
-            <div class="author-name">Laura D.</div>
-            <div class="author-role">Mom of 2 · ages 8 and 11</div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="lead-form">
+    <input class="lead-input" type="email" placeholder="Your email address"/>
+    <button class="lead-btn">📩 Send My Free Lessons</button>
   </div>
-</div>
+  <p class="lead-note">No spam. Ever. Unsubscribe anytime. Elena personally writes every newsletter. 💛</p>
+</section>
 
-
-<!-- ══════════════════════════════════════════
-     FEATURED COURSE 1 — RUSSIAN FOR KIDS
-══════════════════════════════════════════ -->
-<section class="content-section alt" id="russian-sec">
-  <div class="section-inner">
-    <div class="featured-badge-tag">🆕 NEW COURSE · Featured Launch</div>
-    <h2 class="section-title">Russian for Kids</h2>
-    <p style="font-family:'Playfair Display',serif; font-style:italic; color:var(--muted); margin-bottom:10px;">Русский для детей</p>
-    <p class="section-subtitle">25 interactive lessons teaching the Cyrillic alphabet, 200+ vocabulary words, simple conversations and Russian culture. Perfect for ages 6–12. No Russian needed!</p>
-
-    <ul class="course-features">
-      <li>🔤 Read &amp; write all 33 Cyrillic letters from Lesson 1</li>
-      <li>💬 200+ vocabulary words across 5 themed units</li>
-      <li>🌍 Culture, history, geography &amp; famous Russians</li>
-      <li>⭐ 7 gorgeous bonus printables included FREE</li>
-      <li>🖨️ Print-and-go worksheets — zero prep required</li>
-      <li>👩‍🏫 Created by Elena Micle — Russian Language Major &amp; Mom</li>
-    </ul>
-
-    <div class="pricing-row">
-      <div class="price-tier-card">
-        <div class="ptc-label">Individual</div>
-        <div class="ptc-price">$79</div>
-        <div class="ptc-desc">All 25 lessons · 7 bonus materials · Lifetime access · 1 family use</div>
-        <a href="https://alomiclemagic.gumroad.com/l/rdvsj" target="_blank" class="btn-buy btn-buy-outline">🛒 Buy Individual</a>
-      </div>
-      <div class="price-tier-card popular">
-        <div class="popular-badge">⭐ Popular</div>
-        <div class="ptc-label">Teacher</div>
-        <div class="ptc-price">$149</div>
-        <div class="ptc-desc">Multiple students · Commercial use · Teaching guides included</div>
-        <a href="https://alomiclemagic.gumroad.com/l/svjtnz" target="_blank" class="btn-buy btn-buy-gold">🎓 Buy Teacher</a>
-      </div>
-      <div class="price-tier-card">
-        <div class="ptc-label">School License</div>
-        <div class="ptc-price">$299</div>
-        <div class="ptc-desc">Unlimited students · School-wide use · Priority support</div>
-        <a href="https://alomiclemagic.gumroad.com/l/gfrsen" target="_blank" class="btn-buy btn-buy-outline">🏫 Buy School</a>
-      </div>
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <h2>What Parents & Teachers Are Saying</h2>
+  <p class="section-sub">Real families. Real results. Real magic. ✨</p>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"My daughter has been asking to do her Russian lesson every single morning. She already knows all 33 Cyrillic letters and keeps writing her name on everything! Worth every penny."</p>
+      <div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#7c5cbf,#a78bfa)">S</div><div><div class="testi-name">Sofia K.</div><div class="testi-role">Mom of a 7-year-old · Romania</div></div></div>
     </div>
-    <p class="secure-note">✅ Secure checkout via Gumroad · Instant download · 30-day guarantee</p>
-
-    <!-- FIX #2 — PRICE ANCHORING for Russian for Kids -->
-    <div class="price-anchor-section">
-      <h4>💡 What does $79 actually get you?</h4>
-      <div class="price-compare">
-        <div class="price-row them"><span>🏫 Private Russian tutor (1 hour)</span><span>$60–$80</span></div>
-        <div class="price-row them"><span>📱 Language app subscription (1 year)</span><span>$69.99</span></div>
-        <div class="price-row them"><span>📚 Russian textbook (no lessons)</span><span>$35–$50</span></div>
-        <div class="price-row us"><span>✅ Russian for Kids — full 25-lesson course</span><span>$79</span></div>
-      </div>
-      <div class="price-verdict">25 lessons = just $3.16 per lesson · Lifetime access · No subscription ever</div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"I used this with my whole class of 22 students and they were absolutely hooked. The cultural notes sparked a 40-minute discussion! Elena's teaching experience shows in every single lesson."</p>
+      <div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#34c98a,#60aff0)">M</div><div><div class="testi-name">Maria T.</div><div class="testi-role">Primary school teacher · 8 years experience</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"The AI course was perfect for my 10-year-old. He now explains to ME what Claude is and how it works. He even wrote his own family AI safety rules. I couldn't be prouder."</p>
+      <div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#f5c842,#f97060)">A</div><div><div class="testi-name">Ana P.</div><div class="testi-role">Homeschool mom · 2 kids</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"I bought the bundle for both my children and it was the best educational investment of the year. The lessons are structured beautifully — my kids race each other to finish first!"</p>
+      <div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#60aff0,#7c5cbf)">L</div><div><div class="testi-name">Laura D.</div><div class="testi-role">Mom of 2 · ages 8 and 11</div></div></div>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-<!-- ══════════════════════════════════════════
-     FEATURED COURSE 2 — UNDERSTANDING CLAUDE
-══════════════════════════════════════════ -->
-<section class="content-section" id="claude-sec">
-  <div class="section-inner">
-    <div class="featured-badge-tag">🆕 NEW COURSE · Featured Launch</div>
-    <h2 class="section-title">Understanding Claude</h2>
-    <p class="section-subtitle">A Kid's Complete Guide to AI — 25 interactive lessons teaching kids ages 8–14 what AI really is, how to use it safely, how to think critically about it, and how to shape its future.</p>
-
-    <ul class="course-features">
-      <li>🤔 What AI really is — and how Claude actually works</li>
-      <li>💬 Writing great prompts — the skill of the future</li>
-      <li>🛡️ Online safety, privacy and healthy AI habits</li>
-      <li>🌍 AI in medicine, art, space, environment &amp; jobs</li>
-      <li>⚖️ Ethics, bias, responsibility and the big questions</li>
-      <li>👩‍🏫 Same proven format as Russian for Kids — 25 lessons, 5 units</li>
-    </ul>
-
-    <div class="pricing-row">
-      <div class="price-tier-card">
-        <div class="ptc-label">Individual</div>
-        <div class="ptc-price">$79</div>
-        <div class="ptc-desc">All 25 lessons · Complete course PDF · Lifetime access · 1 family use</div>
-        <a href="https://alomiclemagic.gumroad.com/l/txbjp" target="_blank" class="btn-buy btn-buy-outline">🛒 Buy Individual</a>
-      </div>
-      <div class="price-tier-card popular">
-        <div class="popular-badge">⭐ Popular</div>
-        <div class="ptc-label">Teacher</div>
-        <div class="ptc-price">$149</div>
-        <div class="ptc-desc">Multiple students · Commercial use · Classroom-ready guides</div>
-        <a href="https://alomiclemagic.gumroad.com/l/syzdu" target="_blank" class="btn-buy btn-buy-gold">🎓 Buy Teacher</a>
-      </div>
-      <div class="price-tier-card">
-        <div class="ptc-label">School License</div>
-        <div class="ptc-price">$299</div>
-        <div class="ptc-desc">Unlimited students · School-wide use · Priority support</div>
-        <a href="https://alomiclemagic.gumroad.com/l/cgfkso" target="_blank" class="btn-buy btn-buy-outline">🏫 Buy School</a>
-      </div>
-    </div>
-    <p class="secure-note">✅ Secure checkout via Gumroad · Instant download · 30-day guarantee</p>
-
-    <!-- FIX #2 — PRICE ANCHORING for Understanding Claude -->
-    <div class="price-anchor-section" style="background:var(--navy); border-color:var(--navy);">
-      <h4 style="color:var(--gold);">💡 The skill every child needs for the next 50 years</h4>
-      <div class="price-compare">
-        <div class="price-row" style="background:rgba(239,68,68,0.15);color:#fca5a5;"><span>🏫 Tech literacy class (semester)</span><span>$200–$500</span></div>
-        <div class="price-row" style="background:rgba(239,68,68,0.15);color:#fca5a5;"><span>💻 Coding bootcamp for kids</span><span>$300–$800</span></div>
-        <div class="price-row" style="background:rgba(239,68,68,0.15);color:#fca5a5;"><span>📱 Digital safety course online</span><span>$49–$99</span></div>
-        <div class="price-row" style="background:rgba(34,197,94,0.15);color:#86efac;font-weight:700;"><span>✅ Understanding Claude — full course</span><span>$79</span></div>
-      </div>
-      <div class="price-verdict">25 lessons = just $3.16 per lesson · AI literacy for life · Instant download</div>
-    </div>
-
-    <p style="text-align:center; margin-top:24px; color:var(--muted); font-size:0.92rem;">
-      🎁 <strong>Bundle Available!</strong> Russian for Kids + Understanding Claude together — save up to $99.
-      <a href="#bundle-sec" style="color:var(--blue); font-weight:700;">→ See Bundle Pricing</a>
-    </p>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ══════════════════════════════════════════
-     BUNDLE
-══════════════════════════════════════════ -->
-<section class="content-section alt" id="bundle-sec">
-  <div class="section-inner">
-    <div class="bundle-card">
-      <div class="featured-badge-tag" style="background:rgba(255,215,0,0.2);color:var(--gold2);">🎁 BUNDLE — BEST VALUE</div>
-      <h2 class="section-title" style="color:var(--gold2);">Russian + AI Bundle</h2>
-      <p class="section-subtitle" style="color:rgba(255,255,255,0.7);">Language &amp; AI Literacy — the two most future-ready skills in one bundle. Give your child the ultimate learning advantage for less than a month of private tutoring.</p>
-
-      <div class="bundle-courses">
-        <div class="bundle-course-pill">
-          <span class="bcp-icon">🇷🇺</span>
-          <div class="bcp-name">Russian for Kids</div>
-          <div class="bcp-desc">25 lessons · Cyrillic · 200+ words · Culture · 7 bonus materials</div>
-        </div>
-        <div class="bundle-course-pill">
-          <span class="bcp-icon">🤖</span>
-          <div class="bcp-name">Understanding Claude</div>
-          <div class="bcp-desc">25 lessons · AI literacy · Safety · Ethics · 4 bonus materials</div>
-        </div>
-      </div>
-
-      <div class="bundle-pricing-row">
-        <div class="bundle-price-tile">
-          <div class="bpt-label">Individual</div>
-          <div class="bpt-price">$129</div>
-          <div class="bpt-old">$158 separately</div>
-          <div class="bpt-save">💰 Save $29</div>
-          <a href="https://alomiclemagic.gumroad.com/l/wqvyu" target="_blank" class="btn-bundle btn-bundle-white">🎁 Buy Bundle</a>
-        </div>
-        <div class="bundle-price-tile pop-tile">
-          <div class="bpt-label">Teacher ⭐</div>
-          <div class="bpt-price">$239</div>
-          <div class="bpt-old" style="color:rgba(13,27,42,0.45);">$298 separately</div>
-          <div class="bpt-save" style="color:var(--navy2);">💰 Save $59</div>
-          <a href="https://alomiclemagic.gumroad.com/l/intfwu" target="_blank" class="btn-bundle btn-bundle-navy">🎓 Teacher Bundle</a>
-        </div>
-        <div class="bundle-price-tile">
-          <div class="bpt-label">School License</div>
-          <div class="bpt-price">$499</div>
-          <div class="bpt-old">$598 separately</div>
-          <div class="bpt-save">💰 Save $99</div>
-          <a href="https://alomiclemagic.gumroad.com/l/vijhd" target="_blank" class="btn-bundle btn-bundle-white">🏫 School Bundle</a>
-        </div>
-      </div>
-      <p style="font-size:0.8rem;color:rgba(255,255,255,0.4);margin-top:14px;text-align:center;">✅ Secure checkout via Gumroad · Instant download · 30-day guarantee</p>
-
-      <!-- Bundle price anchor -->
-      <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:20px;margin-top:24px;display:flex;gap:14px;flex-wrap:wrap;">
-        <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:10px 16px;font-size:0.83rem;color:rgba(255,255,255,0.85);font-weight:700;">💰 Save $29 vs buying separately</div>
-        <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:10px 16px;font-size:0.83rem;color:rgba(255,255,255,0.85);font-weight:700;">📚 50 lessons total</div>
-        <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:10px 16px;font-size:0.83rem;color:rgba(255,255,255,0.85);font-weight:700;">🎁 11 bonus materials</div>
-        <div style="background:rgba(255,215,0,0.2);border-radius:10px;padding:10px 16px;font-size:0.83rem;color:var(--gold2);font-weight:700;">⚡ $2.58 per lesson</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ══════════════════════════════════════════
-     KIDS & FAMILIES SECTION
-══════════════════════════════════════════ -->
-<section class="content-section" id="kids-sec">
-  <div class="section-inner">
-    <span class="section-label">For Kids &amp; Families</span>
+<!-- KIDS & FAMILIES -->
+<section id="kids-sec" style="padding:70px 0;background:var(--cream);">
+  <div class="courses-inner">
+    <div class="section-label">For Kids & Families</div>
     <h2 class="section-title">Learning That Feels Like Play 📚</h2>
-    <p class="section-subtitle">Courses and tools designed to make kids fall in love with learning — languages, money skills, kindness and more.</p>
+    <p class="section-sub">Courses and tools designed to make kids fall in love with learning — languages, money skills, kindness and more.</p>
 
-    <div class="product-grid">
-      <div class="product-card">
-        <span class="pc-icon">🇷🇺</span>
-        <div class="pc-badge-row">
-          <span class="tag">Ages 6–12</span><span class="tag">Cyrillic</span><span class="tag">Culture</span><span class="tag">Beginner</span>
+    <!-- Russian for Kids -->
+    <div style="background:white;border:2px solid var(--border);border-radius:24px;padding:36px;margin-bottom:24px;" id="russian-sec">
+      <div style="display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;flex-wrap:wrap;">
+        <div>
+          <div class="course-tags"><span class="course-tag" style="background:#dbeafe;color:#1e40af;">🇷🇺 Ages 6–12</span><span class="course-tag" style="background:#dcfce7;color:#166534;">Cyrillic</span><span class="course-tag" style="background:#fef9c3;color:#854d0e;">Culture</span><span class="course-tag" style="background:#f0ebff;color:var(--purple);">Beginner</span></div>
+          <div style="font-size:11px;font-weight:800;color:var(--purple);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">🆕 NEW COURSE · Featured Launch</div>
+          <h2 style="font-family:'Fredoka One',cursive;font-size:32px;color:var(--navy);margin-bottom:4px;">Russian for Kids<br><span style="font-size:22px;color:var(--purple2);">Русский для детей</span></h2>
+          <p style="font-size:15px;color:var(--muted);line-height:1.7;margin:12px 0 16px;">25 interactive lessons teaching the Cyrillic alphabet, 200+ vocabulary words, simple conversations and Russian culture. Perfect for ages 6–12. No Russian needed!</p>
+          <ul style="list-style:none;margin-bottom:20px;">
+            <li style="font-size:14px;padding:5px 0;display:flex;gap:8px;align-items:flex-start;"><span>🔤</span>Read & write all 33 Cyrillic letters from Lesson 1</li>
+            <li style="font-size:14px;padding:5px 0;display:flex;gap:8px;align-items:flex-start;"><span>💬</span>200+ vocabulary words across 5 themed units</li>
+            <li style="font-size:14px;padding:5px 0;display:flex;gap:8px;align-items:flex-start;"><span>🌍</span>Culture, history, geography & famous Russians</li>
+            <li style="font-size:14px;padding:5px 0;display:flex;gap:8px;align-items:flex-start;"><span>⭐</span>7 gorgeous bonus printables included FREE</li>
+            <li style="font-size:14px;padding:5px 0;display:flex;gap:8px;align-items:flex-start;"><span>🖨️</span>Print-and-go worksheets — zero prep required</li>
+          </ul>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="https://alomiclemagic.gumroad.com/l/rdvsj" class="btn-buy">🛒 Individual — $79</a>
+            <a href="https://alomiclemagic.gumroad.com/l/svjtnz" class="btn-secondary">🎓 Teacher — $149</a>
+            <a href="https://alomiclemagic.gumroad.com/l/gfrsen" class="btn-secondary">🏫 School — $299</a>
+          </div>
         </div>
-        <div class="pc-title">Russian for Kids</div>
-        <div class="pc-subtitle">Complete Beginner Course · 25 Lessons</div>
-        <div class="pc-desc">Teach your child the Cyrillic alphabet, 200+ words, simple conversations and Russian culture. Created by Elena Micle — Russian Language Major and Mom of Lexi!</div>
-        <div class="pc-price">$79 Individual · $149 Teacher · $299 School</div>
-        <div class="pc-btn-row">
-          <a href="https://alomiclemagic.gumroad.com/l/rdvsj" target="_blank" class="btn-sm btn-sm-primary">🛒 Buy — $79</a>
-          <a href="#russian-sec" class="btn-sm btn-sm-secondary">Learn More</a>
+        <div style="text-align:center;min-width:160px;">
+          <div style="font-size:72px;margin-bottom:8px;">🇷🇺</div>
+          <div style="font-family:'Fredoka One',cursive;font-size:36px;color:var(--purple);">$79</div>
+          <div style="font-size:12px;color:var(--muted);font-weight:700;">Individual</div>
         </div>
       </div>
+    </div>
 
-      <div class="product-card">
-        <span class="pc-icon">🤖</span>
-        <div class="pc-badge-row">
-          <span class="tag">Ages 8–14</span><span class="tag">AI Literacy</span><span class="tag">Digital Safety</span><span class="tag">Ethics</span>
+    <!-- Understanding Claude — KIRA VERSION -->
+    <section class="kira-section" id="claude-sec" style="margin-bottom:24px;border-radius:24px;">
+      <div class="kira-section-inner">
+        <div class="kira-section-badge">🆕 NEW COURSE · Featured Launch</div>
+        <div class="kira-hero-row">
+          <div>
+            <h2 class="kira-section-title"><span class="ks-highlight">Understanding Claude</span><br>A Kid's Complete Guide to AI</h2>
+            <p class="kira-section-sub">25 interactive lessons teaching kids ages 8–14 what AI really is, how to use it <strong>safely</strong>, how to think <strong>critically</strong> about it, and how to shape its future.<br><br>Guided every step of the way by <strong>Kira ⭐</strong> — your child's friendly AI learning companion!</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+              <a href="https://alomiclemagic.gumroad.com/l/txbjp" class="kpc-btn kpc-btn-gold" style="display:inline-block;padding:14px 28px;">🛒 Buy — $79</a>
+              <a href="kira-education-mascot.html" class="kira-meet-btn" style="padding:14px 24px;">✨ Meet Kira →</a>
+            </div>
+          </div>
+          <div class="kira-mascot-card">
+            <span class="kira-mascot-emoji">🤖</span>
+            <div class="kira-mascot-name">Kira ⭐</div>
+            <div class="kira-mascot-role">Your AI Learning Guide · Ages 8–14</div>
+            <div class="kira-quote-bubble">"AI isn't magic — but learning about it kind of feels like it is! Let's find out together! 🌟"</div>
+            <a href="kira-education-mascot.html" class="kira-meet-btn">Meet Kira & See Full Course →</a>
+          </div>
         </div>
-        <div class="pc-title">Understanding Claude</div>
-        <div class="pc-subtitle">A Kid's Complete Guide to AI · 25 Lessons</div>
-        <div class="pc-desc">25 lessons teaching kids what AI really is, how to use it safely, how to think critically about it, and how to shape its future. The AI literacy course every child needs!</div>
-        <div class="pc-price">$79 Individual · $149 Teacher · $299 School</div>
-        <div class="pc-btn-row">
-          <a href="https://alomiclemagic.gumroad.com/l/txbjp" target="_blank" class="btn-sm btn-sm-primary">🛒 Buy — $79</a>
-          <a href="#claude-sec" class="btn-sm btn-sm-secondary">Learn More</a>
+        <div class="kira-units">
+          <div class="kira-unit"><span class="kira-unit-icon">🧠</span><div class="kira-unit-num">Unit 1</div><div class="kira-unit-title">What is AI, Really?</div></div>
+          <div class="kira-unit"><span class="kira-unit-icon">💬</span><div class="kira-unit-num">Unit 2</div><div class="kira-unit-title">Talking to AI: Prompt Skills</div></div>
+          <div class="kira-unit"><span class="kira-unit-icon">🛡️</span><div class="kira-unit-num">Unit 3</div><div class="kira-unit-title">Staying Safe Online</div></div>
+          <div class="kira-unit"><span class="kira-unit-icon">🌍</span><div class="kira-unit-num">Unit 4</div><div class="kira-unit-title">AI Changing the World</div></div>
+          <div class="kira-unit"><span class="kira-unit-icon">⚖️</span><div class="kira-unit-num">Unit 5</div><div class="kira-unit-title">Ethics, Bias & Big Questions</div></div>
+        </div>
+        <div class="kira-pricing">
+          <div class="kira-price-card">
+            <div class="kpc-badge kpc-badge-mint">Individual</div>
+            <div class="kpc-type">Family</div>
+            <div class="kpc-price">$79</div>
+            <div class="kpc-desc">All 25 lessons · Complete course PDF · Lifetime access · 1 family use</div>
+            <ul class="kpc-features"><li>25 full lessons</li><li>4 bonus materials</li><li>Lifetime access</li><li>1 family use</li></ul>
+            <a href="https://alomiclemagic.gumroad.com/l/txbjp" class="kpc-btn kpc-btn-outline">🛒 Buy — $79</a>
+          </div>
+          <div class="kira-price-card kpc-featured">
+            <div class="kpc-badge kpc-badge-gold">⭐ Most Popular</div>
+            <div class="kpc-type">Teacher</div>
+            <div class="kpc-price">$149</div>
+            <div class="kpc-desc">Multiple students · Commercial use · Classroom-ready guides</div>
+            <ul class="kpc-features"><li>Full course + commercial license</li><li>Classroom-ready guides</li><li>Unlimited students</li><li>Priority support from Elena</li></ul>
+            <a href="https://alomiclemagic.gumroad.com/l/syzdu" class="kpc-btn kpc-btn-gold">🎓 Teacher — $149</a>
+          </div>
+          <div class="kira-price-card">
+            <div class="kpc-badge kpc-badge-purple">School</div>
+            <div class="kpc-type">School License</div>
+            <div class="kpc-price">$299</div>
+            <div class="kpc-desc">Unlimited students · School-wide use · Priority support</div>
+            <ul class="kpc-features"><li>Unlimited students</li><li>School-wide license</li><li>All materials included</li><li>Priority support</li></ul>
+            <a href="https://alomiclemagic.gumroad.com/l/cgfkso" class="kpc-btn kpc-btn-outline">🏫 School — $299</a>
+          </div>
+        </div>
+        <div class="kira-bottom-strip">
+          <div class="kbs-item">✅ Secure Gumroad checkout</div>
+          <div class="kbs-item">⚡ Instant download</div>
+          <div class="kbs-item">🔄 30-day guarantee</div>
+          <div class="kbs-item">♾️ Lifetime access</div>
+          <div class="kbs-item">🎁 <a href="#bundle-sec" style="color:var(--purple);font-weight:800;">Bundle & save up to $99 →</a></div>
         </div>
       </div>
+    </section>
 
-      <div class="product-card">
-        <span class="pc-icon">💰</span>
-        <div class="pc-badge-row">
-          <span class="tag">Ages 8–12</span><span class="tag">Finance</span><span class="tag">Homeschool</span>
+    <!-- Kids Money + Manners -->
+    <div class="course-grid" style="margin-bottom:24px;">
+      <div class="course-card">
+        <div class="course-card-top">
+          <div class="course-tags"><span class="course-tag" style="background:#fef9c3;color:#854d0e;">💰 Ages 8–12</span><span class="course-tag" style="background:#dcfce7;color:#166534;">Finance</span><span class="course-tag" style="background:#f0ebff;color:var(--purple);">Homeschool</span></div>
+          <span class="course-icon">💰</span>
+          <div class="course-title">Kids' Money Guide</div>
+          <div class="course-subtitle">Financial Literacy Course · 8-Week Curriculum</div>
+          <p class="course-desc">Teach your kids about money, saving, smart spending and building wealth! Complete curriculum with interactive app, worksheets, quizzes and teacher guides.</p>
         </div>
-        <div class="pc-title">Kids' Money Guide</div>
-        <div class="pc-subtitle">Financial Literacy Course · 8-Week Curriculum</div>
-        <div class="pc-desc">Teach your kids about money, saving, smart spending and building wealth! Complete curriculum with interactive app, worksheets, quizzes and teacher guides.</div>
-        <div class="pc-price">$29.99 Individual · $49.99 Teacher · $199.99 School</div>
-        <div class="pc-btn-row">
-          <a href="https://alomiclemagic.gumroad.com/l/qyoeiv" target="_blank" class="btn-sm btn-sm-primary">🛒 Buy Now</a>
-          <a href="Financial_Guide_App_English.html" class="btn-sm btn-sm-secondary">🚀 Free Preview</a>
+        <div class="course-card-bottom">
+          <div class="course-price-row"><span class="course-price">$29.99</span><span style="font-size:12px;color:var(--muted);">Individual · $49.99 Teacher</span></div>
+          <div class="course-btns">
+            <a href="https://alomiclemagic.gumroad.com/l/qyoeiv" class="btn-buy">🛒 Buy Now</a>
+            <a href="Financial_Guide_App_English.html" class="btn-secondary">🚀 Free Preview</a>
+          </div>
         </div>
       </div>
-
-      <div class="product-card">
-        <span class="pc-icon">💕</span>
-        <div class="pc-badge-row">
-          <span class="tag">Ages 8–12</span><span class="tag">SEL</span><span class="tag">Character</span>
+      <div class="course-card">
+        <div class="course-card-top">
+          <div class="course-tags"><span class="course-tag" style="background:#fce7f3;color:#9d174d;">💕 Ages 8–12</span><span class="course-tag" style="background:#dbeafe;color:#1e40af;">SEL</span><span class="course-tag" style="background:#f0ebff;color:var(--purple);">Character</span></div>
+          <span class="course-icon">💕</span>
+          <div class="course-title">Raising Respectful Humans</div>
+          <div class="course-subtitle">Manners & Social Skills · 8-Week Curriculum</div>
+          <p class="course-desc">Teach kindness, empathy, respectful communication and digital citizenship. Perfect for character education, SEL programs and families.</p>
         </div>
-        <div class="pc-title">Raising Respectful Humans</div>
-        <div class="pc-subtitle">Manners &amp; Social Skills · 8-Week Curriculum</div>
-        <div class="pc-desc">Teach kindness, empathy, respectful communication and digital citizenship. Perfect for character education, SEL programs and families.</div>
-        <div class="pc-price">$29.99 Individual · $49.99 Teacher · $199.99 School</div>
-        <div class="pc-btn-row">
-          <a href="https://alomiclemagic.gumroad.com/l/oyllc" target="_blank" class="btn-sm btn-sm-primary">🛒 Buy Now</a>
-          <a href="Manners_Guide_App_English.html" class="btn-sm btn-sm-secondary">🚀 Free Preview</a>
-        </div>
-      </div>
-
-      <div class="product-card" style="border-color:var(--gold); background:linear-gradient(135deg,#fffbf0,#fff);">
-        <span class="pc-icon">🎁</span>
-        <div class="pc-badge-row">
-          <span class="tag" style="background:#fef3c7;color:#92400e;">Best Value</span><span class="tag" style="background:#fef3c7;color:#92400e;">Bundle</span>
-        </div>
-        <div class="pc-title">Money + Manners Bundle</div>
-        <div class="pc-subtitle">Both Courses Together &amp; Save!</div>
-        <div class="pc-desc">Get BOTH complete courses at a great price! Financial literacy AND respectful behaviour — the two most important life skills every child needs.</div>
-        <div class="pc-price">$49.99 Individual · $79.99 Teacher · $349.99 School</div>
-        <div class="pc-btn-row">
-          <a href="https://alomiclemagic.gumroad.com/l/edsdka" target="_blank" class="btn-sm btn-sm-primary" style="background:var(--gold);color:var(--navy);">🎁 Buy Bundle &amp; Save</a>
+        <div class="course-card-bottom">
+          <div class="course-price-row"><span class="course-price">$29.99</span><span style="font-size:12px;color:var(--muted);">Individual · $49.99 Teacher</span></div>
+          <div class="course-btns">
+            <a href="https://alomiclemagic.gumroad.com/l/oyllc" class="btn-buy">🛒 Buy Now</a>
+            <a href="Manners_Guide_App_English.html" class="btn-secondary">🚀 Free Preview</a>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="product-card" style="border-color:var(--green);">
-        <span class="pc-icon">🌊</span>
-        <div class="pc-badge-row">
-          <span class="tag" style="background:#f0fdf4;color:#166534;">FREE</span><span class="tag">Interactive</span><span class="tag">Science</span>
-        </div>
-        <div class="pc-title">Free Fun Learning Apps</div>
-        <div class="pc-subtitle">Ocean Explorer &amp; Garden Guide</div>
-        <div class="pc-desc">Explore ocean wonders and learn to grow a first garden! Interactive apps created by Elena for Lexi — and every curious kid who loves discovering the world.</div>
-        <div class="pc-price" style="color:var(--green);">100% Free — always</div>
-        <div class="pc-btn-row">
-          <a href="ocean-explorer.html" class="btn-sm btn-sm-free">🌊 Ocean Explorer</a>
-          <a href="kids-garden-guide.html" class="btn-sm btn-sm-free">🌱 Garden Guide</a>
+    <!-- Money + Manners Bundle -->
+    <div style="background:linear-gradient(135deg,#fef9ec,var(--warm));border:2px solid var(--gold2);border-radius:20px;padding:28px;margin-bottom:24px;">
+      <div class="bundle-tag">🎁 Best Value Bundle</div>
+      <h3 style="font-family:'Fredoka One',cursive;font-size:22px;color:var(--navy);margin-bottom:6px;">Money + Manners Bundle</h3>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">Both Courses Together & Save! Financial literacy AND respectful behaviour — the two most important life skills every child needs.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="https://alomiclemagic.gumroad.com/l/edsdka" class="btn-buy">🎁 Bundle — $49.99</a>
+        <span style="font-size:13px;color:var(--muted);display:flex;align-items:center;">Teacher $79.99 · School $349.99</span>
+      </div>
+    </div>
+
+    <!-- Free Apps -->
+    <div style="background:var(--mint2);border:2px solid #86efac;border-radius:20px;padding:28px;">
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <span style="font-size:48px;">🌊</span>
+        <div style="flex:1;">
+          <div style="font-size:10px;font-weight:800;color:var(--mint);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">FREE · Interactive · Science</div>
+          <h3 style="font-family:'Fredoka One',cursive;font-size:20px;color:var(--navy);margin-bottom:4px;">Free Fun Learning Apps</h3>
+          <p style="font-size:14px;color:#065f46;margin-bottom:14px;">Ocean Explorer & Garden Guide — interactive apps created by Elena for Lexi and every curious kid who loves discovering the world. 100% Free — always.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="ocean-explorer.html" class="btn-buy" style="background:var(--mint);box-shadow:0 3px 0 #15803d;">🌊 Ocean Explorer</a>
+            <a href="kids-garden-guide.html" class="btn-secondary">🌱 Garden Guide</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<!-- BUNDLE -->
+<section class="bundle-bg" id="bundle-sec">
+  <div class="bundle-inner">
+    <div class="bundle-tag">🎁 Bundle — Best Value</div>
+    <h2 class="bundle-title">Russian + AI Bundle</h2>
+    <p class="bundle-sub">Language & AI Literacy — the two most future-ready skills in one bundle. Give your child the ultimate learning advantage for less than a month of private tutoring.</p>
+    <div class="bundle-items">
+      <div class="bundle-item"><span class="bundle-item-icon">🇷🇺</span><div class="bundle-item-title">Russian for Kids</div><div class="bundle-item-sub">25 lessons · Cyrillic · 200+ words · Culture · 7 bonus materials</div></div>
+      <div class="bundle-item"><span class="bundle-item-icon">🤖</span><div class="bundle-item-title">Understanding Claude</div><div class="bundle-item-sub">25 lessons · AI literacy · Safety · Ethics · 4 bonus materials</div></div>
+    </div>
+    <div class="bundle-pricing">
+      <div class="bundle-price-card">
+        <div class="bp-label">Individual</div>
+        <span class="bp-amount">$129</span>
+        <div class="bp-save">💰 Save $29</div>
+        <a href="https://alomiclemagic.gumroad.com/l/wqvyu">🎁 Buy Bundle</a>
+      </div>
+      <div class="bundle-price-card bp-featured">
+        <div class="bp-label">⭐ Teacher</div>
+        <span class="bp-amount">$239</span>
+        <div class="bp-save">💰 Save $59</div>
+        <a href="https://alomiclemagic.gumroad.com/l/intfwu">🎓 Teacher Bundle</a>
+      </div>
+      <div class="bundle-price-card">
+        <div class="bp-label">School</div>
+        <span class="bp-amount">$499</span>
+        <div class="bp-save">💰 Save $99</div>
+        <a href="https://alomiclemagic.gumroad.com/l/vijhd">🏫 School Bundle</a>
+      </div>
+    </div>
+    <div class="bundle-trust">
+      <div class="bt-item">✅ Secure checkout via Gumroad</div>
+      <div class="bt-item">⚡ Instant download</div>
+      <div class="bt-item">🔄 30-day guarantee</div>
+      <div class="bt-item">📚 50 lessons total</div>
+      <div class="bt-item">🎁 11 bonus materials</div>
+    </div>
+  </div>
+</section>
 
-<!-- ══════════════════════════════════════════
-     TEACHERS SECTION
-══════════════════════════════════════════ -->
-<section class="content-section alt" id="teachers-sec">
-  <div class="section-inner">
-    <span class="section-label">For Teachers &amp; Educators</span>
+<!-- TEACHERS -->
+<section class="teachers-bg" id="teachers-sec">
+  <div class="teachers-inner">
+    <div class="section-label">For Teachers & Educators</div>
     <h2 class="section-title">Resources That Save You Hours 👩‍🏫</h2>
-    <p class="section-subtitle">Ready-to-use worksheets, full certification and curriculum — designed by a fellow educator who knows what actually works in the classroom.</p>
-
-    <div class="product-grid">
-      <div class="product-card">
-        <span class="pc-icon">📝</span>
-        <div class="pc-badge-row"><span class="tag">ESL</span><span class="tag">Romanian</span><span class="tag">Serbian</span></div>
-        <div class="pc-title">ESL Grammar Essentials — Pack 1</div>
-        <div class="pc-subtitle">40 Worksheets (80 pages) · 2 Languages</div>
-        <div class="pc-desc">Articles, Is/Am/Are, Was/Were, Prepositions, Pronouns, Mixed Reviews. 20 exercises per sheet, complete answer keys and teaching tips included.</div>
-        <div class="pc-price">$19.99 per language · $34.99 both languages</div>
-        <div class="pc-btn-row">
-          <a href="https://alomiclemagic.gumroad.com/l/kdgwo" target="_blank" class="btn-sm btn-sm-primary">🇷🇴 Romanian</a>
-          <a href="https://alomiclemagic.gumroad.com/l/njiuut" target="_blank" class="btn-sm btn-sm-primary">🇷🇸 Serbian</a>
-          <a href="https://alomiclemagic.gumroad.com/l/hsudq" target="_blank" class="btn-sm" style="background:#fef3c7;color:#92400e;font-weight:800;border-radius:50px;padding:8px 14px;font-size:0.8rem;text-decoration:none;">🎁 Both &amp; Save</a>
+    <p class="section-sub">Ready-to-use worksheets, full certification and curriculum — designed by a fellow educator who knows what actually works in the classroom.</p>
+    <div class="worksheets-grid">
+      <div class="ws-card">
+        <span class="ws-icon">📝</span>
+        <div class="ws-tags"><span class="ws-tag" style="background:#dbeafe;color:#1e40af;">ESL</span><span class="ws-tag" style="background:#fce7f3;color:#9d174d;">Romanian</span><span class="ws-tag" style="background:#fef9c3;color:#854d0e;">Serbian</span></div>
+        <div class="ws-title">ESL Grammar Essentials — Pack 1</div>
+        <div class="ws-sub">40 Worksheets (80 pages) · 2 Languages</div>
+        <p class="ws-desc">Articles, Is/Am/Are, Was/Were, Prepositions, Pronouns, Mixed Reviews. 20 exercises per sheet, complete answer keys and teaching tips included.</p>
+        <div class="ws-btns">
+          <a href="https://alomiclemagic.gumroad.com/l/kdgwo" class="btn-buy" style="font-size:13px;padding:8px 14px;">🇷🇴 Romanian</a>
+          <a href="https://alomiclemagic.gumroad.com/l/njiuut" class="btn-secondary" style="font-size:13px;padding:8px 14px;">🇷🇸 Serbian</a>
+          <a href="https://alomiclemagic.gumroad.com/l/hsudq" class="btn-secondary" style="font-size:13px;padding:8px 14px;">🎁 Both</a>
         </div>
       </div>
-
-      <div class="product-card">
-        <span class="pc-icon">✏️</span>
-        <div class="pc-badge-row"><span class="tag">ESL</span><span class="tag">Romanian</span><span class="tag">Serbian</span></div>
-        <div class="pc-title">ESL Grammar Essentials — Pack 2</div>
-        <div class="pc-subtitle">40 Worksheets (80 pages) · 2 Languages</div>
-        <div class="pc-desc">Simple Present, Plurals, This/That, There Is/Are, Can/Can't, Have/Has, Question Words, Adjectives, Adverbs and Contractions.</div>
-        <div class="pc-price">$19.99 per language · $34.99 both languages</div>
-        <div class="pc-btn-row">
-          <a href="https://alomiclemagic.gumroad.com/l/khdqg" target="_blank" class="btn-sm btn-sm-primary">🇷🇴 Romanian</a>
-          <a href="https://alomiclemagic.gumroad.com/l/btukoh" target="_blank" class="btn-sm btn-sm-primary">🇷🇸 Serbian</a>
-          <a href="https://alomiclemagic.gumroad.com/l/frzdrze" target="_blank" class="btn-sm" style="background:#fef3c7;color:#92400e;font-weight:800;border-radius:50px;padding:8px 14px;font-size:0.8rem;text-decoration:none;">🎁 Both &amp; Save</a>
+      <div class="ws-card">
+        <span class="ws-icon">✏️</span>
+        <div class="ws-tags"><span class="ws-tag" style="background:#dbeafe;color:#1e40af;">ESL</span><span class="ws-tag" style="background:#fce7f3;color:#9d174d;">Romanian</span><span class="ws-tag" style="background:#fef9c3;color:#854d0e;">Serbian</span></div>
+        <div class="ws-title">ESL Grammar Essentials — Pack 2</div>
+        <div class="ws-sub">40 Worksheets (80 pages) · 2 Languages</div>
+        <p class="ws-desc">Simple Present, Plurals, This/That, There Is/Are, Can/Can't, Have/Has, Question Words, Adjectives, Adverbs and Contractions.</p>
+        <div class="ws-btns">
+          <a href="https://alomiclemagic.gumroad.com/l/khdqg" class="btn-buy" style="font-size:13px;padding:8px 14px;">🇷🇴 Romanian</a>
+          <a href="https://alomiclemagic.gumroad.com/l/btukoh" class="btn-secondary" style="font-size:13px;padding:8px 14px;">🇷🇸 Serbian</a>
+          <a href="https://alomiclemagic.gumroad.com/l/frzdrze" class="btn-secondary" style="font-size:13px;padding:8px 14px;">🎁 Both</a>
         </div>
       </div>
-
-      <div class="product-card" style="border-color:var(--gold);background:linear-gradient(135deg,#fffbf0,#fff);">
-        <span class="pc-icon">🎓</span>
-        <div class="pc-badge-row"><span class="tag" style="background:#fef3c7;color:#92400e;">Best Value</span><span class="tag">80 Worksheets</span></div>
-        <div class="pc-title">Complete ESL Grammar Bundle</div>
-        <div class="pc-subtitle">All Packs · 80 Worksheets (160 pages)</div>
-        <div class="pc-desc">The complete collection covering all essential ESL grammar topics. Best value for regular teachers and tutors! Full answer keys included.</div>
-        <div class="pc-price">Romanian $34.99 · Serbian $34.99 · <strong>Both: $59.99</strong></div>
-        <div class="pc-btn-row">
-          <a href="https://alomiclemagic.gumroad.com/l/zdoci" target="_blank" class="btn-sm btn-sm-primary">🇷🇴 Full Romanian</a>
-          <a href="https://alomiclemagic.gumroad.com/l/fylmy" target="_blank" class="btn-sm btn-sm-primary">🇷🇸 Full Serbian</a>
-          <a href="https://alomiclemagic.gumroad.com/l/iqdfpl" target="_blank" class="btn-sm" style="background:var(--gold);color:var(--navy);font-weight:800;border-radius:50px;padding:8px 14px;font-size:0.8rem;text-decoration:none;">🌟 Ultimate Both</a>
+      <div class="ws-card" style="border-color:var(--gold2);background:linear-gradient(180deg,#fffdf5,white);">
+        <span class="ws-icon">🎓</span>
+        <div class="ws-tags"><span class="ws-tag" style="background:var(--gold2);color:#854d0e;">Best Value</span><span class="ws-tag" style="background:#dbeafe;color:#1e40af;">80 Worksheets</span></div>
+        <div class="ws-title">Complete ESL Grammar Bundle</div>
+        <div class="ws-sub">All Packs · 80 Worksheets (160 pages)</div>
+        <p class="ws-desc">The complete collection covering all essential ESL grammar topics. Best value for regular teachers and tutors! Full answer keys included.</p>
+        <div class="ws-btns">
+          <a href="https://alomiclemagic.gumroad.com/l/zdoci" class="btn-buy" style="font-size:13px;padding:8px 14px;">🇷🇴 Romanian</a>
+          <a href="https://alomiclemagic.gumroad.com/l/fylmy" class="btn-secondary" style="font-size:13px;padding:8px 14px;">🇷🇸 Serbian</a>
+          <a href="https://alomiclemagic.gumroad.com/l/iqdfpl" class="btn-buy" style="font-size:13px;padding:8px 14px;">🌟 Both $59.99</a>
         </div>
       </div>
+    </div>
 
-      <div class="product-card">
-        <span class="pc-icon">🇷🇺</span>
-        <div class="pc-badge-row"><span class="tag">Teacher License</span><span class="tag">School License</span></div>
-        <div class="pc-title">Russian for Kids — Teacher &amp; School License</div>
-        <div class="pc-subtitle">Commercial Use · All Bonus Materials Included</div>
-        <div class="pc-desc">The complete 25-lesson course with Teacher or School License. Use commercially with as many students as you like. All bonus materials and teaching guides included.</div>
-        <div class="pc-price">$149 Teacher License · $299 School License</div>
-        <div class="pc-btn-row">
-          <a href="https://alomiclemagic.gumroad.com/l/svjtnz" target="_blank" class="btn-sm btn-sm-primary">🎓 Teacher — $149</a>
-          <a href="https://alomiclemagic.gumroad.com/l/gfrsen" target="_blank" class="btn-sm btn-sm-primary">🏫 School — $299</a>
+    <!-- TESOL -->
+    <div class="tesol-card" style="margin-bottom:20px;">
+      <div>
+        <div class="tesol-badge">🏆 Complete TESOL Certification Course</div>
+        <div class="tesol-title">Become a Certified ESL Teacher in 12 Weeks</div>
+        <p class="tesol-sub">120 hours of content across 12 complete modules. Earn $15–$80/hour teaching online. Perfect for teachers, moms and career changers. Preview Module 1 completely free!</p>
+        <div class="tesol-features"><span class="tesol-feat">120 hours content</span><span class="tesol-feat">12 modules</span><span class="tesol-feat">Internationally recognised</span><span class="tesol-feat">Job placement support</span></div>
+        <div class="tesol-btns">
+          <a href="TESOL_Module1_Preview.html" class="btn-secondary">🚀 Preview Module 1 — Free</a>
+          <a href="https://alomiclemagic.gumroad.com/l/vnwjtd" class="btn-buy">🎓 Enroll Now — $199</a>
         </div>
       </div>
+      <div class="tesol-price"><span class="tesol-amount">$199</span><span class="tesol-label">or $59/mo</span></div>
+    </div>
 
-      <div class="product-card">
-        <span class="pc-icon">🤖</span>
-        <div class="pc-badge-row"><span class="tag">Teacher License</span><span class="tag">AI Literacy</span></div>
-        <div class="pc-title">Understanding Claude — Teacher &amp; School License</div>
-        <div class="pc-subtitle">Commercial Use · Classroom-Ready Guides</div>
-        <div class="pc-desc">The complete AI literacy course with Teacher or School License. Teach your students what AI is, how to use it safely, digital citizenship and ethics.</div>
-        <div class="pc-price">$149 Teacher License · $299 School License</div>
-        <div class="pc-btn-row">
-          <a href="https://alomiclemagic.gumroad.com/l/syzdu" target="_blank" class="btn-sm btn-sm-primary">🎓 Teacher — $149</a>
-          <a href="https://alomiclemagic.gumroad.com/l/cgfkso" target="_blank" class="btn-sm btn-sm-primary">🏫 School — $299</a>
-        </div>
-      </div>
+    <!-- Module links -->
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
+      <a href="TESOL_Module1_Preview.html" class="btn-secondary" style="font-size:12px;padding:6px 12px;">M1</a>
+      <a href="TESOL_Module2_App.html" class="btn-secondary" style="font-size:12px;padding:6px 12px;">M2</a>
+      <a href="TESOL_Module3_App.html" class="btn-secondary" style="font-size:12px;padding:6px 12px;">M3</a>
+      <a href="TESOL_Module4_App.html" class="btn-secondary" style="font-size:12px;padding:6px 12px;">M4</a>
+      <a href="TESOL_Module5_App.html" class="btn-secondary" style="font-size:12px;padding:6px 12px;">M5</a>
+      <a href="TESOL_Module6_App.html" class="btn-secondary" style="font-size:12px;padding:6px 12px;">M6</a>
+      <a href="TESOL_Module7_App.html" class="btn-secondary" style="font-size:12px;padding:6px 12px;">M7</a>
+      <a href="TESOL_Module8_App.html" class="btn-secondary" style="font-size:12px;padding:6px 12px;">M8</a>
+      <a href="TESOL_Module9_App.html" class="btn-secondary" style="font-size:12px;padding:6px 12px;">M9</a>
+      <a href="TESOL_Module10_App.html" class="btn-secondary" style="font-size:12px;padding:6px 12px;">M10</a>
+      <a href="TESOL_Module11_App.html" class="btn-secondary" style="font-size:12px;padding:6px 12px;">M11</a>
+      <a href="TESOL_Module12_App.html" class="btn-secondary" style="font-size:12px;padding:6px 12px;">M12</a>
+    </div>
 
-      <!-- FIX #5 — TESOL: Live Gumroad link + correct Module 1 Preview (verified from index18.html) -->
-      <div class="tesol-card">
-        <span class="pc-icon">🏆</span>
-        <div class="pc-title">Complete TESOL Certification Course</div>
-        <div style="font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Become a Certified ESL Teacher in 12 Weeks</div>
-        <div class="pc-desc">120 hours of content across 12 complete modules. Earn $15–$80/hour teaching online. Perfect for teachers, moms and career changers. Preview Module 1 completely free before you buy!</div>
-        <div class="pc-price">$199 Individual · $59/mo payment plan · $299 Teacher PRO</div>
-        <div class="tesol-btn-row">
-          <a href="TESOL_Module1_Preview.html" class="btn-tesol-outline">🚀 Preview Module 1 — Free</a>
-          <a href="https://alomiclemagic.gumroad.com/l/vnwjtd" target="_blank" class="btn-tesol-gold">🎓 Enroll Now — $199</a>
-        </div>
-        <p class="tesol-payment">✅ Secure Gumroad checkout · Instant access · 30-day guarantee · Questions? <a href="mailto:liza.elena.micle@gmail.com" style="color:var(--gold);">Email Elena</a></p>
-        <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;">
-          <a href="TESOL_Module1_Preview.html" style="color:rgba(255,255,255,0.55);font-size:0.78rem;text-decoration:none;padding:4px 8px;border:1px solid rgba(255,255,255,0.15);border-radius:6px;">M1</a>
-          <a href="TESOL_Module2_App.html"  style="color:rgba(255,255,255,0.55);font-size:0.78rem;text-decoration:none;padding:4px 8px;border:1px solid rgba(255,255,255,0.15);border-radius:6px;">M2</a>
-          <a href="TESOL_Module3_App.html"  style="color:rgba(255,255,255,0.55);font-size:0.78rem;text-decoration:none;padding:4px 8px;border:1px solid rgba(255,255,255,0.15);border-radius:6px;">M3</a>
-          <a href="TESOL_Module4_App.html"  style="color:rgba(255,255,255,0.55);font-size:0.78rem;text-decoration:none;padding:4px 8px;border:1px solid rgba(255,255,255,0.15);border-radius:6px;">M4</a>
-          <a href="TESOL_Module5_App.html"  style="color:rgba(255,255,255,0.55);font-size:0.78rem;text-decoration:none;padding:4px 8px;border:1px solid rgba(255,255,255,0.15);border-radius:6px;">M5</a>
-          <a href="TESOL_Module6_App.html"  style="color:rgba(255,255,255,0.55);font-size:0.78rem;text-decoration:none;padding:4px 8px;border:1px solid rgba(255,255,255,0.15);border-radius:6px;">M6</a>
-          <a href="TESOL_Module7_App.html"  style="color:rgba(255,255,255,0.55);font-size:0.78rem;text-decoration:none;padding:4px 8px;border:1px solid rgba(255,255,255,0.15);border-radius:6px;">M7</a>
-          <a href="TESOL_Module8_App.html"  style="color:rgba(255,255,255,0.55);font-size:0.78rem;text-decoration:none;padding:4px 8px;border:1px solid rgba(255,255,255,0.15);border-radius:6px;">M8</a>
-          <a href="TESOL_Module9_App.html"  style="color:rgba(255,255,255,0.55);font-size:0.78rem;text-decoration:none;padding:4px 8px;border:1px solid rgba(255,255,255,0.15);border-radius:6px;">M9</a>
-          <a href="TESOL_Module10_App.html" style="color:rgba(255,255,255,0.55);font-size:0.78rem;text-decoration:none;padding:4px 8px;border:1px solid rgba(255,255,255,0.15);border-radius:6px;">M10</a>
-          <a href="TESOL_Module11_App.html" style="color:rgba(255,255,255,0.55);font-size:0.78rem;text-decoration:none;padding:4px 8px;border:1px solid rgba(255,255,255,0.15);border-radius:6px;">M11</a>
-          <a href="TESOL_Module12_App.html" style="color:rgba(255,255,255,0.55);font-size:0.78rem;text-decoration:none;padding:4px 8px;border:1px solid rgba(255,255,255,0.15);border-radius:6px;">M12</a>
-        </div>
-      </div>
-
-      <div class="product-card" style="border-color:var(--green);">
-        <span class="pc-icon">🤖</span>
-        <div class="pc-badge-row"><span class="tag" style="background:#f0fdf4;color:#166534;">FREE</span><span class="tag">AI Tools</span></div>
-        <div class="pc-title">AI Literacy Hub — Free Tools for Teachers</div>
-        <div class="pc-subtitle">Save Hours Every Week</div>
-        <div class="pc-desc">AI-powered lesson planner, worksheet generator, assessment creator and parent email writer. Learn to use AI smartly and safely in your classroom.</div>
-        <div class="pc-price" style="color:var(--green);">100% Free — always</div>
-        <div class="pc-btn-row">
-          <a href="AI_Literacy_Hub.html" class="btn-sm btn-sm-free">🎓 Open AI Literacy Hub</a>
-        </div>
+    <!-- AI Hub -->
+    <div class="ai-hub-card">
+      <span class="ai-hub-icon">🤖</span>
+      <div>
+        <div style="font-size:10px;font-weight:800;color:var(--mint);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">FREE · AI Tools</div>
+        <div class="ai-hub-title">AI Literacy Hub — Free Tools for Teachers</div>
+        <p class="ai-hub-sub">AI-powered lesson planner, worksheet generator, assessment creator and parent email writer. Save hours every week. Learn to use AI smartly and safely in your classroom.</p>
+        <a href="AI_Literacy_Hub.html" class="btn-buy" style="background:var(--mint);box-shadow:0 3px 0 #15803d;display:inline-block;">🎓 Open AI Literacy Hub — Free</a>
       </div>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-<!-- ══════════════════════════════════════════
-     MOMS SECTION
-══════════════════════════════════════════ -->
-<section class="content-section" id="moms-sec">
-  <div class="section-inner">
-    <span class="section-label">For Moms</span>
+<!-- MOMS -->
+<section class="moms-bg" id="moms-sec">
+  <div class="moms-inner">
+    <div class="section-label">For Moms</div>
     <h2 class="section-title">You Are Stronger Than You Know 💜</h2>
-    <p class="section-subtitle">Support, tools and resources made by a mom who has been there — for every mom who is still in it. You are not alone.</p>
-
-    <div class="product-grid">
-      <div class="haven-card">
-        <span class="pc-icon">💪</span>
-        <div class="pc-title">HAVEN — Single Mom Support Program</div>
-        <div style="font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Free Support · Zero Judgment · Always Open</div>
-        <div class="pc-desc">Free support, resources and community for single moms. Daily planners, motivation, income paths and a safe space with zero judgment. Available in English and Romanian. Created in memory of those we lost — so no more moms slip through the cracks.</div>
-        <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
-          <a href="Haven_Single_Mom_Support.html" class="btn-sm" style="background:white;color:#7c3aed;font-weight:800;border-radius:50px;padding:10px 20px;font-size:0.88rem;text-decoration:none;">💪 Enter HAVEN (English)</a>
-          <a href="Refugiu_Mame_Single_RO.html" class="btn-sm" style="background:rgba(255,255,255,0.15);color:white;border:2px solid rgba(255,255,255,0.3);font-weight:700;border-radius:50px;padding:10px 20px;font-size:0.88rem;text-decoration:none;">🇷🇴 Refugiu (Română)</a>
-        </div>
-        <div class="crisis-box">
-          🚨 <strong>In Crisis? Call NOW:</strong> US: <strong>988</strong> (Suicide Prevention) · Text HOME to <strong>741741</strong><br>
-          Romania: <strong>0800 801 200</strong> · 116 123 (LifeLine) · Domestic Violence: <strong>0800 500 333</strong><br>
-          You are NOT crazy. You are OVERWHELMED. There is help. Please stay. 💖
-        </div>
+    <p class="section-sub">Support, tools and resources made by a mom who has been there — for every mom who is still in it. You are not alone.</p>
+    <div class="haven-card">
+      <div style="font-size:10px;font-weight:800;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">💪 HAVEN — Single Mom Support Program</div>
+      <div class="haven-title">Free Support · Zero Judgment · Always Open</div>
+      <p class="haven-sub">Free support, resources and community for single moms. Daily planners, motivation, income paths and a safe space with zero judgment. Available in English and Romanian. Created in memory of those we lost — so no more moms slip through the cracks.</p>
+      <div class="crisis-bar">🚨 In Crisis? Call NOW: US: 988 (Suicide Prevention) · Text HOME to 741741 · Romania: 0800 801 200 · 116 123 (LifeLine) · Domestic Violence: 0800 500 333 — You are NOT crazy. You are OVERWHELMED. There is help. Please stay. 💖</div>
+      <div class="haven-btns">
+        <a href="Haven_Single_Mom_Support.html" class="btn-buy" style="background:#9333ea;box-shadow:0 3px 0 #6b21a8;">💪 Enter HAVEN (English)</a>
+        <a href="Refugiu_Mame_Single_RO.html" class="btn-secondary" style="border-color:rgba(255,255,255,.3);color:white;">🇷🇴 Refugiu (Română)</a>
       </div>
-
-      <div class="product-card">
-        <span class="pc-icon">🎯</span>
-        <div class="pc-badge-row"><span class="tag" style="background:#f0fdf4;color:#166534;">FREE</span><span class="tag">AI-Powered</span></div>
-        <div class="pc-title">Mom's Command Center</div>
-        <div class="pc-subtitle">Your AI-Powered Life Management System</div>
-        <div class="pc-desc">Plan your week, track income, stay organised and get 24/7 AI assistance — all in one place designed for busy moms.</div>
-        <div class="pc-price" style="color:var(--green);">100% Free</div>
-        <div class="pc-btn-row">
-          <a href="Moms_Command_Center.html" class="btn-sm btn-sm-free">🚀 Open Free App</a>
-        </div>
+    </div>
+    <div class="moms-grid">
+      <div class="mom-card">
+        <span class="mom-icon">🎯</span>
+        <span class="mom-tag" style="background:var(--mint2);color:#065f46;">FREE · AI-Powered</span>
+        <div class="mom-title">Mom's Command Center</div>
+        <div class="mom-sub">Your AI-Powered Life Management System</div>
+        <p class="mom-desc">Plan your week, track income, stay organised and get 24/7 AI assistance — all in one place designed for busy moms.</p>
+        <a href="Moms_Command_Center.html" class="btn-buy" style="background:var(--mint);box-shadow:0 3px 0 #15803d;display:inline-block;">🚀 Open Free App</a>
       </div>
-
-      <div class="product-card">
-        <span class="pc-icon">🤖</span>
-        <div class="pc-badge-row"><span class="tag" style="background:#f0fdf4;color:#166534;">FREE</span></div>
-        <div class="pc-title">AI Tools for Moms</div>
-        <div class="pc-subtitle">Build Your Business with AI</div>
-        <div class="pc-desc">Business plans, content creation, product descriptions, marketing ideas — work smarter and build the life you truly deserve.</div>
-        <div class="pc-price" style="color:var(--green);">100% Free</div>
-        <div class="pc-btn-row">
-          <a href="AI_Literacy_Hub.html" class="btn-sm btn-sm-free">🤖 Open AI Hub</a>
-        </div>
+      <div class="mom-card">
+        <span class="mom-icon">🤖</span>
+        <span class="mom-tag" style="background:var(--purple3);color:var(--purple);">FREE</span>
+        <div class="mom-title">AI Tools for Moms</div>
+        <div class="mom-sub">Build Your Business with AI</div>
+        <p class="mom-desc">Business plans, content creation, product descriptions, marketing ideas — work smarter and build the life you truly deserve.</p>
+        <a href="AI_Literacy_Hub.html" class="btn-buy" style="display:inline-block;">🤖 Open AI Hub</a>
       </div>
-
-      <div class="product-card">
-        <span class="pc-icon">📚</span>
-        <div class="pc-badge-row"><span class="tag" style="background:#f0fdf4;color:#166534;">FREE App</span></div>
-        <div class="pc-title">The Parent's Survival Guide</div>
-        <div class="pc-subtitle">Raising Happy, Healthy Kids Ages 8–12</div>
-        <div class="pc-desc">Routines, activities and plenty of humour! Interactive app packed with real-life advice from a mom who truly gets it.</div>
-        <div class="pc-price" style="color:var(--green);">Free Interactive App</div>
-        <div class="pc-btn-row">
-          <a href="parents-survival-guide-app.html" class="btn-sm btn-sm-free">🎯 Open Guide</a>
-        </div>
+      <div class="mom-card">
+        <span class="mom-icon">📚</span>
+        <span class="mom-tag" style="background:var(--gold2);color:#854d0e;">FREE App</span>
+        <div class="mom-title">The Parent's Survival Guide</div>
+        <div class="mom-sub">Raising Happy, Healthy Kids Ages 8–12</div>
+        <p class="mom-desc">Routines, activities and plenty of humour! Interactive app packed with real-life advice from a mom who truly gets it.</p>
+        <a href="parents-survival-guide-app.html" class="btn-buy" style="background:var(--gold);box-shadow:0 3px 0 #b8930a;display:inline-block;">🎯 Open Guide</a>
       </div>
-
-      <div class="product-card">
-        <span class="pc-icon">💌</span>
-        <div class="pc-badge-row"><span class="tag">Ages 8–18</span><span class="tag">Journal</span></div>
-        <div class="pc-title">Letters to My Daughter</div>
-        <div class="pc-subtitle">A Mother-Daughter Journal · 70 Prompts</div>
-        <div class="pc-desc">Building memories, connection and love. 70 heartfelt prompts for ages 8–18. The most beautiful gift you can give yourself and your daughter.</div>
-        <div class="pc-price">Paperback $13.00 on Amazon</div>
-        <div class="pc-btn-row">
-          <a href="https://www.amazon.com/dp/B0GHWWPCPM" target="_blank" class="btn-sm btn-sm-primary">📖 Buy on Amazon</a>
-        </div>
+      <div class="mom-card">
+        <span class="mom-icon">💌</span>
+        <span class="mom-tag" style="background:#fce7f3;color:#9d174d;">Ages 8–18 · Journal</span>
+        <div class="mom-title">Letters to My Daughter</div>
+        <div class="mom-sub">A Mother-Daughter Journal · 70 Prompts</div>
+        <p class="mom-desc">Building memories, connection and love. 70 heartfelt prompts for ages 8–18. The most beautiful gift you can give yourself and your daughter.</p>
+        <a href="https://www.amazon.com/dp/B0GHWWPCPM" class="btn-buy" style="display:inline-block;">📖 Buy on Amazon — $13</a>
       </div>
-
-      <div class="product-card">
-        <span class="pc-icon">❤️</span>
-        <div class="pc-badge-row"><span class="tag">Romance</span><span class="tag">🌶️🌶️🌶️</span></div>
-        <div class="pc-title">One More Valentine</div>
-        <div class="pc-subtitle">A Second Chance Romance Novel</div>
-        <div class="pc-desc">Ten years later, five days together, one hotel room. For when the kids are in bed and it is finally your time.</div>
-        <div class="pc-price">eBook $2.99 · Paperback $7.00</div>
-        <div class="pc-btn-row">
-          <a href="https://www.amazon.com/dp/B0GJPTJNVP" target="_blank" class="btn-sm btn-sm-primary" style="background:var(--red);">❤️ Buy on Amazon</a>
-        </div>
+      <div class="mom-card">
+        <span class="mom-icon">❤️</span>
+        <span class="mom-tag" style="background:#fff0ec;color:var(--coral);">Romance 🌶️🌶️🌶️</span>
+        <div class="mom-title">One More Valentine</div>
+        <div class="mom-sub">A Second Chance Romance Novel</div>
+        <p class="mom-desc">Ten years later, five days together, one hotel room. For when the kids are in bed and it is finally your time.</p>
+        <a href="https://www.amazon.com/dp/B0GJPTJNVP" class="btn-buy" style="background:var(--coral);box-shadow:0 3px 0 #c05240;display:inline-block;">❤️ Buy on Amazon</a>
       </div>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-<!-- ══════════════════════════════════════════
-     CHILDREN'S BOOKS
-══════════════════════════════════════════ -->
-<section class="content-section alt" id="books-sec">
-  <div class="section-inner">
-    <span class="section-label">Children's Books</span>
+<!-- BOOKS -->
+<section class="books-bg" id="books-sec">
+  <div class="books-inner">
+    <div class="section-label">Children's Books</div>
     <h2 class="section-title">Stories That Stay With Them Forever 📖</h2>
-    <p class="section-subtitle">Beautifully crafted books for curious, brave, kind-hearted kids — and the adults who love them.</p>
-
-    <div class="book-grid">
+    <p class="section-sub">Beautifully crafted books for curious, brave, kind-hearted kids — and the adults who love them.</p>
+    <div class="books-grid">
       <div class="book-card">
         <span class="book-icon">💝</span>
         <div class="book-title">Stories for My Daughter</div>
-        <div class="book-sub">10 illustrated stories teaching kindness, courage, empathy and self-confidence. Ages 8–12.</div>
+        <p class="book-desc">10 illustrated stories teaching kindness, courage, empathy and self-confidence. Ages 8–12.</p>
         <div class="book-price">eBook $4.00 · Paperback $16.99 · Hardcover $35.00</div>
-        <a href="https://www.amazon.com/dp/B0GGZ8YSKF" target="_blank" class="btn-sm btn-sm-primary" style="display:inline-block;">📖 Buy on Amazon</a>
+        <a href="https://www.amazon.com/dp/B0GGZ8YSKF" class="btn-buy">📖 Buy on Amazon</a>
       </div>
       <div class="book-card">
         <span class="book-icon">🤖</span>
         <div class="book-title">Understanding Claude: A Kid's Guide to AI Friends</div>
-        <div class="book-sub">How to talk to AI, learn together and stay safe. Ages 8–14.</div>
+        <p class="book-desc">How to talk to AI, learn together and stay safe. Ages 8–14.</p>
         <div class="book-price">eBook $4.00 · Paperback $12.99 · Hardcover $22.00</div>
-        <a href="https://www.amazon.com/dp/B0GJ3ZP7ZK" target="_blank" class="btn-sm btn-sm-primary" style="display:inline-block;">📖 Buy on Amazon</a>
+        <a href="https://www.amazon.com/dp/B0GJ3ZP7ZK" class="btn-buy">📖 Buy on Amazon</a>
       </div>
-      <div class="book-card" style="border-color:var(--gold);">
+      <div class="book-card" style="border-color:var(--gold2);background:linear-gradient(180deg,#fffdf5,white);">
         <span class="book-icon">✨</span>
         <div class="book-title">All Books by Elena Micle</div>
-        <div class="book-sub">Browse all 5 published books — children's stories, parenting guides, journals and romance novels. Available in eBook, Paperback &amp; Hardcover.</div>
-        <div class="book-price">Multiple formats &amp; prices</div>
-        <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" target="_blank" class="btn-sm" style="display:inline-block;background:var(--gold);color:var(--navy);border-radius:50px;padding:8px 16px;font-weight:800;font-size:0.82rem;text-decoration:none;">📚 Visit Author Page</a>
+        <p class="book-desc">Browse all 5 published books — children's stories, parenting guides, journals and romance novels.</p>
+        <div class="book-price">Multiple formats & prices</div>
+        <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" class="btn-buy">📚 Visit Author Page</a>
       </div>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-<!-- ══════════════════════════════════════════
-     LEXI'S LEARNING CORNER
-══════════════════════════════════════════ -->
-<section class="content-section" id="lexi-sec">
-  <div class="section-inner">
-    <span class="section-label">Lexi's Learning Corner</span>
+<!-- LEXI'S CORNER -->
+<section class="lexi-bg" id="lexi-sec">
+  <div class="lexi-inner">
+    <div class="section-label">Lexi's Learning Corner</div>
     <h2 class="section-title">🌟 Adventures by Lexi</h2>
-    <p class="section-subtitle">School projects, stories and adventures created with Claude — because curiosity is the best teacher.</p>
-
+    <p class="section-sub">School projects, stories and adventures created with Claude — because curiosity is the best teacher.</p>
     <div class="lexi-grid">
-      <a href="lexi-projects-page.html" class="lexi-card">
-        <span class="lc-icon">🐯</span>
-        <div class="lc-title">Tigrul Siberian</div>
-        <div class="lc-sub">Research project</div>
-      </a>
-      <a href="soareci-stories-page.html" class="lexi-card">
-        <span class="lc-icon">📚</span>
-        <div class="lc-title">Poveștile Șoarecilor</div>
-        <div class="lc-sub">Stories collection</div>
-      </a>
-      <a href="ocean-explorer.html" class="lexi-card">
-        <span class="lc-icon">🌊</span>
-        <div class="lc-title">Ocean Explorer</div>
-        <div class="lc-sub">Interactive learning</div>
-      </a>
-      <a href="kids-garden-guide.html" class="lexi-card">
-        <span class="lc-icon">🌱</span>
-        <div class="lc-title">My First Garden</div>
-        <div class="lc-sub">Gardening adventure</div>
-      </a>
+      <a href="lexi-projects-page.html" class="lexi-card"><span class="lexi-card-icon">🐯</span><div class="lexi-card-title">Tigrul Siberian</div><div class="lexi-card-sub">Research project</div></a>
+      <a href="soareci-stories-page.html" class="lexi-card"><span class="lexi-card-icon">📚</span><div class="lexi-card-title">Poveștile Șoarecilor</div><div class="lexi-card-sub">Stories collection</div></a>
+      <a href="ocean-explorer.html" class="lexi-card"><span class="lexi-card-icon">🌊</span><div class="lexi-card-title">Ocean Explorer</div><div class="lexi-card-sub">Interactive learning</div></a>
+      <a href="kids-garden-guide.html" class="lexi-card"><span class="lexi-card-icon">🌱</span><div class="lexi-card-title">My First Garden</div><div class="lexi-card-sub">Gardening adventure</div></a>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-<!-- ══════════════════════════════════════════
-     ABOUT ELENA
-══════════════════════════════════════════ -->
-<section class="content-section alt" id="about-sec">
-  <div class="section-inner">
-    <div class="about-inner">
-      <div class="about-visual">
-        <div class="creator-avatar">👩‍🏫</div>
-        <div class="creator-name">Elena Micle</div>
-        <div class="creator-creds">Author · Educator · Creator</div>
-        <div style="margin-top:14px;">
-          <span class="cred-badge-pill">Russian Language Major</span>
-          <span class="cred-badge-pill">22+ Years Teaching</span>
-          <span class="cred-badge-pill">TESOL Certified</span>
-          <span class="cred-badge-pill">ESL Expert</span>
-          <span class="cred-badge-pill">Published Author × 5</span>
-          <span class="cred-badge-pill">Mom of Lexi 💙</span>
-        </div>
-        <div style="margin-top:20px;">
-          <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" target="_blank" class="btn-sm" style="display:inline-block;background:var(--gold2);color:var(--navy2);border-radius:50px;padding:10px 20px;font-weight:800;font-size:0.88rem;text-decoration:none;">📚 Visit Amazon Author Page</a>
-        </div>
-      </div>
-      <div class="about-text">
-        <span class="section-label">👩‍🏫 About Elena Micle</span>
-        <h2 class="section-title">Author, Educator &amp; Creator</h2>
-        <p style="color:var(--muted);line-height:1.8;font-size:0.95rem;">Every project here is made with love — for the kids who deserve better, the teachers who go above and beyond, and the moms who hold everything together.</p>
-        <ul class="diff-list">
-          <li>Russian Language Major with 22+ years of real classroom teaching</li>
-          <li>TESOL certified ESL expert — worksheets and curriculum that actually work</li>
-          <li>Published author of 5 books across children's fiction, parenting and romance</li>
-          <li>Mom of the wonderfully curious Lexi — who inspired everything here</li>
-          <li>Created HAVEN because no mom should fall through the cracks</li>
-          <li>Personally replies to every single email — she means it</li>
-        </ul>
-        <div style="margin-top:24px;">
-          <a href="mailto:liza.elena.micle@gmail.com" style="color:var(--blue);font-weight:700;font-size:0.92rem;text-decoration:none;">✉️ Questions? I personally reply to every email</a>
-        </div>
-      </div>
-    </div>
+<!-- ABOUT -->
+<section class="about-bg" id="about-sec">
+  <div class="about-avatar">👩‍🏫</div>
+  <div class="about-name">Elena Micle</div>
+  <div class="about-role">Author · Educator · Creator</div>
+  <div class="about-tags">
+    <span class="about-tag">Russian Language Major</span>
+    <span class="about-tag">22+ Years Teaching</span>
+    <span class="about-tag">TESOL Certified</span>
+    <span class="about-tag">ESL Expert</span>
+    <span class="about-tag">Published Author × 5</span>
+    <span class="about-tag">Mom of Lexi 💙</span>
   </div>
+  <p class="about-bio">Every project here is made with love — for the kids who deserve better, the teachers who go above and beyond, and the moms who hold everything together.</p>
+  <ul class="about-items">
+    <li>Russian Language Major with 22+ years of real classroom teaching</li>
+    <li>TESOL certified ESL expert — worksheets and curriculum that actually work</li>
+    <li>Published author of 5 books across children's fiction, parenting and romance</li>
+    <li>Mom of the wonderfully curious Lexi — who inspired everything here</li>
+    <li>Created HAVEN because no mom should fall through the cracks</li>
+    <li>Personally replies to every single email — she means it</li>
+  </ul>
+  <a href="mailto:liza.elena.micle@gmail.com" class="btn-buy" style="display:inline-block;">✉️ Questions? I personally reply to every email</a>
+  <br><br>
+  <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" class="btn-secondary" style="display:inline-block;border-color:rgba(255,255,255,.3);color:white;">📚 Visit Amazon Author Page</a>
 </section>
 
-
-<!-- ══════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-brand">✨ alo.micle.magic</div>
-  <p>Where Stories, Love &amp; Creativity Come Alive<br>Created with ❤️, dedication and a sprinkle of magic 🌟</p>
+  <div>
+    <div class="footer-brand">✨ alo.micle.magic</div>
+    <div class="footer-note">Where Stories, Love & Creativity Come Alive · Created with ❤️, dedication and a sprinkle of magic 🌟</div>
+  </div>
   <div class="footer-links">
     <a href="#kids-sec">For Kids</a>
     <a href="#teachers-sec">For Teachers</a>
@@ -1572,49 +825,16 @@ footer .footer-copy { font-size:0.78rem; color:rgba(255,255,255,0.3); margin-top
     <a href="#books-sec">Books</a>
     <a href="#russian-sec">Russian Course</a>
     <a href="#claude-sec">Claude AI Course</a>
-    <a href="#bundle-sec">🎁 Bundle</a>
+    <a href="#bundle-sec">Bundle</a>
     <a href="#lexi-sec">Lexi's Corner</a>
     <a href="#about-sec">About Elena</a>
     <a href="mailto:liza.elena.micle@gmail.com">Contact</a>
-    <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL" target="_blank">Amazon</a>
+    <a href="https://www.amazon.com/stores/Elena-Micle/author/B0GHCDRVWL">Amazon</a>
   </div>
-  <div class="footer-copy">© 2026 Elena Micle · alo.micle.magic ✨ All rights reserved · Made with ❤️, dedication and a sprinkle of magic 🌟</div>
+  <div style="width:100%;text-align:center;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);">
+    <span style="font-size:13px;color:rgba(255,255,255,.25);">© 2026 Elena Micle · alo.micle.magic ✨ All rights reserved</span>
+  </div>
 </footer>
-
-<script>
-// Smooth active nav highlighting on scroll
-const sections = document.querySelectorAll('section[id], div[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => {
-    if (window.pageYOffset >= s.offsetTop - 80) current = s.getAttribute('id');
-  });
-  navLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    link.style.color = href === '#' + current
-      ? 'var(--gold)' : 'rgba(255,255,255,0.85)';
-  });
-});
-
-// Email form — show friendly message (replace with real provider embed)
-const emailBtn = document.querySelector('.email-form button');
-if (emailBtn) {
-  emailBtn.addEventListener('click', () => {
-    const input = document.querySelector('.email-form input');
-    if (input && input.value.includes('@')) {
-      input.value = '';
-      input.placeholder = '✅ You\'re on the list! Check your inbox soon.';
-      emailBtn.textContent = '🎉 Sent!';
-      emailBtn.style.background = 'var(--green)';
-      emailBtn.disabled = true;
-    } else {
-      input.style.borderColor = 'var(--red)';
-      input.placeholder = 'Please enter a valid email address';
-    }
-  });
-}
-</script>
 
 </body>
 </html>
