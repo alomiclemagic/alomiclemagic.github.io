@@ -216,10 +216,19 @@ You represent Elena's heart, 22 years of teaching, and her legacy for Lexi. Ever
     messages.push({role:"user",content:msg}); renderMessages(); renderSuggestions();
     loading=true; showTyping();
     try{
-      const res=await fetch("https://kira-proxy.liza-elena-micle.workers.dev",{method:"POST",headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,system:SYSTEM,messages:messages.map(m=>({role:m.role,content:m.content}))})});
-      const data=await res.json();
-      const reply=data.content?.[0]?.text||"Something went wrong — please try again! 💙";
+      const res=await fetch("https://api.groq.com/openai/v1/chat/completions",{
+  method:"POST",
+  headers:{
+    "Content-Type":"application/json",
+    "Authorization":"Bearer YOUR_NEW_GROQ_KEY"
+  },
+  body:JSON.stringify({
+    model:"llama-3.1-8b-instant",
+    messages:[{role:"system",content:SYSTEM},...messages.map(m=>({role:m.role,content:m.content}))],
+    max_tokens:1000
+  })});
+const data=await res.json();
+const reply=data.choices?.[0]?.message?.content||"Something went wrong — please try again! 💙";
       hideTyping(); messages.push({role:"assistant",content:reply}); renderMessages();
     }catch{ hideTyping(); messages.push({role:"assistant",content:"Oops! Something went wrong. Please try again 💙"}); renderMessages(); }
     finally{ loading=false; }
