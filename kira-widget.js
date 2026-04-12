@@ -216,7 +216,7 @@ You represent Elena's heart, 22 years of teaching, and her legacy for Lexi. Ever
     messages.push({role:"user",content:msg}); renderMessages(); renderSuggestions();
     loading=true; showTyping();
     try{
-      const res=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},
+      const res=await fetch("https://kira-proxy.liza-elena-micle.workers.dev",{method:"POST",headers:{"Content-Type":"application/json"},
         body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,system:SYSTEM,messages:messages.map(m=>({role:m.role,content:m.content}))})});
       const data=await res.json();
       const reply=data.content?.[0]?.text||"Something went wrong — please try again! 💙";
