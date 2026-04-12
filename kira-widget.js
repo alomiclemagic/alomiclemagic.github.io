@@ -220,7 +220,7 @@ You represent Elena's heart, 22 years of teaching, and her legacy for Lexi. Ever
   method:"POST",
   headers:{
     "Content-Type":"application/json",
-    "Authorization":"Bearer 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"
+    "Authorization":"Bearer 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"
   },
   body:JSON.stringify({
     model:"llama-3.1-8b-instant",
