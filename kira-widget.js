@@ -218,7 +218,7 @@ You represent Elena's heart, 22 years of teaching, and her legacy for Lexi. Ever
     try{
       const res=await fetch("https://api.groq.com/openai/v1/chat/completions",{
   method:"POST",
-  headers:{"Content-Type":"application/json","Authorization":"Bearer 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"},
+  headers:{"Content-Type":"application/json","Authorization":"Bearer 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"},
   body:JSON.stringify({model:"llama-3.1-8b-instant",messages:[{role:"system",content:SYSTEM},...messages.map(m=>({role:m.role,content:m.content}))],max_tokens:1000})});
 const data=await res.json();
 const reply=data.choices?.[0]?.message?.content||"Something went wrong — please try again! 💙";
