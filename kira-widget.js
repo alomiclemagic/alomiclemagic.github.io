@@ -216,12 +216,10 @@ You represent Elena's heart, 22 years of teaching, and her legacy for Lexi. Ever
     messages.push({role:"user",content:msg}); renderMessages(); renderSuggestions();
     loading=true; showTyping();
     try{
-      const res=await fetch("https://api.groq.com/openai/v1/chat/completions",{
+      const res=await fetch("https://kira-proxy.liza-elena-micle.workers.dev",{
   method:"POST",
   headers:{
-    "Content-Type":"application/json",
-    "Authorization":"Bearer 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"
-  },
+    "Content-Type":"application/json"},
   body:JSON.stringify({
     model:"llama-3.1-8b-instant",
     messages:[{role:"system",content:SYSTEM},...messages.map(m=>({role:m.role,content:m.content}))],
