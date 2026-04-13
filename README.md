@@ -67,7 +67,7 @@
     font-size: 0.88rem;
     letter-spacing: 0.5px;
     transition: color 0.2s;
-  }
+  } 
 
   .nav-links a:hover { color: var(--gold); }
 
