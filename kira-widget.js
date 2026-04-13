@@ -216,7 +216,7 @@ You represent Elena's heart, 22 years of teaching, and her legacy for Lexi. Ever
     messages.push({role:"user",content:msg}); renderMessages(); renderSuggestions();
     loading=true; showTyping();
     try{
-      const res=await fetch("https://kira-proxy.liza-elena-micle.workers.dev",{
+      const res=await fetch("https://kira-api.liza-elena-micle.workers.dev",{
   method:"POST",
   headers:{
     "Content-Type":"application/json"},
