@@ -79,16 +79,14 @@ FORMAT: Keep responses SHORT and warm. Max 3–4 sentences + product recommendat
   }
 
   // ── GROQ API CALL ────────────────────────────
-  const GROQ_API_KEY = "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";
   const GROQ_MODEL = "llama-3.1-8b-instant";
 
   async function askKira(messages, lang) {
     const systemPrompt = buildSystemPrompt(lang);
-    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    const response = await fetch("https://kira-api.liza-elena-micle.workers.dev/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${GROQ_API_KEY}`
       },
       body: JSON.stringify({
         model: GROQ_MODEL,
