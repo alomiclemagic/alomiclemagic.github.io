@@ -99,7 +99,7 @@ FORMAT: Keep responses SHORT and warm. Max 3–4 sentences + product recommendat
       })
     });
     const data = await response.json();
-    return data.choices?.[0]?.message?.content || "I'm having a moment — please try again! 💙";
+    return data.content?.[0]?.text || "I'm having a moment — please try again! 💙";
   }
 
   // ── LANGUAGE DETECTION ───────────────────────
