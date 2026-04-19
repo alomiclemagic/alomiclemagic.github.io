@@ -79,7 +79,7 @@ FORMAT: Keep responses SHORT and warm. Max 3–4 sentences + product recommendat
   }
 
   // ── GROQ API CALL ────────────────────────────
-  const GROQ_API_KEY = "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";
+  const GROQ_API_KEY = "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";
   const GROQ_MODEL = "llama-3.1-8b-instant";
 
   async function askKira(messages, lang) {
