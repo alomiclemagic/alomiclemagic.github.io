@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══ SEO META TAGS ═══ -->
+  <title>AI Literacy for Kids Ages 8-14 | Understanding Claude Course | alo.micle.magic</title>
+  <meta name="description" content="Teach your child how to use AI safely and responsibly. Understanding Claude is a 25-lesson AI literacy course for kids ages 8-14. Trusted by parents, teachers and homeschool families. Individual, Teacher and School licenses available." />
+  <meta name="keywords" content="AI literacy for kids, teach children about AI, understanding Claude, AI course for children, artificial intelligence education kids, AI safety for kids, ChatGPT for kids, AI homeschool curriculum, AI literacy elementary school, teach AI middle school" />
+  <meta name="author" content="Elena Micle" />
+  <link rel="canonical" href="https://alomiclemagic.github.io/ai-literacy.html" />
+
+  <!-- ═══ OPEN GRAPH ═══ -->
+  <meta property="og:title" content="AI Literacy for Kids | Understanding Claude — 25 Lessons" />
+  <meta property="og:description" content="Help your child understand AI before AI shapes their world. A complete 25-lesson course for ages 8-14 by TESOL educator Elena Micle." />
+  <meta property="og:url" content="https://alomiclemagic.github.io/ai-literacy.html" />
+  <meta property="og:type" content="product" />
+
+  <!-- ═══ SCHEMA.ORG STRUCTURED DATA ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Understanding Claude: A Kid's Complete Guide to AI",
+    "description": "A 25-lesson AI literacy course for children ages 8-14. Teaches kids how to talk to AI, learn together, and keep their conversations safe.",
+    "provider": {
+      "@type": "Person",
+      "name": "Elena Micle",
+      "url": "https://alomiclemagic.github.io"
+    },
+    "educationalLevel": "Ages 8-14",
+    "teaches": "AI literacy, responsible AI use, digital safety, critical thinking about artificial intelligence",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Individual License",
+        "price": "79",
+        "priceCurrency": "USD",
+        "url": "https://alomiclemagic.gumroad.com/l/txbjp"
+      },
+      {
+        "@type": "Offer",
+        "name": "Teacher License",
+        "price": "149",
+        "priceCurrency": "USD",
+        "url": "https://alomiclemagic.gumroad.com/l/syzdu"
+      },
+      {
+        "@type": "Offer",
+        "name": "School License",
+        "price": "299",
+        "priceCurrency": "USD",
+        "url": "https://gumroad.com/products/cgfkso"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --sun: #FFB800;
+      --sky: #3B82F6;
+      --mint: #10B981;
+      --coral: #FF6B6B;
+      --ink: #0F172A;
+      --fog: #F1F5F9;
+      --white: #FFFFFF;
+      --text: #334155;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--sun);
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--sun); }
+    .nav-cta {
+      background: var(--sun);
+      color: var(--ink);
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: transform 0.2s;
+    }
+    .nav-cta:hover { transform: scale(1.05); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      padding: 120px 32px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(255,184,0,0.15), transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(59,130,246,0.1), transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,184,0,0.15);
+      border: 1px solid rgba(255,184,0,0.4);
+      color: var(--sun);
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--sun);
+    }
+    .hero-sub {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      max-width: 620px;
+      margin-bottom: 40px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--sun);
+      color: var(--ink);
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,184,0,0.4); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      font-weight: 600;
+      padding: 16px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1rem;
+      border: 2px solid rgba(255,255,255,0.3);
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--fog);
+      padding: 24px 32px;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+    .trust-icon { font-size: 1.4rem; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 96px 32px; }
+    .section-inner { max-width: 1000px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .section-intro {
+      font-size: 1.1rem;
+      color: var(--text);
+      line-height: 1.8;
+      max-width: 680px;
+      margin-bottom: 56px;
+    }
+
+    /* ── WHY SECTION ── */
+    .why { background: var(--white); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+    .why-card {
+      background: var(--fog);
+      border-radius: 20px;
+      padding: 32px;
+      border-top: 4px solid var(--sun);
+      transition: transform 0.2s;
+    }
+    .why-card:hover { transform: translateY(-4px); }
+    .why-card .icon { font-size: 2.5rem; margin-bottom: 16px; }
+    .why-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .why-card p { color: var(--text); line-height: 1.7; font-size: 0.95rem; }
+
+    /* ── WHAT'S INSIDE ── */
+    .inside { background: var(--ink); }
+    .inside h2 { color: var(--white); }
+    .inside .section-intro { color: rgba(255,255,255,0.65); }
+    .inside .section-label { color: var(--sun); }
+    .lessons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .lesson-item {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: background 0.2s;
+    }
+    .lesson-item:hover { background: rgba(255,184,0,0.08); }
+    .lesson-num {
+      font-family: 'Fraunces', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--sun);
+      opacity: 0.5;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .lesson-text {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    /* ── FOR WHOM ── */
+    .for-whom { background: var(--fog); }
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+    .audience-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: all 0.2s;
+    }
+    .audience-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+    .audience-emoji { font-size: 3rem; margin-bottom: 16px; display: block; }
+    .audience-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .audience-card p { color: var(--text); font-size: 0.9rem; line-height: 1.7; }
+
+    /* ── PRICING ── */
+    .pricing { background: var(--white); }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      align-items: start;
+    }
+    .price-card {
+      border: 2px solid var(--fog);
+      border-radius: 24px;
+      padding: 36px 28px;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .price-card:hover { border-color: var(--sun); transform: translateY(-4px); }
+    .price-card.featured {
+      border-color: var(--sun);
+      background: var(--ink);
+    }
+    .featured-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--sun);
+      color: var(--ink);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .price-license {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 8px;
+    }
+    .price-card.featured .price-license { color: var(--sun); }
+    .price-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .price-card.featured .price-name { color: var(--white); }
+    .price-amount {
+      font-family: 'Fraunces', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--sun);
+      line-height: 1;
+      margin: 16px 0;
+    }
+    .price-desc {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .price-card.featured .price-desc { color: rgba(255,255,255,0.65); }
+    .price-features {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+    .price-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .price-card.featured .price-features li { color: rgba(255,255,255,0.8); }
+    .check { color: var(--mint); font-weight: 700; flex-shrink: 0; }
+    .price-btn {
+      display: block;
+      text-align: center;
+      background: var(--sun);
+      color: var(--ink);
+      font-weight: 700;
+      padding: 14px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+    }
+    .price-btn:hover { transform: scale(1.03); box-shadow: 0 6px 20px rgba(255,184,0,0.35); }
+    .price-btn.outline {
+      background: transparent;
+      border: 2px solid var(--fog);
+      color: var(--ink);
+    }
+    .price-card.featured .price-btn.outline {
+      border-color: rgba(255,255,255,0.25);
+      color: var(--white);
+    }
+    .price-btn.outline:hover { border-color: var(--sun); }
+
+    /* ── AUTHOR ── */
+    .author { background: var(--fog); }
+    .author-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .author-avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sun), var(--coral));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      flex-shrink: 0;
+    }
+    .author-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .author-title {
+      font-size: 0.9rem;
+      color: var(--sky);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .author-bio {
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    /* ── FAQ ── */
+    .faq { background: var(--white); }
+    .faq-list { max-width: 700px; }
+    .faq-item {
+      border-bottom: 1px solid var(--fog);
+      padding: 24px 0;
+    }
+    .faq-q {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .faq-a {
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: var(--ink);
+      text-align: center;
+      padding: 96px 32px;
+    }
+    .final-cta h2 { color: var(--white); margin-bottom: 16px; }
+    .final-cta p {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--fog);
+      text-align: center;
+      padding: 32px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+    footer a { color: var(--sky); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 12px 20px; }
+      section { padding: 64px 20px; }
+      .author-inner { grid-template-columns: 1fr; text-align: center; }
+      .author-avatar { margin: 0 auto; }
+      .trust-bar { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://alomiclemagic.github.io" class="nav-logo">✨ alo.<span>micle</span>.magic</a>
+  <a href="https://alomiclemagic.gumroad.com/l/txbjp" class="nav-cta" target="_blank">Get the Course →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🤖 25 Lessons · Ages 8–14 · Instant Download</div>
+    <h1>Teach Your Child About AI <em>Before AI Teaches Them</em></h1>
+    <p class="hero-sub">Understanding Claude is the first complete AI literacy course designed for kids ages 8–14. Written by a TESOL-certified educator and mom. No fluff. No fear. Just real understanding.</p>
+    <div class="hero-actions">
+      <a href="https://alomiclemagic.gumroad.com/l/txbjp" class="btn-primary" target="_blank">🏠 For Families — $79</a>
+      <a href="#pricing" class="btn-secondary">See all licenses ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">📚</span> 25 ready-to-use lessons</div>
+  <div class="trust-item"><span class="trust-icon">👩‍🏫</span> TESOL-certified educator</div>
+  <div class="trust-item"><span class="trust-icon">🏠</span> Perfect for homeschoolers</div>
+  <div class="trust-item"><span class="trust-icon">🏫</span> School & teacher licenses</div>
+  <div class="trust-item"><span class="trust-icon">⚡</span> Instant digital download</div>
+</div>
+
+<!-- WHY -->
+<section class="why">
+  <div class="section-inner">
+    <div class="section-label">Why this matters now</div>
+    <h2>Your Child Is Already Using AI.<br>Do They Know How It Works?</h2>
+    <p class="section-intro">Kids are talking to AI every day — for homework, for fun, for answers. But most of them have no idea what AI actually is, how to use it safely, or when NOT to trust it. That gap is dangerous.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="icon">🧠</div>
+        <h3>AI literacy is the new reading</h3>
+        <p>Just like we taught kids to evaluate what they read online, we now need to teach them to think critically about AI responses. This course builds that foundation.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">🛡️</div>
+        <h3>Safety before curiosity takes over</h3>
+        <p>Children are naturally curious. This course channels that curiosity responsibly — teaching what to share, what not to share, and how to spot when AI gets things wrong.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">🚀</div>
+        <h3>Tomorrow's skills, learned today</h3>
+        <p>Kids who understand AI now will have an enormous advantage in school, work, and life. Understanding Claude gives them a 10-year head start on everyone else.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">💬</div>
+        <h3>Language made for kids, not engineers</h3>
+        <p>No jargon. No scary statistics. Elena writes the way she talks to her own daughter — warm, honest, and age-appropriate. Kids actually enjoy these lessons.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section class="inside">
+  <div class="section-inner">
+    <div class="section-label">What's inside</div>
+    <h2>25 Lessons That Build Real Understanding</h2>
+    <p class="section-intro">Each lesson is self-contained, easy to teach, and designed to spark conversation between kids and the adults they trust.</p>
+    <div class="lessons-grid">
+      <div class="lesson-item"><span class="lesson-num">01</span><span class="lesson-text">What is AI? A kid-friendly introduction</span></div>
+      <div class="lesson-item"><span class="lesson-num">02</span><span class="lesson-text">Meet Claude — your AI learning partner</span></div>
+      <div class="lesson-item"><span class="lesson-num">03</span><span class="lesson-text">How to have a real conversation with AI</span></div>
+      <div class="lesson-item"><span class="lesson-num">04</span><span class="lesson-text">When AI is helpful — and when it isn't</span></div>
+      <div class="lesson-item"><span class="lesson-num">05</span><span class="lesson-text">What AI can get wrong (and why)</span></div>
+      <div class="lesson-item"><span class="lesson-num">06</span><span class="lesson-text">Keeping your information safe online</span></div>
+      <div class="lesson-item"><span class="lesson-num">07</span><span class="lesson-text">AI and homework — the honest guide</span></div>
+      <div class="lesson-item"><span class="lesson-num">08</span><span class="lesson-text">Thinking for yourself in an AI world</span></div>
+      <div class="lesson-item"><span class="lesson-num">09</span><span class="lesson-text">Creativity and AI — who's the real artist?</span></div>
+      <div class="lesson-item"><span class="lesson-num">10</span><span class="lesson-text">Asking better questions = getting better answers</span></div>
+      <div class="lesson-item"><span class="lesson-num">11</span><span class="lesson-text">AI emotions — can it really feel?</span></div>
+      <div class="lesson-item"><span class="lesson-num">12</span><span class="lesson-text">The people who build AI (and why it matters)</span></div>
+      <div class="lesson-item"><span class="lesson-num">13–25</span><span class="lesson-text">Advanced topics: bias, privacy, future of AI, ethical thinking + final project</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<section class="for-whom">
+  <div class="section-inner">
+    <div class="section-label">Who it's for</div>
+    <h2>Built for Every Learning Environment</h2>
+    <p class="section-intro">Whether you're a parent, a classroom teacher, or running a whole school program — there's a license designed exactly for your situation.</p>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <span class="audience-emoji">👨‍👩‍👧</span>
+        <h3>Parents & Homeschoolers</h3>
+        <p>Teach your child at home, at your own pace. Perfect for families who want to be ahead of the conversation about AI safety and responsibility.</p>
+      </div>
+      <div class="audience-card">
+        <span class="audience-emoji">👩‍🏫</span>
+        <h3>Classroom Teachers</h3>
+        <p>25 ready-to-teach lessons that integrate into your existing curriculum. Spark discussions that your students will still be talking about at home.</p>
+      </div>
+      <div class="audience-card">
+        <span class="audience-emoji">🏫</span>
+        <h3>Schools & Districts</h3>
+        <p>Deploy AI literacy school-wide with a single license. Future-proof your students with skills that no other subject currently teaches.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-inner">
+    <div class="section-label">Choose your license</div>
+    <h2>Simple, Honest Pricing</h2>
+    <p class="section-intro">One payment. Instant download. Use it forever. No subscriptions, no hidden fees.</p>
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <div class="price-license">Individual License</div>
+        <div class="price-name">For Families</div>
+        <div class="price-amount">$79</div>
+        <p class="price-desc">Perfect for parents and homeschool families. Use with your own children at home.</p>
+        <ul class="price-features">
+          <li><span class="check">✓</span> All 25 lessons, instant download</li>
+          <li><span class="check">✓</span> Use with your own children</li>
+          <li><span class="check">✓</span> Homeschool & home use</li>
+          <li><span class="check">✓</span> Ages 8–14+</li>
+        </ul>
+        <a href="https://alomiclemagic.gumroad.com/l/txbjp" class="price-btn outline" target="_blank">Get Family License →</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="featured-badge">Most Popular</div>
+        <div class="price-license">Teacher License</div>
+        <div class="price-name">For Classrooms</div>
+        <div class="price-amount">$149</div>
+        <p class="price-desc">One teacher, one classroom. Everything you need to bring AI literacy into your lessons.</p>
+        <ul class="price-features">
+          <li><span class="check">✓</span> All 25 lessons + teaching guides</li>
+          <li><span class="check">✓</span> Use in your classroom</li>
+          <li><span class="check">✓</span> Student activities included</li>
+          <li><span class="check">✓</span> Ages 8–14+</li>
+        </ul>
+        <a href="https://alomiclemagic.gumroad.com/l/syzdu" class="price-btn" target="_blank">Get Teacher License →</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-license">School License</div>
+        <div class="price-name">For Schools</div>
+        <div class="price-amount">$299</div>
+        <p class="price-desc">Unlimited use across your whole school or district. One investment, school-wide impact.</p>
+        <ul class="price-features">
+          <li><span class="check">✓</span> Unlimited teachers & students</li>
+          <li><span class="check">✓</span> School-wide deployment</li>
+          <li><span class="check">✓</span> All 25 lessons + materials</li>
+          <li><span class="check">✓</span> Ages 8–14+</li>
+        </ul>
+        <a href="https://gumroad.com/products/cgfkso" class="price-btn outline" target="_blank">Get School License →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<section class="author">
+  <div class="section-inner">
+    <div class="author-inner">
+      <div class="author-avatar">👩‍🏫</div>
+      <div>
+        <div class="section-label">About the author</div>
+        <div class="author-name">Elena Micle</div>
+        <div class="author-title">TESOL-Certified Educator · Published Author · Mom</div>
+        <p class="author-bio">Elena has 22+ years of teaching experience and wrote this course thinking about one person: her daughter Lexi, and every other child growing up in a world shaped by AI. She is a TESOL-certified educator, published author, and the founder of alo.micle.magic — a digital brand dedicated to giving kids and families the tools they actually need for the world they're actually growing up in. She wrote Understanding Claude because no one else had.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-inner">
+    <div class="section-label">Questions</div>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">What age is this course for?</div>
+        <div class="faq-a">The course is designed for children ages 8–14+. The language is accessible for younger kids in that range with parental support, and engaging enough for older students and even adults who are new to AI concepts.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Does my child need to have used AI before?</div>
+        <div class="faq-a">Absolutely not. The course starts from zero — assuming no prior knowledge. It's designed to be a first introduction that builds confidence gradually across 25 lessons.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is this just about Claude, or about AI in general?</div>
+        <div class="faq-a">While Claude is the primary AI used in examples, the principles taught apply to all AI systems — ChatGPT, Gemini, and any AI your child will encounter in the future. The goal is understanding AI, not just one tool.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's the difference between the licenses?</div>
+        <div class="faq-a">The Individual license is for home use with your own children. The Teacher license is for one teacher's classroom. The School license covers unlimited teachers and students across a whole school or district.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do I receive the course after purchase?</div>
+        <div class="faq-a">Instantly! You'll receive a download link to your email immediately after purchase through Gumroad. No waiting, no shipping.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is there also a book version?</div>
+        <div class="faq-a">Yes! Understanding Claude is also available as a Kindle eBook ($4), paperback ($12.99), and hardcover ($22) on Amazon — great as a companion read or gift.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="section-label" style="color: var(--sun);">Ready?</div>
+  <h2>Give Your Child the Skills That Actually Matter</h2>
+  <p>AI is not going away. Understanding it is the most future-ready gift you can give a child today.</p>
+  <div class="cta-group">
+    <a href="https://alomiclemagic.gumroad.com/l/txbjp" class="btn-primary" target="_blank">🏠 Family License — $79</a>
+    <a href="https://alomiclemagic.gumroad.com/l/syzdu" class="btn-primary" target="_blank" style="background: var(--sky); color: white;">👩‍🏫 Teacher License — $149</a>
+    <a href="https://gumroad.com/products/cgfkso" class="btn-secondary" target="_blank">🏫 School License — $299</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Elena Micle · <a href="https://alomiclemagic.github.io">alo.micle.magic</a> · Made with love for curious kids everywhere 💛</p>
+  <p style="margin-top: 8px;"><a href="https://alomiclemagic.github.io">← Back to all products</a></p>
+</footer>
+
+<!-- Kira Widget -->
+<script src="kira-widget.js"></script>
+
+</body>
+</html>
