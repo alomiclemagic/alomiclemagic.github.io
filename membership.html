@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Mom's Command Center — Monthly Membership for Moms | alo.micle.magic</title>
+  <meta name="description" content="Mom's Command Center is the monthly membership for moms who are done surviving and ready to start commanding. Resources, community, tools, and real support — from a mom who gets it. $19.99/month." />
+  <meta name="keywords" content="membership for moms, mom support community, overwhelmed mom help, tools for moms, monthly mom membership, busy mom resources, mom organization tools, single mom community, mom self care program, support for mothers" />
+  <meta name="author" content="Elena Micle" />
+  <link rel="canonical" href="https://alomiclemagic.github.io/membership.html" />
+
+  <meta property="og:title" content="Mom's Command Center — Monthly Membership for Moms Who Are Done Surviving" />
+  <meta property="og:description" content="Stop surviving. Start commanding. A monthly membership giving moms the tools, community, and support to actually thrive. $19.99/month." />
+  <meta property="og:url" content="https://alomiclemagic.github.io/membership.html" />
+  <meta property="og:type" content="website" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Mom's Command Center Monthly Membership",
+    "description": "A monthly membership for moms providing tools, community, and resources to go from surviving to commanding.",
+    "provider": { "@type": "Person", "name": "Elena Micle", "url": "https://alomiclemagic.github.io" },
+    "offers": {
+      "@type": "Offer",
+      "price": "19.99",
+      "priceCurrency": "USD",
+      "priceSpecification": { "@type": "RecurringChargeSpecification", "billingDuration": "P1M" },
+      "url": "https://alomiclemagic.gumroad.com/l/crpbiv"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --purple: #7C3AED;
+      --purple-dark: #5B21B6;
+      --purple-light: #EDE9FE;
+      --blush: #FB7185;
+      --blush-light: #FFF1F2;
+      --gold: #F59E0B;
+      --ink: #1C1917;
+      --slate: #57534E;
+      --fog: #FAFAF9;
+      --white: #FFFFFF;
+      --border: #E7E5E4;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--slate); background: var(--white); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: 'Italiana', serif; font-size: 1.3rem; color: var(--ink); text-decoration: none; letter-spacing: 0.02em; }
+    .nav-logo span { color: var(--purple); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--purple), var(--blush));
+      color: white; font-weight: 600; padding: 9px 22px;
+      border-radius: 40px; text-decoration: none; font-size: 0.88rem;
+      transition: all 0.2s; box-shadow: 0 4px 14px rgba(124,58,237,0.3);
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(124,58,237,0.4); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #0F0A1A 0%, #1E0A3C 50%, #2D0F4A 100%);
+      padding: 130px 40px 80px;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .star { position: absolute; border-radius: 50%; background: white; animation: twinkle 3s ease-in-out infinite; }
+    @keyframes twinkle { 0%,100%{opacity:0.2;transform:scale(1)} 50%{opacity:0.8;transform:scale(1.3)} }
+    .hero-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 2; }
+    .hero-crown { font-size: 4rem; margin-bottom: 20px; display: block; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(124,58,237,0.25); border: 1px solid rgba(124,58,237,0.4);
+      color: #C4B5FD; padding: 8px 18px; border-radius: 40px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; margin-bottom: 28px;
+    }
+    h1 {
+      font-family: 'Italiana', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: white; line-height: 1.05; margin-bottom: 8px;
+      letter-spacing: 0.01em;
+    }
+    .hero-sub-title {
+      font-family: 'Italiana', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: #C4B5FD; margin-bottom: 28px;
+      font-style: italic;
+    }
+    .hero-desc { font-size: 1.1rem; color: rgba(255,255,255,0.7); line-height: 1.75; max-width: 560px; margin-bottom: 44px; }
+    .hero-price-row {
+      display: flex; align-items: flex-end; gap: 16px; margin-bottom: 32px; flex-wrap: wrap;
+    }
+    .price-big { font-family: 'Italiana', serif; font-size: 5rem; color: #C4B5FD; line-height: 1; }
+    .price-detail { color: rgba(255,255,255,0.5); font-size: 0.88rem; line-height: 1.6; }
+    .price-detail strong { color: white; display: block; font-size: 1rem; margin-bottom: 2px; }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, var(--purple), var(--blush));
+      color: white; font-weight: 700;
+      padding: 18px 36px; border-radius: 50px;
+      text-decoration: none; font-size: 1.05rem;
+      transition: all 0.2s;
+      box-shadow: 0 8px 28px rgba(124,58,237,0.4);
+    }
+    .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(124,58,237,0.5); }
+    .hero-note { margin-top: 16px; color: rgba(255,255,255,0.35); font-size: 0.82rem; font-style: italic; }
+
+    /* HONEST BAR */
+    .honest-bar {
+      background: var(--purple);
+      padding: 20px 40px; text-align: center;
+    }
+    .honest-bar p { color: white; font-size: 0.95rem; font-weight: 500; }
+    .honest-bar em { font-style: italic; color: #C4B5FD; }
+
+    /* WHO IT'S FOR */
+    .who { background: var(--fog); padding: 96px 40px; }
+    .who-inner { max-width: 1000px; margin: 0 auto; }
+    .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 10px; }
+    h2 { font-family: 'Italiana', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); color: var(--ink); line-height: 1.15; margin-bottom: 18px; }
+    .section-intro { font-size: 1rem; line-height: 1.85; max-width: 640px; margin-bottom: 52px; }
+    .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .who-card {
+      background: white; border-radius: 16px; padding: 28px;
+      border-left: 4px solid var(--purple-light);
+      transition: all 0.2s; box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .who-card:hover { border-left-color: var(--purple); transform: translateX(4px); }
+    .who-card p {
+      font-family: 'Italiana', serif;
+      font-size: 1.15rem; font-style: italic;
+      color: var(--ink); line-height: 1.6;
+    }
+    .who-card p strong { font-style: normal; color: var(--purple); }
+
+    /* WHAT YOU GET */
+    .what { background: white; padding: 96px 40px; }
+    .what-inner { max-width: 1000px; margin: 0 auto; }
+    .perks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .perk {
+      background: var(--fog); border-radius: 20px; padding: 32px;
+      position: relative; overflow: hidden; transition: transform 0.2s;
+    }
+    .perk:hover { transform: translateY(-4px); }
+    .perk::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--purple), var(--blush));
+    }
+    .perk-icon { font-size: 2.5rem; margin-bottom: 16px; }
+    .perk h3 { font-family: 'Italiana', serif; font-size: 1.4rem; color: var(--ink); margin-bottom: 10px; }
+    .perk p { font-size: 0.9rem; line-height: 1.75; }
+
+    /* THE COMMANDER */
+    .commander {
+      background: linear-gradient(160deg, #0F0A1A, #1E0A3C);
+      padding: 96px 40px;
+    }
+    .commander-inner { max-width: 820px; margin: 0 auto; display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: start; }
+    .commander-photo { width: 140px; height: 140px; border-radius: 24px; background: linear-gradient(135deg, var(--purple), var(--blush)); display: flex; align-items: center; justify-content: center; font-size: 4rem; flex-shrink: 0; }
+    .commander .section-label { color: #C4B5FD; }
+    .commander-name { font-family: 'Italiana', serif; font-size: 2.2rem; color: white; margin-bottom: 4px; }
+    .commander-title { font-size: 0.82rem; color: #C4B5FD; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 20px; }
+    .commander-bio { color: rgba(255,255,255,0.7); line-height: 1.85; font-size: 0.95rem; }
+    .commander-bio p { margin-bottom: 16px; }
+    .commander-bio em { font-style: italic; color: #C4B5FD; }
+
+    /* PRICING */
+    .pricing { background: var(--fog); padding: 96px 40px; }
+    .pricing-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+    .price-card {
+      background: white; border-radius: 28px; padding: 52px 44px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+      border: 2px solid var(--purple-light);
+      position: relative; overflow: hidden;
+    }
+    .price-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--purple), var(--blush));
+    }
+    .price-crown { font-size: 3rem; margin-bottom: 12px; }
+    .price-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); margin-bottom: 8px; }
+    .price-name { font-family: 'Italiana', serif; font-size: 1.8rem; color: var(--ink); margin-bottom: 20px; }
+    .price-amount { font-family: 'Italiana', serif; font-size: 5rem; color: var(--purple); line-height: 1; margin-bottom: 4px; }
+    .price-period { color: var(--slate); font-size: 0.9rem; margin-bottom: 32px; }
+    .price-features { list-style: none; text-align: left; margin-bottom: 36px; }
+    .price-features li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.92rem; line-height: 1.6; margin-bottom: 14px; }
+    .heart { color: var(--blush); flex-shrink: 0; font-size: 1rem; }
+    .join-btn {
+      display: block; text-align: center;
+      background: linear-gradient(135deg, var(--purple), var(--blush));
+      color: white; font-weight: 700; padding: 18px;
+      border-radius: 50px; text-decoration: none; font-size: 1.05rem;
+      transition: all 0.2s;
+      box-shadow: 0 8px 24px rgba(124,58,237,0.35);
+    }
+    .join-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(124,58,237,0.45); }
+    .cancel-note { margin-top: 16px; font-size: 0.82rem; color: #A8A29E; font-style: italic; }
+
+    /* FAQ */
+    .faq { background: white; padding: 88px 40px; }
+    .faq-inner { max-width: 660px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 22px 0; }
+    .faq-q { font-weight: 700; font-size: 1rem; color: var(--ink); margin-bottom: 8px; }
+    .faq-a { font-size: 0.9rem; line-height: 1.8; }
+
+    /* FINAL */
+    .final {
+      background: linear-gradient(160deg, #0F0A1A, #2D0F4A);
+      text-align: center; padding: 96px 40px;
+      position: relative; overflow: hidden;
+    }
+    .final::before {
+      content: '👑';
+      position: absolute; top: 40px; left: 50%; transform: translateX(-50%);
+      font-size: 5rem; opacity: 0.05;
+    }
+    .final h2 { font-family: 'Italiana', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: white; margin-bottom: 20px; position: relative; }
+    .final p { color: rgba(255,255,255,0.6); font-size: 1rem; max-width: 500px; margin: 0 auto 40px; line-height: 1.8; position: relative; }
+
+    footer { background: var(--ink); text-align: center; padding: 28px; font-size: 0.83rem; color: #57534E; }
+    footer a { color: #C4B5FD; text-decoration: none; }
+
+    @media (max-width: 640px) {
+      nav { padding: 12px 20px; }
+      .hero { padding: 120px 24px 64px; }
+      section, .who, .what, .commander, .pricing, .faq, .final { padding: 64px 20px; }
+      .commander-inner { grid-template-columns: 1fr; text-align: center; }
+      .commander-photo { margin: 0 auto; }
+      .price-card { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Stars -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hero = document.querySelector('.hero');
+    for (let i = 0; i < 30; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      const size = Math.random() * 3 + 1;
+      star.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s;`;
+      hero.appendChild(star);
+    }
+  });
+</script>
+
+<nav>
+  <a href="https://alomiclemagic.github.io" class="nav-logo">✨ alo.<span>micle</span>.magic</a>
+  <a href="https://alomiclemagic.gumroad.com/l/crpbiv" class="nav-cta" target="_blank">Join the Command Center 👑</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-crown">👑</span>
+    <div class="hero-tag">Monthly Membership · For Moms Who Are Done Surviving</div>
+    <h1>Mom's Command<br>Center.</h1>
+    <div class="hero-sub-title">Stop surviving. Start commanding.</div>
+    <p class="hero-desc">You run a household, raise a child, manage everything — often alone. You deserve more than just getting through the day. This membership gives you the tools, the community, and the support to actually thrive.</p>
+    <div class="hero-price-row">
+      <div class="price-big">$19.99</div>
+      <div class="price-detail"><strong>per month</strong>Cancel any time. No guilt.</div>
+    </div>
+    <a href="https://alomiclemagic.gumroad.com/l/crpbiv" class="hero-cta" target="_blank">
+      👑 Join Mom's Command Center
+    </a>
+    <p class="hero-note">Created by a single mom who built an empire from nothing. For moms who are ready to do the same.</p>
+  </div>
+</section>
+
+<!-- HONEST BAR -->
+<div class="honest-bar">
+  <p>This is not a <em>"treat yourself, you deserve it"</em> membership. This is a <em>"let's actually fix this"</em> membership. Real tools. Real community. Real results.</p>
+</div>
+
+<!-- WHO IT'S FOR -->
+<section class="who">
+  <div class="who-inner">
+    <div class="section-label">Is this you?</div>
+    <h2>This Membership Was Built<br>For You If...</h2>
+    <p class="section-intro">You don't need someone to tell you to practice self-care. You need someone who understands what it actually takes to hold everything together — and gives you the tools to do it better.</p>
+    <div class="who-grid">
+      <div class="who-card"><p>You wake up already <strong>behind</strong> and go to bed feeling like you still didn't do enough.</p></div>
+      <div class="who-card"><p>You'd love to be <strong>organized</strong>, but between the kids and the house and everything else, you never get there.</p></div>
+      <div class="who-card"><p>You're doing this <strong>mostly alone</strong> — and some days that weight is a lot to carry.</p></div>
+      <div class="who-card"><p>You want to <strong>grow</strong> — build something, earn something, become something — but you don't have the roadmap.</p></div>
+      <div class="who-card"><p>You need a community that <strong>actually gets it</strong> — not the Instagram version of motherhood. The real one.</p></div>
+      <div class="who-card"><p>You are <strong>more</strong> than just a mom. And you haven't let yourself remember that in a while.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="what">
+  <div class="what-inner">
+    <div class="section-label">What's inside</div>
+    <h2>Your Monthly Command<br>Center Includes:</h2>
+    <p class="section-intro">Every month, fresh resources, tools, and support — designed for the real life of a real mom.</p>
+    <div class="perks-grid">
+      <div class="perk">
+        <div class="perk-icon">🗂️</div>
+        <h3>Organization Tools</h3>
+        <p>Monthly planners, weekly schedules, meal planning templates, and systems that actually fit into a mom's real life — not a productivity influencer's fantasy.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-icon">💪</div>
+        <h3>Mindset & Strength Resources</h3>
+        <p>Real talk on managing overwhelm, setting limits, rebuilding confidence, and remembering who you are outside of "mom." From someone who's been in the deep end.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-icon">💰</div>
+        <h3>Financial Clarity Guides</h3>
+        <p>Simple, practical money tools for moms — budgeting, tracking, planning, and slowly building financial security even from a tight starting point.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-icon">👩‍👧</div>
+        <h3>Parenting Support</h3>
+        <p>Resources for raising children who are kind, confident, and resilient — from a mom and TESOL educator who thinks deeply about how children grow.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-icon">🚀</div>
+        <h3>Build Something Resources</h3>
+        <p>For moms who want to create income, start something, or grow professionally. Practical guides from someone who built a digital business as a single mom from scratch.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-icon">💜</div>
+        <h3>Community & Connection</h3>
+        <p>A community of moms who don't pretend it's easy. Who show up honestly. Who cheer for each other without competition or judgment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE COMMANDER -->
+<section class="commander">
+  <div class="commander-inner">
+    <div class="commander-photo">👑</div>
+    <div>
+      <div class="section-label">The woman behind this</div>
+      <div class="commander-name">Elena Micle</div>
+      <div class="commander-title">Single Mom · TESOL Educator · Published Author · Founder</div>
+      <div class="commander-bio">
+        <p>I built this membership because I needed it and it didn't exist.</p>
+        <p>I am a mom raising my daughter Lexi, often alone, in Romania. I've managed households, budgets, animals, schedules, heartbreak, and a whole digital business — mostly while no one was watching. I've been at the bottom. The real bottom. <em>And I found my way back up.</em></p>
+        <p>I started alo.micle.magic from nothing — no funding, no team, just a laptop and a daughter who inspired everything. I built 34+ digital products, published multiple books, and created a brand whose entire philosophy is giving back more than it takes.</p>
+        <p>Mom's Command Center is the thing I wish had existed when I was in my darkest moments. <em>Not to be rescued. To be given tools and reminded that I was capable of rescuing myself.</em></p>
+        <p>That's what this is for. You already have what it takes. I'm just here to hand you the right tools.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <div class="pricing-inner">
+    <div class="section-label" style="text-align:center;">Join today</div>
+    <h2 style="text-align:center; margin-bottom: 40px;">One Simple Membership.</h2>
+    <div class="price-card">
+      <div class="price-crown">👑</div>
+      <div class="price-tag">Monthly Membership</div>
+      <div class="price-name">Mom's Command Center</div>
+      <div class="price-amount">$19.99</div>
+      <div class="price-period">per month · cancel any time</div>
+      <ul class="price-features">
+        <li><span class="heart">♥</span> Monthly organization tools and planners</li>
+        <li><span class="heart">♥</span> Mindset and strength resources</li>
+        <li><span class="heart">♥</span> Financial clarity and budgeting guides</li>
+        <li><span class="heart">♥</span> Parenting support from an educator and mom</li>
+        <li><span class="heart">♥</span> "Build something" resources for entrepreneurial moms</li>
+        <li><span class="heart">♥</span> Community of honest, real moms</li>
+        <li><span class="heart">♥</span> Monthly letter from Elena — real, warm, no pretending</li>
+        <li><span class="heart">♥</span> New resources added every month</li>
+      </ul>
+      <a href="https://alomiclemagic.gumroad.com/l/crpbiv" class="join-btn" target="_blank">
+        👑 Join Mom's Command Center — $19.99/mo
+      </a>
+      <p class="cancel-note">Cancel any time. No long contracts. No guilt.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="section-label">Questions</div>
+    <h2 style="margin-bottom: 40px;">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">What exactly do I get each month?</div>
+      <div class="faq-a">Each month you receive a collection of practical resources — planners, guides, templates, and tools — organized around a monthly theme. These rotate and grow, so the longer you're a member, the more you have access to.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is this a community or just resources?</div>
+      <div class="faq-a">Both. The membership includes access to a community of moms who are navigating similar journeys. Resources without connection only go so far — this membership believes in both.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I'm not a single mom?</div>
+      <div class="faq-a">This membership is for any mom who feels like she's carrying a lot, often alone — regardless of her legal or relationship status. The challenges of motherhood don't always match the labels we put on them.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I cancel any time?</div>
+      <div class="faq-a">Absolutely. There are no long-term contracts, no cancellation fees, and no guilt. If your situation changes, you can cancel easily through Gumroad at any time.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is $19.99 really worth it?</div>
+      <div class="faq-a">That's less than one coffee per week. And if even one tool, one resource, or one community connection saves you an hour of stress, recreates a lost system, or reminds you of your worth — then yes. Absolutely yes.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <h2>You've Been Commanding<br>This Whole Time.</h2>
+  <p>You just didn't have a name for it, or a space that honored it. This is that space. You've earned it. Come in.</p>
+  <a href="https://alomiclemagic.gumroad.com/l/crpbiv" class="hero-cta" target="_blank" style="display:inline-flex;">
+    👑 Join Mom's Command Center
+  </a>
+</section>
+
+<footer>
+  <p>© 2026 Elena Micle · <a href="https://alomiclemagic.github.io">alo.micle.magic</a> · For every mom who kept going when she had every reason not to 👑</p>
+  <p style="margin-top: 8px;"><a href="https://alomiclemagic.github.io">← Back to all products</a></p>
+</footer>
+
+<script src="kira-widget.js"></script>
+</body>
+</html>
