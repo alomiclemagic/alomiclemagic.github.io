@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Books by Elena Micle | Romance, Children's Books & AI Literacy | alo.micle.magic</title>
+  <meta name="description" content="All books by Elena Micle — romance novels, children's AI literacy guides, mother-daughter journals, parenting guides, and Romanian contemporary fiction. Available on Amazon and Gumroad." />
+  <meta name="keywords" content="Elena Micle books, Elena Micle author, Understanding Claude book, Electric Blue romance, One More Valentine, Stories for My Daughter, Letters to My Daughter, children's AI book, Romanian author, mother daughter journal, parenting guide AI" />
+  <meta name="author" content="Elena Micle" />
+  <link rel="canonical" href="https://alomiclemagic.github.io/books.html" />
+
+  <meta property="og:title" content="Books by Elena Micle — All Titles in One Place" />
+  <meta property="og:description" content="Romance novels, children's books, AI literacy guides, and more. Every book by Elena Micle — available on Amazon and Gumroad." />
+  <meta property="og:url" content="https://alomiclemagic.github.io/books.html" />
+  <meta property="og:type" content="books.author" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Elena Micle",
+    "url": "https://alomiclemagic.github.io",
+    "jobTitle": "Author, TESOL Educator",
+    "description": "Romanian author and TESOL-certified educator. Writes romance novels, children's AI literacy guides, mother-daughter journals, and parenting resources.",
+    "sameAs": ["https://www.amazon.com/author/elenamicle"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #0F0F0F;
+      --slate: #4B5563;
+      --fog: #F9FAFB;
+      --white: #FFFFFF;
+      --border: #E5E7EB;
+      --gold: #B45309;
+      --gold-light: #FEF3C7;
+
+      /* Category colors */
+      --romance: #BE185D;
+      --romance-light: #FCE7F3;
+      --kids: #0D9488;
+      --kids-light: #CCFBF1;
+      --parenting: #7C3AED;
+      --parenting-light: #EDE9FE;
+      --romanian: #DC2626;
+      --romanian-light: #FEE2E2;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: var(--slate); background: var(--white); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(15,15,15,0.98); backdrop-filter: blur(12px);
+      padding: 14px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.2rem; color: white; text-decoration: none; letter-spacing: 0.02em; }
+    .nav-logo span { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: white; font-weight: 600; padding: 9px 22px; border-radius: 8px; text-decoration: none; font-size: 0.88rem; transition: all 0.2s; }
+    .nav-cta:hover { background: #92400E; }
+
+    /* HERO */
+    .hero {
+      background: var(--ink);
+      padding: 120px 40px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 20% 60%, rgba(180,83,9,0.1), transparent 55%),
+                  radial-gradient(ellipse at 80% 30%, rgba(190,24,93,0.08), transparent 50%);
+    }
+    .hero-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
+    .hero-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 900; color: white; line-height: 1.05; margin-bottom: 20px; }
+    h1 em { font-style: italic; color: #D97706; }
+    .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,0.55); line-height: 1.75; max-width: 560px; margin-bottom: 40px; font-weight: 400; }
+    .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+    .hero-stat .num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 900; color: var(--gold); display: block; line-height: 1; }
+    .hero-stat .label { color: rgba(255,255,255,0.4); font-size: 0.78rem; margin-top: 4px; }
+
+    /* CATEGORY NAV */
+    .cat-nav {
+      background: var(--fog);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 40px;
+      display: flex; gap: 12px; flex-wrap: wrap;
+      position: sticky; top: 57px; z-index: 90;
+    }
+    .cat-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 16px; border-radius: 40px;
+      font-size: 0.82rem; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; border: 2px solid transparent;
+      cursor: pointer;
+    }
+    .cat-btn:hover { transform: translateY(-1px); }
+    .cat-btn.romance { background: var(--romance-light); color: var(--romance); border-color: var(--romance-light); }
+    .cat-btn.romance:hover { border-color: var(--romance); }
+    .cat-btn.kids { background: var(--kids-light); color: var(--kids); border-color: var(--kids-light); }
+    .cat-btn.kids:hover { border-color: var(--kids); }
+    .cat-btn.parenting { background: var(--parenting-light); color: var(--parenting); border-color: var(--parenting-light); }
+    .cat-btn.parenting:hover { border-color: var(--parenting); }
+    .cat-btn.romanian { background: var(--romanian-light); color: var(--romanian); border-color: var(--romanian-light); }
+    .cat-btn.romanian:hover { border-color: var(--romanian); }
+
+    /* SECTION BASE */
+    .books-section { padding: 80px 40px; }
+    .books-section:nth-child(even) { background: var(--fog); }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+    .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 48px; padding-bottom: 20px; border-bottom: 2px solid var(--border); }
+    .section-emoji { font-size: 2.5rem; }
+    .section-label-small { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 900; color: var(--ink); line-height: 1.1; }
+
+    /* BOOK CARDS */
+    .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; }
+    .book-card {
+      background: var(--white);
+      border-radius: 20px; overflow: hidden;
+      border: 2px solid var(--border);
+      transition: all 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .books-section:nth-child(even) .book-card { background: var(--white); }
+    .book-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); border-color: transparent; }
+
+    .book-cover {
+      height: 200px; display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      flex-direction: column; gap: 8px;
+    }
+    .cover-emoji { font-size: 3.5rem; }
+    .cover-title-sm { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 700; color: white; text-align: center; padding: 0 16px; line-height: 1.3; }
+    .cover-author-sm { color: rgba(255,255,255,0.6); font-size: 0.75rem; }
+
+    /* Cover colors per category */
+    .cover-romance { background: linear-gradient(160deg, #831843, #BE185D); }
+    .cover-kids { background: linear-gradient(160deg, #0F766E, #0D9488); }
+    .cover-parenting { background: linear-gradient(160deg, #4C1D95, #7C3AED); }
+    .cover-romanian { background: linear-gradient(160deg, #991B1B, #DC2626); }
+    .cover-journal { background: linear-gradient(160deg, #1E3A5F, #2563EB); }
+
+    .book-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .book-cat-tag {
+      display: inline-block; font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 20px; margin-bottom: 10px;
+    }
+    .tag-romance { background: var(--romance-light); color: var(--romance); }
+    .tag-kids { background: var(--kids-light); color: var(--kids); }
+    .tag-parenting { background: var(--parenting-light); color: var(--parenting); }
+    .tag-romanian { background: var(--romanian-light); color: var(--romanian); }
+    .tag-journal { background: var(--gold-light); color: var(--gold); }
+
+    .book-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; line-height: 1.25; }
+    .book-series { font-size: 0.78rem; color: #9CA3AF; font-style: italic; margin-bottom: 10px; }
+    .book-desc { font-size: 0.88rem; line-height: 1.7; margin-bottom: 16px; flex: 1; }
+    .book-formats { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
+    .format-row {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--fog); border-radius: 10px; padding: 10px 14px;
+      text-decoration: none; transition: all 0.2s; border: 1px solid var(--border);
+    }
+    .format-row:hover { border-color: currentColor; background: white; }
+    .format-row.romance-row:hover { border-color: var(--romance); }
+    .format-row.kids-row:hover { border-color: var(--kids); }
+    .format-row.parenting-row:hover { border-color: var(--parenting); }
+    .format-row.romanian-row:hover { border-color: var(--romanian); }
+    .format-row.journal-row:hover { border-color: var(--gold); }
+    .format-left { display: flex; align-items: center; gap: 8px; }
+    .format-icon { font-size: 1rem; }
+    .format-name { font-size: 0.82rem; font-weight: 600; color: var(--ink); }
+    .format-platform { font-size: 0.72rem; color: #9CA3AF; }
+    .format-price { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); }
+    .draft-badge {
+      display: inline-block; background: #FEF3C7; color: #92400E;
+      font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+
+    /* AUTHOR */
+    .author-section { background: var(--ink); padding: 96px 40px; }
+    .author-inner { max-width: 820px; margin: 0 auto; display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: start; }
+    .author-photo { width: 140px; height: 140px; border-radius: 20px; background: linear-gradient(135deg, var(--gold), var(--romance)); display: flex; align-items: center; justify-content: center; font-size: 4rem; flex-shrink: 0; }
+    .author-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .author-name { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 900; color: white; margin-bottom: 4px; }
+    .author-creds { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-bottom: 20px; }
+    .author-bio { color: rgba(255,255,255,0.65); line-height: 1.85; font-size: 0.95rem; }
+    .author-bio p { margin-bottom: 14px; }
+    .author-bio em { color: #D97706; font-style: italic; }
+
+    /* FIND ON */
+    .find-on { background: var(--fog); padding: 64px 40px; text-align: center; }
+    .find-on h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 900; color: var(--ink); margin-bottom: 10px; }
+    .find-on p { color: var(--slate); font-size: 0.95rem; margin-bottom: 32px; }
+    .platform-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .platform-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: white; border: 2px solid var(--border);
+      border-radius: 12px; padding: 14px 24px;
+      text-decoration: none; font-weight: 600; font-size: 0.9rem;
+      color: var(--ink); transition: all 0.2s;
+    }
+    .platform-btn:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+
+    /* FINAL */
+    .final { background: var(--ink); text-align: center; padding: 80px 40px; }
+    .final h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: white; margin-bottom: 16px; }
+    .final p { color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto 36px; line-height: 1.75; font-size: 0.95rem; }
+    .final-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-gold { background: var(--gold); color: white; font-weight: 700; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-size: 0.92rem; transition: all 0.2s; }
+    .btn-gold:hover { background: #92400E; transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: white; font-weight: 600; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-size: 0.92rem; border: 2px solid rgba(255,255,255,0.2); transition: all 0.2s; }
+    .btn-outline:hover { border-color: white; }
+
+    footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.07); text-align: center; padding: 28px; font-size: 0.83rem; color: #4B5563; }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      nav { padding: 12px 20px; }
+      .hero, .books-section, .author-section, .find-on, .final { padding: 64px 20px; }
+      .cat-nav { padding: 14px 20px; top: 53px; }
+      .author-inner { grid-template-columns: 1fr; text-align: center; }
+      .author-photo { margin: 0 auto; }
+      .books-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://alomiclemagic.github.io" class="nav-logo">✨ alo.<span>micle</span>.magic</a>
+  <a href="https://www.amazon.com/author/elenamicle" class="nav-cta" target="_blank">Find on Amazon →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Every book by Elena Micle — in one place</div>
+    <h1>Books Written<br>With <em>Everything.</em></h1>
+    <p class="hero-sub">Romance novels, children's guides, mother-daughter journals, parenting resources, and Romanian contemporary fiction. All written from the same place — the truth.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="num">7+</span><span class="label">Published books</span></div>
+      <div class="hero-stat"><span class="num">2</span><span class="label">Languages</span></div>
+      <div class="hero-stat"><span class="num">4</span><span class="label">Categories</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY NAV -->
+<div class="cat-nav">
+  <a href="#romance" class="cat-btn romance">💕 Romance</a>
+  <a href="#kids" class="cat-btn kids">🤖 AI & Kids</a>
+  <a href="#parenting" class="cat-btn parenting">👩‍👧 Parenting & Journals</a>
+  <a href="#romanian" class="cat-btn romanian">🇷🇴 Romanian Fiction</a>
+</div>
+
+<!-- ROMANCE -->
+<section class="books-section" id="romance">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-emoji">💕</div>
+      <div>
+        <div class="section-label-small" style="color: var(--romance);">Romance Fiction</div>
+        <div class="section-title">Bucharest Hearts Series</div>
+      </div>
+    </div>
+    <div class="books-grid">
+
+      <div class="book-card">
+        <div class="book-cover cover-romance">
+          <div class="cover-emoji">⚡</div>
+          <div class="cover-title-sm">Electric Blue</div>
+          <div class="cover-author-sm">by Elena Micle</div>
+        </div>
+        <div class="book-body">
+          <div class="book-cat-tag tag-romance">Romance · Bucharest Hearts #1</div>
+          <div class="book-title">Electric Blue</div>
+          <div class="book-series">Bucharest Hearts, Book 1</div>
+          <p class="book-desc">Ten years. One city. Two people who never stopped loving each other. A second-chance romance set in the electric heat of a Bucharest summer.</p>
+          <div class="book-formats">
+            <a href="https://alomiclemagic.gumroad.com/l/ynbcrz" class="format-row romance-row" target="_blank">
+              <div class="format-left"><span class="format-icon">📱</span><div><div class="format-name">Launch Special (Ch. 1–6)</div><div class="format-platform">Gumroad</div></div></div>
+              <span class="format-price" style="color:var(--romance)">$3.99</span>
+            </a>
+            <a href="https://gumroad.com/products/kkyxct" class="format-row romance-row" target="_blank">
+              <div class="format-left"><span class="format-icon">📖</span><div><div class="format-name">Chapter Bundle (1–6)</div><div class="format-platform">Gumroad</div></div></div>
+              <span class="format-price" style="color:var(--romance)">$4.99</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover cover-romance" style="background: linear-gradient(160deg, #500724, #9D174D);">
+          <div class="cover-emoji">🌹</div>
+          <div class="cover-title-sm">One More Valentine</div>
+          <div class="cover-author-sm">by Elena Micle</div>
+        </div>
+        <div class="book-body">
+          <div class="book-cat-tag tag-romance">Romance · Bucharest Hearts #2</div>
+          <div class="book-title">One More Valentine</div>
+          <div class="book-series">Bucharest Hearts, Book 2</div>
+          <p class="book-desc">Five days. One hotel room. A decade of unresolved passion. When Mara invites Adrian to her hotel room on Valentine's Eve, neither expects what happens next.</p>
+          <div class="book-formats">
+            <a href="https://www.amazon.com/s?k=One+More+Valentine+Elena+Micle" class="format-row romance-row" target="_blank">
+              <div class="format-left"><span class="format-icon">📱</span><div><div class="format-name">Kindle eBook</div><div class="format-platform">Amazon KDP</div></div></div>
+              <span class="format-price" style="color:var(--romance)">$2.99</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KIDS / AI LITERACY -->
+<section class="books-section" id="kids">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-emoji">🤖</div>
+      <div>
+        <div class="section-label-small" style="color: var(--kids);">AI Literacy for Children</div>
+        <div class="section-title">The Understanding Claude Series</div>
+      </div>
+    </div>
+    <div class="books-grid">
+
+      <div class="book-card">
+        <div class="book-cover cover-kids">
+          <div class="cover-emoji">🤖</div>
+          <div class="cover-title-sm">Understanding Claude: A Kid's Guide to AI Friends</div>
+          <div class="cover-author-sm">by Elena Micle</div>
+        </div>
+        <div class="book-body">
+          <div class="book-cat-tag tag-kids">AI Literacy · Ages 8–14</div>
+          <div class="book-title">Understanding Claude: A Kid's Guide to AI Friends</div>
+          <div class="book-series">How to Talk to AI, Learn Together, and Keep Your Conversations Safe</div>
+          <p class="book-desc">The first complete guide helping children understand AI — what it is, how to use it safely, and how to be a responsible digital citizen. Also available as a 25-lesson course.</p>
+          <div class="book-formats">
+            <a href="https://www.amazon.com/dp/B0GJ3ZP7ZK" class="format-row kids-row" target="_blank">
+              <div class="format-left"><span class="format-icon">📱</span><div><div class="format-name">Kindle eBook</div><div class="format-platform">Amazon · ASIN: B0GJ3ZP7ZK</div></div></div>
+              <span class="format-price" style="color:var(--kids)">$4.00</span>
+            </a>
+            <a href="https://www.amazon.com/dp/B0GJ5V174X" class="format-row kids-row" target="_blank">
+              <div class="format-left"><span class="format-icon">📚</span><div><div class="format-name">Paperback</div><div class="format-platform">Amazon · ASIN: B0GJ5V174X</div></div></div>
+              <span class="format-price" style="color:var(--kids)">$12.99</span>
+            </a>
+            <a href="https://www.amazon.com/dp/B0GJ5CKG5D" class="format-row kids-row" target="_blank">
+              <div class="format-left"><span class="format-icon">📕</span><div><div class="format-name">Hardcover</div><div class="format-platform">Amazon · ASIN: B0GJ5CKG5D</div></div></div>
+              <span class="format-price" style="color:var(--kids)">$22.00</span>
+            </a>
+            <a href="https://alomiclemagic.gumroad.com/l/txbjp" class="format-row kids-row" target="_blank">
+              <div class="format-left"><span class="format-icon">🎓</span><div><div class="format-name">25-Lesson Course (Individual)</div><div class="format-platform">Gumroad</div></div></div>
+              <span class="format-price" style="color:var(--kids)">$79</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover cover-kids" style="background: linear-gradient(160deg, #134E4A, #0F766E);">
+          <div class="cover-emoji">📓</div>
+          <div class="cover-title-sm">Understanding Claude Student Workbook</div>
+          <div class="cover-author-sm">by Elena Micle</div>
+        </div>
+        <div class="book-body">
+          <div class="book-cat-tag tag-kids">AI Literacy · Student Workbook</div>
+          <div class="book-title">Understanding Claude Student Workbook</div>
+          <div class="book-series">Companion workbook to the main guide</div>
+          <p class="book-desc">A hands-on companion workbook for students working through the Understanding Claude curriculum. Exercises, activities, and reflection prompts.</p>
+          <div class="book-formats">
+            <a href="https://www.amazon.com" class="format-row kids-row" target="_blank">
+              <div class="format-left"><span class="format-icon">📚</span><div><div class="format-name">Paperback</div><div class="format-platform">Amazon KDP</div></div></div>
+              <span class="format-price" style="color:var(--kids)">$13.99 <span class="draft-badge">Coming Soon</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PARENTING & JOURNALS -->
+<section class="books-section" id="parenting">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-emoji">👩‍👧</div>
+      <div>
+        <div class="section-label-small" style="color: var(--parenting);">Parenting, Journals & Guides</div>
+        <div class="section-title">Books for Moms & Daughters</div>
+      </div>
+    </div>
+    <div class="books-grid">
+
+      <div class="book-card">
+        <div class="book-cover cover-journal">
+          <div class="cover-emoji">💌</div>
+          <div class="cover-title-sm">Stories for My Daughter</div>
+          <div class="cover-author-sm">by Elena Micle</div>
+        </div>
+        <div class="book-body">
+          <div class="book-cat-tag tag-journal">Children's Stories · Gift Book</div>
+          <div class="book-title">Stories for My Daughter</div>
+          <div class="book-series">10 personalized stories with life lessons</div>
+          <p class="book-desc">Ten original stories written with love for a nine-year-old girl named Lexi — each one carrying a lesson about kindness, courage, friendship, and love. A mother's gift to her daughter.</p>
+          <div class="book-formats">
+            <a href="https://www.amazon.com/s?k=Stories+for+My+Daughter+Elena+Micle" class="format-row journal-row" target="_blank">
+              <div class="format-left"><span class="format-icon">📱</span><div><div class="format-name">Kindle eBook</div><div class="format-platform">Amazon KDP</div></div></div>
+              <span class="format-price" style="color:var(--gold)">$4.00</span>
+            </a>
+            <a href="https://www.amazon.com/s?k=Stories+for+My+Daughter+Elena+Micle" class="format-row journal-row" target="_blank">
+              <div class="format-left"><span class="format-icon">📚</span><div><div class="format-name">Paperback</div><div class="format-platform">Amazon KDP</div></div></div>
+              <span class="format-price" style="color:var(--gold)">$16.99</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover cover-parenting">
+          <div class="cover-emoji">💜</div>
+          <div class="cover-title-sm">Letters to My Daughter</div>
+          <div class="cover-author-sm">by Elena Micle</div>
+        </div>
+        <div class="book-body">
+          <div class="book-cat-tag tag-parenting">Mother-Daughter Journal</div>
+          <div class="book-title">Letters to My Daughter</div>
+          <div class="book-series">A mother-daughter bonding journal</div>
+          <p class="book-desc">A journal of letters, prompts, and space for a mother and daughter to connect — honestly, deeply, and with love. Written by a mom who knows the value of these conversations.</p>
+          <div class="book-formats">
+            <a href="https://www.amazon.com/s?k=Letters+to+My+Daughter+Elena+Micle" class="format-row parenting-row" target="_blank">
+              <div class="format-left"><span class="format-icon">📱</span><div><div class="format-name">Kindle eBook</div><div class="format-platform">Amazon KDP</div></div></div>
+              <span class="format-price" style="color:var(--parenting)">$4.00</span>
+            </a>
+            <a href="https://www.amazon.com/s?k=Letters+to+My+Daughter+Elena+Micle" class="format-row parenting-row" target="_blank">
+              <div class="format-left"><span class="format-icon">📚</span><div><div class="format-name">Paperback</div><div class="format-platform">Amazon KDP</div></div></div>
+              <span class="format-price" style="color:var(--parenting)">$12.99</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover cover-parenting" style="background: linear-gradient(160deg, #3B0764, #6D28D9);">
+          <div class="cover-emoji">🧠</div>
+          <div class="cover-title-sm">Parent's Guide to AI</div>
+          <div class="cover-author-sm">by Elena Micle</div>
+        </div>
+        <div class="book-body">
+          <div class="book-cat-tag tag-parenting">Parenting Guide · AI Literacy</div>
+          <div class="book-title">Parent's Guide to AI</div>
+          <div class="book-series">Helping parents navigate AI with their children</div>
+          <p class="book-desc">A practical guide for parents navigating the AI conversation with their children — what to say, what to watch for, and how to raise a thoughtful digital citizen.</p>
+          <div class="book-formats">
+            <a href="https://www.amazon.com/s?k=Parent+Guide+AI+Elena+Micle" class="format-row parenting-row" target="_blank">
+              <div class="format-left"><span class="format-icon">📚</span><div><div class="format-name">Available on Amazon</div><div class="format-platform">Amazon KDP</div></div></div>
+              <span class="format-price" style="color:var(--parenting)">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ROMANIAN FICTION -->
+<section class="books-section" id="romanian">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-emoji">🇷🇴</div>
+      <div>
+        <div class="section-label-small" style="color: var(--romanian);">Ficțiune Contemporană Românească</div>
+        <div class="section-title">Ce am lăsat în urmă</div>
+      </div>
+    </div>
+    <div class="books-grid">
+
+      <div class="book-card">
+        <div class="book-cover cover-romanian">
+          <div class="cover-emoji">🌹</div>
+          <div class="cover-title-sm">Ce am lăsat în urmă</div>
+          <div class="cover-author-sm">de Elena Micle</div>
+        </div>
+        <div class="book-body">
+          <div class="book-cat-tag tag-romanian">Roman Contemporan · Română</div>
+          <div class="book-title">Ce am lăsat în urmă</div>
+          <div class="book-series">Roman în 11 capitole · de Elena Micle</div>
+          <p class="book-desc">Prima carte în română de Elena Micle. O poveste despre Mara Ionescu, care se întoarce în Ardeal după moartea mamei și descoperă că unele lucruri nu pot fi lăsate în urmă — niciodată.</p>
+          <div class="book-formats">
+            <a href="https://alomiclemagic.gumroad.com/l/itpjzj" class="format-row romanian-row" target="_blank">
+              <div class="format-left"><span class="format-icon">📱</span><div><div class="format-name">eBook Digital</div><div class="format-platform">Gumroad · Descărcare imediată</div></div></div>
+              <span class="format-price" style="color:var(--romanian)">$5</span>
+            </a>
+            <div class="format-row" style="cursor:default; opacity:0.6;">
+              <div class="format-left"><span class="format-icon">📚</span><div><div class="format-name">Versiune tipărită</div><div class="format-platform">În pregătire · Amazon nu acceptă româna</div></div></div>
+              <span class="draft-badge">În curând</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<section class="author-section">
+  <div class="author-inner">
+    <div class="author-photo">✍️</div>
+    <div>
+      <div class="author-label">About the author</div>
+      <div class="author-name">Elena Micle</div>
+      <div class="author-creds">TESOL-Certified Educator · Published Author · Single Mom · Founder of alo.micle.magic</div>
+      <div class="author-bio">
+        <p>Elena Micle writes from the place where life gets real — where love is complicated, children are everything, and the hardest moments become the most important stories.</p>
+        <p>She began writing professionally in January 2026, publishing her first book <em>Stories for My Daughter</em> for her daughter Lexi's 10th birthday. Within months she had published seven titles across four genres — romance, children's AI literacy, parenting journals, and Romanian fiction.</p>
+        <p>She is a TESOL-certified educator with 22+ years of teaching experience, the founder of alo.micle.magic, and a mother who believes that <em>the best thing you can give a child is a story that tells them who they could be.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIND ON -->
+<section class="find-on">
+  <h2>Find Elena's Books</h2>
+  <p>Available on Amazon and Gumroad. Click to browse all titles.</p>
+  <div class="platform-row">
+    <a href="https://www.amazon.com/s?k=Elena+Micle" class="platform-btn" target="_blank">
+      📦 Browse on Amazon
+    </a>
+    <a href="https://alomiclemagic.gumroad.com" class="platform-btn" target="_blank">
+      🛍️ Browse on Gumroad
+    </a>
+    <a href="https://alomiclemagic.github.io" class="platform-btn" target="_blank">
+      ✨ All products & courses
+    </a>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <h2>Every Book Written<br>With Everything She Had.</h2>
+  <p>No co-author. No team. Just a mom, a laptop, a daughter named Lexi — and something worth saying.</p>
+  <div class="final-btns">
+    <a href="https://www.amazon.com/s?k=Elena+Micle" class="btn-gold" target="_blank">📦 Find on Amazon</a>
+    <a href="https://alomiclemagic.gumroad.com" class="btn-outline" target="_blank">🛍️ Shop on Gumroad</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Elena Micle · <a href="https://alomiclemagic.github.io">alo.micle.magic</a> · Books written with everything ✍️</p>
+  <p style="margin-top: 8px;"><a href="https://alomiclemagic.github.io">← Back to all products</a></p>
+</footer>
+
+<script src="kira-widget.js"></script>
+</body>
+</html>
