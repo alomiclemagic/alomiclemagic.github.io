@@ -13,4 +13,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://alomiclemagic.github.io
+Sitemap: https://alomiclemagic.github.io/sitemap.xml
