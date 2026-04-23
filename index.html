@@ -851,5 +851,249 @@ footer{background:var(--navy);padding:40px;display:flex;flex-wrap:wrap;gap:20px;
 </footer>
   
 <script src="kira-widget.js"></script>
+  <style>
+  .explore-section {
+    padding: 80px 32px;
+    background: #0F0F0F;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  .explore-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .explore-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #D97706;
+    margin-bottom: 10px;
+  }
+  .explore-title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .explore-sub {
+    color: rgba(255,255,255,0.5);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 52px;
+  }
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .explore-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 20px 22px;
+    text-decoration: none;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .explore-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .explore-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(255,255,255,0.15);
+  }
+  .explore-card:hover::before { opacity: 1; }
+
+  /* Category accent colors */
+  .ec-ai::before { background: linear-gradient(90deg, #0D9488, #06B6D4); }
+  .ec-ai:hover { box-shadow: 0 8px 28px rgba(13,148,136,0.15); }
+
+  .ec-tesol::before { background: linear-gradient(90deg, #059669, #10B981); }
+  .ec-tesol:hover { box-shadow: 0 8px 28px rgba(5,150,105,0.15); }
+
+  .ec-esl::before { background: linear-gradient(90deg, #2563EB, #3B82F6); }
+  .ec-esl:hover { box-shadow: 0 8px 28px rgba(37,99,235,0.15); }
+
+  .ec-russian::before { background: linear-gradient(90deg, #DC2626, #EF4444); }
+  .ec-russian:hover { box-shadow: 0 8px 28px rgba(220,38,38,0.15); }
+
+  .ec-life::before { background: linear-gradient(90deg, #0D9488, #F97316); }
+  .ec-life:hover { box-shadow: 0 8px 28px rgba(249,115,22,0.15); }
+
+  .ec-money::before { background: linear-gradient(90deg, #D97706, #F59E0B); }
+  .ec-money:hover { box-shadow: 0 8px 28px rgba(217,119,6,0.15); }
+
+  .ec-fiction::before { background: linear-gradient(90deg, #BE185D, #3B82F6); }
+  .ec-fiction:hover { box-shadow: 0 8px 28px rgba(190,24,93,0.15); }
+
+  .ec-haven::before { background: linear-gradient(90deg, #7C3AED, #FB7185); }
+  .ec-haven:hover { box-shadow: 0 8px 28px rgba(124,58,237,0.15); }
+
+  .ec-membership::before { background: linear-gradient(90deg, #7C3AED, #FB7185); }
+  .ec-membership:hover { box-shadow: 0 8px 28px rgba(124,58,237,0.15); }
+
+  .ec-books::before { background: linear-gradient(90deg, #B45309, #D97706); }
+  .ec-books:hover { box-shadow: 0 8px 28px rgba(180,83,9,0.15); }
+
+  .ec-free::before { background: linear-gradient(90deg, #16A34A, #22C55E); }
+  .ec-free:hover { box-shadow: 0 8px 28px rgba(22,163,74,0.15); }
+
+  .explore-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    width: 48px;
+    text-align: center;
+  }
+  .explore-card-text {}
+  .explore-card-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: white;
+    margin-bottom: 3px;
+    line-height: 1.3;
+  }
+  .explore-card-desc {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.4;
+  }
+  .explore-card-arrow {
+    margin-left: auto;
+    color: rgba(255,255,255,0.2);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+  .explore-card:hover .explore-card-arrow {
+    color: rgba(255,255,255,0.6);
+    transform: translateX(3px);
+  }
+  @media (max-width: 640px) {
+    .explore-section { padding: 60px 20px; }
+    .explore-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<section class="explore-section">
+  <div class="explore-inner">
+    <div class="explore-label">Everything we offer</div>
+    <div class="explore-title">Explore alo.micle.magic</div>
+    <p class="explore-sub">Books, courses, resources, and community — for curious kids, dedicated teachers, and amazing moms. Most of it free. All of it made with love.</p>
+    <div class="explore-grid">
+
+      <a href="ai-literacy.html" class="explore-card ec-ai">
+        <div class="explore-icon">🤖</div>
+        <div class="explore-card-text">
+          <div class="explore-card-name">AI Literacy for Kids</div>
+          <div class="explore-card-desc">25 lessons · Ages 8–14 · 3 license tiers</div>
+        </div>
+        <div class="explore-card-arrow">→</div>
+      </a>
+
+      <a href="tesol.html" class="explore-card ec-tesol">
+        <div class="explore-icon">🎓</div>
+        <div class="explore-card-text">
+          <div class="explore-card-name">TESOL Certification</div>
+          <div class="explore-card-desc">Become a certified ESL teacher · $398</div>
+        </div>
+        <div class="explore-card-arrow">→</div>
+      </a>
+
+      <a href="esl-resources.html" class="explore-card ec-esl">
+        <div class="explore-icon">📝</div>
+        <div class="explore-card-text">
+          <div class="explore-card-name">ESL Grammar Resources</div>
+          <div class="explore-card-desc">Romanian & Serbian · Packs 1 & 2</div>
+        </div>
+        <div class="explore-card-arrow">→</div>
+      </a>
+
+      <a href="russian-for-kids.html" class="explore-card ec-russian">
+        <div class="explore-icon">🇷🇺</div>
+        <div class="explore-card-text">
+          <div class="explore-card-name">Russian for Kids</div>
+          <div class="explore-card-desc">Complete beginners course · Ages 6–12</div>
+        </div>
+        <div class="explore-card-arrow">→</div>
+      </a>
+
+      <a href="life-skills.html" class="explore-card ec-life">
+        <div class="explore-icon">🌟</div>
+        <div class="explore-card-text">
+          <div class="explore-card-name">Life Skills for Kids</div>
+          <div class="explore-card-desc">Manners, respect & social confidence</div>
+        </div>
+        <div class="explore-card-arrow">→</div>
+      </a>
+
+      <a href="money-guide.html" class="explore-card ec-money">
+        <div class="explore-icon">💰</div>
+        <div class="explore-card-text">
+          <div class="explore-card-name">Kids' Money Guide</div>
+          <div class="explore-card-desc">Financial literacy for children · from $29.99</div>
+        </div>
+        <div class="explore-card-arrow">→</div>
+      </a>
+
+      <a href="fiction.html" class="explore-card ec-fiction">
+        <div class="explore-icon">✍️</div>
+        <div class="explore-card-text">
+          <div class="explore-card-name">Fiction by Elena Micle</div>
+          <div class="explore-card-desc">Electric Blue · Ce am lăsat în urmă</div>
+        </div>
+        <div class="explore-card-arrow">→</div>
+      </a>
+
+      <a href="books.html" class="explore-card ec-books">
+        <div class="explore-icon">📚</div>
+        <div class="explore-card-text">
+          <div class="explore-card-name">All Books on Amazon</div>
+          <div class="explore-card-desc">10+ titles · Every format · All ASINs</div>
+        </div>
+        <div class="explore-card-arrow">→</div>
+      </a>
+
+      <a href="haven.html" class="explore-card ec-haven">
+        <div class="explore-icon">💜</div>
+        <div class="explore-card-text">
+          <div class="explore-card-name">HAVEN</div>
+          <div class="explore-card-desc">Support for single moms in crisis</div>
+        </div>
+        <div class="explore-card-arrow">→</div>
+      </a>
+
+      <a href="membership.html" class="explore-card ec-membership">
+        <div class="explore-icon">👑</div>
+        <div class="explore-card-text">
+          <div class="explore-card-name">Mom's Command Center</div>
+          <div class="explore-card-desc">Monthly membership · $19.99/mo</div>
+        </div>
+        <div class="explore-card-arrow">→</div>
+      </a>
+
+      <a href="https://alomiclemagic.gumroad.com/l/mokpnm" class="explore-card ec-free" target="_blank">
+        <div class="explore-icon">🎁</div>
+        <div class="explore-card-text">
+          <div class="explore-card-name">Free Russia Map Activity</div>
+          <div class="explore-card-desc">Free download · Perfect for kids</div>
+        </div>
+        <div class="explore-card-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+</section>
 </body>
 </html>
